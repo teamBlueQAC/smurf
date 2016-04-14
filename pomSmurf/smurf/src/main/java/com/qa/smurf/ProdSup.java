@@ -2,49 +2,34 @@ package com.qa.smurf;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-/*
- * Class modelling the Product_Supplier
- * 
- * 
- * */
+//Class modelling the Product_Supplier
+
 @Entity
 @Table (name = "ProdSup")
 public class ProdSup {
 
-	@Id
-	@Column (name = "supplierID", length = 20)
-	@GeneratedValue (
-			strategy = GenerationType.IDENTITY)
-	private long supplierID;
-	
-	@ManyToMany
-	
-	@JoinTable(name = "prodID_fk")
-	@Column(length = 20)
-	private long prodID;
-	
-	@Column (name = "cost", length = 12 )
+	@ManyToOne
+	@JoinColumn(name ="SUPPLIER_ID", nullable= false)
+	@NotNull
+	private Supplier supplier;
+	@ManyToOne
+	@JoinColumn(name ="PRODUCT_ID", nullable= false)
+	@NotNull
+	private Product product;
+	@Column(name = "cost", length = 12)
 	private double cost;
 	
 	
-	public long getSupplierID() {
-		return supplierID;
+	public Supplier getSupplier() {
+		return supplier;
 	}
-	public void setSupplierID(int supplierID) {
-		this.supplierID = supplierID;
-	}
-	public long getProdID() {
-		return prodID;
-	}
-	public void setProdID(int pID) {
-		this.prodID = pID;
+	public Product getProduct() {
+		return product;
 	}
 	public double getCost() {
 		return cost;
@@ -52,6 +37,5 @@ public class ProdSup {
 	public void setCost(double cost) {
 		this.cost = cost;
 	}
-	
 	
 }

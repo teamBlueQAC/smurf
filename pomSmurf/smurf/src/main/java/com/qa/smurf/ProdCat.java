@@ -1,23 +1,26 @@
 package com.qa.smurf;
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table (name = "ProdCat")
 public class ProdCat {
-	private long catID;
-	private long prodID;
+	@ManyToOne
+	@JoinColumn(name ="CATEGORY_ID", nullable= false)
+	private Category category;
 	
+	@ManyToOne
+	@JoinColumn(name ="PRODUCT_ID", nullable= false)
+	private Product product;
 	
-	public long getCatID(){
-		return catID;
+	public Category getCategory(){
+		return category;
+	}
+	public Product getProduct(){
+		return product;
 	}
 	
-	public long getProdID(){
-		return prodID;
-	}
-	
-	public void setCatID(Long cID){
-		this.catID = cID;
-	}
-	
-	public void setProdID(Long pID){
-		this.prodID = pID;
-	}
 }
