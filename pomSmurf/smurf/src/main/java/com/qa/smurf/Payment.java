@@ -2,16 +2,53 @@ package com.qa.smurf;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+
+	@Entity
+	@Table (name = "PAYMENT")
 public class Payment {
 	
+	@Id
+	@Column (name = "PAYMENT_ID")
+	@GeneratedValue (
+			strategy = GenerationType.IDENTITY)
 	private long id;
-	private String cardNumber;
-	private String cardType;
-	private Date expiryDate;
-	private String nameOnCard;
-	private long userID;
-	private long addressID;
 	
+	@Column (name = "CARD_NUMBER", 
+			 length = 16)
+	private String cardNumber;
+	
+	
+	@Column ( name ="CARD_TYPE", length = 20)
+	private String cardType;
+	
+	@Temporal(TemporalType.DATE)
+	@Column (name = "EXPIRY_DATE", length = 10)
+	private Date expiryDate;
+	
+	@Column ( name = "NAME_ON_CARD", length= 255)
+	private String nameOnCard;
+	
+	@OneToOne
+	@JoinColumn ( name = "USER_ID",
+	 nullable = false)
+	private User userID;
+	
+	@JoinColumns({ @JoinColumn(name = "LINE1"),
+		@JoinColumn(name = "POSTCODE")})
+	private Address address;
+
 	public long getId() {
 		return id;
 	}
@@ -52,21 +89,25 @@ public class Payment {
 		this.nameOnCard = nameOnCard;
 	}
 
-	public long getUserID() {
+	public User getUserID() {
 		return userID;
 	}
 
-	public void setUserID(long userID) {
+	public void setUserID(User userID) {
 		this.userID = userID;
 	}
 
-	public long getAddressID() {
-		return addressID;
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setAddressID(long addressID) {
-		this.addressID = addressID;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
+
+
+	
+
 	
 	
 }

@@ -2,78 +2,125 @@ package com.qa.smurf;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(name = "ORDER")
 public class Order {
 
-	private long id;
-	private long userID;
-	private double total;
-	private Date date;
-	private Date dispatchDate;
-	private long orderStatusID;
-	private long addressID;
-	private long paymentID;
+@Id
 	
-	public long getID(){
+	@Column (name = "ORDER_ID")
+	@GeneratedValue (
+			strategy = GenerationType.IDENTITY)
+	private long id;
+
+	@OneToOne
+	@JoinColumn(name="USER_ID", nullable = false)
+	@NotNull
+	private User user;
+
+	@Column (name = "TOTAL", nullable = false, length = 225)
+	@NotNull
+	@Size (min = 2, max = 225)
+	private double total;
+
+	@Column (name = "DATE", nullable = false, length = 225)
+	@NotNull
+	@Size (min = 2, max = 225)
+	private Date date;
+
+	@Column (name = "DISPATCH_DATE", nullable = false, length = 225)
+	@NotNull
+	@Size (min = 2, max = 225)
+	private Date dispatchDate;
+
+	@OneToOne
+	@JoinColumn(name = "ORDER_STATUS_ID", nullable = false)
+	@NotNull
+	private OrderStatus orderStatusID;
+	
+	@JoinColumns({ @JoinColumn(name = "LINE1"),
+		@JoinColumn(name = "POSTCODE")})
+	private Address address;
+
+	@JoinColumns(@JoinColumn(name = " PAYMENT_ID", nullable = false))
+	@NotNull
+	private Payment paymentID;
+
+	public long getId() {
 		return id;
 	}
-	
-	public long getUserID(){
-		return userID;
+
+	public void setId(long id) {
+		this.id = id;
 	}
-	
-	public double getTotal(){
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public double getTotal() {
 		return total;
 	}
-	
-	public Date getDate(){
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+
+	public Date getDate() {
 		return date;
 	}
-	
-	public Date getDispatchDate(){
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Date getDispatchDate() {
 		return dispatchDate;
 	}
-	
-	public long getOrderStatusID(){
+
+	public void setDispatchDate(Date dispatchDate) {
+		this.dispatchDate = dispatchDate;
+	}
+
+	public OrderStatus getOrderStatusID() {
 		return orderStatusID;
 	}
-	
-	public long getAddressID(){
-		return addressID;
+
+	public void setOrderStatusID(OrderStatus orderStatusID) {
+		this.orderStatusID = orderStatusID;
 	}
-	
-	public long getPaymentID(){
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Payment getPaymentID() {
 		return paymentID;
 	}
-	
-	public void setID(long newID){
-		this.id = newID;
+
+	public void setPaymentID(Payment paymentID) {
+		this.paymentID = paymentID;
 	}
 	
-	public void setUserID(long uID){
-		this.userID = uID;
-	}
 	
-	public void setTotal(double t){
-		this.total = t;
-	}
-	
-	public void setDate(Date d){
-		this.date = d;
-	}
-	
-	public void setDispatchDate(Date dd){
-		this.dispatchDate = dd;
-	}
-	
-	public void setOrderStatusID(long os){
-		this.orderStatusID = os;
-	}
-	
-	public void setAddressID(long aid){
-		this.addressID = aid;
-	}
-	
-	public void setPaymentID(long pid){
-		this.paymentID = pid;
-	}
 }
