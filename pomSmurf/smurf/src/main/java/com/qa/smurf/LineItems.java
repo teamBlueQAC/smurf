@@ -1,11 +1,37 @@
 package com.qa.smurf;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+/*
+ * class modelling the line items 
+ * 
+ * 
+ * */
+
+
+@Entity
+@Table (name = "LineItems")
 public class LineItems {
 	
+	@Id
+	@Column (name = "LineItems")
+	@GeneratedValue (
+			strategy = GenerationType.IDENTITY)
 	private long orderID;
+	
+	@ManyToMany
+	@JoinTable(name = "prodID_fk")
+	@NotNull
 	private long prodID;
-	private int quantity; 
+	
+	@Column (name = "quantity", length = 10)
+	private int quantity;
+
+	@Column (name = "subtotal", length = 12)
 	private double subtotal;
+	
+	@Column (name = "returnedQty", length = 10)
 	private int returnedQty;
 	
 	public long getOrderID(){
