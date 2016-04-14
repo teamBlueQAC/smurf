@@ -7,33 +7,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
-@Table (name = "AccountType")
-public class AccountType {
+@Table (name = "Category")
+public class Category {
 	
 	@Id
-	@Column (name = "ACCOUNTTYPE_ID")
+	@Column (name = "CATEGORY_ID")
 	@GeneratedValue (
 			strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	
-	@Column (name = "NAME", length = 255)
+	@Column (name = "NAME" , length = 255)		
 	private String name;
 	
-	
-	public int getId() {
+	public long getID(){
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
+	
+	public String getName(){
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	
+	public void setID(long newID){
+		this.id = newID;
 	}
-	
-	
+
+	public void setName(String n){
+		this.name = n;
+	}
 }
