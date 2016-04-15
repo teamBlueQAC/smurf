@@ -18,12 +18,12 @@ public class LineItems {
 	@Column (name = "LineItems")
 	@GeneratedValue (
 			strategy = GenerationType.IDENTITY)
-	private long orderID;
+	private Order order;
 	
 	@ManyToMany
 	@JoinTable(name = "PRODUCT_ID")
 	@NotNull
-	private Product prodID;
+	private Product product;
 	
 	@Column (name = "QUANTITY", length = 10)
 	private int quantity;
@@ -34,16 +34,12 @@ public class LineItems {
 	@Column (name = "RETURNEDQTY", length = 10)
 	private int returnedQty;
 	
-	public long getOrderID(){
-		return orderID;
+	public long getOrder(){
+		return order;
 	}
 	
-	//public long prodID(){
-		//return prodID;
-	//}
-	
-	public long getProdID(){
-		return prodID.getId();
+	public Product getProd(){
+		return product;
 	}
 	
 	public int getQuantity(){
@@ -58,12 +54,12 @@ public class LineItems {
 		return returnedQty;
 	}
 	
-	public void setOrderID(Long oID){
-		this.orderID = oID;
+	public void setOrderID(Order o){
+		this.order = o;
 	}
 	
-	public void setProdID(Long pID){
-		this.prodID.setId(pID);
+	public void setProdID(Product p){
+		this.product = p;
 	}
 	
 	public void setQuantity(int q){

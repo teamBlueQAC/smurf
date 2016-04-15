@@ -43,7 +43,7 @@ public class SupplierOrder {
 	@ManyToMany
 	@NotNull
 	@JoinTable(name = "PRODUCT_ID")
-	private int productID;
+	private Product product;
 	
 	@Temporal(TemporalType.DATE)
 	@Column (name = "DATERECEIVED", length = 10)
@@ -78,11 +78,11 @@ public class SupplierOrder {
 	public void setOrderAmount(int orderAmount) {
 		this.orderAmount = orderAmount;
 	}
-	public int getProductID() {
-		return productID;
+	public Product getProductID() {
+		return product;
 	}
-	public void setProductID(int productID) {
-		this.productID = productID;
+	public void setProductID(Product product) {
+		this.product = product;
 	}
 	public Date getDateReceived() {
 		return dateReceived;
