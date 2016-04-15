@@ -21,9 +21,9 @@ public class LineItems {
 	private long orderID;
 	
 	@ManyToMany
-	@JoinTable(name = "prodID_fk")
+	@JoinTable(name = "PRODUCT_ID")
 	@NotNull
-	private long prodID;
+	private Product prodID;
 	
 	@Column (name = "quantity", length = 10)
 	private int quantity;
@@ -38,12 +38,12 @@ public class LineItems {
 		return orderID;
 	}
 	
-	public long prodID(){
-		return prodID;
-	}
+	//public long prodID(){
+		//return prodID;
+	//}
 	
 	public long getProdID(){
-		return prodID;
+		return prodID.getId();
 	}
 	
 	public int getQuantity(){
@@ -63,7 +63,7 @@ public class LineItems {
 	}
 	
 	public void setProdID(Long pID){
-		this.prodID = pID;
+		this.prodID.setId(pID);
 	}
 	
 	public void setQuantity(int q){
