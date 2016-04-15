@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -21,7 +24,17 @@ public class AccountType {
 	@Column (name = "NAME", length = 255)
 	private String name;
 	
+	@ManyToOne
+	@JoinTable(name = "EMPLOYEE_USER_ID")
+	@NotNull
+	private EmployeeUser employeeUser;
 	
+	public EmployeeUser getEmployeeUser() {
+		return employeeUser;
+	}
+	public void setEmployeeUser(EmployeeUser employeeUser) {
+		this.employeeUser = employeeUser;
+	}
 	public int getId() {
 		return id;
 	}
