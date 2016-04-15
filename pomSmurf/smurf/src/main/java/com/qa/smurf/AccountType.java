@@ -27,11 +27,10 @@ public class AccountType {
 	@JoinTable(name = "EMPLOYEEUSER_ID")
 	@NotNull
 	private EmployeeUser employeeUser;
-
+	
 	public EmployeeUser getEmployeeUser() {
 		return employeeUser;
 	}
-
 	public void setEmployeeUser(EmployeeUser employeeUser) {
 		this.employeeUser = employeeUser;
 	}
@@ -51,5 +50,4 @@ public class AccountType {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 }

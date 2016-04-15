@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "OrderStatus")
@@ -19,6 +20,7 @@ public class OrderStatus {
 
 	@Column(name = "NAME", nullable = false, length = 16)
 	@NotNull
+	@Size (min = 1, max = 16)
 	private String name;
 
 	public long getId() {

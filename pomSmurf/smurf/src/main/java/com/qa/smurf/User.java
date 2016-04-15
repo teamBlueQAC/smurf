@@ -49,7 +49,7 @@ public class User {
 	private Address address;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "DATECREATED")
+	@Column (name = "DATECREATED")
 	private Date created;
 
 	public int getId() {
@@ -123,5 +123,4 @@ public class User {
 	public void setCreated(Date created) {
 		this.created = created;
 	}
-
 }

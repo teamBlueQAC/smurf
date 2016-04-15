@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "EmployeeUser")
@@ -22,7 +23,8 @@ public class EmployeeUser {
 	@JoinColumn(name = "ACCOUNTTYPE_ID")
 	private AccountType accountType;
 
-	@Column(name = "NAME", length = 255)
+	@Column(name = "NAME", nullable=false, length = 255)
+	@NotNull
 	private String name;
 
 	public long getID() {
