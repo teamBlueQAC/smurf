@@ -19,125 +19,138 @@ public class Product {
 	@Column(name = "PRODUCT_ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@Column(name = "NAME", length = 255)
-	@Size(min = 2, max = 255)
 	private String name;
-	
-	@Column(name = "SERIAL", nullable= false, length = 255)
-	@NotNull
-	@Size(min = 2, max = 255)
+
+	@Column(name = "SERIAL", length = 255)
 	private String serial;
-	
+
 	@Column(name = "COLOUR", length = 20)
-	@Size(min = 2, max = 20)
 	private String colour;
-	
-	@Column(name = "PRICE", nullable= false, length = 12)
-	@NotNull
+
+	@Column(name = "PRICE", length = 12)
 	private Double price;
-	
-	@Column(name = "DISCONTINUED", nullable= false)
-	@NotNull
+
+	@Column(name = "DISCONTINUED")
 	private boolean discountinued;
-	
+
 	@Column(name = "PICTURELOC", length = 510)
-	@Size(min = 2, max = 510)
 	private String pictureLoc;
-	
+
 	@Column(name = "QUANTITYAVAILABLE", length = 20)
-	@Size(min = 2, max = 20)
 	private int quantityAvailable;
-	
+
 	@ManyToOne
-	@JoinColumn(name="TYPE_ID", nullable= false)
-	@NotNull
+	@JoinColumn(name = "TYPE_ID")
 	private ProductType productType;
-	
-	@Column(name = "DESCRIPTION", nullable= false, length = 510)
+
+	@Column(name = "DESCRIPTION", nullable = false, length = 510)
 	@NotNull
-	@Size(min = 2, max = 510)
 	private String description;
-	
-	@Column(name = "REORDERTHRESHOLD", length = 20)
+
+	@Column(name = "REORDERTHRESHOLD", length = 20, nullable = false)
+	@NotNull
 	private int reorderThreshold;
-	
-	@Column(name = "REORDEREDAMOUNT", length = 20)
+
+	@Column(name = "REORDEREDAMOUNT", length = 20, nullable = false)
+	@NotNull
 	private int reorderedAmount;
-	
-	
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getSerial() {
 		return serial;
 	}
+
 	public void setSerial(String serial) {
 		this.serial = serial;
 	}
+
 	public String getColour() {
 		return colour;
 	}
+
 	public void setColour(String colour) {
 		this.colour = colour;
 	}
+
 	public Double getPrice() {
 		return price;
 	}
+
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+
 	public boolean isDiscountinued() {
 		return discountinued;
 	}
+
 	public void setDiscountinued(boolean discountinued) {
 		this.discountinued = discountinued;
 	}
+
 	public String getPictureLoc() {
 		return pictureLoc;
 	}
+
 	public void setPictureLoc(String pictureLoc) {
 		this.pictureLoc = pictureLoc;
 	}
+
 	public int getQuantityAvailable() {
 		return quantityAvailable;
 	}
+
 	public void setQuantityAvailable(int quantityAvailable) {
 		this.quantityAvailable = quantityAvailable;
 	}
+
 	public ProductType getProductType() {
 		return productType;
 	}
+
 	public void setProductType(ProductType productType) {
 		this.productType = productType;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public int getReorderThreshold() {
 		return reorderThreshold;
 	}
+
 	public void setReorderThreshold(int reorderThreshold) {
 		this.reorderThreshold = reorderThreshold;
 	}
+
 	public int getReorderedAmount() {
 		return reorderedAmount;
 	}
+
 	public void setReorderedAmount(int reorderedAmount) {
 		this.reorderedAmount = reorderedAmount;
 	}
-	
-	
+
 }

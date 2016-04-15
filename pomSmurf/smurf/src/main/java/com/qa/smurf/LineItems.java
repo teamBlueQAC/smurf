@@ -1,76 +1,65 @@
 package com.qa.smurf;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
-/*
- * class modelling the line items 
- * 
- * 
- * */
-
 
 @Entity
-@Table (name = "LineItems")
+@Table(name = "LineItems")
 public class LineItems {
 	
-	@Id
-	@Column (name = "LineItems")
-	@GeneratedValue (
-			strategy = GenerationType.IDENTITY)
+	@ManyToOne
+	@JoinTable(name = "ORDER_ID")
 	private Order order;
-	
-	@ManyToMany
+
+	@ManyToOne
 	@JoinTable(name = "PRODUCT_ID")
-	@NotNull
 	private Product product;
-	
-	@Column (name = "QUANTITY", length = 10)
+
+	@Column(name = "QUANTITY", length = 10)
 	private int quantity;
 
-	@Column (name = "SUBTOTAL", length = 12)
+	@Column(name = "SUBTOTAL", length = 12)
 	private double subtotal;
-	
-	@Column (name = "RETURNEDQTY", length = 10)
+
+	@Column(name = "RETURNEDQTY", length = 10)
 	private int returnedQty;
-	
-	public Order getOrder(){
+
+	public Order getOrder() {
 		return order;
 	}
-	
-	public Product getProduct(){
+
+	public Product getProduct() {
 		return product;
 	}
-	
-	public int getQuantity(){
+
+	public int getQuantity() {
 		return quantity;
 	}
-	
-	public double getSubtotal(){
+
+	public double getSubtotal() {
 		return subtotal;
 	}
-	
-	public int getReturnedQty(){
+
+	public int getReturnedQty() {
 		return returnedQty;
 	}
-	
-	public void setOrder(Order o){
+
+	public void setOrder(Order o) {
 		this.order = o;
 	}
-	
-	public void setProduct(Product p){
+
+	public void setProduct(Product p) {
 		this.product = p;
 	}
-	
-	public void setQuantity(int q){
+
+	public void setQuantity(int q) {
 		this.quantity = q;
 	}
 
-	public void setSubtotal(double s){
+	public void setSubtotal(double s) {
 		this.subtotal = s;
 	}
-	
-	public void setReturnedQty(int rQty){
+
+	public void setReturnedQty(int rQty) {
 		this.returnedQty = rQty;
 	}
 }

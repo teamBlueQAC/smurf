@@ -1,3 +1,4 @@
+/* Made By Dean + Nabs */
 package com.qa.smurf;
 
 import javax.persistence.Column;
@@ -23,7 +24,7 @@ public class Address {
 	private String line4;
 
 	@Id
-	@Column(name = "POSTCODE", length = 9 , nullable = false)
+	@Column(name = "POSTCODE", length = 9, nullable = false)
 	private String postcode;
 
 	public String getLine1() {

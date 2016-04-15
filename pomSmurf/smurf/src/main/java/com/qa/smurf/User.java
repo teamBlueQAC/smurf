@@ -1,5 +1,7 @@
 package com.qa.smurf;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,58 +9,48 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="User")
+@Table(name = "User")
 public class User {
-	
+
 	@Id
-	@Column( name = "USER_ID")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "USER_ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column (name = "NAME",nullable = false, length = 255)
-	@NotNull
-	@Size(min = 1, max = 255)
+
+	@Column(name = "NAME", length = 255)
 	private String name;
-	
-	@Column(name = "PASSWORD", nullable = false, length = 64 )
+
+	@Column(name = "PASSWORD", nullable = false, length = 64)
 	@NotNull
-	@Size(min = 1, max = 64)
 	private String password;
-	
-	@Column (name = "EMAIL", nullable = false, length = 255)
-	@NotNull
-	@Size(min = 1, max = 255)
+
+	@Column(name = "EMAIL", length = 255)
 	private String email;
-	
-	@Column (name = "PHONENUMBER", length = 16)
+
+	@Column(name = "PHONENUMBER", length = 16)
 	@NotNull
-	@Size(min = 1, max = 16)
 	private String phone;
 
 	@Temporal(TemporalType.DATE)
-	@Column (name = "LASTLOGIN", length = 10)
-	private String lastLogin;
-	
-	@Column (name = "ISACTIVE", columnDefinition="Boolean default ='false'", nullable=false)
+	@Column(name = "LASTLOGIN", nullable = false)
 	@NotNull
+	private Date lastLogin;
+
+	@Column(name = "ISACTIVE")
 	private boolean isActivate;
-	
-	@JoinColumns({ @JoinColumn(name = "LINE1"),
-		@JoinColumn(name = "POSTCODE")})
+
+	@JoinColumns({ @JoinColumn(name = "LINE1"), @JoinColumn(name = "POSTCODE") })
 	private Address address;
-	
 
 	@Temporal(TemporalType.DATE)
-	@Column (name = "DATECREATED", length = 10)
-	private String created;
+	@Column(name = "DATECREATED")
+	private Date created;
 
 	public int getId() {
 		return id;
@@ -100,11 +92,11 @@ public class User {
 		this.phone = phone;
 	}
 
-	public String getLastLogin() {
+	public Date getLastLogin() {
 		return lastLogin;
 	}
 
-	public void setLastLogin(String lastLogin) {
+	public void setLastLogin(Date lastLogin) {
 		this.lastLogin = lastLogin;
 	}
 
@@ -124,12 +116,12 @@ public class User {
 		this.address = address;
 	}
 
-	public String getCreated() {
+	public Date getCreated() {
 		return created;
 	}
 
-	public void setCreated(String created) {
+	public void setCreated(Date created) {
 		this.created = created;
 	}
-	
+
 }

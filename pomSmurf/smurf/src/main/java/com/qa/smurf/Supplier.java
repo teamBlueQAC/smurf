@@ -9,28 +9,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
-@Table (name = "Supplier")
+@Table(name = "Supplier")
 public class Supplier {
-	
+
 	@Id
-	@Column (name ="SUPPLIER_ID")
-	@GeneratedValue (
-			strategy = GenerationType.IDENTITY)
+	@Column(name = "SUPPLIER_ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column (name ="NAME",
-			nullable = false, length = 255)
+
+	@Column(name = "NAME", nullable = false, length = 255)
 	@NotNull
-	@Size (min = 1, max = 255)
 	private String name;
-	
-	@JoinColumns({ @JoinColumn(name = "LINE1"),
-						@JoinColumn(name = "POSTCODE")})
+
+	@JoinColumns({ @JoinColumn(name = "LINE1"), @JoinColumn(name = "POSTCODE") })
 	private Address address;
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -55,7 +50,4 @@ public class Supplier {
 		this.address = address;
 	}
 
-	
-	
-	
 }

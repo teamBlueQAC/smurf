@@ -9,11 +9,11 @@ import javax.persistence.Table;
 @Table (name = "ProdCat")
 public class ProdCat {
 	@ManyToOne
-	@JoinColumn(name ="CATEGORY_ID", nullable= false)
+	@JoinColumn(name ="CATEGORY_ID")
 	private Category category;
 	
 	@ManyToOne
-	@JoinColumn(name ="PRODUCT_ID", nullable= false)
+	@JoinColumn(name ="PRODUCT_ID")
 	private Product product;
 	
 	public Category getCategory(){

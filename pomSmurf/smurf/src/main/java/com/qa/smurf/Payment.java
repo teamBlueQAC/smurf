@@ -14,39 +14,33 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
-	@Entity
-	@Table (name = "Payment")
+@Entity
+@Table(name = "Payment")
 public class Payment {
-	
+
 	@Id
-	@Column (name = "PAYMENT_ID")
-	@GeneratedValue (
-			strategy = GenerationType.IDENTITY)
+	@Column(name = "PAYMENT_ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@Column (name = "CARDNUMBER", 
-			 length = 16)
+
+	@Column(name = "CARDNUMBER", length = 16)
 	private String cardNumber;
-	
-	
-	@Column ( name ="CARDTYPE", length = 20)
+
+	@Column(name = "CARDTYPE", length = 20)
 	private String cardType;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column (name = "EXPIRYDATE", length = 10)
+	@Column(name = "EXPIRYDATE")
 	private Date expiryDate;
-	
-	@Column ( name = "NAMEONCARD", length= 255)
+
+	@Column(name = "NAMEONCARD", length = 255)
 	private String nameOnCard;
-	
+
 	@OneToOne
-	@JoinColumn ( name = "USER_ID",
-	 nullable = false)
-	private User userID;
-	
-	@JoinColumns({ @JoinColumn(name = "LINE1"),
-		@JoinColumn(name = "POSTCODE")})
+	@JoinColumn(name = "USER_ID", nullable = false)
+	private User user;
+
+	@JoinColumns({ @JoinColumn(name = "LINE1"), @JoinColumn(name = "POSTCODE") })
 	private Address address;
 
 	public long getId() {
@@ -89,12 +83,12 @@ public class Payment {
 		this.nameOnCard = nameOnCard;
 	}
 
-	public User getUserID() {
-		return userID;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserID(User userID) {
-		this.userID = userID;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Address getAddress() {
@@ -105,9 +99,4 @@ public class Payment {
 		this.address = address;
 	}
 
-
-	
-
-	
-	
 }

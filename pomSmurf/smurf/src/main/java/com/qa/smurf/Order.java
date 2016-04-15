@@ -11,47 +11,39 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Order")
 public class Order {
 
-@Id
-	
-	@Column (name = "ORDER_ID")
-	@GeneratedValue (
-			strategy = GenerationType.IDENTITY)
+	@Id
+	@Column(name = "ORDER_ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@OneToOne
-	@JoinColumn(name="USER_ID", nullable = false)
-	@NotNull
+	@JoinColumn(name = "USER_ID")
 	private User user;
 
-	@Column (name = "TOTAL", nullable = false, length = 255)
-	@NotNull
-	@Size (min = 2, max = 225)
+	@Column(name = "TOTAL", length = 12)
 	private double total;
 
-	@Column (name = "DATE", nullable = false, length = 255)
-	@NotNull
-	@Size (min = 2, max = 225)
+	@Temporal(TemporalType.DATE)
+	@Column(name = "DATE")
 	private Date date;
 
-	@Column (name = "DISPATCHDATE", nullable = false, length = 255)
-	@NotNull
-	@Size (min = 2, max = 255)
+	@Temporal(TemporalType.DATE)
+	@Column(name = "DISPATCHDATE")
 	private Date dispatchDate;
 
 	@OneToOne
-	@JoinColumn(name = "ORDERSTATUS_ID", nullable = false)
-	@NotNull
+	@JoinColumn(name = "ORDERSTATUS_ID")
 	private OrderStatus orderStatusID;
-	
-	@JoinColumns({ @JoinColumn(name = "LINE1"),
-		@JoinColumn(name = "POSTCODE")})
+
+	@JoinColumns({ @JoinColumn(name = "LINE1"), @JoinColumn(name = "POSTCODE") })
 	private Address address;
 
 	@JoinColumns(@JoinColumn(name = " PAYMENT_ID", nullable = false))
@@ -121,6 +113,5 @@ public class Order {
 	public void setPaymentID(Payment paymentID) {
 		this.paymentID = paymentID;
 	}
-	
-	
+
 }
