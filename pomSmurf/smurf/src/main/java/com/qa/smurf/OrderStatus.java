@@ -22,7 +22,7 @@ public class OrderStatus {
 	
 	@Column (name = "NAME", nullable = false, length = 255)
 	@NotNull
-	@Size (min = 1, max = 16)
+	@Size (min = 1, max = 255)
 	private String name;
 	
 	
