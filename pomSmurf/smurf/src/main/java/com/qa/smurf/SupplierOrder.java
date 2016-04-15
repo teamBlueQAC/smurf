@@ -26,7 +26,7 @@ import javax.validation.constraints.Size;
 public class SupplierOrder {
 
 	@Id
-	@Column (name = "SUPPLIERORDERID")
+	@Column (name = "SUPPLIERORDER_ID")
 	@GeneratedValue (
 			strategy = GenerationType.IDENTITY)
 	private long supplierOrderID;
