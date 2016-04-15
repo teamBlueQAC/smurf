@@ -48,6 +48,16 @@ public class Payment {
 	@JoinColumns({ @JoinColumn(name = "LINE1"), @JoinColumn(name = "POSTCODE") })
 	private Address address;
 
+	public Payment (String cardNumber, String cardType, Date date, String nameOnCard, User user){
+		
+		this.cardNumber = cardNumber;
+		this.cardType = cardType;
+		this.expiryDate = date;
+		this.nameOnCard = nameOnCard;
+		this.userID = user;
+		
+		
+	}
 	public long getId() {
 		return id;
 	}

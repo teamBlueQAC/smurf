@@ -28,6 +28,13 @@ public class Credit {
 	@NotNull
 	private int quarter;
 
+	public Credit(User user, double amount, double amountRemaining, int quarter) {
+		this.user = user;
+		this.amount = amount;
+		this.amountRemaining = amountRemaining;
+		this.quarter = quarter;
+	}
+
 	public User getUser() {
 		return user;
 	}
