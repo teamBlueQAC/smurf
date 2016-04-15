@@ -20,37 +20,42 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(name = "NAME", length = 255)
+	@Column(name = "NAME", length = 255, nullable = false)
+	@NotNull
 	private String name;
 
-	@Column(name = "SERIAL", length = 255)
+	@Column(name = "SERIAL", length = 255, nullable = false)
+	@NotNull
 	private String serial;
 
-	@Column(name = "COLOUR", length = 20)
+	@Column(name = "COLOUR", length = 20, nullable = false)
+	@NotNull
 	private String colour;
 
-	@Column(name = "PRICE", length = 12)
+	@Column(name = "PRICE", length = 12, nullable = false)
+	@NotNull
 	private Double price;
 
-	@Column(name = "DISCONTINUED")
+	@Column(name = "DISCONTINUED", nullable = false)
+	@NotNull
 	private boolean discountinued;
 
-	@Column(name = "PICTURELOC", length = 510)
+	@Column(name = "PICTURELOC", length = 510, nullable = false)
+	@NotNull
 	private String pictureLoc;
 
-	@Column(name = "QUANTITYAVAILABLE", length = 20)
+	@Column(name = "QUANTITYAVAILABLE", length = 20, nullable = false)
+	@NotNull
 	private int quantityAvailable;
 
 	@ManyToOne
 	@JoinColumn(name = "TYPE_ID")
 	private ProductType productType;
 
-	@Column(name = "DESCRIPTION", nullable = false, length = 510)
-	@NotNull
+	@Column(name = "DESCRIPTION", length = 510)
 	private String description;
 
-	@Column(name = "REORDERTHRESHOLD", length = 20, nullable = false)
-	@NotNull
+	@Column(name = "REORDERTHRESHOLD", length = 20)
 	private int reorderThreshold;
 
 	@Column(name = "REORDEREDAMOUNT", length = 20, nullable = false)

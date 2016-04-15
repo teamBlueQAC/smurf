@@ -25,7 +25,6 @@ public class AccountType {
 
 	@ManyToOne
 	@JoinTable(name = "EMPLOYEEUSER_ID")
-	@NotNull
 	private EmployeeUser employeeUser;
 	
 	public EmployeeUser getEmployeeUser() {

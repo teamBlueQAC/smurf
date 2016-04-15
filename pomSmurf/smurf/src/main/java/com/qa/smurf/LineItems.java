@@ -1,11 +1,12 @@
 package com.qa.smurf;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "LineItems")
 public class LineItems {
-	
+
 	@ManyToOne
 	@JoinTable(name = "ORDER_ID")
 	private Order order;
@@ -14,10 +15,12 @@ public class LineItems {
 	@JoinTable(name = "PRODUCT_ID")
 	private Product product;
 
-	@Column(name = "QUANTITY", length = 10)
+	@Column(name = "QUANTITY", length = 10, nullable = false)
+	@NotNull
 	private int quantity;
 
-	@Column(name = "SUBTOTAL", length = 12)
+	@Column(name = "SUBTOTAL", length = 12, nullable = false)
+	@NotNull
 	private double subtotal;
 
 	@Column(name = "RETURNEDQTY", length = 10)

@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Address")
@@ -12,6 +13,7 @@ public class Address {
 
 	@Id
 	@Column(name = "LINE1", length = 255, nullable = false)
+	@NotNull
 	private String line1;
 
 	@Column(name = "LINE2", length = 255)
@@ -25,6 +27,7 @@ public class Address {
 
 	@Id
 	@Column(name = "POSTCODE", length = 9, nullable = false)
+	@NotNull
 	private String postcode;
 
 	public String getLine1() {

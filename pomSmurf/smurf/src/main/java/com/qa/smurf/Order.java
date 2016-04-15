@@ -28,15 +28,18 @@ public class Order {
 	@JoinColumn(name = "USER_ID")
 	private User user;
 
-	@Column(name = "TOTAL", length = 12)
+	@Column(name = "TOTAL", length = 12, nullable = false)
+	@NotNull
 	private double total;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "DATE")
+	@Column(name = "DATE", nullable = false)
+	@NotNull
 	private Date date;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "DISPATCHDATE")
+	@Column(name = "DISPATCHDATE", nullable = false)
+	@NotNull
 	private Date dispatchDate;
 
 	@OneToOne

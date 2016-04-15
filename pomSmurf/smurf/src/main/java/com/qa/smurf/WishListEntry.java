@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "WishListEntry")
@@ -23,7 +24,8 @@ public class WishListEntry {
 	private User user;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "DATE_ADDED")
+	@Column(name = "DATE_ADDED", nullable = false)
+	@NotNull
 	private Date dateAdded;
 
 	public Product getProduct() {

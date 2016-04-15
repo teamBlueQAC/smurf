@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Category")
@@ -17,7 +18,8 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(name = "NAME", length = 255)
+	@Column(name = "NAME", length = 255, nullable=false)
+	@NotNull
 	private String name;
 
 	public long getID() {

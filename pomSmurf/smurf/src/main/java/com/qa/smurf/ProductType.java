@@ -17,8 +17,7 @@ public class ProductType {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "NAME", nullable = false, length = 16)
-	@NotNull
+	@Column(name = "NAME", length = 16)
 	private String name;
 
 	public int getId() {

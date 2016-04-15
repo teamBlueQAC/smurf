@@ -19,8 +19,7 @@ public class Supplier {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "NAME", nullable = false, length = 255)
-	@NotNull
+	@Column(name = "NAME", length = 255)
 	private String name;
 
 	@JoinColumns({ @JoinColumn(name = "LINE1"), @JoinColumn(name = "POSTCODE") })

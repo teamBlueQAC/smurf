@@ -13,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Payment")
@@ -23,21 +24,25 @@ public class Payment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(name = "CARDNUMBER", length = 16)
+	@Column(name = "CARDNUMBER", length = 16, nullable = false)
+	@NotNull
 	private String cardNumber;
 
-	@Column(name = "CARDTYPE", length = 20)
+	@Column(name = "CARDTYPE", length = 20, nullable = false)
+	@NotNull
 	private String cardType;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "EXPIRYDATE")
+	@Column(name = "EXPIRYDATE", nullable = false)
+	@NotNull
 	private Date expiryDate;
 
-	@Column(name = "NAMEONCARD", length = 255)
+	@Column(name = "NAMEONCARD", length = 255, nullable = false)
+	@NotNull
 	private String nameOnCard;
 
 	@OneToOne
-	@JoinColumn(name = "USER_ID", nullable = false)
+	@JoinColumn(name = "USER_ID")
 	private User user;
 
 	@JoinColumns({ @JoinColumn(name = "LINE1"), @JoinColumn(name = "POSTCODE") })

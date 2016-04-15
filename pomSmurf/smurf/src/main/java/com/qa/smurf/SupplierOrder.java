@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "SupplierOrder")
@@ -22,10 +23,12 @@ public class SupplierOrder {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long supplierOrderID;
 
-	@Column(name = "ORDERSTATUS")
+	@Column(name = "ORDERSTATUS", nullable = false)
+	@NotNull
 	private OrderStatus orderStatus;
 
-	@Column(name = "ORDERAMOUNT", length = 20)
+	@Column(name = "ORDERAMOUNT", length = 20, nullable= false)
+	@NotNull
 	private int orderAmount;
 
 	@ManyToOne

@@ -18,8 +18,7 @@ public class OrderStatus {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(name = "NAME", nullable = false, length = 16)
-	@NotNull
+	@Column(name = "NAME", length = 16)
 	@Size (min = 1, max = 16)
 	private String name;
 

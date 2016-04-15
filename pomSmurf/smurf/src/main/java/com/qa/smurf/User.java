@@ -30,26 +30,27 @@ public class User {
 	@NotNull
 	private String password;
 
-	@Column(name = "EMAIL", length = 255)
+	@Column(name = "EMAIL", length = 255, nullable = false)
+	@NotNull
 	private String email;
 
 	@Column(name = "PHONENUMBER", length = 16)
-	@NotNull
 	private String phone;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "LASTLOGIN", nullable = false)
-	@NotNull
+	@Column(name = "LASTLOGIN")
 	private Date lastLogin;
 
-	@Column(name = "ISACTIVE")
+	@Column(name = "ISACTIVE", nullable = false)
+	@NotNull
 	private boolean isActivate;
 
 	@JoinColumns({ @JoinColumn(name = "LINE1"), @JoinColumn(name = "POSTCODE") })
 	private Address address;
 
 	@Temporal(TemporalType.DATE)
-	@Column (name = "DATECREATED")
+	@Column(name = "DATECREATED", nullable = false)
+	@NotNull
 	private Date created;
 
 	public int getId() {
