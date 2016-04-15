@@ -32,9 +32,9 @@ public class SupplierOrder {
 	private long supplierOrderID;
 	
 	@Column (name = "ORDERSTATUS",
-			nullable = false, length = 225)
+			nullable = false, length = 255)
 	@NotNull
-	@Size(min = 2, max = 225)
+	@Size(min = 2, max = 255)
 	private String orderStatus;
 	
 	@Column (name = "ORDERAMOUNT", length = 20)
