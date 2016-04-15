@@ -10,6 +10,17 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+/**
+ * 
+ * Created by Sam and Elliot
+ *
+ */
+
 public class InitialData {
 
 	//Supplier
@@ -77,6 +88,24 @@ public class InitialData {
 		
 		return credit;
 	}
+	
+	public List<User> getUser(){
+		ArrayList<User> users =
+				new ArrayList<User>();
+		
+		users.add(new User(1, "Sam Elleray", "Chickens1", "sam@chickens.com", "07881508168", new Date(), true, new Address("12 High Street", "Whocares", "Somerset", "England", "WH1 1t1" ), new Date()));
+		users.add(new User(1, "Bob Marley", "Weed2", "bob@weed.com", "phoneNumber", new Date(), true, new Address("l1", "l2", "l3", "l4", "pc"), new Date()));
+		users.add(new User(2, "Boris Seaford", "willpower3", "boris@will.com", "08005428106", new Date(), true, new Address("15 Orchard Road", "Funplace", "Somerset", "England", "WH7 1PA"), new Date()));
+		users.add(new User(3));
+		users.add(new User(4));
+		users.add(new User(5));
+
+		return users;
+		
+	}
+	
+	
+	//Credit
 	
 	//OrderStatus
 	public ArrayList<OrderStatus> getOrderStatus(){

@@ -7,6 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Created by Sam and Elliot
+ * @author Administrator
+ *
+ */
+
 @Entity
 @Table(name = "Address")
 public class Address {
@@ -44,6 +50,9 @@ public class Address {
 		
 	}
 
+	public Address(String line1, String line2, String line3, String line4, String postcode)
+	{}
+	
 	public String getLine1() {
 		return line1;
 	}
