@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="USER")
+@Table(name="User")
 public class User {
 	
 	@Id
@@ -38,16 +38,16 @@ public class User {
 	@Size(min = 1, max = 255)
 	private String email;
 	
-	@Column (name = "PHONE_NUMBER", length = 16)
+	@Column (name = "PHONENUMBER", length = 16)
 	@NotNull
 	@Size(min = 1, max = 16)
 	private String phone;
 
 	@Temporal(TemporalType.DATE)
-	@Column (name = "LAST_LOGIN", length = 10)
+	@Column (name = "LASTLOGIN", length = 10)
 	private String lastLogin;
 	
-	@Column (name = "IS_ACTIVE", columnDefinition="Boolean default ='false'", nullable=false)
+	@Column (name = "ISACTIVE", columnDefinition="Boolean default ='false'", nullable=false)
 	@NotNull
 	private boolean isActivate;
 	
@@ -57,11 +57,11 @@ public class User {
 	
 
 	@Temporal(TemporalType.DATE)
-	@Column (name = "DATE_CREATED", length = 10)
+	@Column (name = "DATECREATED", length = 10)
 	private String created;
 	
 	@ManyToOne
-	@JoinColumn (name= "ACCOUNT_TYPE_ID", nullable = false )
+	@JoinColumn (name= "ACCOUNTTYPE_ID", nullable = false )
 	@NotNull
 	private int accountTypeID;
 

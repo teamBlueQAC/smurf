@@ -16,7 +16,7 @@ import javax.persistence.TemporalType;
 
 
 	@Entity
-	@Table (name = "PAYMENT")
+	@Table (name = "Payment")
 public class Payment {
 	
 	@Id
@@ -25,19 +25,19 @@ public class Payment {
 			strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column (name = "CARD_NUMBER", 
+	@Column (name = "CARDNUMBER", 
 			 length = 16)
 	private String cardNumber;
 	
 	
-	@Column ( name ="CARD_TYPE", length = 20)
+	@Column ( name ="CARDTYPE", length = 20)
 	private String cardType;
 	
 	@Temporal(TemporalType.DATE)
-	@Column (name = "EXPIRY_DATE", length = 10)
+	@Column (name = "EXPIRYDATE", length = 10)
 	private Date expiryDate;
 	
-	@Column ( name = "NAME_ON_CARD", length= 255)
+	@Column ( name = "NAMEONCARD", length= 255)
 	private String nameOnCard;
 	
 	@OneToOne

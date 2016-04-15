@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "ORDER")
+@Table(name = "Order")
 public class Order {
 
 @Id
@@ -30,23 +30,23 @@ public class Order {
 	@NotNull
 	private User user;
 
-	@Column (name = "TOTAL", nullable = false, length = 225)
+	@Column (name = "TOTAL", nullable = false, length = 255)
 	@NotNull
 	@Size (min = 2, max = 225)
 	private double total;
 
-	@Column (name = "DATE", nullable = false, length = 225)
+	@Column (name = "DATE", nullable = false, length = 255)
 	@NotNull
 	@Size (min = 2, max = 225)
 	private Date date;
 
-	@Column (name = "DISPATCH_DATE", nullable = false, length = 225)
+	@Column (name = "DISPATCHDATE", nullable = false, length = 255)
 	@NotNull
-	@Size (min = 2, max = 225)
+	@Size (min = 2, max = 255)
 	private Date dispatchDate;
 
 	@OneToOne
-	@JoinColumn(name = "ORDER_STATUS_ID", nullable = false)
+	@JoinColumn(name = "ORDERSTATUS_ID", nullable = false)
 	@NotNull
 	private OrderStatus orderStatusID;
 	
