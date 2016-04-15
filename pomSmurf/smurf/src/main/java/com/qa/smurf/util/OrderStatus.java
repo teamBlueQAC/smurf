@@ -1,5 +1,11 @@
 package com.qa.smurf.util;
 
+/**
+ * 
+ * Created by Omar
+ * 
+ */
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

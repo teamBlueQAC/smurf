@@ -28,12 +28,46 @@ import com.qa.smurf.util.OrderStatus;
  *
  */
 
+import java.util.ArrayList;
+
 public class InitialData {
 
 	//Supplier
+	/**
+	 * 
+	 * Created by Omar
+	 * 
+	 */
+	// These are temp variables that will be replaced by getters once the format and names are known
+	private int tempa, tempb, tempc, tempd, tempe;
+	
+	/* The below is a getMethod that will retrieve the dummy data from the necessary variables 
+	 * Then it will return those values in the form of an array*/
+	public ArrayList<Supplier> getSupplier(){
+		ArrayList<Supplier> suppliers = new ArrayList<Supplier>();			// creates an array list
+		suppliers.add(new Supplier(tempa, tempb, tempc, tempd, tempe));		// adds data retrieved from other variables to array
+		return suppliers;													// returns array for reference 
+	}							
+	/*end of section*/
 	
 	
 	//Address
+	/**
+	 * 
+	 * Created by Omar
+	 * 
+	 */
+	// These are temp variables that will be replaced by getters once the format and names are known
+	private int temp0, temp9, temp8, temp7, temp6;
+	
+	/* The below is a getMethod that will retrieve the dummy data from the necessary variables 
+	 * Then it will return those values in the form of an array*/
+	public ArrayList<Address> getAddress(){
+		ArrayList<Address> addresses = new ArrayList<Address>();		// creates an array list
+		addresses.add(new Address(temp0, temp9, temp8, temp7, temp6));	// adds data retrieved from other variables to array
+		return addresses;												// returns array for reference 
+	}
+	/*end of section*/
 	
 	public ArrayList<Payment> getPayment() throws ParseException {
 		
@@ -303,6 +337,50 @@ public class InitialData {
 		}
 
 
+	
+	
+	//ProdSup
+	/**
+	 * 
+	 * Created by Omar
+	 * 
+	 */
+	/* The below is based on the example suggestion for implementing the Dummy Data
+	 * However I have commented it out for now as I am experimenting with a different method
+	 */
+	
+	/*
+	private ArrayList<ProdSup> prodSupArray = new ArrayList<ProdSup>();
+	
+	public InitialProdSupData() {
+		prodSupArray.add(new ProdSup("supplier", "product", "cost"));
+	}
+	
+	public List<ProdSup> getProdSup() {
+		return prodSupArray;
+	}
+	
+	public void addProdSup(ProdSup prodSup) {
+		prodSupArray.add(prodSup);
+	}
+	
+	public void setProdSupArray(List<ProdSup> prodSupArray) {
+		prodSupArray = prodSupArray;
+	}*/
+	
+	// These are temp variables that will be replaced by getters once the format and names are known
+	private int temp1, temp2, temp3, temp4, temp5;
+	
+	//private ProdSup prodSup;
+	
+	/* The below is a getMethod that will retrieve the dummy data from the necessary variables 
+	 * Then it will return those values in the form of an array*/
+	public ArrayList<ProdSup> getProdSup(){
+		ArrayList<ProdSup> prodSups = new ArrayList<ProdSup>();			// creates an array list
+		prodSups.add(new ProdSup(temp1, temp2, temp3, temp4, temp5));	// adds data retrieved from other variables to array
+		return prodSups;												// returns array for reference 
+	}
+	/*end of section*/
 	
 	
 }

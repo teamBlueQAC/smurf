@@ -1,5 +1,11 @@
 package com.qa.smurf.entities;
 
+/**
+ * 
+ * Created by Omar
+ * 
+ */
+
 import java.util.Date;
 
 import javax.persistence.Column;
