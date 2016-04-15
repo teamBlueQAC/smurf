@@ -25,13 +25,13 @@ public class LineItems {
 	@NotNull
 	private Product prodID;
 	
-	@Column (name = "quantity", length = 10)
+	@Column (name = "QUANTITY", length = 10)
 	private int quantity;
 
-	@Column (name = "subtotal", length = 12)
+	@Column (name = "SUBTOTAL", length = 12)
 	private double subtotal;
 	
-	@Column (name = "returnedQty", length = 10)
+	@Column (name = "RETURNEDQTY", length = 10)
 	private int returnedQty;
 	
 	public long getOrderID(){

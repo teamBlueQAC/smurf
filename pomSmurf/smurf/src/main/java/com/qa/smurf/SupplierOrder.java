@@ -26,36 +26,36 @@ import javax.validation.constraints.Size;
 public class SupplierOrder {
 
 	@Id
-	@Column (name = "SupplierOrderID")
+	@Column (name = "SUPPLIERORDERID")
 	@GeneratedValue (
 			strategy = GenerationType.IDENTITY)
 	private long supplierOrderID;
 	
-	@Column (name = "orderStatus",
+	@Column (name = "ORDERSTATUS",
 			nullable = false, length = 225)
 	@NotNull
 	@Size(min = 2, max = 225)
 	private String orderStatus;
 	
-	@Column (name = "orderAmount", length = 20)
+	@Column (name = "ORDERAMOUNT", length = 20)
 	private int orderAmount;
 	
 	@ManyToMany
 	@NotNull
-	@JoinTable(name = "prodID_fk")
+	@JoinTable(name = "PRODUCT_ID")
 	private int productID;
 	
 	@Temporal(TemporalType.DATE)
-	@Column (name = "dateReceived", length = 10)
+	@Column (name = "DATERECEIVED", length = 10)
 	private Date dateReceived;
 	
-	@Column (name = "receivedAmount", length = 20)
+	@Column (name = "RECEIVEDAMOUNT", length = 20)
 	private int receivedAmount;
 	
 	@ManyToMany
 	@Column (length = 12)
 	@NotNull
-	@JoinTable(name = "supplierID_fk")
+	@JoinTable(name = "SUPPLIER_ID")
 	private long supplierID;
 	
 	
