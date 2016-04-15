@@ -59,11 +59,6 @@ public class User {
 	@Temporal(TemporalType.DATE)
 	@Column (name = "DATECREATED", length = 10)
 	private String created;
-	
-	@ManyToOne
-	@JoinColumn (name= "ACCOUNTTYPE_ID", nullable = false )
-	@NotNull
-	private int accountTypeID;
 
 	public int getId() {
 		return id;
@@ -136,15 +131,5 @@ public class User {
 	public void setCreated(String created) {
 		this.created = created;
 	}
-
-	public int getAccountTypeID() {
-		return accountTypeID;
-	}
-
-	public void setAccountTypeID(int accountTypeID) {
-		this.accountTypeID = accountTypeID;
-	}
-	
-
 	
 }
