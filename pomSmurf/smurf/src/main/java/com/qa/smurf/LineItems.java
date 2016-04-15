@@ -34,11 +34,11 @@ public class LineItems {
 	@Column (name = "RETURNEDQTY", length = 10)
 	private int returnedQty;
 	
-	public long getOrder(){
+	public Order getOrder(){
 		return order;
 	}
 	
-	public Product getProd(){
+	public Product getProduct(){
 		return product;
 	}
 	
@@ -54,11 +54,11 @@ public class LineItems {
 		return returnedQty;
 	}
 	
-	public void setOrderID(Order o){
+	public void setOrder(Order o){
 		this.order = o;
 	}
 	
-	public void setProdID(Product p){
+	public void setProduct(Product p){
 		this.product = p;
 	}
 	
