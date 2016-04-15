@@ -1,5 +1,9 @@
 package com.qa.smurf.entities;
 
+/**
+ * Author - Tom
+ */
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
