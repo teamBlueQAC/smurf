@@ -23,17 +23,6 @@ public class AccountType {
 	@Column(name = "NAME", length = 255)
 	private String name;
 
-	@ManyToOne
-	@JoinTable(name = "EMPLOYEEUSER_ID")
-	private EmployeeUser employeeUser;
-	
-	public EmployeeUser getEmployeeUser() {
-		return employeeUser;
-	}
-	public void setEmployeeUser(EmployeeUser employeeUser) {
-		this.employeeUser = employeeUser;
-	}
-
 	public int getId() {
 		return id;
 	}
