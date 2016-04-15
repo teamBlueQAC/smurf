@@ -25,7 +25,7 @@ public class AccountType {
 	private String name;
 	
 	@ManyToOne
-	@JoinTable(name = "EMPLOYEE_USER_ID")
+	@JoinTable(name = "EMPLOYEEUSER_ID")
 	@NotNull
 	private EmployeeUser employeeUser;
 	
