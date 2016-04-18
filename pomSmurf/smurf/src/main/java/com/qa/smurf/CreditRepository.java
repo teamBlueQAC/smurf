@@ -2,7 +2,7 @@ package com.qa.smurf;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*Author: willseaford*/
 public interface CreditRepository {
 	
 	public void persistCredit (Credit credit);
