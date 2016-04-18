@@ -3,6 +3,7 @@
 package com.qa.smurf;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public interface PaymentRepository {
@@ -11,6 +12,10 @@ public interface PaymentRepository {
 	public void persistPayment (List<Payment> payments);
 	
 	public Payment findByID(long id);
+	public Payment findByCardNumber(String cardNumber);
+	public Payment findByCardType(String cardType);
+	public Payment findByExpiryDate(Date expiryDate);
+	public Payment findByNameOnCard(String nameOnCard);
 
 	public ArrayList<Payment> getPayments();
 	

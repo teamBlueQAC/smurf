@@ -9,6 +9,8 @@ public interface LineItemsRepository {
 	public void persistLineItems (List<LineItems> payments);
 	
 	public LineItems findByID(long id);
+	
+	public LineItems findByProduct(Product product);
 
 	public ArrayList<LineItems> getLineItems();
 	
