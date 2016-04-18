@@ -119,7 +119,28 @@ public class InitialData {
 	
 	//WishlistEntry
 	
-	//EmployeeUser
+	public List<EmployeeUser> getEmployeeUser(){
+		
+		/* 
+		 * Author : willseaford
+			This method returns an ArrayList of EmployeeUser objects and has a dependency on the AccountType class being instantiated. 
+		  	The method: - Creates ArrayLists of EmployeeUser and AccountType and initialises AccountType
+		  	 			- adds each instance.
+		  				- returns the ArrayList
+		*/
+		
+		
+		ArrayList<EmployeeUser> employeeUser = new ArrayList<EmployeeUser>();
+		ArrayList<AccountType> accountType = new ArrayList<AccountType>();
+		
+		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Big Mann"));
+		employeeUser.add(new EmployeeUser(accountType.get(1), "Mr Patrick Starfish"));
+		employeeUser.add(new EmployeeUser(accountType.get(2), "Miss Wo Mann"));
+		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr James Trainer"));
+		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Stewart Noob"));
+		
+		return employeeUser;
+	}
 	
 	//AccountType
 	
