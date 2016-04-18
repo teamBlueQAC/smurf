@@ -25,6 +25,7 @@ public class InitialData {
 
 	//Supplier
 	
+	
 	//Address
 	
 	public List<Payment> getPayment() throws ParseException {
@@ -64,7 +65,7 @@ public class InitialData {
 		return orders;
 	}
 	
-	//User
+	//Orders
 	
 	public List<Credit> getCredit() {
 		
@@ -89,24 +90,34 @@ public class InitialData {
 		return credit;
 	}
 	
-	public List<User> getUser(){
-		ArrayList<User> users =
-				new ArrayList<User>();
-		
-		users.add(new User(1, "Sam Elleray", "Chickens1", "sam@chickens.com", "07881508168", new Date(), true, new Address("12 High Street", "Whocares", "Somerset", "England", "WH1 1t1" ), new Date()));
-		users.add(new User(1, "Bob Marley", "Weed2", "bob@weed.com", "phoneNumber", new Date(), true, new Address("l1", "l2", "l3", "l4", "pc"), new Date()));
-		users.add(new User(2, "Boris Seaford", "willpower3", "boris@will.com", "08005428106", new Date(), true, new Address("15 Orchard Road", "Funplace", "Somerset", "England", "WH7 1PA"), new Date()));
-		users.add(new User(3));
-		users.add(new User(4));
-		users.add(new User(5));
+	//Creates an ArrayList that is populated by dummy data.
 
-		return users;
+		private ArrayList<User> users =
+				new ArrayList<User>();
+		{
+		users.add(new User(1, "Sam Elleray", "Chickens1", "sam@chickens.com", "07881508168", new Date(), true, new Address("12 High Street", "Whocares", "Somerset", "England", "WH1 1t1" ), new Date()));
+		users.add(new User(2, "Boris Seaford", "willpower3", "boris@will.com", "08005428106", new Date(), true, new Address("15 Orchard Road", "Funplace", "Somerset", "England", "WH7 1GA"), new Date()));
+		users.add(new User(3, "Will Weiner", "Password123", "random@email.com", "07826719832", new Date(), true, new Address("4 The Limes", "Lowton", "Warrington", "England", "WA3 1HZ"), new Date()));
+		users.add(new User(4, "Tom Bob", "Thisisapassword", "thisis@anemail", "01942836745", new Date(), true, new Address("28 Kings Cl", "Ashbury", "Swindon", "England", "SN5 7PA"), new Date()));
+		users.add(new User(5, "James Trainer", "JamesPassword", "James@James.com", "07325428106", new Date(), true, new Address("15 Vale Cl", "Cranleigh", "Oxford", "England", "OX5 7PA"), new Date()));
+		}
+	
+		public List<User> getUser(){
+			return users;
+		}
 		
-	}
-	
-	
+		public void addUser(User user)
+		{
+			users.add(user);
+		}
+		
+		public void setUsers(ArrayList<User> user)
+		{
+			this.users = user;
+		}
 	//Credit
 	
+		
 	//OrderStatus
 	public ArrayList<OrderStatus> getOrderStatus(){
 		ArrayList<OrderStatus> orderStatus = new ArrayList<OrderStatus>();
@@ -118,7 +129,6 @@ public class InitialData {
 		
 		return orderStatus;
 	}
-	
 	
 	public List<LineItems> getLineItems() {
 		
@@ -145,7 +155,7 @@ public class InitialData {
 		return lineItems;
 		
 	}
-	
+		
 	//WishlistEntry
 	
 	public List<EmployeeUser> getEmployeeUser(){
@@ -170,9 +180,31 @@ public class InitialData {
 		
 		return employeeUser;
 	}
-	
+		
 	//AccountType
-	
+		//Populates the ArrayList for Account Type with 3 different account types.
+		private ArrayList<AccountType> accountType =
+				new ArrayList<AccountType>();
+		{
+			accountType.add(new AccountType(1, "Inventory Manager"));
+			accountType.add(new AccountType(1, "Accounts Worker"));
+			accountType.add(new AccountType(1, "Warehouse Worker"));
+		}
+		
+		public List<AccountType> getAccountType(){
+			return accountType;
+		}
+		
+		public void addAccountType(AccountType accountType)
+		{
+			this.accountType.add(accountType);
+		}
+		
+		public void setAccountType(ArrayList<AccountType> accountType)
+		{
+			this.accountType = accountType;
+		}
+		
 	//SupplyOrder
 	public ArrayList<SupplierOrder> getSupplierOrder(){
 		ArrayList<SupplierOrder> supplierOrder = new ArrayList<SupplierOrder>();
@@ -185,8 +217,10 @@ public class InitialData {
 		return supplierOrder;
 	}
 	
+		
 	//Products
 	
+		
 	//ProductType
 	
 	public ArrayList<ProdCat> getProdCat(){
@@ -197,6 +231,29 @@ public class InitialData {
 		}
 		
 		return prodCat;
+	}
+
+	//Populates the ArrayList for Product Type with 3 different product types.
+	private ArrayList<ProductType> productType =
+			new ArrayList<ProductType>();
+	{
+		productType.add(new ProductType(1,"Seeds"));
+		productType.add(new ProductType(1,"Gardening Tools"));
+		productType.add(new ProductType(1,"Selena Gnomes"));
+	}
+		
+	public List<ProductType> getProductType(){
+		return productType;
+	}
+		
+	public void addProductType(ProductType productType)
+	{
+		this.productType.add(productType);
+	}
+		
+	public void setProductType(ArrayList<ProductType> productType)
+	{
+		this.productType = productType;
 	}
 	
 	//Category
