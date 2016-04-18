@@ -1,4 +1,4 @@
-package com.qa.smurf;
+package com.qa.smurf.entities;
 
 import java.util.Date;
 
@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+
+import com.qa.smurf.util.OrderStatus;
 
 @Entity
 @Table(name = "SupplierOrder")

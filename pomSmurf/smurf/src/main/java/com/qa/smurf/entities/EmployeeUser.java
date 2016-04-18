@@ -1,4 +1,4 @@
-package com.qa.smurf;
+package com.qa.smurf.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import com.qa.smurf.util.AccountType;
 
 @Entity
 @Table(name = "EmployeeUser")

@@ -1,5 +1,5 @@
 /* Made By Dean + Nabs */
-package com.qa.smurf;
+package com.qa.smurf.util;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

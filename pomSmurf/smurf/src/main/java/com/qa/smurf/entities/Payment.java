@@ -1,4 +1,4 @@
-package com.qa.smurf;
+package com.qa.smurf.entities;
 
 import java.util.Date;
 
