@@ -37,4 +37,12 @@ public class Category {
 	public void setName(String n) {
 		this.name = n;
 	}
+
+	public Category(long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+	
+	
 }

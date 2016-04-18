@@ -158,4 +158,23 @@ public class Product {
 		this.reorderedAmount = reorderedAmount;
 	}
 
+	public Product(long id, String name, String serial, String colour,
+			Double price, boolean discountinued, String pictureLoc,
+			int quantityAvailable, ProductType productType, String description,
+			int reorderThreshold, int reorderedAmount) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.serial = serial;
+		this.colour = colour;
+		this.price = price;
+		this.discountinued = discountinued;
+		this.pictureLoc = pictureLoc;
+		this.quantityAvailable = quantityAvailable;
+		this.productType = productType;
+		this.description = description;
+		this.reorderThreshold = reorderThreshold;
+		this.reorderedAmount = reorderedAmount;
+	}
+
 }

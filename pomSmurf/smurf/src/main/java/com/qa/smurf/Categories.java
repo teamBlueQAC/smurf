@@ -1,6 +1,6 @@
 package com.qa.smurf;
 
-public class Catagories {
+public class Categories {
 	
 	private long id;
 	private String name;
