@@ -42,19 +42,24 @@ public class Payment {
 	private String nameOnCard;
 
 	@OneToOne
-	@JoinColumn(name = "USER_ID")
-	private User user;
 
-	@JoinColumns({ @JoinColumn(name = "LINE1"), @JoinColumn(name = "POSTCODE") })
+	@JoinColumn ( name = "USER_ID",
+	 nullable = false)
+	private User user;
+	
+	@JoinColumns({ @JoinColumn(name = "LINE1"),
+		@JoinColumn(name = "POSTCODE")})
+
 	private Address address;
 
-	public Payment (String cardNumber, String cardType, Date date, String nameOnCard, User user){
+	public Payment (String cardNumber, String cardType, Date date, String nameOnCard, Address address, User user){
 		
 		this.cardNumber = cardNumber;
 		this.cardType = cardType;
 		this.expiryDate = date;
 		this.nameOnCard = nameOnCard;
-		this.userID = user;
+		this.address = address;
+		this.user = user;
 		
 		
 	}
@@ -97,6 +102,7 @@ public class Payment {
 	public void setNameOnCard(String nameOnCard) {
 		this.nameOnCard = nameOnCard;
 	}
+
 
 	public User getUser() {
 		return user;
