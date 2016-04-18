@@ -46,7 +46,7 @@ public class Order {
 
 	@OneToOne
 	@JoinColumn(name = "ORDERSTATUS_ID")
-	private OrderStatus orderStatusID;
+	private OrderStatus orderStatus;
 
 	@JoinColumns({ @JoinColumn(name = "LINE1"), @JoinColumn(name = "POSTCODE") })
 	private Address address;
@@ -54,6 +54,16 @@ public class Order {
 	@JoinColumns(@JoinColumn(name = " PAYMENT_ID", nullable = false))
 	@NotNull
 	private Payment paymentID;
+	
+	public Order(double total, Date date, Date dispatchDate, Payment payment, Address address, User user, OrderStatus orderStatus){
+		this.total = total;
+		this.date = date;
+		this.dispatchDate = dispatchDate;
+		this.paymentID = payment;
+		this.address = address;
+		this.user = user;
+		this.orderStatus = orderStatus;
+	}
 
 	public long getId() {
 		return id;
@@ -95,12 +105,12 @@ public class Order {
 		this.dispatchDate = dispatchDate;
 	}
 
-	public OrderStatus getOrderStatusID() {
-		return orderStatusID;
+	public OrderStatus getOrderStatus() {
+		return orderStatus;
 	}
 
-	public void setOrderStatusID(OrderStatus orderStatusID) {
-		this.orderStatusID = orderStatusID;
+	public void setOrderStatusID(OrderStatus orderStatus) {
+		this.orderStatus = orderStatus;
 	}
 
 	public Address getAddress() {

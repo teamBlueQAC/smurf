@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -21,6 +20,10 @@ public class OrderStatus {
 	@Column(name = "NAME", length = 16)
 	@Size (min = 1, max = 16)
 	private String name;
+	
+	public OrderStatus(String name){
+		this.name = name;
+	}
 
 	public long getId() {
 		return id;

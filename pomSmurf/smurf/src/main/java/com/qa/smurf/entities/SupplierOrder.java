@@ -46,7 +46,16 @@ public class SupplierOrder {
 
 	@ManyToOne
 	@JoinTable(name = "SUPPLIER_ID")
-	private long supplierID;
+	private Supplier supplier;
+	
+	public SupplierOrder(Product product, OrderStatus orderStatus, Supplier supplier, int orderAmount, Date dateReceived, int receivedAmount){
+		this.product = product;
+		this.orderStatus = orderStatus;
+		this.supplier = supplier;
+		this.orderAmount = orderAmount;
+		this.dateReceived = dateReceived;
+		this.receivedAmount = receivedAmount;
+	}
 
 	public long getId() {
 		return supplierOrderID;
@@ -96,12 +105,12 @@ public class SupplierOrder {
 		this.receivedAmount = receivedAmount;
 	}
 
-	public long getSupplierID() {
-		return supplierID;
+	public Supplier getSupplier() {
+		return supplier;
 	}
 
-	public void setSupplierID(long supplierID) {
-		this.supplierID = supplierID;
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
 	}
 
 }
