@@ -66,7 +66,15 @@ public class InitialData {
 	
 	//ProductType
 	
-	//ProdCat
+	public ArrayList<ProdCat> getProdCat(){
+		ArrayList<ProdCat> prodCat = new ArrayList<ProdCat>();
+		
+		for (int i = 0; i < 5; i++){
+			prodCat.add(new ProdCat(getProduct().get(i), getCategory().get(i)));
+		}
+		
+		return prodCat;
+	}
 	
 	//Category
 	
