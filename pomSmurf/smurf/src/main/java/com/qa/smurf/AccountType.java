@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.qa.smurf.entities.EmployeeUser;
+
 
 @Entity
 @Table (name = "AccountType")

@@ -4,16 +4,20 @@ package com.qa.smurf;
  */
 import java.util.ArrayList;
 import java.util.Date;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import com.qa.smurf.entities.Credit;
+import com.qa.smurf.entities.EmployeeUser;
+import com.qa.smurf.entities.LineItems;
+import com.qa.smurf.entities.Order;
+import com.qa.smurf.entities.Payment;
+import com.qa.smurf.entities.ProdCat;
+import com.qa.smurf.entities.Product;
+import com.qa.smurf.entities.SupplierOrder;
+import com.qa.smurf.entities.User;
+import com.qa.smurf.util.OrderStatus;
 
 /**
  * 
