@@ -24,7 +24,13 @@ public class ProdSup {
 	
 	@Column(name = "cost", length = 12)
 	private double cost;
-
+	  
+	public ProdSup(Supplier supplier, Product product, double cost){  
+		this.supplier = supplier;  
+		this.product = product;  
+		this.cost = cost;  
+	}	  
+	
 	public Supplier getSupplier() {
 		return supplier;
 	}

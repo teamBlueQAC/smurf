@@ -24,6 +24,12 @@ public class Supplier {
 
 	@JoinColumns({ @JoinColumn(name = "LINE1"), @JoinColumn(name = "POSTCODE") })
 	private Address address;
+	  
+	public Supplier(Address address, String name, Long id){  
+		this.address = address;  
+		this.name = name;  
+		this.id = id;  
+	}  
 
 	public Long getId() {
 		return id;

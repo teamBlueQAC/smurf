@@ -49,9 +49,6 @@ public class Address {
 		this.postcode = postcode;
 		
 	}
-
-	public Address(String line1, String line2, String line3, String line4, String postcode)
-	{}
 	
 	public String getLine1() {
 		return line1;
