@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import com.qa.smurf.entities.Address;
+import com.qa.smurf.entities.Category;
 import com.qa.smurf.entities.Credit;
 import com.qa.smurf.entities.EmployeeUser;
 import com.qa.smurf.entities.LineItems;
@@ -16,6 +17,7 @@ import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.ProdCat;
 import com.qa.smurf.entities.Product;
+import com.qa.smurf.entities.Supplier;
 import com.qa.smurf.entities.SupplierOrder;
 import com.qa.smurf.entities.User;
 import com.qa.smurf.util.OrderStatus;
@@ -33,7 +35,7 @@ public class InitialData {
 	
 	//Address
 	
-	public List<Payment> getPayment() throws ParseException {
+	public ArrayList<Payment> getPayment() throws ParseException {
 		
 		/* 
 		 * Author : willseaford
@@ -61,10 +63,17 @@ public class InitialData {
 	//Orders
 	public ArrayList<Order> getOrder(){
 		ArrayList<Order> orders = new ArrayList<Order>();
+		
+		ArrayList<Payment> payment = getPayment();
+		ArrayList<Address> address = getAddress();
+		ArrayList<User> user = getUser();
+		ArrayList<OrderStatus> orderStatus= getOrderStatus();
+		
 		double[] price = {10.10, 20.20, 30.30, 40.40, 50.50};
 		
+		
 		for (int i = 0; i < 5; i++){
-			orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddress().get(i), getUser().get(i), getOrderStatus().get(i)));
+			orders.add(new Order(price[i], new Date(), new Date(), payment.get(i), address.get(i), user.get(i), orderStatus.get(i)));
 		}
 		
 		return orders;
@@ -72,7 +81,7 @@ public class InitialData {
 	
 	//Orders
 	
-	public List<Credit> getCredit() {
+	public ArrayList<Credit> getCredit() {
 		
 		/* 
 		 * Author : willseaford
@@ -123,7 +132,7 @@ public class InitialData {
 		return orderStatus;
 	}
 	
-	public List<LineItems> getLineItems() {
+	public ArrayList<LineItems> getLineItems() {
 		
 		/* 
 		 * Author : willseaford
@@ -151,7 +160,7 @@ public class InitialData {
 		
 	//WishlistEntry
 	
-	public List<EmployeeUser> getEmployeeUser(){
+	public ArrayList<EmployeeUser> getEmployeeUser(){
 		
 		/* 
 		 * Author : willseaford
@@ -191,10 +200,14 @@ public class InitialData {
 	//SupplyOrder
 	public ArrayList<SupplierOrder> getSupplierOrder(){
 		ArrayList<SupplierOrder> supplierOrder = new ArrayList<SupplierOrder>();
+		
+		ArrayList<Product> product = getProduct();
+		ArrayList<OrderStatus> orderStatus= getOrderStatus();
+		ArrayList<Supplier> supplier = Supplier();
 		int received[] = { 1, 2, 3, 4, 4 };
 		
 		for (int i = 0; i < 5; i++){
-			supplierOrder.add(new SupplierOrder(getProduct().get(i), getOrderStatus().get(i), getSupplier().get(i), i, new Date(), received[i]));
+			supplierOrder.add(new SupplierOrder(product.get(i), orderStatus.get(i), supplier.get(i), i, new Date(), received[i]));
 		}
 		
 		return supplierOrder;
@@ -209,8 +222,11 @@ public class InitialData {
 	public ArrayList<ProdCat> getProdCat(){
 		ArrayList<ProdCat> prodCat = new ArrayList<ProdCat>();
 		
+		ArrayList<Product> product = getProduct();
+		ArrayList<Category> category = getCategory();
+		
 		for (int i = 0; i < 5; i++){
-			prodCat.add(new ProdCat(getProduct().get(i), getCategory().get(i)));
+			prodCat.add(new ProdCat(product.get(i), category.get(i)));
 		}
 		
 		return prodCat;
