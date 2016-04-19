@@ -25,7 +25,7 @@ public class EmployeeUser {
 	@JoinColumn(name = "ACCOUNTTYPE_ID")
 	private AccountType accountType;
 
-	@Column(name = "NAME", nullable=false, length = 255)
+	@Column(name = "NAME", nullable = false, length = 255)
 	@NotNull
 	private String name;
 
@@ -52,4 +52,12 @@ public class EmployeeUser {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public EmployeeUser(long id, AccountType accountType, String name) {
+		super();
+		this.id = id;
+		this.accountType = accountType;
+		this.name = name;
+	}
+
 }

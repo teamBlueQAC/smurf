@@ -146,7 +146,7 @@ public class InitialData {
 		
 		ArrayList<LineItems> lineItems = new ArrayList<LineItems>();
 		ArrayList<Order> order = getOrder();
-		ArrayList<Product> product = getProduct();
+		ArrayList<Product> product = getProducts();
 		
 		lineItems.add(new LineItems(order.get(0), product.get(0), 250, 400.00, 34));
 		lineItems.add(new LineItems(order.get(1), product.get(1), 450, 1400.00, 67));
@@ -214,9 +214,35 @@ public class InitialData {
 	}
 	
 		
-	//Products
+	//Products nabz & Dean
 	
-		
+	private ArrayList<Product> products = new ArrayList<Product>();
+	
+	products.add(new Product(0, "gnome", "GHTY-YTER-GFDG", "blue", 40.00,
+			false, "mydocs", 500, productType[1],
+			"Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
+	
+	products.add(new Product(1, "seeds", "SDFF-DFGF-JGGJ", "green", 10.00,
+			false, "mydocs", 600, productType[2], "zombie green seeds.",
+			60, 700));
+	
+	products.add(new Product(2, "garden utensils", "EWRE-WRFS-SAZC",
+			"blue", 5.00, false, "mydocs", 700, productType[3],
+			"big and scary garden utensils.", 70, 400));
+	
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void addProduct(Product product) {
+		products.add(product);
+	}
+
+	public void setProducts(ArrayList<Product> products) {
+		this.products = products;
+	}
+
+
 	//ProductType
 	
 	public ArrayList<ProdCat> getProdCat(){
@@ -256,6 +282,27 @@ public class InitialData {
 		this.productType = productType;
 	}
 	
-	//Category
+	//Category Nabz & Dean
+	
+	private ArrayList<Category> categories = new ArrayList<Category>();
+	public InitialData() {
+		categories.add(new Category(1, "axe wielding"));
+		categories.add(new Category(2, "zombie"));
+		categories.add(new Category(3, "big and scary"));
+		
+		public List<Category> getCategories() {
+			return categories;
+		}
+
+		public void addCategory(Category category) {
+			categories.add(category);
+		}
+
+		public void setCategories(ArrayList<Category> categories) {
+			this.categories = categories;
+		}
+
+
+	
 	
 }
