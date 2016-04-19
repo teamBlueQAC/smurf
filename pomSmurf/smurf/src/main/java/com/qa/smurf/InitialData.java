@@ -37,13 +37,17 @@ public class InitialData {
 	 * 
 	 * Created by Omar
 	 * 
-	 */
-
-	
+	 */	
 	/* The below is a getMethod that will retrieve the dummy data from the necessary variables 
 	 * Then it will return those values in the form of an array*/
 	public ArrayList<Supplier> getSupplier(){
-
+		
+		// 
+		ArrayList<Address> address = getAddress();
+		ArrayList<Supplier> supplier = getSupplier();
+		
+		String[] name = {"Omar", "Daniel", "Youkai", "Kuroikaze", "Apollocliptic"};
+		
 		// Create an Array
 		ArrayList<Supplier> suppliers = new ArrayList<Supplier>();	
 
@@ -51,7 +55,7 @@ public class InitialData {
 		for (int i = 0; i < 5; i++) {
 			
 			// adds data retrieved from other classes to array
-			suppliers.add(new Supplier(getAddress().get(i), getName().get(i), getId().get(i)));		
+			suppliers.add(new Supplier(address.get(i), name[i], supplier.get(i)));		
 		}
 		
 		// returns array for reference 
@@ -68,11 +72,18 @@ public class InitialData {
 	 * Created by Omar
 	 * 
 	 */
-	
 	/* The below is a getMethod that will retrieve the dummy data from the necessary variables 
 	 * Then it will return those values in the form of an array*/
 	public ArrayList<Address> getAddress(){
 
+		// Address Dummy Data
+		String[] addressLine1 = {"54 abbey lane", "54 abbey lane", "54 abbey lane", "54 abbey lane", "54 abbey lane"};
+		String[] addressLine2 = {"ayfter road", "ayfter road", "ayfter road", "ayfter road", "ayfter road"};
+		String[] addressLine3 = {"Birgmingham", "Birgmingham", "Birgmingham", "Birgmingham", "Birgmingham"};
+		String[] addressLine4 = {"UK", "UK", "UK", "UK", "UK"};
+		
+		String[] postCode = {"NX7 4GH", "NX7 4GH", "NX7 4GH", "NX7 4GH", "NX7 4GH"};
+		
 		// Create an Array
 		ArrayList<Address> addresses = new ArrayList<Address>();		// creates an array list
 
@@ -80,8 +91,10 @@ public class InitialData {
 		for (int i = 0; i < 5; i++) {
 			
 			// adds data retrieved from other classes to array
-			addresses.add(new Address(getLine1().get(i), getLine2().get(i), getLine3().get(i), getLine4().get(i), getCost().get(i)));		
+			addresses.add(new Address(addressLine1[i], addressLine2[i], addressLine3[i], addressLine4[i], postCode[i]));		
 		}
+		
+		
 		
 		// returns array for reference 
 		return addresses;						
@@ -368,6 +381,15 @@ public class InitialData {
 	/* The below is a getMethod that will retrieve the dummy data from the necessary variables 
 	 * Then it will return those values in the form of an array*/
 	public ArrayList<ProdSup> getProdSup(){
+
+		//
+		ArrayList<Product> product = getProduct();	// error
+
+		//
+		ArrayList<Supplier> supplier = getSupplier();
+
+		//
+		double[] cost = {100.00, 100.00, 100.00, 100.00, 100.00};
 		
 		// Create an Array
 		ArrayList<ProdSup> prodSups = new ArrayList<ProdSup>();			// creates an array list
@@ -376,7 +398,7 @@ public class InitialData {
 		for (int i = 0; i < 5; i++) {
 			
 			// adds data retrieved from other classes to array
-			prodSups.add(new ProdSup(getProduct().get(i), getSupplier().get(i), getCost().get(i)));		
+			prodSups.add(new ProdSup(product.get(i), supplier.get(i), cost[i]));		
 		}
 		
 		// returns array for reference 
