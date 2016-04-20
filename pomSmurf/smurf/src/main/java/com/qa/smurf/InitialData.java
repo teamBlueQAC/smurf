@@ -16,19 +16,14 @@ import com.qa.smurf.entities.LineItems;
 import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.ProdCat;
+import com.qa.smurf.entities.ProdSup;
 import com.qa.smurf.entities.Product;
+import com.qa.smurf.entities.ProductType;
 import com.qa.smurf.entities.Supplier;
 import com.qa.smurf.entities.SupplierOrder;
 import com.qa.smurf.entities.User;
+import com.qa.smurf.util.AccountType;
 import com.qa.smurf.util.OrderStatus;
-
-/**
- * 
- * Created by Sam and Elliot
- *
- */
-
-import java.util.ArrayList;
 
 public class InitialData {
 
@@ -44,7 +39,6 @@ public class InitialData {
 		
 		// 
 		ArrayList<Address> address = getAddress();
-		ArrayList<Supplier> supplier = getSupplier();
 		
 		String[] name = {"Omar", "Daniel", "Youkai", "Kuroikaze", "Apollocliptic"};
 		
@@ -127,7 +121,7 @@ public class InitialData {
 	
 	
 	//Orders
-	public ArrayList<Order> getOrder(){
+	public ArrayList<Order> getOrder() throws ParseException{
 		ArrayList<Order> orders = new ArrayList<Order>();
 		
 		ArrayList<Payment> payment = getPayment();
@@ -198,7 +192,7 @@ public class InitialData {
 		return orderStatus;
 	}
 	
-	public ArrayList<LineItems> getLineItems() {
+	public ArrayList<LineItems> getLineItems() throws ParseException {
 		
 		/* 
 		 * Author : willseaford
@@ -238,7 +232,7 @@ public class InitialData {
 		
 		
 		ArrayList<EmployeeUser> employeeUser = new ArrayList<EmployeeUser>();
-		ArrayList<AccountType> accountType = new ArrayList<AccountType>();
+		ArrayList<AccountType> accountType = getAccountType();
 		
 		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Big Mann"));
 		employeeUser.add(new EmployeeUser(accountType.get(1), "Mr Patrick Starfish"));
@@ -269,7 +263,7 @@ public class InitialData {
 		
 		ArrayList<Product> product = getProduct();
 		ArrayList<OrderStatus> orderStatus= getOrderStatus();
-		ArrayList<Supplier> supplier = Supplier();
+		ArrayList<Supplier> supplier = getSupplier();
 		int received[] = { 1, 2, 3, 4, 4 };
 		
 		for (int i = 0; i < 5; i++){
@@ -282,21 +276,21 @@ public class InitialData {
 		
 	//Products nabz & Dean
 	
-	private ArrayList<Product> products = new ArrayList<Product>();
-	
-	products.add(new Product(0, "gnome", "GHTY-YTER-GFDG", "blue", 40.00,
-			false, "mydocs", 500, productType[1],
-			"Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
-	
-	products.add(new Product(1, "seeds", "SDFF-DFGF-JGGJ", "green", 10.00,
-			false, "mydocs", 600, productType[2], "zombie green seeds.",
-			60, 700));
-	
-	products.add(new Product(2, "garden utensils", "EWRE-WRFS-SAZC",
-			"blue", 5.00, false, "mydocs", 700, productType[3],
-			"big and scary garden utensils.", 70, 400));
-	
 	public ArrayList<Product> getProduct() {
+		ArrayList<Product> products = new ArrayList<Product>();
+		ArrayList<ProductType> productType = getProductType();
+		
+		products.add(new Product(0, "gnome", "GHTY-YTER-GFDG", "blue", 40.00,
+				false, "mydocs", 500, productType.get(1),
+				"Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
+		
+		products.add(new Product(1, "seeds", "SDFF-DFGF-JGGJ", "green", 10.00,
+				false, "mydocs", 600, productType.get(2), "zombie green seeds.",
+				60, 700));
+		
+		products.add(new Product(2, "garden utensils", "EWRE-WRFS-SAZC",
+				"blue", 5.00, false, "mydocs", 700, productType.get(3),
+				"big and scary garden utensils.", 70, 400));
 		return products;
 	}
 
@@ -315,7 +309,7 @@ public class InitialData {
 		ArrayList<ProdCat> prodCat = new ArrayList<ProdCat>();
 		
 		ArrayList<Product> product = getProduct();
-		ArrayList<Category> category = getCategory();
+		ArrayList<Category> category = getCategories();
 		
 		for (int i = 0; i < 5; i++){
 			prodCat.add(new ProdCat(product.get(i), category.get(i)));
@@ -333,7 +327,7 @@ public class InitialData {
 		productType.add(new ProductType(1,"Selena Gnomes"));
 	}
 		
-	public List<ProductType> getProductType(){
+	public ArrayList<ProductType> getProductType(){
 		return productType;
 	}
 
@@ -355,8 +349,9 @@ public class InitialData {
 		categories.add(new Category(1, "axe wielding"));
 		categories.add(new Category(2, "zombie"));
 		categories.add(new Category(3, "big and scary"));
+	}
 		
-		public List<Category> getCategories() {
+		public ArrayList<Category> getCategories() {
 			return categories;
 		}
 
@@ -398,7 +393,7 @@ public class InitialData {
 		for (int i = 0; i < 5; i++) {
 			
 			// adds data retrieved from other classes to array
-			prodSups.add(new ProdSup(product.get(i), supplier.get(i), cost[i]));		
+			prodSups.add(new ProdSup(supplier.get(i), product.get(i), cost[i]));		
 		}
 		
 		// returns array for reference 

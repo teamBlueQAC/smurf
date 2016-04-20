@@ -5,6 +5,8 @@ package com.qa.smurf.repositories;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.qa.smurf.util.AccountType;
+
 public interface AccountTypeRepository {
 	public void persistAccountType (AccountType accountType);
 	public void persistAccountTypes(

@@ -5,6 +5,8 @@ package com.qa.smurf;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.qa.smurf.entities.ProductType;
+
 public interface ProductTypeRepository {
 	public void persistProductType(ProductType productType);
 

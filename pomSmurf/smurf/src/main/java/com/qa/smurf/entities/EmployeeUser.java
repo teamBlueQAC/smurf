@@ -29,7 +29,7 @@ public class EmployeeUser {
 	@NotNull
 	private String name;
 
-	public EmployeeUser(AccountType accountType, String name){
+	public EmployeeUser(AccountType accountType, String name) {
 		this.accountType = accountType;
 		this.name = name;
 	}
@@ -50,13 +50,6 @@ public class EmployeeUser {
 	}
 
 	public void setName(String name) {
-		this.name = name;
-	}
-
-	public EmployeeUser(long id, AccountType accountType, String name) {
-		super();
-		this.id = id;
-		this.accountType = accountType;
 		this.name = name;
 	}
 

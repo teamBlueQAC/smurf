@@ -5,6 +5,8 @@ package com.qa.smurf.repositories;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.qa.smurf.entities.User;
+
 public interface UserRepository {
 	public void persistUser(User user);
 	public void persistUsers(List<User> user);

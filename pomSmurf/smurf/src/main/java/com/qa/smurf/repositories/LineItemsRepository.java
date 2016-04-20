@@ -2,6 +2,9 @@ package com.qa.smurf.repositories;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.qa.smurf.entities.LineItems;
+import com.qa.smurf.entities.Product;
 /*Author: willseaford*/
 public interface LineItemsRepository {
 
