@@ -7,6 +7,8 @@ package com.qa.smurf;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.qa.smurf.entities.Address;
+
 public interface AddressRepository {
 	
 	// 

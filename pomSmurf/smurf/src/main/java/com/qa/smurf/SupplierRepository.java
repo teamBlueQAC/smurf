@@ -7,6 +7,8 @@ package com.qa.smurf;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.qa.smurf.entities.Supplier;
+
 public interface SupplierRepository {
 	
 	// 
@@ -16,7 +18,7 @@ public interface SupplierRepository {
 	public void persistSuppliers(List<Supplier> supplier);
 	
 	// Search for Supplier by ID 
-	public Supplier findByID(long ID);
+	public Supplier findByID(long id);
 	
 	// Fetch the entire list of Suppliers
 	public ArrayList<Supplier> getSuppliers();
