@@ -55,7 +55,7 @@ public class InitialData {
 		for (int i = 0; i < 5; i++) {
 			
 			// adds data retrieved from other classes to array
-			suppliers.add(new Supplier(address.get(i), name[i], supplier.get(i)));		
+			suppliers.add(new Supplier(address.get(i), name[i]));		
 		}
 		
 		// returns array for reference 
@@ -212,7 +212,7 @@ public class InitialData {
 		
 		ArrayList<LineItems> lineItems = new ArrayList<LineItems>();
 		ArrayList<Order> order = getOrder();
-		ArrayList<Product> product = getProducts();
+		ArrayList<Product> product = getProduct();
 		
 		lineItems.add(new LineItems(order.get(0), product.get(0), 250, 400.00, 34));
 		lineItems.add(new LineItems(order.get(1), product.get(1), 450, 1400.00, 67));
@@ -296,7 +296,7 @@ public class InitialData {
 			"blue", 5.00, false, "mydocs", 700, productType[3],
 			"big and scary garden utensils.", 70, 400));
 	
-	public List<Product> getProducts() {
+	public ArrayList<Product> getProduct() {
 		return products;
 	}
 
@@ -383,13 +383,13 @@ public class InitialData {
 	public ArrayList<ProdSup> getProdSup(){
 
 		//
-		ArrayList<Product> product = getProduct();	// error
+		ArrayList<Product> product = getProduct();
 
 		//
 		ArrayList<Supplier> supplier = getSupplier();
 
 		//
-		double[] cost = {100.00, 100.00, 100.00, 100.00, 100.00};
+		double[] cost = {100.05, 200.40, 400.09, 300.02, 800.32};
 		
 		// Create an Array
 		ArrayList<ProdSup> prodSups = new ArrayList<ProdSup>();			// creates an array list
