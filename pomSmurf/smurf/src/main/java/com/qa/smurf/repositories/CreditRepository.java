@@ -1,4 +1,4 @@
-package com.qa.smurf;
+package com.qa.smurf.repositories;
 
 import java.util.ArrayList;
 import java.util.List;

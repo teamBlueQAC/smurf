@@ -29,6 +29,10 @@ public class EmployeeUser {
 	@NotNull
 	private String name;
 
+	public EmployeeUser(AccountType accountType, String name){
+		this.accountType = accountType;
+		this.name = name;
+	}
 	public long getID() {
 		return id;
 	}
