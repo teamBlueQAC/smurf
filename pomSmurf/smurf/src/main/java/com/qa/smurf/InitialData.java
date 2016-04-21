@@ -38,8 +38,9 @@ public class InitialData {
 	private ArrayList<ProductType> productTypes = new ArrayList<ProductType>();
 	private ArrayList<Address> addresses = new ArrayList<Address>();
 	private ArrayList<ProdSup> prodSups = new ArrayList<ProdSup>();	
+	private ArrayList<AccountType> accountTypes = new ArrayList<AccountType>();
 	
-	public InitialData() throws ParseException{	//these need to be run in a specific order
+	public InitialData() throws ParseException{	//TODO these need to be run in a specific order
 		setOrderInitialData();
 		setOrderStatusInitialData();
 		setCategoriesInitialData();
@@ -50,6 +51,7 @@ public class InitialData {
 		setProductInitialData();
 		setAddressInitialData();
 		setProdSupInitialData();
+		setAccountTypeInitialData();
 	}
 
 	/**
@@ -256,15 +258,20 @@ public class InitialData {
 	}
 		
 		//Populates the ArrayList for Account Type with 3 different account types.
-	public ArrayList<AccountType> getAccountType(){
-		ArrayList<AccountType> accountType =
-				new ArrayList<AccountType>();
-		
-			accountType.add(new AccountType(1, "Inventory Manager"));
-			accountType.add(new AccountType(1, "Accounts Worker"));
-			accountType.add(new AccountType(1, "Warehouse Worker"));
-		
-		return accountType;
+	
+	private void setAccountTypeInitialData(){
+		accountTypes.add(new AccountType(1, "Inventory Manager"));
+		accountTypes.add(new AccountType(1, "Accounts Worker"));
+		accountTypes.add(new AccountType(1, "Warehouse Worker"));
+	}
+	public ArrayList<AccountType> getAccountTypes(){
+		return this.accountTypes;
+	}
+	public void addAccountType(AccountType accountType){
+		this.accountTypes.add(accountType);
+	}
+	public void setAccountType(ArrayList<AccountType> accountTypes){
+		this.accountTypes = accountTypes;
 	}
 
 	private void setSupplierOrderInitialdata(){
