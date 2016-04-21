@@ -8,6 +8,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import javax.inject.Singleton;
+
 import com.qa.smurf.entities.Address;
 import com.qa.smurf.entities.Category;
 import com.qa.smurf.entities.Credit;
@@ -25,9 +27,24 @@ import com.qa.smurf.entities.User;
 import com.qa.smurf.util.AccountType;
 import com.qa.smurf.util.OrderStatus;
 
+@Singleton
 public class InitialData {
+	private ArrayList<Order> orders = new ArrayList<Order>();
+	private ArrayList<OrderStatus> orderStatuses = new ArrayList<OrderStatus>();
+	private ArrayList<SupplierOrder> supplierOrders = new ArrayList<SupplierOrder>();
+	private ArrayList<Product> products = new ArrayList<Product>();
+	private ArrayList<ProdCat> prodCats = new ArrayList<ProdCat>();
+	private ArrayList<Category> categories = new ArrayList<Category>();
+	
+	public InitialData() throws ParseException{
+		setOrderInitialData();
+		setOrderStatusInitialData();
+		setCategoriesInitialData();
+		setProdCatInitialData();
+		setSupplierOrderInitialdata();
+		setCategoriesInitialData();
+	}
 
-	//Supplier
 	/**
 	 * 
 	 * Created by Omar
@@ -60,7 +77,6 @@ public class InitialData {
 	/*end of section*/
 	
 	
-	//Address
 	/**
 	 * 
 	 * Created by Omar
@@ -120,27 +136,23 @@ public class InitialData {
 	}
 	
 	
-	//Orders
-	public ArrayList<Order> getOrder() throws ParseException{
-		ArrayList<Order> orders = new ArrayList<Order>();
-		
-		ArrayList<Payment> payment = getPayment();
-		ArrayList<Address> address = getAddress();
-		ArrayList<User> user = getUser();
-		ArrayList<OrderStatus> orderStatus= getOrderStatus();
-		
+	private void setOrderInitialData() throws ParseException{
 		double[] price = {10.10, 20.20, 30.30, 40.40, 50.50};
 		
-		
 		for (int i = 0; i < 5; i++){
-			orders.add(new Order(price[i], new Date(), new Date(), payment.get(i), address.get(i), user.get(i), orderStatus.get(i)));
+			orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddress().get(i), getUser().get(i), getOrderStatuses().get(i)));
 		}
-		
+	}
+	public ArrayList<Order> getOrders(){
 		return orders;
 	}
-	
-	//Orders
-	
+	public void addOrder(Order order) {
+		orders.add(order);
+	}
+	public void setOrders(ArrayList<Order> orders){
+		this.orders = orders;
+	}
+		
 	public ArrayList<Credit> getCredit() {
 		
 		/* 
@@ -175,21 +187,21 @@ public class InitialData {
 			users.add(new User(5, "James Trainer", "JamesPassword", "James@James.com", "07325428106", new Date(), true, new Address("15 Vale Cl", "Cranleigh", "Oxford", "England", "OX5 7PA"), new Date()));
 		return users;
 	}
-
-	
-	//Credit
-	
 		
-	//OrderStatus
-	public ArrayList<OrderStatus> getOrderStatus(){
-		ArrayList<OrderStatus> orderStatus = new ArrayList<OrderStatus>();
-		
+	private void setOrderStatusInitialData(){
 		String[] name = { "Cancelled", "Delivered", "Dispatched", "Awaiting Confirmation", "Dispatched" };
 		for (int i = 0; i < 5; i++){
-			orderStatus.add(new OrderStatus(name[i]));
+			orderStatuses.add(new OrderStatus(name[i]));
 		}
-		
-		return orderStatus;
+	}
+	public ArrayList<OrderStatus> getOrderStatuses(){
+		return orderStatuses;
+	}
+	public void addOrderStatus(OrderStatus orderStatus){
+		orderStatuses.add(orderStatus);
+	}
+	public void setOrderStatuses(ArrayList<OrderStatus> orderStatuses){
+		this.orderStatuses = orderStatuses;
 	}
 	
 	public ArrayList<LineItems> getLineItems() throws ParseException {
@@ -217,9 +229,7 @@ public class InitialData {
 		return lineItems;
 		
 	}
-		
-	//WishlistEntry
-	
+			
 	public ArrayList<EmployeeUser> getEmployeeUser(){
 		
 		/* 
@@ -243,7 +253,6 @@ public class InitialData {
 		return employeeUser;
 	}
 		
-	//AccountType
 		//Populates the ArrayList for Account Type with 3 different account types.
 	public ArrayList<AccountType> getAccountType(){
 		ArrayList<AccountType> accountType =
@@ -256,28 +265,27 @@ public class InitialData {
 		return accountType;
 	}
 
-		
-	//SupplyOrder
-	public ArrayList<SupplierOrder> getSupplierOrder(){
-		ArrayList<SupplierOrder> supplierOrder = new ArrayList<SupplierOrder>();
-		
-		ArrayList<Product> product = getProduct();
-		ArrayList<OrderStatus> orderStatus= getOrderStatus();
-		ArrayList<Supplier> supplier = getSupplier();
+	private void setSupplierOrderInitialdata(){
 		int received[] = { 1, 2, 3, 4, 4 };
 		
 		for (int i = 0; i < 5; i++){
-			supplierOrder.add(new SupplierOrder(product.get(i), orderStatus.get(i), supplier.get(i), i, new Date(), received[i]));
+			supplierOrders.add(new SupplierOrder(getProducts().get(i), getOrderStatuses().get(i), getSupplier().get(i), i, new Date(), received[i]));
 		}
-		
-		return supplierOrder;
+	}
+	public ArrayList<SupplierOrder> getSupplierOrders(){
+		return supplierOrders;
+	}
+	public void addSupplierOrder(SupplierOrder supplierOrder){
+		supplierOrders.add(supplierOrder);
+	}
+	public void setSupplierOrders(ArrayList<SupplierOrder> supplierOrders){
+		this.supplierOrders = supplierOrders;
 	}
 	
 		
 	//Products nabz & Dean
 	
-	public ArrayList<Product> getProduct() {
-		ArrayList<Product> products = new ArrayList<Product>();
+	public ArrayList<Product> getProducts() {
 		ArrayList<ProductType> productType = getProductType();
 		
 		products.add(new Product(0, "gnome", "GHTY-YTER-GFDG", "blue", 40.00,
@@ -302,20 +310,19 @@ public class InitialData {
 		this.products = products;
 	}
 
-
-	//ProductType
-	
-	public ArrayList<ProdCat> getProdCat(){
-		ArrayList<ProdCat> prodCat = new ArrayList<ProdCat>();
-		
-		ArrayList<Product> product = getProduct();
-		ArrayList<Category> category = getCategories();
-		
+	private void setProdCatInitialData(){
 		for (int i = 0; i < 5; i++){
-			prodCat.add(new ProdCat(product.get(i), category.get(i)));
+			prodCats.add(new ProdCat(getProducts().get(i), getCategories().get(i)));
 		}
-		
-		return prodCat;
+	}
+	public ArrayList<ProdCat> getProdCats(){
+		return prodCats;
+	}
+	public void addProdCat(ProdCat prodCat){
+		prodCats.add(prodCat);
+	}
+	public void setProdCats(ArrayList<ProdCat> prodCats){
+		this.prodCats = prodCats;
 	}
 
 	//Populates the ArrayList for Product Type with 3 different product types.
@@ -344,8 +351,7 @@ public class InitialData {
 	
 	//Category Nabz & Dean
 	
-	private ArrayList<Category> categories = new ArrayList<Category>();
-	public InitialData() {
+	private void setCategoriesInitialData() {
 		categories.add(new Category(1, "axe wielding"));
 		categories.add(new Category(2, "zombie"));
 		categories.add(new Category(3, "big and scary"));
@@ -366,7 +372,6 @@ public class InitialData {
 
 	
 	
-	//ProdSup
 	/**
 	 * 
 	 * Created by Omar
@@ -401,5 +406,4 @@ public class InitialData {
 	}
 	/*end of section*/
 
-	
 }
