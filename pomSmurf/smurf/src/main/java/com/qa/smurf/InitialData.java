@@ -35,14 +35,17 @@ public class InitialData {
 	private ArrayList<Product> products = new ArrayList<Product>();
 	private ArrayList<ProdCat> prodCats = new ArrayList<ProdCat>();
 	private ArrayList<Category> categories = new ArrayList<Category>();
+	private ArrayList<ProductType> productTypes = new ArrayList<ProductType>();
 	
-	public InitialData() throws ParseException{
+	public InitialData() throws ParseException{	//these need to be run in a specific order
 		setOrderInitialData();
 		setOrderStatusInitialData();
 		setCategoriesInitialData();
 		setProdCatInitialData();
 		setSupplierOrderInitialdata();
 		setCategoriesInitialData();
+		setProductTypeInitialdata();
+		setProductInitialData();
 	}
 
 	/**
@@ -284,21 +287,20 @@ public class InitialData {
 	
 		
 	//Products nabz & Dean
-	
-	public ArrayList<Product> getProducts() {
-		ArrayList<ProductType> productType = getProductType();
-		
+	private void setProductInitialData(){
 		products.add(new Product(0, "gnome", "GHTY-YTER-GFDG", "blue", 40.00,
-				false, "mydocs", 500, productType.get(1),
+				false, "mydocs", 500, getProductTypes().get(1),
 				"Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
 		
 		products.add(new Product(1, "seeds", "SDFF-DFGF-JGGJ", "green", 10.00,
-				false, "mydocs", 600, productType.get(2), "zombie green seeds.",
+				false, "mydocs", 600, getProductTypes().get(2), "zombie green seeds.",
 				60, 700));
 		
 		products.add(new Product(2, "garden utensils", "EWRE-WRFS-SAZC",
-				"blue", 5.00, false, "mydocs", 700, productType.get(3),
+				"blue", 5.00, false, "mydocs", 700, getProductTypes().get(3),
 				"big and scary garden utensils.", 70, 400));
+	}
+	public ArrayList<Product> getProducts() {
 		return products;
 	}
 
@@ -326,27 +328,26 @@ public class InitialData {
 	}
 
 	//Populates the ArrayList for Product Type with 3 different product types.
-	private ArrayList<ProductType> productType =
-			new ArrayList<ProductType>();
-	{
-		productType.add(new ProductType(1,"Seeds"));
-		productType.add(new ProductType(1,"Gardening Tools"));
-		productType.add(new ProductType(1,"Selena Gnomes"));
+	
+	private void setProductTypeInitialdata(){
+		productTypes.add(new ProductType(1,"Seeds"));
+		productTypes.add(new ProductType(1,"Gardening Tools"));
+		productTypes.add(new ProductType(1,"Selena Gnomes"));
 	}
 		
-	public ArrayList<ProductType> getProductType(){
-		return productType;
+	public ArrayList<ProductType> getProductTypes(){
+		return productTypes;
 	}
 
 		
 	public void addProductType(ProductType productType)
 	{
-		this.productType.add(productType);
+		this.productTypes.add(productType);
 	}
 		
-	public void setProductType(ArrayList<ProductType> productType)
+	public void setProductTypes(ArrayList<ProductType> productTypes)
 	{
-		this.productType = productType;
+		this.productTypes = productTypes;
 	}
 	
 	//Category Nabz & Dean
@@ -357,19 +358,17 @@ public class InitialData {
 		categories.add(new Category(3, "big and scary"));
 	}
 		
-		public ArrayList<Category> getCategories() {
-			return categories;
-		}
+	public ArrayList<Category> getCategories() {
+		return categories;
+	}
 
-		public void addCategory(Category category) {
-			categories.add(category);
-		}
+	public void addCategory(Category category) {
+		categories.add(category);
+	}
 
-		public void setCategories(ArrayList<Category> categories) {
-			this.categories = categories;
-		}
-
-
+	public void setCategories(ArrayList<Category> categories) {
+		this.categories = categories;
+	}
 	
 	
 	/**
