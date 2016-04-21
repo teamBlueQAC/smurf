@@ -36,6 +36,7 @@ public class InitialData {
 	private ArrayList<ProdCat> prodCats = new ArrayList<ProdCat>();
 	private ArrayList<Category> categories = new ArrayList<Category>();
 	private ArrayList<ProductType> productTypes = new ArrayList<ProductType>();
+	private ArrayList<Address> addresses = new ArrayList<Address>();
 	
 	public InitialData() throws ParseException{	//these need to be run in a specific order
 		setOrderInitialData();
@@ -46,6 +47,7 @@ public class InitialData {
 		setCategoriesInitialData();
 		setProductTypeInitialdata();
 		setProductInitialData();
+		setAddressInitialData();
 	}
 
 	/**
@@ -87,32 +89,27 @@ public class InitialData {
 	 */
 	/* The below is a getMethod that will retrieve the dummy data from the necessary variables 
 	 * Then it will return those values in the form of an array*/
-	public ArrayList<Address> getAddress(){
 
-		// Address Dummy Data
+	private void setAddressInitialData(){
 		String[] addressLine1 = {"54 abbey lane", "54 abbey lane", "54 abbey lane", "54 abbey lane", "54 abbey lane"};
 		String[] addressLine2 = {"ayfter road", "ayfter road", "ayfter road", "ayfter road", "ayfter road"};
 		String[] addressLine3 = {"Birgmingham", "Birgmingham", "Birgmingham", "Birgmingham", "Birgmingham"};
 		String[] addressLine4 = {"UK", "UK", "UK", "UK", "UK"};
-		
 		String[] postCode = {"NX7 4GH", "NX7 4GH", "NX7 4GH", "NX7 4GH", "NX7 4GH"};
 		
-		// Create an Array
-		ArrayList<Address> addresses = new ArrayList<Address>();		// creates an array list
-
-		// Create a loop to retrieve data a specific number of times
 		for (int i = 0; i < 5; i++) {
-			
-			// adds data retrieved from other classes to array
 			addresses.add(new Address(addressLine1[i], addressLine2[i], addressLine3[i], addressLine4[i], postCode[i]));		
-		}
-		
-		
-		
-		// returns array for reference 
-		return addresses;						
+		}		
 	}
-	/*end of section*/
+	public ArrayList<Address> getAddresses(){
+		return this.addresses;
+	}
+	public void addAddress(Address address){
+		this.addresses.add(address);
+	}
+	public void setAddress(ArrayList<Address> addresses){
+		this.addresses = addresses;
+	}
 	
 	public ArrayList<Payment> getPayment() throws ParseException {
 		
