@@ -37,6 +37,7 @@ public class InitialData {
 	private ArrayList<Category> categories = new ArrayList<Category>();
 	private ArrayList<ProductType> productTypes = new ArrayList<ProductType>();
 	private ArrayList<Address> addresses = new ArrayList<Address>();
+	private ArrayList<ProdSup> prodSups = new ArrayList<ProdSup>();	
 	
 	public InitialData() throws ParseException{	//these need to be run in a specific order
 		setOrderInitialData();
@@ -48,6 +49,7 @@ public class InitialData {
 		setProductTypeInitialdata();
 		setProductInitialData();
 		setAddressInitialData();
+		setProdSupInitialData();
 	}
 
 	/**
@@ -140,7 +142,7 @@ public class InitialData {
 		double[] price = {10.10, 20.20, 30.30, 40.40, 50.50};
 		
 		for (int i = 0; i < 5; i++){
-			orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddress().get(i), getUser().get(i), getOrderStatuses().get(i)));
+			orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i), getUser().get(i), getOrderStatuses().get(i)));
 		}
 	}
 	public ArrayList<Order> getOrders(){
@@ -374,32 +376,21 @@ public class InitialData {
 	 * 
 	 */
 
-	/* The below is a getMethod that will retrieve the dummy data from the necessary variables 
-	 * Then it will return those values in the form of an array*/
-	public ArrayList<ProdSup> getProdSup(){
-
-		//
-		ArrayList<Product> product = getProduct();
-
-		//
-		ArrayList<Supplier> supplier = getSupplier();
-
-		//
+	private void setProdSupInitialData(){
 		double[] cost = {100.05, 200.40, 400.09, 300.02, 800.32};
 		
-		// Create an Array
-		ArrayList<ProdSup> prodSups = new ArrayList<ProdSup>();			// creates an array list
-		
-		// Create a loop to retrieve data a specific number of times
 		for (int i = 0; i < 5; i++) {
-			
-			// adds data retrieved from other classes to array
-			prodSups.add(new ProdSup(supplier.get(i), product.get(i), cost[i]));		
+			prodSups.add(new ProdSup(getSupplier().get(i), getProducts().get(i), cost[i]));		
 		}
-		
-		// returns array for reference 
-		return prodSups;					
 	}
-	/*end of section*/
+	public ArrayList<ProdSup> getProdSups(){
+		return this.prodSups;
+	}
+	public void addProdSup(ProdSup prodSup){
+		this.prodSups.add(prodSup);
+	}
+	public void setProdSups(ArrayList<ProdSup> prodSups){
+		this.prodSups = prodSups;
+	}
 
 }
