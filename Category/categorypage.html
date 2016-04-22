@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NB Gardens</title>
+        <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/css/uikit.min.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/js/uikit.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+
+    </head>
+    <style>
+    #main {
+    	max-width:1000px;
+    	margin:0 auto;
+    	width:100%;
+    }
+    .boxthing {
+    	display:block;
+    	float:left;
+    }
+
+    .header {
+    	text-align: center;
+    }
+
+    #tfheader {
+    	text-align: center;
+    }
+
+    .Gardenbox {
+        background-image: url("spade2.0.jpg");
+        background-repeat: no-repeat; 
+        background-origin: content-box;
+        background-position: center;
+        background-size: 100% 100%
+
+    }
+
+    .Seedsbox {
+        background-image: url("seeds.jpg");
+        background-repeat: no-repeat; 
+        background-origin: content-box;
+        background-position: center;
+        background-size: 100% 100%
+    } 
+
+    .Gnomesbox {
+        background-image: url("gnome.jpg");
+        background-repeat: no-repeat; 
+        background-origin: content-box;
+        background-position: center;
+        background-size: 100% 100%
+    } 
+       
+        
+    
+    </style>
+    <body>
+    	<div id="banner" style="height:200px; width:100%;">
+    	</div>
+
+    	<div id="main" >
+    	<!-- main page !-->
+    		<div id="menu">
+	            <ul class="uk-navbar-nav uk-hidden-small">
+	                <li class="uk-active"><a href="">Active</a></li>
+	                <li><a href="">About Us</a></li>
+	                <li aria-expanded="false" aria-haspopup="true" class="uk-parent" data-uk-dropdown="">
+	                		<a href="">Home</a>
+	                   
+
+	                    <div style="top: 40px; left: 0px;" class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
+	                        <ul class="uk-nav uk-nav-navbar">
+	                            <li><a href="#">Item</a></li>
+	                            <li><a href="#">Another item</a></li>
+	                            <li class="uk-nav-header">Header</li>
+	                            <li><a href="#">Item</a></li>
+	                            <li><a href="#">Another item</a></li>
+	                            <li class="uk-nav-divider"></li>
+	                            <li><a href="#">Separated item</a></li>
+	                        </ul>
+	                    </div>
+
+	                </li>
+	            </ul>
+
+	            <a href="#offcanvas-1" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas=""></a>
+
+	            <div class="uk-navbar-flip">
+
+	                <a href="" class="uk-navbar-toggle uk-navbar-toggle-alt uk-visible-small"></a>
+
+	                <ul class="uk-navbar-nav uk-hidden-small">
+	                    <li aria-expanded="false" aria-haspopup="true" class="uk-parent" data-uk-dropdown="">
+	                        <a href="">Parent</a>
+
+	                        <div style="top: 40px; left: 0px;" class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
+	                            <ul class="uk-nav uk-nav-navbar">
+	                                <li><a href="#">Item</a></li>
+	                                <li><a href="#">Another item</a></li>
+	                                <li class="uk-nav-header">Header</li>
+	                                <li><a href="#">Item</a></li>
+	                                <li><a href="#">Another item</a></li>
+	                                <li class="uk-nav-divider"></li>
+	                                <li><a href="#">Separated item</a></li>
+	                            </ul>
+	                        </div>
+
+	                    </li>
+	                    <li><a href="">Wishlist</a></li>
+
+	                    <li class="uk-active"><a href="">Basket</a></li>
+	                </ul>
+	            </div> 
+    		</div>
+    		<!-- body !-->
+
+
+    		
+    		<div class="boxthing" style="width:100%; padding-top:20px; background-color: #a84763">
+    			<div id="tfheader" style="padding-bottom: 20px">
+				<form id="tfnewsearch" method="get" action="">
+		        <input type="text" class="tftextinput" name="q" size="30" maxlength="200"><input type="submit" value="search" class="tfbutton">
+				</form>
+				<div class="tfclear"></div>
+                </div>
+            </div>
+
+            <!-- Garden Tools -->
+	   		<div class="boxthing" style="width:100%; padding-top:20px;">
+    		    
+	   			<!--Garden Tools picture-->
+	    		<div class="Gardenbox uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1" style="height:300px; background-color: white; display:inline-block; float:left;">
+	    		</div>
+    		   	<!--Garden Tools text-->
+    		   	<div class="boxthing uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1"  style="height:300px; background-color: white; display:inline-block; float:left;">
+                    <div class="header"> 
+                        <h1 style="padding-top: 10px">Garden Tools</h1>
+                    </div>
+                    
+	    			<div id="Gardentoolsinfo" style="padding: 20px"> 
+    		    		<p> Info about garden tools info about garden tools info about garden tools info about garden tools info about garden tools info about garden tools info about garden tools info about garden tools info about garden tools info about garden tools info about garden tools info about garden tools info about garden tools info about garden tools
+    		    		</p>
+                        <ul style="text-align: right;">
+                        <a href="" style="text-align: right;">Go to garden tools></a>
+                        </ul>
+    		    	</div>
+    		    	
+	    		</div>
+    		   
+    		</div>
+
+    		<!-- SEEDS -->
+    		<div class="boxthing" style="width:100%; padding-top:20px;">
+    		    <!--Seeds picture-->
+	    		<div class="Seedsbox uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1" style="height:300px; display:inline-block; float:right;">
+	    			 		
+     		    </div>
+     		    <!--Seeds text-->
+    			<div class="boxthing uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1"  style="height:300px; display:inline-block; float:left;">
+                    <div class="header"> 
+                        <h1 style="padding-top: 10px">Seeds</h1>
+                    </div>
+
+	    			<div id="Seedsinfo" style="padding: 20px"> 
+    		    		<p> Put seeds in the ground and they will grow duh.
+                         Info about seeds info about seedsinfo about seedsinfo about seeds info about seeds info about seeds info about seeds info about seeds info about seeds info about seeds info about seeds info about seeds info about seeds info about seeds info about seeds info about seeds</p>
+
+                         <ul style="text-align: right;">
+                         <a href="";>Go to seeds></a>
+                         </ul>
+    		    	</div>
+    		    	
+	    		</div>
+            </div>    
+               
+
+            <!--Gnomes-->
+            <div class="boxthing" style="width:100%; padding-top:20px;">
+            	<!--Gnomes picture-->
+	    		<div class="Gnomesbox uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1" style="height:300px; display:inline-block; float:left;">
+	    		                                              
+                </div>
+                <!--Gnomes text-->	
+                <div class="boxthing uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1"  style="height:300px; background-color: white; display:inline-block; float:left;">
+                    <div class="header">
+                        <h1 style="padding-top: 10px">Gnomes</h1>
+                    </div>
+                 	<div id= "Gnomesinfo" style="padding: 20px">
+                 		<p> Info about gnomes info about gnomes info about gnomes info about gnomes info about gnomes info about gnomes info about gnomes info about gnomes info about gnomes info about gnomes info about gnomes info about gnomes info about gnomes info about gnomes info about gnomes info about gnomes info about gnomes info about gnomes info about gnomes
+                        </p>
+
+                        
+                        <ul style="text-align: right;">
+                        <a href="" style="text-align: right;">Go to gnomes></a>
+                        </ul>
+
+                 	</div>
+                </div>
+    		</div>
+
+            <div class="boxthing" style="width:100%; height: 100px; padding-top:20px;">
+            </div>
+    		
+    		
+    	</div>
+    </body>
+</html>
