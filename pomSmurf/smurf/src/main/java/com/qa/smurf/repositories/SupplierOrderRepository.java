@@ -14,7 +14,7 @@ import com.qa.smurf.util.OrderStatus;
 public interface SupplierOrderRepository {
 	public void persistSupplierOrder(SupplierOrder so);
 	public void persistSupplierOrders(
-			List<SupplierOrder> so);
+			ArrayList<SupplierOrder> so);
 	
 	public SupplierOrder findByID(long ID);
 	public ArrayList<SupplierOrder> findBySupplier(Supplier supplier);
