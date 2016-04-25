@@ -30,6 +30,7 @@ import com.qa.smurf.util.OrderStatus;
 @Singleton
 public class InitialData {
 	private ArrayList<Credit> credit = new ArrayList<Credit>();
+	private ArrayList<LineItems> lineItems = new ArrayList<LineItems>();
 	private ArrayList<Order> orders = new ArrayList<Order>();
 	private ArrayList<OrderStatus> orderStatuses = new ArrayList<OrderStatus>();
 	private ArrayList<SupplierOrder> supplierOrders = new ArrayList<SupplierOrder>();
@@ -206,19 +207,10 @@ public class InitialData {
 		this.orderStatuses = orderStatuses;
 	}
 	
-	public ArrayList<LineItems> getLineItems() throws ParseException {
+	public void setLineItems() throws ParseException {
 		
-		/* 
-		 * Author : willseaford
-			This method returns an ArrayList of LineItems objects and has a dependency on the order and product object classes being instantiated. 
-		  	The method: - Creates ArrayLists of LineItems, Order and Product respectively and initialises 
-		  				  order and product with values from in-class getter method
-		  	 			- adds each instance order and product to the Credit object with the quantity, subtotal and returnedQty and adds the Credit object to the 
-		  	 			  ArrayList.
-		  				- returns the LineItems ArrayList
-		*/
+		//  Author : willseaford - This method sets an ArrayList of LineItems objects and has a dependency on the order and product object classes being instantiated. 
 		
-		ArrayList<LineItems> lineItems = new ArrayList<LineItems>();
 		ArrayList<Order> order = getOrder();
 		ArrayList<Product> product = getProduct();
 		
@@ -227,11 +219,15 @@ public class InitialData {
 		lineItems.add(new LineItems(order.get(2), product.get(2), 600, 4200.00, 2));
 		lineItems.add(new LineItems(order.get(3), product.get(3), 560, 5400.00, 45));
 		lineItems.add(new LineItems(order.get(4), product.get(4), 1234, 1400.00, 235));
-		
-		return lineItems;
-		
 	}
-			
+		
+	public void addLineItems(LineItems lineitem){
+		this.lineItems.add(lineitem);
+	}
+	
+	public ArrayList<LineItems> getLineItems(){
+		return lineItems;
+	}
 	public ArrayList<EmployeeUser> getEmployeeUser(){
 		
 		/* 
