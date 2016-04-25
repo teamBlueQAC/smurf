@@ -33,6 +33,7 @@ public class InitialData {
 	private ArrayList<OrderStatus> orderStatuses = new ArrayList<OrderStatus>();
 	private ArrayList<SupplierOrder> supplierOrders = new ArrayList<SupplierOrder>();
 	private ArrayList<Product> products = new ArrayList<Product>();
+	private ArrayList<Payment> payment = new ArrayList<Payment>();
 	private ArrayList<ProdCat> prodCats = new ArrayList<ProdCat>();
 	private ArrayList<Category> categories = new ArrayList<Category>();
 	private ArrayList<ProductType> productTypes = new ArrayList<ProductType>();
@@ -115,19 +116,10 @@ public class InitialData {
 		this.addresses = addresses;
 	}
 	
-	public ArrayList<Payment> getPayment() throws ParseException {
+	public void setPayment() throws ParseException {
 		
-		/* 
-		 * Author : willseaford
-			This method returns an ArrayList of Payment objects and has a dependency on the User object class being instantiated. 
-		  	The method: - Creates an ArrayList of Payments, SimpleDateformat object and a User ArrayList object 
-		  				  which is initialised from the getUser() method
-		  	 			- adds each user to the payment ArrayList with an arbitrary card number, card type and date (which is parsed)
-		  	 			  and uses the users ArrayList to get the name and the instance of the object to the Payment ArrayList 
-		  				- returns the Payment ArrayList
-		*/
-		ArrayList<Payment> payment = new ArrayList<Payment>();
-		
+		//  Author : willseaford - This method returns an ArrayList of Payment objects and has a dependency on the User object class being instantiated. 
+	
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/yy");
 		
 		ArrayList<User> users = getUser();
@@ -136,9 +128,16 @@ public class InitialData {
 		payment.add(new Payment("0987654321234567", "debit", sdf.parse("04/17"), "Miss E Smitten", new Address("1 Beaumont Court", "E1 4NX") , users.get(2)));
 		payment.add(new Payment("1357708642135790", "credit", sdf.parse("02/26"), "Mr W T Beaumont", new Address("14 Louise Road", "E15 4NW") ,users.get(3)));
 		payment.add(new Payment("2468097531246809", "debit", sdf.parse("02/19"), "Mrs D Matthison", new Address("908 The Heart", "M50 2JY") , users.get(4)));
-		return payment;
+
 	}
 	
+	public void addPayment(Payment payment){
+		this.payment.add(payment);
+	}
+	
+	public ArrayList<Payment> getPayment(){
+		return this.payment;
+	}
 	
 	private void setOrderInitialData() throws ParseException{
 		double[] price = {10.10, 20.20, 30.30, 40.40, 50.50};
