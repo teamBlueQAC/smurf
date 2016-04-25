@@ -11,7 +11,7 @@ import com.qa.smurf.util.OrderStatus;
 public interface OrderStatusRepository {
 	public void persistOrderStatus(OrderStatus os);
 	public void persistOrderStatuses(
-			List<OrderStatus> os);
+			ArrayList<OrderStatus> os);
 	
 	public OrderStatus findByID(long ID);
 	public OrderStatus findByName(String name);

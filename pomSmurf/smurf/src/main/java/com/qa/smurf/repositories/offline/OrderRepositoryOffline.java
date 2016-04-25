@@ -87,7 +87,6 @@ implements OrderRepository {
 				orders.remove(i);
 		}
 		initialData.setOrders(orders);
-
 	}
 	
 }
