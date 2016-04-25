@@ -4,7 +4,6 @@ package com.qa.smurf.repositories;
 */  
 
 import java.util.ArrayList;
-import java.util.List;
 
 import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.User;
@@ -13,7 +12,7 @@ import com.qa.smurf.util.OrderStatus;
 public interface OrderRepository {
 	public void persistOrder(Order o);
 	public void persistOrders(
-			List<Order> o);
+			ArrayList<Order> o);
 	
 	public Order findByID(long id);
 	public ArrayList<Order> findByOrderStatus(OrderStatus orderStatus);
