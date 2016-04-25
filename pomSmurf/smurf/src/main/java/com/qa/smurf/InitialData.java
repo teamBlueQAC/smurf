@@ -29,6 +29,7 @@ import com.qa.smurf.util.OrderStatus;
 
 @Singleton
 public class InitialData {
+	private ArrayList<Credit> credit = new ArrayList<Credit>();
 	private ArrayList<Order> orders = new ArrayList<Order>();
 	private ArrayList<OrderStatus> orderStatuses = new ArrayList<OrderStatus>();
 	private ArrayList<SupplierOrder> supplierOrders = new ArrayList<SupplierOrder>();
@@ -156,18 +157,9 @@ public class InitialData {
 		this.orders = orders;
 	}
 		
-	public ArrayList<Credit> getCredit() {
+	public void setCredit() {
 		
-		/* 
-		 * Author : willseaford
-			This method returns an ArrayList of Credit objects and has a dependency on the User object class being instantiated. 
-		  	The method: - Creates an ArrayList of Credit and a User ArrayList object 
-		  				  which is initialised from the getUser() method
-		  	 			- adds each user to the Credit with their amount balance and amount remaining with the quarter
-		  				- returns the Credit ArrayList
-		*/
-		
-		ArrayList<Credit> credit = new ArrayList<Credit>();
+		// Author : willseaford - 
 		ArrayList<User> users = getUser();
 		
 		credit.add(new Credit(users.get(0), 0.0, 0.0, 1));
@@ -176,6 +168,13 @@ public class InitialData {
 		credit.add(new Credit(users.get(3), 1500.00, 400.00, 4));
 		credit.add(new Credit(users.get(4), 0.0, 0.0, 1));
 		
+	}
+	
+	public void addCredit(Credit credit){
+		this.credit.add(credit);
+	}
+	
+	public ArrayList<Credit> getCredit(){
 		return credit;
 	}
 	
