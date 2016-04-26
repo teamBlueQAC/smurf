@@ -42,6 +42,7 @@ public class InitialData {
 	private ArrayList<Address> addresses = new ArrayList<Address>();
 	private ArrayList<ProdSup> prodSups = new ArrayList<ProdSup>();	
 	private ArrayList<AccountType> accountTypes = new ArrayList<AccountType>();
+	private ArrayList<Supplier> suppliers = new ArrayList<Supplier>();	
 	
 	public InitialData() throws ParseException{	//TODO these need to be run in a specific order
 		setOrderInitialData();
@@ -63,28 +64,31 @@ public class InitialData {
 	 * 
 	 */	
 	/* The below is a getMethod that will retrieve the dummy data from the necessary variables 
-	 * Then it will return those values in the form of an array*/
-	public ArrayList<Supplier> getSupplier(){
+	 * Then it will return those values in the form of an array*/							
+	
+	private void setSupplierInitialData() {
+				
+		// Create a list of names to fill the supplier data
+		String[] name = {"GaleTech", "UmbrellerCorp", "Skynet", "V.I.K.I", "Team Rocket"};
 		
-		// 
-		ArrayList<Address> address = getAddress();
-		
-		String[] name = {"Omar", "Daniel", "Youkai", "Kuroikaze", "Apollocliptic"};
-		
-		// Create an Array
-		ArrayList<Supplier> suppliers = new ArrayList<Supplier>();	
-
 		// Create a loop to retrieve data a specific number of times
 		for (int i = 0; i < 5; i++) {
-			
 			// adds data retrieved from other classes to array
-			suppliers.add(new Supplier(address.get(i), name[i]));		
+			suppliers.add(new Supplier(getAddresses().get(i), name[i]));		
 		}
-		
-		// returns array for reference 
-		return suppliers;													
-	}							
+	}
 	
+	public ArrayList<Supplier> getSuppliers() {
+		return this.suppliers;
+	}
+	
+	public void addSupplier(Supplier supplier) {
+		this.suppliers.add(supplier);
+	}
+	
+	public void setSupplier(ArrayList<Supplier> suppliers) {
+		this.suppliers = suppliers;
+	}
 
 	/*end of section*/
 	
