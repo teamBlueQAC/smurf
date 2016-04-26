@@ -1,1 +1,0 @@
-var slider = UIkit.slider(element, { /* options */ });
