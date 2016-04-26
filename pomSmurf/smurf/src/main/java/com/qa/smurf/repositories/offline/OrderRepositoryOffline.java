@@ -73,7 +73,7 @@ implements OrderRepository {
 	public void updateOrder(Order order) {
 		ArrayList<Order> orders = initialData.getOrders();
 		for(int i=0; i<orders.size(); i++) {
-			if(orders.get(i).equals(order))
+			if(orders.get(i).getId() == order.getId())
 				orders.set(i, order);
 		}
 		initialData.setOrders(orders);

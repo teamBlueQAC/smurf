@@ -61,7 +61,7 @@ implements OrderStatusRepository {
 	public void updateOrderStatus(OrderStatus orderStatus) {
 		ArrayList<OrderStatus> orderStatuses = initialData.getOrderStatuses();
 		for(int i=0; i<orderStatuses.size(); i++) {
-			if(orderStatuses.get(i).equals(orderStatus))
+			if(orderStatuses.get(i).getId() == orderStatus.getId())
 				orderStatuses.set(i, orderStatus);
 		}
 		initialData.setOrderStatuses(orderStatuses);
