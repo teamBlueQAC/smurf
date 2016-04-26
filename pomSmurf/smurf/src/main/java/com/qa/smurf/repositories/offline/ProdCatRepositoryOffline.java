@@ -1,15 +1,12 @@
 package com.qa.smurf.repositories.offline;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Category;
 import com.qa.smurf.entities.ProdCat;
 import com.qa.smurf.entities.Product;
-import com.qa.smurf.entities.SupplierOrder;
 import com.qa.smurf.repositories.ProdCatRepository;
 
 public class ProdCatRepositoryOffline
