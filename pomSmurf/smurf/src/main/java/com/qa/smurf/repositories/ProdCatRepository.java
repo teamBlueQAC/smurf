@@ -2,22 +2,23 @@
 package com.qa.smurf.repositories;
 
 import java.util.ArrayList;
-import java.util.List;
 
+import com.qa.smurf.entities.Category;
 import com.qa.smurf.entities.ProdCat;
+import com.qa.smurf.entities.Product;
 
 public interface ProdCatRepository {
 
-	public void persistProdCat(ProdCat prc);
+	public void persistProdCat(ProdCat prodCat);
 
-	public void persistProdCat(List<ProdCat> prc);
+	public void persistProdCats(ArrayList<ProdCat> prc);
 
-	public ProdCat findByID(long id);
+	public ArrayList<Product> findByCategory(Category category);
+	
+	public ArrayList<Category> findByProduct(Product product);
 
-	public ArrayList<ProdCat> getProducts();
+	public ArrayList<ProdCat> getProdCats();
 
-	public void updateProdCat(ProdCat prc);
-
-	public void removeProdCat(ProdCat prc);
+	public void removeProdCat(ProdCat prodCat);
 
 }
