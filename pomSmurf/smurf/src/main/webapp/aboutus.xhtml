@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
+    <head>
+        <title>NB Gardens</title>
+        <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/css/uikit.min.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/js/uikit.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+
+    </head>
+    <style>
+    #main {
+    	max-width:1000px;
+    	margin:0 auto;
+    	width:100%;
+    }
+    .boxthing {
+    	display:block;
+    	float:left;
+    }
+
+    .header {
+    	text-align: center;
+    }
+
+    #tfheader {
+    	text-align: center;
+    }
+
+    .Gardenbox {
+        background-image: url("copyrightfreeteam.jpg");
+        background-repeat: no-repeat; 
+        background-origin: content-box;
+        background-position: center;
+        background-size: 100% 100%
+
+    }
+
+    .Gnomesbox {
+        background-image: url("selenagnomes.jpg");
+        background-repeat: no-repeat; 
+        background-origin: content-box;
+        background-position: center;
+        background-size: 100% 100%
+    } 
+       
+        
+    
+    </style>
+    <body>
+
+    	<div id="main" >
+    	<!-- main page !-->
+    		<!-- body !-->
+		<ui:define name="body">
+            <!-- Based on design - row 1-->
+	   		<div class="boxthing" style="width:100%; padding-top:20px;">
+    		    <!--Garden Tools text-->
+    		   	<div class="boxthing uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1"  style="height:300px; background-color: white; display:inline-block; float:left;">
+                    <div class="header"> 
+                        <h1 style="padding-top: 10px">About Us</h1>
+                    </div>
+                    
+	    			<div id="Gardentoolsinfo" style="padding: 20px"> 
+    		    		<p> We are a company that sells garden materials, 
+						such as seeds, soils and also ornaments for your own garden, such as gnomes.
+						We are a strong, dedicated team of X number of people						
+    		    		</p>
+                        <ul style="text-align: right;">
+                        </ul>
+    		    	</div>
+    		    	
+	    		</div>
+	   			<!--Garden Tools picture-->
+	    		<div class="Gardenbox uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1" style="height:300px; background-color: white; display:inline-block; float:left;">
+	    		</div>
+    		   	
+    		   
+    		</div> 
+               
+            <!--About Products-->
+            <div class="boxthing" style="width:100%; padding-top:20px;">
+            	<!--Gnomes picture-->
+	    		<div class="Gnomesbox uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1" style="height:300px; display:inline-block; float:left;">
+	    		                                              
+                </div>
+                <!--Gnomes text-->	
+                <div class="boxthing uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1"  style="height:300px; background-color: white; display:inline-block; float:left;">
+                    <div class="header">
+                        <h1 style="padding-top: 10px">Products</h1>
+                    </div>
+                 	<div id= "Gnomesinfo" style="padding: 20px">
+                 		<p> As a proud business of selling garden products, 
+							we offer a wide variety of items on our store, such as gnomes and other ornaments, 
+							various kinds of seeds to produce your owns flowers and plants in the garden, 
+							and all the tools necessary to give your garden that personal touch. 
+							
+                        </p>
+
+                 	</div>
+                </div>
+    		</div>
+
+            <div class="boxthing" style="width:100%; height: 100px; padding-top:20px;">
+            </div>
+    		
+    		
+    	</div>
+    </ui:define>
+</ui:composition>
