@@ -40,7 +40,7 @@ public class UserRepositoryOffline implements UserRepository {
 
 	@Override
 	public ArrayList<User> getUser() {
-		return initialData.getUser();
+		return initialData.getUsers();
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class UserRepositoryOffline implements UserRepository {
 			if(users.get(i).getId() == user.getId())
 				users.set(i, user);
 		}
-		initialData.setUser(users);
+		initialData.setUsers(users);
 
 	}
 
@@ -61,7 +61,7 @@ public class UserRepositoryOffline implements UserRepository {
 			if(users.get(i).equals(user))
 				users.remove(i);
 		}
-		initialData.setUser(users);
+		initialData.setUsers(users);
 
 	}
 
