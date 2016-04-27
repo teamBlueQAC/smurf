@@ -1,0 +1,60 @@
+#main {
+	max-width: 1000px;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.boxthing {
+	display: block;
+	float: left;
+}
+
+.header {
+	text-align: center;
+}
+
+#tfheader {
+	text-align: center;
+}
+
+.Gardenbox {
+	background-image: url("copyrightfreeteam.jpg");
+	background-repeat: no-repeat;
+	background-origin: content-box;
+	background-position: center;
+	background-size: 100% 100%
+}
+
+.Gnomesbox {
+	background-image: url("selenagnomes.jpg");
+	background-repeat: no-repeat;
+	background-origin: content-box;
+	background-position: center;
+	background-size: 100% 100%
+}
+
+#footer {
+	background-color: #7EC0EE;
+	height: 150px;
+}
+
+.quantity {
+	width: 40px;
+}
+
+.itempic {
+	background-image: url("images/gnome.jpg");
+	background-size: 150px 90px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#remove {
+	align-content: left;
+}
+
+@media screen and (max-width: 768px) {
+	.small-hide {
+		display: none;
+	}
+}
