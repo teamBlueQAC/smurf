@@ -43,6 +43,7 @@ public class InitialData {
 	private ArrayList<ProdSup> prodSups = new ArrayList<ProdSup>();	
 	private ArrayList<AccountType> accountTypes = new ArrayList<AccountType>();
 	private ArrayList<Supplier> suppliers = new ArrayList<Supplier>();	
+	private ArrayList<User> users = new ArrayList<User>();
 	
 	public InitialData() throws ParseException{	//TODO these need to be run in a specific order
 		setOrderInitialData();
@@ -56,6 +57,7 @@ public class InitialData {
 		setAddressInitialData();
 		setProdSupInitialData();
 		setAccountTypeInitialData();
+		setUserInitialData();
 	}
 
 	/**
@@ -128,7 +130,7 @@ public class InitialData {
 	
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/yy");
 		
-		ArrayList<User> users = getUser();
+		ArrayList<User> users = getUsers();
 		payment.add(new Payment("1234567891011121", "debit", sdf.parse("06/25"), "Mr W Seaford", new Address("23 Holway Road", "TA1 2EZ") ,users.get(0)));
 		payment.add(new Payment("1234678901246789", "credit", sdf.parse("02/24"), "Mr S Smith", new Address("71 Mountbatton", "BS37 S35") , users.get(1)));
 		payment.add(new Payment("0987654321234567", "debit", sdf.parse("04/17"), "Miss E Smitten", new Address("1 Beaumont Court", "E1 4NX") , users.get(2)));
@@ -149,7 +151,7 @@ public class InitialData {
 		double[] price = {10.10, 20.20, 30.30, 40.40, 50.50};
 		
 		for (int i = 0; i < 5; i++){
-			orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i), getUser().get(i), getOrderStatuses().get(i)));
+			orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i), getUsers().get(i), getOrderStatuses().get(i)));
 		}
 	}
 	public ArrayList<Order> getOrders(){
@@ -165,7 +167,7 @@ public class InitialData {
 	public void setCredit() {
 		
 		// Author : willseaford - 
-		ArrayList<User> users = getUser();
+		ArrayList<User> users = getUsers();
 		
 		credit.add(new Credit(users.get(0), 0.0, 0.0, 1));
 		credit.add(new Credit(users.get(1), 2000.00, 1000.00, 2));
@@ -184,15 +186,23 @@ public class InitialData {
 	}
 	
 	//Creates an ArrayList that is populated by dummy data.
-	public ArrayList<User> getUser(){
-		ArrayList<User> users = new ArrayList<User>();
-		
-			users.add(new User(1, "Sam Elleray", "Chickens1", "sam@chickens.com", "07881508168", new Date(), true, new Address("12 High Street", "Whocares", "Somerset", "England", "WH1 1t1" ), new Date()));
-			users.add(new User(2, "Boris Seaford", "willpower3", "boris@will.com", "08005428106", new Date(), true, new Address("15 Orchard Road", "Funplace", "Somerset", "England", "WH7 1GA"), new Date()));
-			users.add(new User(3, "Will Weiner", "Password123", "random@email.com", "07826719832", new Date(), true, new Address("4 The Limes", "Lowton", "Warrington", "England", "WA3 1HZ"), new Date()));
-			users.add(new User(4, "Tom Bob", "Thisisapassword", "thisis@anemail", "01942836745", new Date(), true, new Address("28 Kings Cl", "Ashbury", "Swindon", "England", "SN5 7PA"), new Date()));
-			users.add(new User(5, "James Trainer", "JamesPassword", "James@James.com", "07325428106", new Date(), true, new Address("15 Vale Cl", "Cranleigh", "Oxford", "England", "OX5 7PA"), new Date()));
-		return users;
+	public ArrayList<User> getUsers(){		
+		return this.users;
+	}
+	
+	private void setUserInitialData(){
+		users.add(new User(1, "Sam Elleray", "Chickens1", "sam@chickens.com", "07881508168", new Date(), true, new Address("12 High Street", "Whocares", "Somerset", "England", "WH1 1t1" ), new Date()));
+		users.add(new User(2, "Boris Seaford", "willpower3", "boris@will.com", "08005428106", new Date(), true, new Address("15 Orchard Road", "Funplace", "Somerset", "England", "WH7 1GA"), new Date()));
+		users.add(new User(3, "Will Weiner", "Password123", "random@email.com", "07826719832", new Date(), true, new Address("4 The Limes", "Lowton", "Warrington", "England", "WA3 1HZ"), new Date()));
+		users.add(new User(4, "Tom Bob", "Thisisapassword", "thisis@anemail", "01942836745", new Date(), true, new Address("28 Kings Cl", "Ashbury", "Swindon", "England", "SN5 7PA"), new Date()));
+		users.add(new User(5, "James Trainer", "JamesPassword", "James@James.com", "07325428106", new Date(), true, new Address("15 Vale Cl", "Cranleigh", "Oxford", "England", "OX5 7PA"), new Date()));
+	}
+	public void setUsers(ArrayList<User> users){
+		this.users = users;
+	}
+	
+	public void addUser(User user){
+		this.users.add(user);
 	}
 		
 	private void setOrderStatusInitialData(){
@@ -215,8 +225,8 @@ public class InitialData {
 		
 		//  Author : willseaford - This method sets an ArrayList of LineItems objects and has a dependency on the order and product object classes being instantiated. 
 		
-		ArrayList<Order> order = getOrder();
-		ArrayList<Product> product = getProduct();
+		ArrayList<Order> order = getOrders();
+		ArrayList<Product> product = getProducts();
 		
 		lineItems.add(new LineItems(order.get(0), product.get(0), 250, 400.00, 34));
 		lineItems.add(new LineItems(order.get(1), product.get(1), 450, 1400.00, 67));
@@ -244,7 +254,7 @@ public class InitialData {
 		
 		
 		ArrayList<EmployeeUser> employeeUser = new ArrayList<EmployeeUser>();
-		ArrayList<AccountType> accountType = getAccountType();
+		ArrayList<AccountType> accountType = getAccountTypes();
 		
 		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Big Mann"));
 		employeeUser.add(new EmployeeUser(accountType.get(1), "Mr Patrick Starfish"));
@@ -276,7 +286,7 @@ public class InitialData {
 		int received[] = { 1, 2, 3, 4, 4 };
 		
 		for (int i = 0; i < 5; i++){
-			supplierOrders.add(new SupplierOrder(getProducts().get(i), getOrderStatuses().get(i), getSupplier().get(i), i, new Date(), received[i]));
+			supplierOrders.add(new SupplierOrder(getProducts().get(i), getOrderStatuses().get(i), getSuppliers().get(i), i, new Date(), received[i]));
 		}
 	}
 	public ArrayList<SupplierOrder> getSupplierOrders(){
@@ -385,7 +395,7 @@ public class InitialData {
 		double[] cost = {100.05, 200.40, 400.09, 300.02, 800.32};
 		
 		for (int i = 0; i < 5; i++) {
-			prodSups.add(new ProdSup(getSupplier().get(i), getProducts().get(i), cost[i]));		
+			prodSups.add(new ProdSup(getSuppliers().get(i), getProducts().get(i), cost[i]));		
 		}
 	}
 	public ArrayList<ProdSup> getProdSups(){
