@@ -3,7 +3,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
-    <head>
+    <h:head>
         <title>NB Gardens</title>
         <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/css/uikit.min.css" />
@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
 
-    </head>
+    </h:head>
     <style>
     #main {
     	max-width:1000px;
@@ -51,12 +51,11 @@
         
     
     </style>
-    <body>
-
+	<ui:define name="body">
     	<div id="main" >
     	<!-- main page !-->
     		<!-- body !-->
-		<ui:define name="body">
+		
             <!-- Based on design - row 1-->
 	   		<div class="boxthing" style="width:100%; padding-top:20px;">
     		    <!--Garden Tools text-->
@@ -70,24 +69,18 @@
 						such as seeds, soils and also ornaments for your own garden, such as gnomes.
 						We are a strong, dedicated team of X number of people						
     		    		</p>
-                        <ul style="text-align: right;">
-                        </ul>
+                        <ul style="text-align: right;"/>
     		    	</div>
-    		    	
 	    		</div>
 	   			<!--Garden Tools picture-->
 	    		<div class="Gardenbox uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1" style="height:300px; background-color: white; display:inline-block; float:left;">
 	    		</div>
-    		   	
-    		   
     		</div> 
                
             <!--About Products-->
             <div class="boxthing" style="width:100%; padding-top:20px;">
             	<!--Gnomes picture-->
-	    		<div class="Gnomesbox uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1" style="height:300px; display:inline-block; float:left;">
-	    		                                              
-                </div>
+	    		<div class="Gnomesbox uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1" style="height:300px; display:inline-block; float:left;"/>                                           
                 <!--Gnomes text-->	
                 <div class="boxthing uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1"  style="height:300px; background-color: white; display:inline-block; float:left;">
                     <div class="header">
@@ -104,11 +97,7 @@
                  	</div>
                 </div>
     		</div>
-
-            <div class="boxthing" style="width:100%; height: 100px; padding-top:20px;">
-            </div>
-    		
-    		
+            <div class="boxthing" style="width:100%; height: 100px; padding-top:20px;"/>
     	</div>
     </ui:define>
 </ui:composition>
