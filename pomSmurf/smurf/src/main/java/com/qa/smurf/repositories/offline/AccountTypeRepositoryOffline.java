@@ -6,9 +6,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
-import com.qa.smurf.entities.Credit;
-import com.qa.smurf.entities.Order;
-import com.qa.smurf.entities.Payment;
 import com.qa.smurf.repositories.AccountTypeRepository;
 import com.qa.smurf.util.AccountType;
 
