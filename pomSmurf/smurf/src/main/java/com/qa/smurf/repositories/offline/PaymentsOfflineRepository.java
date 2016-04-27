@@ -13,158 +13,91 @@ public class PaymentsOfflineRepository implements PaymentRepository {
 
 	private InitialData initialData = new InitialData();
 	
-	@Override
 	public void persistPayment(Payment payment) {
-		initialData.addPayment(payment);
-		
+		initialData.addPayment(payment);	
 	}
 
-	@Override
 	public void persistPayment(List<Payment> payments) {
 		for(Payment p: payments){
 			initialData.addPayment(p);
-		}
-		
+		}	
 	}
 
-	@Override
 	public Payment findByID(long id) {
-		try{
-			ArrayList<Payment> payment = initialData.getPayment();
-			for(Payment p: payment){
+			for(Payment p: initialData.getPayment()){
 				if(p.getId() == id){
 					return p;
 				}
 			}
-		} catch (ParseException pe){
-			System.err.println();
-		}
-		
 		return null;
 	}
 
-	@Override
 	public Payment findByCardNumber(String cardNumber) {
-		try{
-			ArrayList<Payment> payment = initialData.getPayment();
-			for(Payment p: payment){
+			for(Payment p: initialData.getPayment()){
 				if(p.getCardNumber().equals(cardNumber)){
 					return p;
 				}
 			}
-		} catch (ParseException pe){
-			System.err.println();
-		}
 		return null;
 	}
 
-	@Override
 	public Payment findByCardType(String cardType) {
-		try{
-			ArrayList<Payment> payment = initialData.getPayment();
-			for(Payment p: payment){
+			for(Payment p: initialData.getPayment()){
 				if(p.getCardType().equals(cardType)){
 					return p;
 				}
 			}
-		} catch (ParseException pe){
-			System.err.println();
-		}
 		return null;
 	}
 
-	@Override
 	public Payment findByExpiryDate(Date expiryDate) {
-		try{
-			ArrayList<Payment> payment = initialData.getPayment();
-			for(Payment p: payment){
+			for(Payment p: initialData.getPayment()){
 				if(p.getExpiryDate().equals(expiryDate)){
 					return p;
 				}
 			}
-		} catch (ParseException pe){
-			System.err.println();
-		}
 		return null;
 	}
 
-	@Override
 	public Payment findByNameOnCard(String nameOnCard) {
-		try{
-			ArrayList<Payment> payment = initialData.getPayment();
-			for(Payment p: payment){
+			for(Payment p: initialData.getPayment()){
 				if(p.getNameOnCard().equals(nameOnCard)){
 					return p;
 				}
 			}
-		} catch (ParseException pe){
-			System.err.println();
-		}
 		return null;
 	}
 
-	@Override
 	public ArrayList<Payment> getPayments() {
-		try{
-			ArrayList<Payment> payment = initialData.getPayment();
-			return payment;
-		} catch (ParseException pe) {
-			System.err.println();
-		}
-		return null;
+		return initialData.getPayment();
 	}
 
-	@Override
 	public void createPayment(Payment p) {
 		persistPayment(p);
-		
 	}
 
-	@Override
 	public Payment readPayment(Payment payment) {
-		try{
-			ArrayList<Payment> paymentList = initialData.getPayment();
-			for(Payment p: paymentList){
+			for(Payment p: initialData.getPayment()){
 				if(p.getId() == payment.getId()){
 					return p;
 				}
 			}
-			
-		} catch (ParseException pe) {
-			System.err.println();
-		}
 		return null;
 	}
 
-	@Override
 	public void updatePayment(Payment payment) {
-		
-		try{
-			ArrayList<Payment> paymentList = initialData.getPayment();
-			for(Payment p: paymentList){
+			for(Payment p: initialData.getPayment()){
 				if(p.getId() == payment.getId()){
 					p = payment;
 				}
 			}
-			
-		} catch (ParseException pe) {
-			System.err.println();
-		}
-		
-		
 	}
 
-	@Override
 	public void removePayment(Payment payment) {
-		try{
-			ArrayList<Payment> paymentList = initialData.getPayment();
-			for(Payment p: paymentList){
-				if(p.getId() == payment.getId()){
-					paymentList.remove(p);
-				}
+		for(Payment p: initialData.getPayment()){
+			if(p.getId() == payment.getId()){
+				initialData.getPayment().remove(p);
 			}
-		} catch (ParseException pe) {
-			System.err.println();
-		}
+		 }
 	}
 }

@@ -27,7 +27,7 @@ public class EmployeeUserOfflineRepository implements EmployeeUserRepository {
 
 	@Override
 	public EmployeeUser findByID(long id) {
-		for(EmployeeUser employeeUser: id){
+		for(EmployeeUser employeeUser: initialData.getEmployeeUser()){
 			if(employeeUser.getID() == id){
 				return employeeUser;
 			}
@@ -42,17 +42,12 @@ public class EmployeeUserOfflineRepository implements EmployeeUserRepository {
 
 	@Override
 	public void updateEmployeeUser(EmployeeUser eUser) {
-		try{
-			ArrayList<EmployeeUser> employeeUserList = initialData.getEmployeeUser();
-			for(EmployeeUser employeeUser: employeeUserList){
-				if(employeeUser.getID() == eUser.getID()){
-					employeeUser = eUser;
-				}
-			}	
-		} catch (ParseException pe) {
-			System.err.println();
-		}
-		
+		ArrayList<EmployeeUser> employeeUserList = initialData.getEmployeeUser();
+		for(EmployeeUser employeeUser: employeeUserList){
+			if(employeeUser.getID() == eUser.getID()){
+				employeeUser = eUser;
+			}
+		}	
 	}
 
 	@Override

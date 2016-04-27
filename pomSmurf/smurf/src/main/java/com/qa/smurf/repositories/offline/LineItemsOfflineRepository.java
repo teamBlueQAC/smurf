@@ -25,7 +25,6 @@ public class LineItemsOfflineRepository implements LineItemsRepository {
 		
 	}	
 	
-
 	public void persistLineItems(List<LineItems> lineitems) {
 		for(LineItems l: lineitems){
 			initialData.addLineItems(l);
@@ -33,7 +32,6 @@ public class LineItemsOfflineRepository implements LineItemsRepository {
 		
 	}
 
-	
 	public LineItems findByCompositeKey(Order order, Product product){
 		try{
 			for(LineItems l: initialData.getLineItems()){
