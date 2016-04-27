@@ -17,19 +17,19 @@ import com.qa.smurf.util.AccountType;
 public class AccountTypeRepositoryOffline implements AccountTypeRepository{
 	@Inject
 	private InitialData initialData;
-	
+
 	@Override
 	public void persistAccountType(AccountType accountType) {
 		initialData.addAccountType(accountType);
-		
+
 	}
 
 	@Override
 	public void persistAccountTypes(List<AccountType> accountType) {
 		for(AccountType a: accountType){
-			initialData.addAccountType(a);;
+			initialData.addAccountType(a);
 		}	
-		
+
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class AccountTypeRepositoryOffline implements AccountTypeRepository{
 				return a;
 			}
 		}
-	return null;
+		return null;
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class AccountTypeRepositoryOffline implements AccountTypeRepository{
 				accountTypes.set(i, accountType);
 		}
 		initialData.setAccountType(accountTypes);
-		
+
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class AccountTypeRepositoryOffline implements AccountTypeRepository{
 				accountTypes.remove(i);
 		}
 		initialData.setAccountType(accountTypes);
-		
+
 	}
 
 }
