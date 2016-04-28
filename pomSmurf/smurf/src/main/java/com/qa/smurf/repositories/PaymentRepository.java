@@ -16,7 +16,7 @@ public interface PaymentRepository {
 	public Payment findByID(long id);
 	public Payment findByCardNumber(String cardNumber);
 	public Payment findByCardType(String cardType);
-	public Payment findByExpiryDate(Date expiryDate);
+	public Payment findByExpiryDate(String expiryDate);
 	public Payment findByNameOnCard(String nameOnCard);
 
 	public ArrayList<Payment> getPayments();

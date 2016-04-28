@@ -35,7 +35,7 @@ public class Payment {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "EXPIRYDATE", nullable = false)
 	@NotNull
-	private Date expiryDate;
+	private String expiryDate;
 
 	@Column(name = "NAMEONCARD", length = 255, nullable = false)
 	@NotNull
@@ -87,11 +87,11 @@ public class Payment {
 		this.cardType = cardType;
 	}
 
-	public Date getExpiryDate() {
+	public String getExpiryDate() {
 		return expiryDate;
 	}
 
-	public void setExpiryDate(Date expiryDate) {
+	public void setExpiryDate(String expiryDate) {
 		this.expiryDate = expiryDate;
 	}
 

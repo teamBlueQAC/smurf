@@ -50,7 +50,7 @@ public class PaymentsOfflineRepository implements PaymentRepository {
 		return null;
 	}
 
-	public Payment findByExpiryDate(Date expiryDate) {
+	public Payment findByExpiryDate(String expiryDate) {
 			for(Payment p: initialData.getPayment()){
 				if(p.getExpiryDate().equals(expiryDate)){
 					return p;
