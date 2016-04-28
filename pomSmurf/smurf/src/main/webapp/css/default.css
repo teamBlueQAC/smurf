@@ -9,6 +9,14 @@
 	float: left;
 }
 
+.categoryinfo {
+	padding: 20px;
+}
+
+.hlinks {
+	text-align: right;
+}
+
 .header {
 	text-align: center;
 }
@@ -17,12 +25,24 @@
 	text-align: center;
 }
 
+.categoryboxthing {
+	width: 100%; 
+	padding-top: 20px;
+}
+
+.categoryheader {
+	padding-top: 10px
+}
+
 .Gardenbox {
 	background-image: url("copyrightfreeteam.jpg");
 	background-repeat: no-repeat;
 	background-origin: content-box;
 	background-position: center;
-	background-size: 100% 100%
+	background-size: 100% 100%;
+	height: 300px; 
+	display: inline-block; 
+	float: left;
 }
 
 .Gnomesbox {
@@ -30,7 +50,27 @@
 	background-repeat: no-repeat;
 	background-origin: content-box;
 	background-position: center;
-	background-size: 100% 100%
+	background-size: 100% 100%;
+	height: 300px; 
+	display: inline-block; 
+	float: left;
+}
+
+.Seedsbox {
+	background-image: url("seeds.jpg");
+	background-repeat: no-repeat;
+	background-origin: content-box;
+	background-position: center;
+	background-size: 100% 100%;
+	height: 300px; 
+	display: inline-block; 
+	float: left;
+}
+
+.infobox {
+	height: 300px; 
+	display: inline-block; 
+	float: left;	
 }
 
 #footer {
