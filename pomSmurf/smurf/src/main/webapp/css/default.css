@@ -36,15 +36,15 @@
 }
 
 .lineitems {
-	width: 100%; 
-	margin: 5px 5px 5px 5px; 
+	width: 100%;
+	margin: 5px 5px 5px 5px;
 	text-align: center;
 }
 
 .totalbox {
-	width: 100%; 
-	padding-top: 20px; 
-	text-align: right; 
+	width: 100%;
+	padding-top: 20px;
+	text-align: right;
 	margin: 0 auto;
 	float: right;
 }
@@ -102,8 +102,8 @@
 	background-size: 150px 90px;
 	background-repeat: no-repeat;
 	background-position: center;
-	height: 125px; 
-	display: inline-block; 
+	height: 125px;
+	display: inline-block;
 	float: left;
 }
 
@@ -112,46 +112,46 @@
 }
 
 .removebox {
-	height: 100%; 
+	height: 100%;
 	display: inline-block;
 }
 
 #baskettitlebox {
-	width: 100%; 
-	padding-top: 20px; 
-	text-align: center; 
-	height: 75px; 
-	max-width: 1000px; 
+	width: 100%;
+	padding-top: 20px;
+	text-align: center;
+	height: 75px;
+	max-width: 1000px;
 	margin: 0 auto;
 }
 
 .productlinetext {
-	height: 45px; 
-	display: inline-block; 
+	height: 45px;
+	display: inline-block;
 	float: left;
 }
 
 .basketitembox {
-	width: 100%; 
-	max-width: 1000px; 
+	width: 100%;
+	max-width: 1000px;
 	margin: 0 auto;
 }
 
 .wistlistitembox {
-	style="width: 100%; 
-	max-width: 1000px; 
+	width: 100%;
+	max-width: 1000px;
 	margin: 0 auto;
 }
 
 .basketboxthing {
 	height: 100%;
-	display: inline-block; 
+	display: inline-block;
 	float: left;
 }
 
 .wishlistboxthing {
-	height: 100%; 
-	display: inline-block; 
+	height: 100%;
+	display: inline-block;
 	float: left;
 }
 
@@ -171,10 +171,10 @@
 }
 
 .wishlisttitlebox {
-	width: 100%; 
-	padding-top: 20px; 
-	text-align: center; 
-	height: 75px; 
+	width: 100%;
+	padding-top: 20px;
+	text-align: center;
+	height: 75px;
 	max-width: 1000px;
 	margin: 0 auto;
 }
