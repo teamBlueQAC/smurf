@@ -5,55 +5,41 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
 
 	<ui:define name="pageTitle">
-		<div
-			style="width: 100%; display: block; float: left; padding-top: 20px; padding-bottom: 20px;">
-			<p>This is our slideshow</p>
-			<div
-				style="width: 100%; height: 200px; display: block; float: left; background-color: lime;"></div>
-		</div>
 	</ui:define>
 	<ui:define name="body">
 
 		<!-- main page -->
 		<!--title-->
 
-		<div
-			style="width: 100%; padding-top: 20px; text-align: center; height: 75px; max-width: 1000px; margin: 0 auto;">
+		<div class="wishlisttitlebox">
 			<h1 class="uk-icon-list">Wishlist</h1>
 		</div>
 
 
-		<div class="boxthing" style="height: 700px; width: 100%;">
-			<div class="uk-grid uk-grid-divider"
-				style="width: 100%; max-width: 1000px; margin: 0 auto;">
+		<div class="boxthing">
+			<div class="wishlistitembox uk-grid">
 				<hr class="uk-article-divider" align="center" width="100%" />
-				<!--first item-->
-				<div id="lineItem1"
-					class="boxthing uk-container uk-container-center"
-					style="width: 100%; margin: 5px 5px 5px 5px; text-align: center;">
 
+				<!--first item-->
+				<div class="boxthing lineItems uk-container uk-container-center">
 
 					<!--picture of item-->
 					<div
-						class="itempic uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1"
-						style="height: 125px; display: inline-block; float: left;">
+						class="itempic uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1">
 					</div>
 
 					<!--name of item-->
 					<div
-						class="boxthing uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1"
-						style="height: 45px; display: inline-block; float: left;">
+						class="productlinetext uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1">
 
 						<h4 class="small-hide">Name of item:</h4>
 						<span><b>Gnomes with a wheel barrow</b></span>
 
 					</div>
 
-
 					<!--price-->
 					<div
-						class="boxthing uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1"
-						style="height: 100%; display: inline-block; float: left;">
+						class="wishlistboxthing uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1">
 						<div>
 							<h4 class="small-hide">Price:</h4>
 							<p>&#163; 5.00</p>
@@ -62,8 +48,7 @@
 
 					<!--add/remove button-->
 					<div
-						class="removebox uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1"
-						style="height: 100%; display: inline-block;">
+						class="removebox uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1">
 						<ul class="uk-list">
 							<li><a class="add uk-button uk-button-medium" type="submit">Add
 									to basket</a></li>
@@ -76,22 +61,17 @@
 
 				<hr class="uk-article-divider" align="center" width="100%" />
 
-				<!--secound item-->
-				<div id="lineItem2"
-					class="boxthing uk-container uk-container-center"
-					style="width: 100%; margin: 5px 5px 5px 5px; text-align: center;">
-
+				<!--second item-->
+				<div class="boxthing lineitems uk-container uk-container-center">
 
 					<!--picture of item-->
 					<div
-						class="itempic uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1"
-						style="height: 125px; display: inline-block; float: left;">
+						class="itempic uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1">
 					</div>
 
 					<!--name of item-->
 					<div
-						class="boxthing uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1"
-						style="height: 45px; display: inline-block; float: left;">
+						class="productlinetext uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1">
 
 						<h4 class="small-hide">Name of item:</h4>
 						<span><b>Gnomes with a wheel barrow</b></span>
@@ -101,8 +81,7 @@
 
 					<!--price-->
 					<div
-						class="boxthing uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1"
-						style="height: 100%; display: inline-block; float: left;">
+						class="wishlistboxthing uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1">
 						<div>
 							<h4 class="small-hide">Price:</h4>
 							<p>&#163; 5.00</p>
@@ -119,7 +98,7 @@
 										to basket</a></li>
 
 								<li><a
-									class=" remove uk-button uk-button-danger uk-button-medium"
+									class="remove uk-button uk-button-danger uk-button-medium"
 									type="submit">Remove</a></li>
 							</ul>
 						</div>

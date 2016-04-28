@@ -4,64 +4,56 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
 
-	<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
-	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/css/uikit.min.css" />
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/js/uikit.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/contact_us.css" />
 
 	<ui:define name="body">
-		<div
-			style="width: 100%; display: block; float: left; padding-top: 20px; padding-bottom: 20px;">
+		<div class="imagebanner" align="center">
+			<h1 class="bannerheader">You must contact me</h1>
+		</div>
 
-			<div
-				style='background-position: center; background-image: url(images/call-centre.jpg); background-repeat: no-repeat; width: 100%; height: 350px; top: 50%;'
-				align="center">
-				<h1 style="position: relative; top: 35%; color: #7EC0EE">You
-					must contact me</h1>
-			</div>
+		<div class="halfaboxthing">
+			<!-- tabs and content !-->
+			<ul class="uk-tab"
+				data-uk-tab="{connect:'#tabcontents', animation: 'slide-horizontal'}">
 
-			<div class="boxthing"
-				style="width: 50%; margin-top: 20px; position: center; position: relative; left: 25%;">
-				<!-- tabs and content !-->
-				<ul class="uk-tab"
-					data-uk-tab="{connect:'#tabcontents', animation: 'slide-horizontal'}">
-
-					<li class="uk-active"><a href="#phoneTab">Phone</a></li>
-					<li><a href="#emailTab">Email</a></li>
-					<li><a href="#postTab">Post</a></li>
-				</ul>
-				<div id="tabcontents" class="uk-switcher" style="margin-top: 15px;">
-					<p>Our trained operators are standing by 24/7 to help with your
-						enquiries.</p>
-					<dl class="uk-description-list-horizontal">
-						<dt>Phone:</dt>
-						<dd>01482 575757</dd>
-					</dl>
-					<p>We aim to respond to all emails within 24 hours. If your
-						enquiry is urgent please phone our 24/7 customer support team.</p>
-					<dl class="uk-description-list-horizontal">
-						<dt>Email:</dt>
-						<dd>customer-support@nbgardens.com</dd>
-					</dl>
-					<div style="padding-top: 20px">
-						<button class="uk-button uk-margin-small-bottom">
+				<li class="uk-active"><a href="#phoneTab">Phone</a></li>
+				<li><a href="#emailTab">Email</a></li>
+				<li><a href="#postTab">Post</a></li>
+			</ul>
+			<div id="tabcontents" class="uk-switcher">
+				<p>Our trained operators are standing by 24/7 to help with your
+					enquiries.</p>
+				<dl class="uk-description-list-horizontal">
+					<dt>Phone:</dt>
+					<dd>01482 575757</dd>
+				</dl>
+				<p>We aim to respond to all emails within 24 hours. If your
+					enquiry is urgent please phone our 24/7 customer support team.</p>
+				<dl class="uk-description-list-horizontal">
+					<dt>Email:</dt>
+					<dd>customer-support@nbgardens.com</dd>
+				</dl>
+				<div style="padding-top: 20px">
+					<form method="get" action="order_forms/temp_order_form.docx">
+						<button class="uk-button uk-margin-small-bottom" type="submit">
 							<i class="uk-icon-at"></i> Download Email order form
 						</button>
-					</div>
-					<H3>Postal Address</H3>
-					<ul>
-						<li>Line 1</li>
-						<li>Line 2</li>
-						<li>Line 3</li>
-						<li>Line 4</li>
-						<li>PostCode</li>
-					</ul>
-					<div style="padding-top: 20px">
-						<button class="uk-button uk-margin-small-bottom">
+					</form>
+				</div>
+				<H3>Postal Address</H3>
+				<ul>
+					<li>Line 1</li>
+					<li>Line 2</li>
+					<li>Line 3</li>
+					<li>Line 4</li>
+					<li>PostCode</li>
+				</ul>
+				<div style="padding-top: 20px">
+					<form method="get" action="order_forms/temp_order_form.docx">
+						<button class="uk-button uk-margin-small-bottom" type="submit">
 							<i class="uk-icon-envelope"></i> Download Postal order form
 						</button>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
