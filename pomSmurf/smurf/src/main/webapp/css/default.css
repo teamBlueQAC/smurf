@@ -107,7 +107,11 @@
 	float: left;
 }
 
-#remove {
+.remove {
+	align-content: left;
+}
+
+.add{
 	align-content: left;
 }
 
