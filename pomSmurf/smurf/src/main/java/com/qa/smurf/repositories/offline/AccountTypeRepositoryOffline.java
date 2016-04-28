@@ -48,9 +48,9 @@ public class AccountTypeRepositoryOffline implements AccountTypeRepository {
 	 * @param id - id of the account type 
 	 */
 	@Override
-	public AccountType findByID(int id) {
-		for (AccountType a : initialData.getAccountTypes()) {
-			if (a.getId() == id) {
+	public AccountType findByID(long id) {
+		for(AccountType a: initialData.getAccountTypes()){
+			if(a.getId() == id){
 				return a;
 			}
 		}

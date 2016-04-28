@@ -17,11 +17,14 @@ public interface AddressRepository {
 	//
 	public void persistAddresses(List<Address> address);
 
-	// Search for address by postcode - may not be possible based on format
-	public Address findByPostCode(long postCode);
 
-	// Search for address via line one
-	// - not a Primary Key, may have multiple results - check if allowed
+	// Search for address by postcode and Line1 to create a composite key
+	public Address findByPostCodeAndLine1(String postCode, String line1);
+	
+	// Search for address by postcode - but return array due to possible multiple results
+	public ArrayList<Address> findByPostCode(String postCode);
+	
+	// Search for address via line one - return as array due to possible multiple results
 	public ArrayList<Address> findByLine1(String line1);
 
 	// Fetch the entire list of addresses

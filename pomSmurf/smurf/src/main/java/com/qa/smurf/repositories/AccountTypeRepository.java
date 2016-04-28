@@ -13,8 +13,7 @@ public interface AccountTypeRepository {
 
 	public void persistAccountTypes(List<AccountType> accountType);
 
-	public AccountType findByID(int id);
-
+	public AccountType findByID(long id);
 	public ArrayList<AccountType> getAccountTypes();
 
 	public void updateAccountType(AccountType accountType);
