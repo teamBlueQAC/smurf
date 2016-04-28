@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html>
-<title>Test Webpage</title>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
 
-<head>
+<h:head>
+	<title>NB Gardens: Home Page</title>
+	
 	<!-- include JQuery -->
 	<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
 	
@@ -17,28 +21,22 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/js/components/slideshow.js"></script>
 
 
-
 	<link rel="stylesheet" type="text/css" href="HomePage.css">
-</head>
-<!---->
-<style>
+</h:head>
 
-</style>
-
-<body>
+<ui:define name="body">
 
 	<div class="contentDiv">
 
 
 
 		<div class="section1">
-			<div class="slideshow"> <a id="slideLink" href="https://www.google.co.uk">
-				<div id="wrapper" background-image="QAImages/gnome_banner.jpg">
-				<center>
-					<!--<img id="slide" src="images/Ryan.png" alt="slideImage" width="530px" style="text-align: center;" float="center">-->
-				</center> 	 
-
-				</div></a>
+			<div class="slideshow"> 
+				<!-- <a id="slideLink" href="https://www.google.co.uk"> -->
+					<!-- <div id="wrapper" background-image="Images/gnome_banner.jpg"> -->
+						<!--<img id="slide" src="images/Ryan.png" alt="slideImage" width="530px" style="text-align: center;" float="center">--> 	 
+					<!-- </div> -->
+				<!-- </a> -->
 			</div>
 		</div>
 
@@ -52,7 +50,7 @@
 		<div class="section2">
 			<div class="embedLeft">
 				<!--<img src="images/gear-left.png" alt="gnome" width="100%" height="100%">-->
-				<img src="QAImages/gnome2.png" alt="gnome" width="100%" height="100%">
+				<img src="Images/gnome2.png" alt="gnome" width="100%" height="100%">
 			</div>
 
 			<div class="welcomeText">
@@ -62,7 +60,7 @@
 
 			<div class="embedRight"> 
 				<!--<img src="images/gear-right.png" alt="gnome" width="100%" height="100%">-->
-				<img src="QAImages/gnome2.png" alt="gnome" width="100%" height="100%">
+				<img src="Images/gnome2.png" alt="gnome" width="100%" height="100%">
 			</div>
 		</div>
 
@@ -70,15 +68,15 @@
 			<div class="boxthing" style="width:100%; height:100%;">
 
 				<div class="boxthing uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1" style="width:33.3%s; height:100%; background-color: green; display:inline-block; float:left;">
-					<a href="https://www.google.co.uk"><img src="QAImages/garden-tools.jpg"></a>
+					<a href="https://www.google.co.uk"><img src="Images/garden-tools.jpg"></a>
 				</div>
 
 				<div class="boxthing uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1" style="width:33.35%; height:100%; background-color: purple; display:inline-block; float:left;">
-					<a href="https://www.google.co.uk"><img src="QAImages/purple garden.jpg"></a>
+					<a href="https://www.google.co.uk"><img src="Images/purple garden.jpg"></a>
 				</div>
 
 				<div class="boxthing uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-1" style="width:33.3%; height:100%; background-color: orange; display:inline-block; float:left;">
-					<a href="https://www.google.co.uk"><img src="QAImages/Sunflower.jpg"></a>
+					<a href="https://www.google.co.uk"><img src="Images/Sunflower.jpg"></a>
 				</div>
 
 
@@ -99,27 +97,11 @@
 
 	</div>
 
-</body>
+</ui:define>
+
 
 <script>
 
-/*  function BoxObject(small, medium, large) {
-   		this.smallSize = small;
-   		this.mediumSize = medium;
-   		this.largeSize = large;
-   }
-*/ 
-   //var boxArray = [new BoxObject(333,300,333), new BoxObject(333, 300, 333), new BoxObject(333, 600, 333)];
-/*
-   		if (pageWidth < 350) {
-   			document.getElementById("box2").width = boxArray[1].small;
-   		}
-   		else if (pageWidth < 700) {
-   			document.getElementById("box2").width = boxArray[1].large;
-   		}
-   		else {
-   			document.getElementById("box2").width = boxArray[1].small;
-   		}*/
    //var pageWidth = 800;
    var counter = 1;
    
@@ -150,15 +132,15 @@
    				counter = 1;
    			} 
    			if (counter == 1) {
-   				document.getElementById("wrapper").style.backgroundImage = "url(QAImages/gnome_banner.jpg)"; //"url(images/Ryan.png)";
+   				document.getElementById("wrapper").style.backgroundImage = "url(Images/gnome_banner.jpg)"; //"url(images/Ryan.png)";
    				document.getElementById("slideLink").href = "https://www.google.co.uk"
    			}	
    			else if (counter == 2) {
-   				document.getElementById("wrapper").style.backgroundImage = "url(QAImages/garden-tools-banner.jpg)";//"url(images/Timothy.png)";
+   				document.getElementById("wrapper").style.backgroundImage = "url(Images/garden-tools-banner.jpg)";//"url(images/Timothy.png)";
    				document.getElementById("slideLink").href = "https://www.google.co.uk"
    			}
    			else if (counter == 3) {
-   				document.getElementById("wrapper").style.backgroundImage = "url(QAImages/seeds.jpg)";//"url(images/Tago.jpg)";
+   				document.getElementById("wrapper").style.backgroundImage = "url(Images/seeds2.jpg)";//"url(images/Tago.jpg)";
    				document.getElementById("slideLink").href = "https://www.google.co.uk"
    			}  
    			updateStatus = fadeInStatus;
@@ -183,4 +165,4 @@
 
 </script>
 
-</html>
+</ui:composition>
