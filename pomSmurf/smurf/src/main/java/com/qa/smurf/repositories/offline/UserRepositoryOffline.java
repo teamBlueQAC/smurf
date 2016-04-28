@@ -9,17 +9,32 @@ import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.User;
 import com.qa.smurf.repositories.UserRepository;
 
+/**
+ * 
+ * @author Nathan Orme
+ *
+ * Offline Repository for the User Repository
+ *
+ */
 public class UserRepositoryOffline implements UserRepository {
 
 	@Inject
 	private InitialData initialData;
 
+	/**
+	 * Adds the user to the storage
+	 * @param user - user that gets saved 
+	 */
 	@Override
 	public void persistUser(User user) {
 		initialData.addUser(user);
 
 	}
 
+	/**
+	 * Adds the user to the storage
+	 * @param user - list of user that gets saved 
+	 */
 	@Override
 	public void persistUsers(List<User> user) {
 		for (User u : user) {
@@ -28,6 +43,10 @@ public class UserRepositoryOffline implements UserRepository {
 
 	}
 
+	/**
+	 * Adds the user to the storage
+	 * @param user user that gets saved 
+	 */
 	@Override
 	public User findByID(int id) {
 		for (User u : initialData.getUser()) {
@@ -38,11 +57,19 @@ public class UserRepositoryOffline implements UserRepository {
 		return null;
 	}
 
+	/**
+	 * Gets all the users.
+	 */
 	@Override
 	public ArrayList<User> getUser() {
 		return initialData.getUsers();
 	}
 
+	/**
+	 * Iterates through the existing list of users,
+	 * Then updates the specified user from the list. 
+	 * @param user user that gets updated 
+	 */
 	@Override
 	public void updateUser(User user) {
 		ArrayList<User> users = initialData.getUser();
@@ -54,6 +81,11 @@ public class UserRepositoryOffline implements UserRepository {
 
 	}
 
+	/**
+	 * Iterates through the existing list of users,
+	 * Then removes the specified user from the list. 
+	 * @param user user that gets removed 
+	 */
 	@Override
 	public void removeUser(User user) {
 		ArrayList<User> users = initialData.getUser();
