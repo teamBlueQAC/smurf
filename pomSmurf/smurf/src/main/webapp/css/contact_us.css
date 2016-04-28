@@ -1,0 +1,21 @@
+.imagebanner {
+	background-position: center; 
+	background-image: url(../images/call-centre.jpg); 
+	background-repeat: no-repeat; 
+	width: 100%; 
+	height: 350px; 
+	top: 50%;
+}
+.halfaboxthing {
+	width: 50%; 
+	margin-top: 20px; 
+	position: center; 
+	position: relative; 
+	left: 25%;
+}
+.bannerheader {
+	position: relative; 
+	top: 35%; 
+	color: #7EC0EE;
+}
+
