@@ -125,7 +125,7 @@
 	margin: 0 auto;
 }
 
-.basketlinetext {
+.productlinetext {
 	height: 45px; 
 	display: inline-block; 
 	float: left;
@@ -133,6 +133,12 @@
 
 .basketitembox {
 	width: 100%; 
+	max-width: 1000px; 
+	margin: 0 auto;
+}
+
+.wistlistitembox {
+	style="width: 100%; 
 	max-width: 1000px; 
 	margin: 0 auto;
 }
@@ -156,4 +162,13 @@
 	float: center;
 	padding-top: 20px;
 	padding-bottom: 20px;
+}
+
+.wishlisttitlebox {
+	width: 100%; 
+	padding-top: 20px; 
+	text-align: center; 
+	height: 75px; 
+	max-width: 1000px;
+	margin: 0 auto;
 }
