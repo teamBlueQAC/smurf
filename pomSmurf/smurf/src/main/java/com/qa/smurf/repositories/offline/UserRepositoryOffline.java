@@ -44,8 +44,8 @@ public class UserRepositoryOffline implements UserRepository {
 	}
 
 	/**
-	 * Adds the user to the storage
-	 * @param user user that gets saved 
+	 * Gets the user from the storage
+	 * @param id id of the user
 	 */
 	@Override
 	public User findByID(int id) {
