@@ -21,17 +21,32 @@
 	text-align: center;
 }
 
-#tfheader {
+.quantitything {
 	text-align: center;
+	padding-bottom: 10px
 }
 
 .categoryboxthing {
-	width: 100%; 
+	width: 100%;
 	padding-top: 20px;
 }
 
 .categoryheader {
 	padding-top: 10px
+}
+
+.lineitems {
+	width: 100%;
+	margin: 5px 5px 5px 5px;
+	text-align: center;
+}
+
+.totalbox {
+	width: 100%;
+	padding-top: 20px;
+	text-align: right;
+	margin: 0 auto;
+	float: right;
 }
 
 .Gardenbox {
@@ -40,8 +55,8 @@
 	background-origin: content-box;
 	background-position: center;
 	background-size: 100% 100%;
-	height: 300px; 
-	display: inline-block; 
+	height: 300px;
+	display: inline-block;
 	float: left;
 }
 
@@ -51,8 +66,8 @@
 	background-origin: content-box;
 	background-position: center;
 	background-size: 100% 100%;
-	height: 300px; 
-	display: inline-block; 
+	height: 300px;
+	display: inline-block;
 	float: left;
 }
 
@@ -62,15 +77,15 @@
 	background-origin: content-box;
 	background-position: center;
 	background-size: 100% 100%;
-	height: 300px; 
-	display: inline-block; 
+	height: 300px;
+	display: inline-block;
 	float: left;
 }
 
 .infobox {
-	height: 300px; 
-	display: inline-block; 
-	float: left;	
+	height: 300px;
+	display: inline-block;
+	float: left;
 }
 
 #footer {
@@ -87,14 +102,83 @@
 	background-size: 150px 90px;
 	background-repeat: no-repeat;
 	background-position: center;
+	height: 125px;
+	display: inline-block;
+	float: left;
 }
 
-#remove {
+.remove {
 	align-content: left;
+}
+
+.add{
+	align-content: left;
+}
+
+.removebox {
+	height: 100%;
+	display: inline-block;
+}
+
+#baskettitlebox {
+	width: 100%;
+	padding-top: 20px;
+	text-align: center;
+	height: 75px;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.productlinetext {
+	height: 45px;
+	display: inline-block;
+	float: left;
+}
+
+.basketitembox {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.wistlistitembox {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.basketboxthing {
+	height: 100%;
+	display: inline-block;
+	float: left;
+}
+
+.wishlistboxthing {
+	height: 100%;
+	display: inline-block;
+	float: left;
 }
 
 @media screen and (max-width: 768px) {
 	.small-hide {
 		display: none;
 	}
+}
+
+#wrappingDiv {
+	background-color: #7ec0ee;
+	width: 100%;
+	display: block;
+	float: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.wishlisttitlebox {
+	width: 100%;
+	padding-top: 20px;
+	text-align: center;
+	height: 75px;
+	max-width: 1000px;
+	margin: 0 auto;
 }
