@@ -10,23 +10,28 @@ import com.qa.smurf.entities.Payment;
 
 public interface PaymentRepository {
 
-	public void persistPayment (Payment payment);
-	public void persistPayment (List<Payment> payments);
-	
+	public void persistPayment(Payment payment);
+
+	public void persistPayment(List<Payment> payments);
+
 	public Payment findByID(long id);
+
 	public Payment findByCardNumber(String cardNumber);
+
 	public Payment findByCardType(String cardType);
+
 	public Payment findByExpiryDate(String expiryDate);
+
 	public Payment findByNameOnCard(String nameOnCard);
 
 	public ArrayList<Payment> getPayments();
-	
+
 	public void createPayment(Payment p);
-	
+
 	public Payment readPayment(Payment p);
 
-	public void updatePayment(Payment  p);
+	public void updatePayment(Payment p);
 
-	public void removePayment(Payment  p);
+	public void removePayment(Payment p);
 
 }

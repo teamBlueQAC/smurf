@@ -11,7 +11,6 @@ import javax.inject.Inject;
 import com.qa.smurf.InitialData;
 import com.qa.smurf.repositories.SupplierRepository;
 
-
-public class SupplierRepositoryOffline implements SupplierRepository{
+public class SupplierRepositoryOffline implements SupplierRepository {
 
 }

@@ -20,11 +20,11 @@ public class Credit {
 	@NotNull
 	private Double amount;
 
-	@Column(name = "AMOUNT_REMAINING", nullable=false)
+	@Column(name = "AMOUNT_REMAINING", nullable = false)
 	@NotNull
 	private Double amountRemaining;
 
-	@Column(name = "QUARTER", nullable=false)
+	@Column(name = "QUARTER", nullable = false)
 	@NotNull
 	private int quarter;
 

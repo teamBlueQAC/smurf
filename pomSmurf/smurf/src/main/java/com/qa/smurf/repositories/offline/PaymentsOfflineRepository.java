@@ -12,59 +12,59 @@ import com.qa.smurf.entities.Payment;
 public class PaymentsOfflineRepository implements PaymentRepository {
 
 	private InitialData initialData = new InitialData();
-	
+
 	public void persistPayment(Payment payment) {
-		initialData.addPayment(payment);	
+		initialData.addPayment(payment);
 	}
 
 	public void persistPayment(List<Payment> payments) {
-		for(Payment p: payments){
+		for (Payment p : payments) {
 			initialData.addPayment(p);
-		}	
+		}
 	}
 
 	public Payment findByID(long id) {
-			for(Payment p: initialData.getPayment()){
-				if(p.getId() == id){
-					return p;
-				}
+		for (Payment p : initialData.getPayment()) {
+			if (p.getId() == id) {
+				return p;
 			}
+		}
 		return null;
 	}
 
 	public Payment findByCardNumber(String cardNumber) {
-			for(Payment p: initialData.getPayment()){
-				if(p.getCardNumber().equals(cardNumber)){
-					return p;
-				}
+		for (Payment p : initialData.getPayment()) {
+			if (p.getCardNumber().equals(cardNumber)) {
+				return p;
 			}
+		}
 		return null;
 	}
 
 	public Payment findByCardType(String cardType) {
-			for(Payment p: initialData.getPayment()){
-				if(p.getCardType().equals(cardType)){
-					return p;
-				}
+		for (Payment p : initialData.getPayment()) {
+			if (p.getCardType().equals(cardType)) {
+				return p;
 			}
+		}
 		return null;
 	}
 
 	public Payment findByExpiryDate(String expiryDate) {
-			for(Payment p: initialData.getPayment()){
-				if(p.getExpiryDate().equals(expiryDate)){
-					return p;
-				}
+		for (Payment p : initialData.getPayment()) {
+			if (p.getExpiryDate().equals(expiryDate)) {
+				return p;
 			}
+		}
 		return null;
 	}
 
 	public Payment findByNameOnCard(String nameOnCard) {
-			for(Payment p: initialData.getPayment()){
-				if(p.getNameOnCard().equals(nameOnCard)){
-					return p;
-				}
+		for (Payment p : initialData.getPayment()) {
+			if (p.getNameOnCard().equals(nameOnCard)) {
+				return p;
 			}
+		}
 		return null;
 	}
 
@@ -77,27 +77,27 @@ public class PaymentsOfflineRepository implements PaymentRepository {
 	}
 
 	public Payment readPayment(Payment payment) {
-			for(Payment p: initialData.getPayment()){
-				if(p.getId() == payment.getId()){
-					return p;
-				}
+		for (Payment p : initialData.getPayment()) {
+			if (p.getId() == payment.getId()) {
+				return p;
 			}
+		}
 		return null;
 	}
 
 	public void updatePayment(Payment payment) {
-			for(Payment p: initialData.getPayment()){
-				if(p.getId() == payment.getId()){
-					p = payment;
-				}
+		for (Payment p : initialData.getPayment()) {
+			if (p.getId() == payment.getId()) {
+				p = payment;
 			}
+		}
 	}
 
 	public void removePayment(Payment payment) {
-		for(Payment p: initialData.getPayment()){
-			if(p.getId() == payment.getId()){
+		for (Payment p : initialData.getPayment()) {
+			if (p.getId() == payment.getId()) {
 				initialData.getPayment().remove(p);
 			}
-		 }
+		}
 	}
 }

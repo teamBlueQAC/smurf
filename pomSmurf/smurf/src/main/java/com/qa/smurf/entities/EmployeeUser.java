@@ -33,6 +33,7 @@ public class EmployeeUser {
 		this.accountType = accountType;
 		this.name = name;
 	}
+
 	public long getID() {
 		return id;
 	}

@@ -54,8 +54,9 @@ public class Order {
 	@JoinColumns(@JoinColumn(name = " PAYMENT_ID", nullable = false))
 	@NotNull
 	private Payment paymentID;
-	
-	public Order(double total, Date date, Date dispatchDate, Payment payment, Address address, User user, OrderStatus orderStatus){
+
+	public Order(double total, Date date, Date dispatchDate, Payment payment, Address address, User user,
+			OrderStatus orderStatus) {
 		this.total = total;
 		this.date = date;
 		this.dispatchDate = dispatchDate;

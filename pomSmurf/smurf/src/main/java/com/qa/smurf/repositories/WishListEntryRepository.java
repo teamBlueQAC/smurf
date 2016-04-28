@@ -7,7 +7,7 @@ import java.util.List;
 import com.qa.smurf.entities.WishListEntry;
 
 public interface WishListEntryRepository {
-	
+
 	public void persistWishListEntry(WishListEntry w);
 
 	public void persistWishListEntrys(List<WishListEntry> w);

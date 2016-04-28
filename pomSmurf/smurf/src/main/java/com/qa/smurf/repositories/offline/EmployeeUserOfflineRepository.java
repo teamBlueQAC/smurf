@@ -12,7 +12,7 @@ import com.qa.smurf.repositories.EmployeeUserRepository;
 public class EmployeeUserOfflineRepository implements EmployeeUserRepository {
 
 	private InitialData initialData = new InitialData();
-	
+
 	@Override
 	public void persistEmployeeUser(EmployeeUser eu) {
 		initialData.addEmployeeUser(eu);
@@ -20,15 +20,15 @@ public class EmployeeUserOfflineRepository implements EmployeeUserRepository {
 
 	@Override
 	public void persistEmployeeUsers(List<EmployeeUser> eu) {
-		for(EmployeeUser employeeUser: eu){
+		for (EmployeeUser employeeUser : eu) {
 			initialData.addEmployeeUser(employeeUser);
-		}	
+		}
 	}
 
 	@Override
 	public EmployeeUser findByID(long id) {
-		for(EmployeeUser employeeUser: initialData.getEmployeeUser()){
-			if(employeeUser.getID() == id){
+		for (EmployeeUser employeeUser : initialData.getEmployeeUser()) {
+			if (employeeUser.getID() == id) {
 				return employeeUser;
 			}
 		}
@@ -43,16 +43,16 @@ public class EmployeeUserOfflineRepository implements EmployeeUserRepository {
 	@Override
 	public void updateEmployeeUser(EmployeeUser eUser) {
 		ArrayList<EmployeeUser> employeeUserList = initialData.getEmployeeUser();
-		for(EmployeeUser employeeUser: employeeUserList){
-			if(employeeUser.getID() == eUser.getID()){
+		for (EmployeeUser employeeUser : employeeUserList) {
+			if (employeeUser.getID() == eUser.getID()) {
 				employeeUser = eUser;
 			}
-		}	
+		}
 	}
 
 	@Override
 	public void removeEmployeeUser(EmployeeUser eu) {
-			initialData.getEmployeeUser().remove(eu);		
-	}	
+		initialData.getEmployeeUser().remove(eu);
+	}
 
 }

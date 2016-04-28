@@ -24,11 +24,11 @@ public class Supplier {
 
 	@JoinColumns({ @JoinColumn(name = "LINE1"), @JoinColumn(name = "POSTCODE") })
 	private Address address;
-	  
-	public Supplier(Address address, String name){  
-		this.address = address;  
-		this.name = name;  
-	}  
+
+	public Supplier(Address address, String name) {
+		this.address = address;
+		this.name = name;
+	}
 
 	public Long getId() {
 		return id;

@@ -14,7 +14,7 @@ public interface ProdCatRepository {
 	public void persistProdCats(ArrayList<ProdCat> prc);
 
 	public ArrayList<Product> findByCategory(Category category);
-	
+
 	public ArrayList<Category> findByProduct(Product product);
 
 	public ArrayList<ProdCat> getProdCats();

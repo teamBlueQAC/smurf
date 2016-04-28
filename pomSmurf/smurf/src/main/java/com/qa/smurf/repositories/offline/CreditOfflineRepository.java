@@ -13,26 +13,23 @@ import com.qa.smurf.entities.User;
 
 public class CreditOfflineRepository implements CreditRepository {
 	InitialData initialData = new InitialData();
-	
-
 
 	public void persistCredit(Credit credit) {
 		initialData.addCredit(credit);
-		
-	}
 
+	}
 
 	public void persistCredit(List<Credit> credits) {
-		for(Credit c: credits){
+		for (Credit c : credits) {
 			initialData.addCredit(c);
 		}
-		
+
 	}
 
-	
 	public Credit findByUser(User user) {
-		for(Credit c: initialData.getCredit()){
-			if(c.getUser().equals(user));
+		for (Credit c : initialData.getCredit()) {
+			if (c.getUser().equals(user))
+				;
 			return c;
 		}
 		return null;
@@ -44,8 +41,8 @@ public class CreditOfflineRepository implements CreditRepository {
 
 	public Credit readCredit(Credit credit) {
 		ArrayList<Credit> creditList = initialData.getCredit();
-		for(Credit c: creditList){
-			if(c.getUser() == credit.getUser()){
+		for (Credit c : creditList) {
+			if (c.getUser() == credit.getUser()) {
 				return c;
 			}
 		}

@@ -1,4 +1,5 @@
 package com.qa.smurf;
+
 /**
  * Author - Tom
  */
@@ -40,7 +41,7 @@ public class InitialData {
 	private ArrayList<Category> categories = new ArrayList<Category>();
 	private ArrayList<ProductType> productTypes = new ArrayList<ProductType>();
 	private ArrayList<Address> addresses = new ArrayList<Address>();
-	private ArrayList<ProdSup> prodSups = new ArrayList<ProdSup>();	
+	private ArrayList<ProdSup> prodSups = new ArrayList<ProdSup>();
 	private ArrayList<AccountType> accountTypes = new ArrayList<AccountType>();
 	private ArrayList<Supplier> suppliers = new ArrayList<Supplier>();	
 	private ArrayList<User> users = new ArrayList<User>();
@@ -94,33 +95,38 @@ public class InitialData {
 
 	/*end of section*/
 	
-	
 	/**
 	 * 
 	 * Created by Omar
 	 * 
 	 */
-	/* The below is a getMethod that will retrieve the dummy data from the necessary variables 
-	 * Then it will return those values in the form of an array*/
+	/*
+	 * The below is a getMethod that will retrieve the dummy data from the
+	 * necessary variables Then it will return those values in the form of an
+	 * array
+	 */
 
-	private void setAddressInitialData(){
-		String[] addressLine1 = {"54 abbey lane", "54 abbey lane", "54 abbey lane", "54 abbey lane", "54 abbey lane"};
-		String[] addressLine2 = {"ayfter road", "ayfter road", "ayfter road", "ayfter road", "ayfter road"};
-		String[] addressLine3 = {"Birgmingham", "Birgmingham", "Birgmingham", "Birgmingham", "Birgmingham"};
-		String[] addressLine4 = {"UK", "UK", "UK", "UK", "UK"};
-		String[] postCode = {"NX7 4GH", "NX7 4GH", "NX7 4GH", "NX7 4GH", "NX7 4GH"};
-		
+	private void setAddressInitialData() {
+		String[] addressLine1 = { "54 abbey lane", "54 abbey lane", "54 abbey lane", "54 abbey lane", "54 abbey lane" };
+		String[] addressLine2 = { "ayfter road", "ayfter road", "ayfter road", "ayfter road", "ayfter road" };
+		String[] addressLine3 = { "Birgmingham", "Birgmingham", "Birgmingham", "Birgmingham", "Birgmingham" };
+		String[] addressLine4 = { "UK", "UK", "UK", "UK", "UK" };
+		String[] postCode = { "NX7 4GH", "NX7 4GH", "NX7 4GH", "NX7 4GH", "NX7 4GH" };
+
 		for (int i = 0; i < 5; i++) {
-			addresses.add(new Address(addressLine1[i], addressLine2[i], addressLine3[i], addressLine4[i], postCode[i]));		
-		}		
+			addresses.add(new Address(addressLine1[i], addressLine2[i], addressLine3[i], addressLine4[i], postCode[i]));
+		}
 	}
-	public ArrayList<Address> getAddresses(){
+
+	public ArrayList<Address> getAddresses() {
 		return this.addresses;
 	}
-	public void addAddress(Address address){
+
+	public void addAddress(Address address) {
 		this.addresses.add(address);
 	}
-	public void setAddress(ArrayList<Address> addresses){
+
+	public void setAddress(ArrayList<Address> addresses) {
 		this.addresses = addresses;
 	}
 	
@@ -154,13 +160,16 @@ public class InitialData {
 			orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i), getUsers().get(i), getOrderStatuses().get(i)));
 		}
 	}
-	public ArrayList<Order> getOrders(){
+
+	public ArrayList<Order> getOrders() {
 		return orders;
 	}
+
 	public void addOrder(Order order) {
 		orders.add(order);
 	}
-	public void setOrders(ArrayList<Order> orders){
+
+	public void setOrders(ArrayList<Order> orders) {
 		this.orders = orders;
 	}
 		
@@ -204,20 +213,23 @@ public class InitialData {
 	public void addUser(User user){
 		this.users.add(user);
 	}
-		
-	private void setOrderStatusInitialData(){
+
+	private void setOrderStatusInitialData() {
 		String[] name = { "Cancelled", "Delivered", "Dispatched", "Awaiting Confirmation", "Dispatched" };
-		for (int i = 0; i < 5; i++){
+		for (int i = 0; i < 5; i++) {
 			orderStatuses.add(new OrderStatus(name[i]));
 		}
 	}
-	public ArrayList<OrderStatus> getOrderStatuses(){
+
+	public ArrayList<OrderStatus> getOrderStatuses() {
 		return orderStatuses;
 	}
-	public void addOrderStatus(OrderStatus orderStatus){
+
+	public void addOrderStatus(OrderStatus orderStatus) {
 		orderStatuses.add(orderStatus);
 	}
-	public void setOrderStatuses(ArrayList<OrderStatus> orderStatuses){
+
+	public void setOrderStatuses(ArrayList<OrderStatus> orderStatuses) {
 		this.orderStatuses = orderStatuses;
 	}
 	
@@ -261,59 +273,62 @@ public class InitialData {
 		employeeUser.add(new EmployeeUser(accountType.get(2), "Miss Wo Mann"));
 		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr James Trainer"));
 		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Stewart Noob"));
-		
+
 		return employeeUser;
 	}
-		
-		//Populates the ArrayList for Account Type with 3 different account types.
-	
-	private void setAccountTypeInitialData(){
+
+	// Populates the ArrayList for Account Type with 3 different account types.
+
+	private void setAccountTypeInitialData() {
 		accountTypes.add(new AccountType(1, "Inventory Manager"));
 		accountTypes.add(new AccountType(1, "Accounts Worker"));
 		accountTypes.add(new AccountType(1, "Warehouse Worker"));
 	}
-	public ArrayList<AccountType> getAccountTypes(){
+
+	public ArrayList<AccountType> getAccountTypes() {
 		return this.accountTypes;
 	}
-	public void addAccountType(AccountType accountType){
+
+	public void addAccountType(AccountType accountType) {
 		this.accountTypes.add(accountType);
 	}
-	public void setAccountType(ArrayList<AccountType> accountTypes){
+
+	public void setAccountType(ArrayList<AccountType> accountTypes) {
 		this.accountTypes = accountTypes;
 	}
 
-	private void setSupplierOrderInitialdata(){
+	private void setSupplierOrderInitialdata() {
 		int received[] = { 1, 2, 3, 4, 4 };
 		
 		for (int i = 0; i < 5; i++){
 			supplierOrders.add(new SupplierOrder(getProducts().get(i), getOrderStatuses().get(i), getSuppliers().get(i), i, new Date(), received[i]));
 		}
 	}
-	public ArrayList<SupplierOrder> getSupplierOrders(){
+
+	public ArrayList<SupplierOrder> getSupplierOrders() {
 		return supplierOrders;
 	}
-	public void addSupplierOrder(SupplierOrder supplierOrder){
+
+	public void addSupplierOrder(SupplierOrder supplierOrder) {
 		supplierOrders.add(supplierOrder);
 	}
-	public void setSupplierOrders(ArrayList<SupplierOrder> supplierOrders){
+
+	public void setSupplierOrders(ArrayList<SupplierOrder> supplierOrders) {
 		this.supplierOrders = supplierOrders;
 	}
-	
-		
-	//Products nabz & Dean
-	private void setProductInitialData(){
-		products.add(new Product(0, "gnome", "GHTY-YTER-GFDG", "blue", 40.00,
-				false, "mydocs", 500, getProductTypes().get(1),
-				"Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
-		
-		products.add(new Product(1, "seeds", "SDFF-DFGF-JGGJ", "green", 10.00,
-				false, "mydocs", 600, getProductTypes().get(2), "zombie green seeds.",
-				60, 700));
-		
-		products.add(new Product(2, "garden utensils", "EWRE-WRFS-SAZC",
-				"blue", 5.00, false, "mydocs", 700, getProductTypes().get(3),
-				"big and scary garden utensils.", 70, 400));
+
+	// Products nabz & Dean
+	private void setProductInitialData() {
+		products.add(new Product(0, "gnome", "GHTY-YTER-GFDG", "blue", 40.00, false, "mydocs", 500,
+				getProductTypes().get(1), "Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
+
+		products.add(new Product(1, "seeds", "SDFF-DFGF-JGGJ", "green", 10.00, false, "mydocs", 600,
+				getProductTypes().get(2), "zombie green seeds.", 60, 700));
+
+		products.add(new Product(2, "garden utensils", "EWRE-WRFS-SAZC", "blue", 5.00, false, "mydocs", 700,
+				getProductTypes().get(3), "big and scary garden utensils.", 70, 400));
 	}
+
 	public ArrayList<Product> getProducts() {
 		return products;
 	}
@@ -326,52 +341,52 @@ public class InitialData {
 		this.products = products;
 	}
 
-	private void setProdCatInitialData(){
-		for (int i = 0; i < 5; i++){
+	private void setProdCatInitialData() {
+		for (int i = 0; i < 5; i++) {
 			prodCats.add(new ProdCat(getProducts().get(i), getCategories().get(i)));
 		}
 	}
-	public ArrayList<ProdCat> getProdCats(){
+
+	public ArrayList<ProdCat> getProdCats() {
 		return prodCats;
 	}
-	public void addProdCat(ProdCat prodCat){
+
+	public void addProdCat(ProdCat prodCat) {
 		prodCats.add(prodCat);
 	}
-	public void setProdCats(ArrayList<ProdCat> prodCats){
+
+	public void setProdCats(ArrayList<ProdCat> prodCats) {
 		this.prodCats = prodCats;
 	}
 
-	//Populates the ArrayList for Product Type with 3 different product types.
-	
-	private void setProductTypeInitialdata(){
-		productTypes.add(new ProductType(1,"Seeds"));
-		productTypes.add(new ProductType(1,"Gardening Tools"));
-		productTypes.add(new ProductType(1,"Selena Gnomes"));
+	// Populates the ArrayList for Product Type with 3 different product types.
+
+	private void setProductTypeInitialdata() {
+		productTypes.add(new ProductType(1, "Seeds"));
+		productTypes.add(new ProductType(1, "Gardening Tools"));
+		productTypes.add(new ProductType(1, "Selena Gnomes"));
 	}
-		
-	public ArrayList<ProductType> getProductTypes(){
+
+	public ArrayList<ProductType> getProductTypes() {
 		return productTypes;
 	}
 
-		
-	public void addProductType(ProductType productType)
-	{
+	public void addProductType(ProductType productType) {
 		this.productTypes.add(productType);
 	}
-		
-	public void setProductTypes(ArrayList<ProductType> productTypes)
-	{
+
+	public void setProductTypes(ArrayList<ProductType> productTypes) {
 		this.productTypes = productTypes;
 	}
-	
-	//Category Nabz & Dean
-	
+
+	// Category Nabz & Dean
+
 	private void setCategoriesInitialData() {
 		categories.add(new Category(1, "axe wielding"));
 		categories.add(new Category(2, "zombie"));
 		categories.add(new Category(3, "big and scary"));
 	}
-		
+
 	public ArrayList<Category> getCategories() {
 		return categories;
 	}
@@ -383,28 +398,30 @@ public class InitialData {
 	public void setCategories(ArrayList<Category> categories) {
 		this.categories = categories;
 	}
-	
-	
+
 	/**
 	 * 
 	 * Created by Omar
 	 * 
 	 */
 
-	private void setProdSupInitialData(){
-		double[] cost = {100.05, 200.40, 400.09, 300.02, 800.32};
-		
+	private void setProdSupInitialData() {
+		double[] cost = { 100.05, 200.40, 400.09, 300.02, 800.32 };
+
 		for (int i = 0; i < 5; i++) {
 			prodSups.add(new ProdSup(getSuppliers().get(i), getProducts().get(i), cost[i]));		
 		}
 	}
-	public ArrayList<ProdSup> getProdSups(){
+
+	public ArrayList<ProdSup> getProdSups() {
 		return this.prodSups;
 	}
-	public void addProdSup(ProdSup prodSup){
+
+	public void addProdSup(ProdSup prodSup) {
 		this.prodSups.add(prodSup);
 	}
-	public void setProdSups(ArrayList<ProdSup> prodSups){
+
+	public void setProdSups(ArrayList<ProdSup> prodSups) {
 		this.prodSups = prodSups;
 	}
 

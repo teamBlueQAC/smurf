@@ -9,8 +9,7 @@ import com.qa.smurf.entities.ProdCat;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.repositories.ProdCatRepository;
 
-public class ProdCatRepositoryOffline
-implements ProdCatRepository{
+public class ProdCatRepositoryOffline implements ProdCatRepository {
 	@Inject
 	private InitialData initialData;
 
@@ -28,8 +27,8 @@ implements ProdCatRepository{
 	public ArrayList<Product> findByCategory(Category category) {
 		ArrayList<ProdCat> prodCats = initialData.getProdCats();
 		ArrayList<Product> foundProducts = new ArrayList<Product>();
-		for(int i = 0; i < prodCats.size(); i++) {
-			if(prodCats.get(i).getCategory().equals(category)){
+		for (int i = 0; i < prodCats.size(); i++) {
+			if (prodCats.get(i).getCategory().equals(category)) {
 				foundProducts.add(prodCats.get(i).getProduct());
 			}
 		}
@@ -40,8 +39,8 @@ implements ProdCatRepository{
 	public ArrayList<Category> findByProduct(Product product) {
 		ArrayList<ProdCat> prodCats = initialData.getProdCats();
 		ArrayList<Category> foundCategories = new ArrayList<Category>();
-		for(int i = 0; i < prodCats.size(); i++) {
-			if(prodCats.get(i).getProduct().equals(product)){
+		for (int i = 0; i < prodCats.size(); i++) {
+			if (prodCats.get(i).getProduct().equals(product)) {
 				foundCategories.add(prodCats.get(i).getCategory());
 			}
 		}
@@ -55,13 +54,12 @@ implements ProdCatRepository{
 
 	@Override
 	public void removeProdCat(ProdCat prodCat) {
-		ArrayList<ProdCat> prodCats  = initialData.getProdCats();
-		for(int i=0; i<prodCats.size(); i++) {
-			if(prodCats.get(i).equals(prodCat))
+		ArrayList<ProdCat> prodCats = initialData.getProdCats();
+		for (int i = 0; i < prodCats.size(); i++) {
+			if (prodCats.get(i).equals(prodCat))
 				prodCats.remove(i);
 		}
 		initialData.setProdCats(prodCats);
 	}
 
-	
 }

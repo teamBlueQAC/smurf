@@ -1,7 +1,7 @@
 package com.qa.smurf.repositories.offline;
 /**  
 * Author - Tom  
-*/  
+*/
 
 import java.util.ArrayList;
 
@@ -14,8 +14,7 @@ import com.qa.smurf.entities.SupplierOrder;
 import com.qa.smurf.repositories.SupplierOrderRepository;
 import com.qa.smurf.util.OrderStatus;
 
-public class SupplierOrderRepositoryOffline
-implements SupplierOrderRepository{
+public class SupplierOrderRepositoryOffline implements SupplierOrderRepository {
 	@Inject
 	private InitialData initialData;
 
@@ -33,8 +32,8 @@ implements SupplierOrderRepository{
 	public SupplierOrder findByID(long ID) {
 		ArrayList<SupplierOrder> supplierOrders = initialData.getSupplierOrders();
 		SupplierOrder supplierOrder = null;
-		for(int i = 0; i < supplierOrders.size(); i++) {
-			if(supplierOrders.get(i).getId() == ID){
+		for (int i = 0; i < supplierOrders.size(); i++) {
+			if (supplierOrders.get(i).getId() == ID) {
 				supplierOrder = supplierOrders.get(i);
 				break;
 			}
@@ -46,8 +45,8 @@ implements SupplierOrderRepository{
 	public ArrayList<SupplierOrder> findBySupplier(Supplier supplier) {
 		ArrayList<SupplierOrder> supplierOrders = initialData.getSupplierOrders();
 		ArrayList<SupplierOrder> foundSupplierOrders = new ArrayList<SupplierOrder>();
-		for(int i = 0; i < supplierOrders.size(); i++) {
-			if(supplierOrders.get(i).getSupplier().equals(supplier)){
+		for (int i = 0; i < supplierOrders.size(); i++) {
+			if (supplierOrders.get(i).getSupplier().equals(supplier)) {
 				foundSupplierOrders.add(supplierOrders.get(i));
 			}
 		}
@@ -58,8 +57,8 @@ implements SupplierOrderRepository{
 	public ArrayList<SupplierOrder> findByProduct(Product product) {
 		ArrayList<SupplierOrder> supplierOrders = initialData.getSupplierOrders();
 		ArrayList<SupplierOrder> foundSupplierOrders = new ArrayList<SupplierOrder>();
-		for(int i = 0; i < supplierOrders.size(); i++) {
-			if(supplierOrders.get(i).getSupplier().equals(product)){
+		for (int i = 0; i < supplierOrders.size(); i++) {
+			if (supplierOrders.get(i).getSupplier().equals(product)) {
 				foundSupplierOrders.add(supplierOrders.get(i));
 			}
 		}
@@ -70,8 +69,8 @@ implements SupplierOrderRepository{
 	public ArrayList<SupplierOrder> findByOrderStatus(OrderStatus orderStatus) {
 		ArrayList<SupplierOrder> supplierOrders = initialData.getSupplierOrders();
 		ArrayList<SupplierOrder> foundSupplierOrders = new ArrayList<SupplierOrder>();
-		for(int i = 0; i < supplierOrders.size(); i++) {
-			if(supplierOrders.get(i).getSupplier().equals(orderStatus)){
+		for (int i = 0; i < supplierOrders.size(); i++) {
+			if (supplierOrders.get(i).getSupplier().equals(orderStatus)) {
 				foundSupplierOrders.add(supplierOrders.get(i));
 			}
 		}
@@ -85,9 +84,9 @@ implements SupplierOrderRepository{
 
 	@Override
 	public void updateSupplierOrder(SupplierOrder supplierOrder) {
-		ArrayList<SupplierOrder> supplierOrders  = initialData.getSupplierOrders();
-		for(int i=0; i<supplierOrders.size(); i++) {
-			if(supplierOrders.get(i).equals(supplierOrder))
+		ArrayList<SupplierOrder> supplierOrders = initialData.getSupplierOrders();
+		for (int i = 0; i < supplierOrders.size(); i++) {
+			if (supplierOrders.get(i).equals(supplierOrder))
 				supplierOrders.set(i, supplierOrder);
 		}
 		initialData.setSupplierOrders(supplierOrders);
@@ -95,12 +94,12 @@ implements SupplierOrderRepository{
 
 	@Override
 	public void removeSupplierOrder(SupplierOrder supplierOrder) {
-		ArrayList<SupplierOrder> supplierOrders  = initialData.getSupplierOrders();
-		for(int i=0; i<supplierOrders.size(); i++) {
-			if(supplierOrders.get(i).equals(supplierOrder))
+		ArrayList<SupplierOrder> supplierOrders = initialData.getSupplierOrders();
+		for (int i = 0; i < supplierOrders.size(); i++) {
+			if (supplierOrders.get(i).equals(supplierOrder))
 				supplierOrders.remove(i);
 		}
 		initialData.setSupplierOrders(supplierOrders);
 	}
-	
+
 }

@@ -9,6 +9,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  * Created by Sam and Elliot
+ * 
  * @author Administrator
  *
  */
@@ -40,8 +41,8 @@ public class Address {
 		this.line1=line1;
 		this.postcode = postcode;
 	}
-	
-	public Address(String line1, String line2, String line3, String line4, String postcode){
+
+	public Address(String line1, String line2, String line3, String line4, String postcode) {
 		this.line1 = line1;
 		this.line2 = line2;
 		this.line3 = line3;

@@ -7,12 +7,11 @@ import com.qa.smurf.InitialData;
 import com.qa.smurf.repositories.OrderStatusRepository;
 import com.qa.smurf.util.OrderStatus;
 
-/**  
-* Author - Tom  
-*/
+/**
+ * Author - Tom
+ */
 
-public class OrderStatusRepositoryOffline 
-implements OrderStatusRepository {
+public class OrderStatusRepositoryOffline implements OrderStatusRepository {
 	@Inject
 	private InitialData initialData;
 
@@ -30,8 +29,8 @@ implements OrderStatusRepository {
 	public OrderStatus findByID(long ID) {
 		ArrayList<OrderStatus> orderStatuses = initialData.getOrderStatuses();
 		OrderStatus orderStatus = null;
-		for(int i = 0; i < orderStatuses.size(); i++) {
-			if(orderStatuses.get(i).getId() == ID){
+		for (int i = 0; i < orderStatuses.size(); i++) {
+			if (orderStatuses.get(i).getId() == ID) {
 				orderStatus = orderStatuses.get(i);
 				break;
 			}
@@ -43,8 +42,8 @@ implements OrderStatusRepository {
 	public OrderStatus findByName(String name) {
 		ArrayList<OrderStatus> orderStatuses = initialData.getOrderStatuses();
 		OrderStatus orderStatus = null;
-		for(int i = 0; i < orderStatuses.size(); i++) {
-			if(orderStatuses.get(i).getName().equals(name)){
+		for (int i = 0; i < orderStatuses.size(); i++) {
+			if (orderStatuses.get(i).getName().equals(name)) {
 				orderStatus = orderStatuses.get(i);
 				break;
 			}
@@ -60,8 +59,8 @@ implements OrderStatusRepository {
 	@Override
 	public void updateOrderStatus(OrderStatus orderStatus) {
 		ArrayList<OrderStatus> orderStatuses = initialData.getOrderStatuses();
-		for(int i=0; i<orderStatuses.size(); i++) {
-			if(orderStatuses.get(i).getId() == orderStatus.getId())
+		for (int i = 0; i < orderStatuses.size(); i++) {
+			if (orderStatuses.get(i).getId() == orderStatus.getId())
 				orderStatuses.set(i, orderStatus);
 		}
 		initialData.setOrderStatuses(orderStatuses);
@@ -70,8 +69,8 @@ implements OrderStatusRepository {
 	@Override
 	public void removeOrderStatus(OrderStatus orderStatus) {
 		ArrayList<OrderStatus> orderStatuses = initialData.getOrderStatuses();
-		for(int i=0; i<orderStatuses.size(); i++) {
-			if(orderStatuses.get(i).equals(orderStatus))
+		for (int i = 0; i < orderStatuses.size(); i++) {
+			if (orderStatuses.get(i).equals(orderStatus))
 				orderStatuses.remove(i);
 		}
 		initialData.setOrderStatuses(orderStatuses);

@@ -33,13 +33,13 @@ public class WishListEntry {
 	@Column(name = "DATE_ADDED", nullable = false)
 	@NotNull
 	private Date dateAdded;
-		
-	public WishListEntry(Product product, Date dateAdded, User user){  
-		this.product = product;  
-		this.dateAdded = dateAdded;  
-		this.user = user;  
-	}	  
-	
+
+	public WishListEntry(Product product, Date dateAdded, User user) {
+		this.product = product;
+		this.dateAdded = dateAdded;
+		this.user = user;
+	}
+
 	public Product getProduct() {
 		return product;
 	}

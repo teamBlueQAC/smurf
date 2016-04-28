@@ -29,7 +29,7 @@ public class SupplierOrder {
 	@NotNull
 	private OrderStatus orderStatus;
 
-	@Column(name = "ORDERAMOUNT", length = 20, nullable= false)
+	@Column(name = "ORDERAMOUNT", length = 20, nullable = false)
 	@NotNull
 	private int orderAmount;
 
@@ -47,8 +47,9 @@ public class SupplierOrder {
 	@ManyToOne
 	@JoinTable(name = "SUPPLIER_ID")
 	private Supplier supplier;
-	
-	public SupplierOrder(Product product, OrderStatus orderStatus, Supplier supplier, int orderAmount, Date dateReceived, int receivedAmount){
+
+	public SupplierOrder(Product product, OrderStatus orderStatus, Supplier supplier, int orderAmount,
+			Date dateReceived, int receivedAmount) {
 		this.product = product;
 		this.orderStatus = orderStatus;
 		this.supplier = supplier;

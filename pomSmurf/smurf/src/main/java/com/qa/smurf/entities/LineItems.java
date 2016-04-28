@@ -25,7 +25,7 @@ public class LineItems {
 
 	@Column(name = "RETURNEDQTY", length = 10)
 	private int returnedQty;
-	
+
 	public LineItems(Order order, Product product, int quantity, double subtotal, int returnedQty) {
 		this.order = order;
 		this.product = product;
@@ -34,7 +34,7 @@ public class LineItems {
 		this.returnedQty = returnedQty;
 	}
 
-	public Order getOrder(){
+	public Order getOrder() {
 		return order;
 	}
 

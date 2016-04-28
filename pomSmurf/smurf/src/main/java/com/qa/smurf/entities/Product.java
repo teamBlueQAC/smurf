@@ -161,10 +161,9 @@ public class Product {
 		this.reorderedAmount = reorderedAmount;
 	}
 
-	public Product(long id, String name, String serial, String colour,
-			Double price, boolean discountinued, String pictureLoc,
-			int quantityAvailable, ProductType productType, String description,
-			int reorderThreshold, int reorderedAmount) {
+	public Product(long id, String name, String serial, String colour, Double price, boolean discountinued,
+			String pictureLoc, int quantityAvailable, ProductType productType, String description, int reorderThreshold,
+			int reorderedAmount) {
 		super();
 		this.id = id;
 		this.name = name;

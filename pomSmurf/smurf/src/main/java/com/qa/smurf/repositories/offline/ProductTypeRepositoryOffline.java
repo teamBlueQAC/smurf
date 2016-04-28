@@ -21,7 +21,7 @@ public class ProductTypeRepositoryOffline implements ProductTypeRepository {
 
 	@Override
 	public void persistProductTypes(List<ProductType> productType) {
-		for(ProductType p: productType){
+		for (ProductType p : productType) {
 			initialData.addProductType(p);
 		}
 
@@ -29,8 +29,8 @@ public class ProductTypeRepositoryOffline implements ProductTypeRepository {
 
 	@Override
 	public ProductType findByID(int id) {
-		for(ProductType p: initialData.getProductTypes()){
-			if(p.getId() == id){
+		for (ProductType p : initialData.getProductTypes()) {
+			if (p.getId() == id) {
 				return p;
 			}
 		}
@@ -45,8 +45,8 @@ public class ProductTypeRepositoryOffline implements ProductTypeRepository {
 	@Override
 	public void updateProductType(ProductType productType) {
 		ArrayList<ProductType> productTypes = initialData.getProductTypes();
-		for(int i=0; i<productTypes.size(); i++) {
-			if(productTypes.get(i).getId() == productType.getId())
+		for (int i = 0; i < productTypes.size(); i++) {
+			if (productTypes.get(i).getId() == productType.getId())
 				productTypes.set(i, productType);
 		}
 		initialData.setProductTypes(productTypes);
@@ -56,8 +56,8 @@ public class ProductTypeRepositoryOffline implements ProductTypeRepository {
 	@Override
 	public void removeProductType(ProductType productType) {
 		ArrayList<ProductType> productTypes = initialData.getProductTypes();
-		for(int i=0; i<productTypes.size(); i++) {
-			if(productTypes.get(i).equals(productType))
+		for (int i = 0; i < productTypes.size(); i++) {
+			if (productTypes.get(i).equals(productType))
 				productTypes.remove(i);
 		}
 		initialData.setProductTypes(productTypes);

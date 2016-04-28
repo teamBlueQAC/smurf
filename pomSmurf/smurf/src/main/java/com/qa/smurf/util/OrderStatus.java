@@ -24,10 +24,10 @@ public class OrderStatus {
 	private long id;
 
 	@Column(name = "NAME", length = 16)
-	@Size (min = 1, max = 16)
+	@Size(min = 1, max = 16)
 	private String name;
-	
-	public OrderStatus(String name){
+
+	public OrderStatus(String name) {
 		this.name = name;
 	}
 
