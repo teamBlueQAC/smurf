@@ -9,7 +9,6 @@
 .halfaboxthing {
 	width: 50%; 
 	margin-top: 20px; 
-	position: center; 
 	position: relative; 
 	left: 25%;
 }
@@ -18,4 +17,6 @@
 	top: 35%; 
 	color: #7EC0EE;
 }
-
+#tabcontents {
+	margin-top: 15px;
+}
