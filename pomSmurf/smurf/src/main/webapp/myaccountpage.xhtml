@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
+
+	<ui:define name="pageTitle">
+		<div
+			style="background-color: #7ec0ee; width: 100%; display: block; float: center; padding-top: 20px; padding-bottom: 20px;">
+			<h1 style="text-align: center; color: black;">My Account</h1>
+			<figure class="uk-overlay" style="height: 100%; width: 100%;">
+				<img src="" width="" height="" alt="">
+				<figcaption class="uk-overlay-panel">NB gardens</figcaption>
+			</figure>
+		</div>
+		<div class="boxthing" style="width: 100%;">
+			<div
+				style="height: 100px; display: block; padding: 5px; margin: 0 auto; width: 75%; text-align: center; padding: 20px;">
+				Welcome to your account. This page shall display your account
+				information with NB Gardens allowing you to view your order status
+				(past and present), personal information, wish Lists and payment
+				details.</div>
+		</div>
+		<ui:define name="body">
+			<div id="box1"
+				class="boxthing uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1"
+				style="height: 200px; display: inline-block; float: left; padding: 20px;">
+				<div class="uk-panel">
+
+					<div class="uk-panel-badge uk-badge">
+						<button class="uk-button" data-uk-modal="{target:'#modal1'}">Edit</button>
+						</a>
+					</div>
+
+					<h3 class="uk-panel-title">My Personal Info</h3>
+					<table class="uk-table AT" id="PersonalInfoTable">
+						<tbody>
+							<tr>
+								<td>full name :</td>
+								<td><h:inputTextvalue ="#{user.name}"/></td>
+							</tr>
+							<tr>
+								<td>string address :</td>
+								<td><h:inputTextvalue ="#{address.line1}"/></td>
+							</tr>
+							<tr>
+								<td>postcode :</td>
+								<td><h:inputTextvalue ="#{address.postcode}"/></td>
+							</tr>
+							<tr>
+								<td>email :</td>
+								<td><h:inputTextvalue ="#{user.email}"/></td>>
+							</tr>
+							<tr>
+								<td>mobile :</td>
+								<td><h:inputTextvalue ="#{user.mobile}"/></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div id="box2"
+				class="boxthing uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1"
+				style="height: 200px; display: inline-block; float: left; padding: 20px;">
+				<div class="uk-panel">
+					<div class="uk-panel-badge uk-badge">
+						<button class="uk-button" data-uk-modal="{target:'#modal2'}">Edit</button>
+						</a>
+					</div>
+					<h3 class="uk-panel-title">My Orders</h3>
+					<table class="uk-table AT" id="OrdersTable">
+						<tbody>
+							<tr>
+								<td>date order placed :</td>
+								<td><h:inputTextvalue ="#{order.date}"/></td>>
+							</tr>
+							<tr>
+								<td>date order shipped :</td>
+								<td><h:inputTextvalue ="#{order.dispatchDate}"/></td>>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div id="box3"
+				class="boxthing uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1"
+				style="height: 200px; display: inline-block; float: left; padding: 20px;">
+				<div class="uk-panel">
+					<div class="uk-panel-badge uk-badge">
+						<button class="uk-button" data-uk-modal="{target:'#modal3'}">Edit</button>
+					</div>
+					<h3 class="uk-panel-title">My payment info</h3>
+					<table class="uk-table AT" id="PaymentInfoTable">
+						<tbody>
+							<tr>
+								<td>type of card :</td>
+								<td><h:inputTextvalue ="#{payment.cardType}"/></td>>
+							</tr>
+							<tr>
+								<td>name on card :</td>
+								<td><h:inputTextvalue ="#{payment.cardType}"/></td>>
+							</tr>
+							<tr>
+								<td>card number :</td>
+								<td><h:inputTextvalue ="#{payment.cardNumber}"/></td>>
+							</tr>
+							<tr>
+								<td>expiry date :</td>
+								<td><h:inputTextvalue ="#{payment.expiryDate}"/></td>>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+					<div id="box4"
+					class="boxthing uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1"
+					style="height: 200px; display: inline-block; float: left; padding: 20px;">
+						<div class="uk-panel">
+							<div class="uk-panel-badge uk-badge">
+								<button class="uk-button" data-uk-modal="{target:'#modal4'}">Addto basket</button>
+								<button class="uk-button" data-uk-modal="{target:'#modal4'}">Remove</button>
+							</div>
+				<h3 class="uk-panel-title">My Wishlist</h3>
+					<table class="uk-table AT" id="MyWishListTable">
+						<tbody>
+									<tr>
+										<td>Name of Item :</td>
+										<td><h:inputTextvalue ="#{product.name}"/></td>>
+									</tr>
+									<tr>
+										<td>price :</td>
+										<td><h:inputTextvalue ="#{product.price}"/></td>>
+									</tr>
+						</tbody>
+					</table>
+					</div>		
+				</div>
+				
+			<div id="modal1" class="uk-modal">
+				<div class="uk-modal-dialog">
+					<button type="button" class="uk-modal-close uk-close"></button>
+					<div class="uk-modal-header">
+						<h2>Headline</h2>
+					</div>
+					<p>
+					<form action="action_page.php">
+						full name:<br>
+						<input type="text" name="firstname"><br> address: 
+						<br>
+						<input type="text" name="adress"><br> postcode: 
+						<br>
+						<input type="text" name="postcode"><br> email: 
+						<br>
+						<input type="text" name="email"><br> mobile: 
+						<br>
+						<input type="text" name="mobile"><br>
+					</form>
+					</p>
+					<div class="uk-modal-footer uk-text-right">
+						<button type="button" class="uk-button">Cancel</button>
+						<button type="button" class="uk-button uk-button-primary">Save</button>
+					</div>
+				</div>
+			</div>
+			<div id="modal2" class="uk-modal">
+				<div class="uk-modal-dialog">
+					<button type="button" class="uk-modal-close uk-close"></button>
+					<div class="uk-modal-header">
+						<h2>Headline</h2>
+					</div>
+					<p>
+					<form action="action_page.php">
+						date order placed:<br>
+						<input type="text" name="date order placed"><br> date
+							order shipped: 
+						<br>
+						<input type="text" name="date order shipped"><br>
+					</form>
+					</p>
+					<div class="uk-modal-footer uk-text-right">
+						<button type="button" class="uk-button">Cancel</button>
+						<button type="button" class="uk-button uk-button-primary">Save</button>
+					</div>
+				</div>
+			</div>
+			<div id="modal3" class="uk-modal">
+				<div class="uk-modal-dialog">
+					<button type="button" class="uk-modal-close uk-close"></button>
+					<div class="uk-modal-header">
+						<h2>Headline</h2>
+					</div>
+					<p>
+					<form action="action_page.php">
+						Type of card:<br>
+						<input type="text" name="Type of card"><br> name on
+							card: 
+						<br>
+						<input type="text" name="name on card"><br> card
+							number: 
+						<br>
+						<input type="text" name="card number"><br> expiry
+							date: 
+						<br>
+						<input type="text" name="expiry date"><br>
+					</form>
+					</p>
+					<div class="uk-modal-footer uk-text-right">
+						<button type="button" class="uk-button">Cancel</button>
+						<button type="button" class="uk-button uk-button-primary">Save</button>
+					</div>
+				</div>
+			</div>
+			<div id="modal4" class="uk-modal">
+				<div class="uk-modal-dialog">
+					<button type="button" class="uk-modal-close uk-close"></button>
+					<div class="uk-modal-header">
+						<h2>Headline</h2>
+					</div>
+					<p>
+					<form action="action_page.php">
+						my products:<br>
+						<input type="text" name="Type of card"><br> quantity
+							of product: 
+						<br>
+						<input type="text" name="name on card"><br>
+					</form>
+					</p>
+					<div class="uk-modal-footer uk-text-right">
+						<button type="button" class="uk-button">Cancel</button>
+						<button type="button" class="uk-button uk-button-primary">Save</button>
+					</div>
+				</div>
+			</div>
+		</ui:define>
+</ui:composition>
