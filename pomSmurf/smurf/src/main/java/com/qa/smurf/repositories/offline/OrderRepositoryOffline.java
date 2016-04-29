@@ -1,4 +1,5 @@
 package com.qa.smurf.repositories.offline;
+
 /**  
 * Author - Tom  
 */
@@ -72,20 +73,23 @@ public class OrderRepositoryOffline implements OrderRepository {
 	public void updateOrder(Order order) {
 		ArrayList<Order> orders = initialData.getOrders();
 		for (int i = 0; i < orders.size(); i++) {
-			if (orders.get(i).getId() == order.getId())
+			if (orders.get(i).getId() == order.getId()){
 				orders.set(i, order);
+				break;
+			}
 		}
-		initialData.setOrders(orders);
 	}
 
 	@Override
 	public void removeOrder(Order order) {
 		ArrayList<Order> orders = initialData.getOrders();
 		for (int i = 0; i < orders.size(); i++) {
-			if (orders.get(i).equals(order))
+			if (orders.get(i).equals(order)){
 				orders.remove(i);
+				break;
+			}
 		}
-		initialData.setOrders(orders);
+
 	}
 
 }
