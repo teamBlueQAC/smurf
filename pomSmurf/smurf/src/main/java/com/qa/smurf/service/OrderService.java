@@ -40,4 +40,14 @@ public class OrderService {
 		
 	}
 
+	public void removeFromBasket(long productId, long userId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void getLineItems(Order order, long userId) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

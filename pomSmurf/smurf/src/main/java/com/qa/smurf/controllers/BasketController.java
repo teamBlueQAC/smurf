@@ -1,5 +1,7 @@
 package com.qa.smurf.controllers;
 
+
+
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -20,8 +22,8 @@ public class BasketController {
 	private Order order = orderService.getUsersPendingOrder(currentUser.getUserId());
 	private float totalPrice = orderService.calcOrderTotalPending(currentUser.getUserId());
 	
-	public String removeProductFromBasket(){
-		
+	public String removeProductFromBasket(long productId){
+		orderService.removeFromBasket(productId, currentUser.getUserId());
 		return "basket";
 	}
 	
@@ -41,6 +43,9 @@ public class BasketController {
 	public void addToBasket(long productId){
 		orderService.addToBasket(productId, currentUser.getUserId());
 		
+	}
+	public void getLineItems(Order order){
+		orderService.getLineItems(order, currentUser.getUserId());
 	}
 	
 	public String placeOrder(){
