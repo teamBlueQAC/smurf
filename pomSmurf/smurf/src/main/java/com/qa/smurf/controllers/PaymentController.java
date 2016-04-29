@@ -10,9 +10,10 @@ import javax.inject.Named;
 import com.qa.smurf.entities.Address;
 import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.User;
-import com.qa.smurf.service.AddressService;
+//import com.qa.smurf.service.AddressService;
 import com.qa.smurf.service.PaymentService;
-import com.qa.smurf.service.UserService;
+//import com.qa.smurf.service.UserService;
+>>>>>>> Initial controller work
 
 	@Named(value = "account")
 	@RequestScoped
@@ -20,10 +21,12 @@ import com.qa.smurf.service.UserService;
 public class PaymentController {
 		@Inject
 		PaymentService paymentService; 
+		/*
 		@Inject
 		UserService userService;
 		@Inject
 		AddressService addressService;
+		*/
 		
 		String error;
 		String cardNumber;
@@ -36,7 +39,8 @@ public class PaymentController {
 		public String inputCardNumber(){
 			if(cardNumber.length()!= 16){
 				error = "CARD LENGTH MUST BE 16 DIGITS" ;
-				
+
+				return error;
 			}
 			return null;
 		} 
@@ -50,6 +54,7 @@ public class PaymentController {
 				
 			} else {
 				error = "Expiry date must match the format MM/yy";
+				return error;
 			}
 			return null;
 		}
