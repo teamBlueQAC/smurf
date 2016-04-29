@@ -9,10 +9,10 @@ import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Category;
 import com.qa.smurf.repositories.CategoryRepository;
 
-public class CategoryReopsitoryOffline implements CategoryRepository {
-	
+public class CategoryRepositoryOffline implements CategoryRepository {
 	@Inject
 	private InitialData initialData;
+
 
 	@Override
 	public void persistCategory(Category c) {
