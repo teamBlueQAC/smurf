@@ -5,148 +5,40 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
 
 	<ui:define name="pageTitle">
-
-	</ui:define>
-
-	<ui:define name="body">
-
-
-		<!-- main page -->
-		<!--title-->
-
 		<div id="baskettitlebox" class="boxthing">
 			<h1 class="uk-icon-shopping-basket">Basket</h1>
 		</div>
+	</ui:define>
 
+<!-- Main body of the html -->
+	<ui:define name="body">
 
-		<div class="boxthing">
-			<div class="basketitembox uk-grid">
+		<!-- The class that the Controller will call -->
+		<table class="basket">
+			<tr>
+				<td><h4>Product</h4></td>
+				<td><h4>Quantity</h4></td>
+				<td><h4>Remove the Item</h4></td>
+			</tr>
+			<h:form>
+				<!-- repeat tag is used to iterate through all the order lines
+			Within the order itself to generate the appropriate output -->
+				<ui:repeat var="line" value="#{basket.order.orderline}">
+					<tr>
+						<td><h:outputText value="#{line.product.name}" /></td>
+						<td><h:intputText value="#{line.quantity}" /></td>
+						<td><h:commandButton
+								value="#{basket.removeProductFromBasket(line.product.product_id)}" /></td>
+					</tr>
+				</ui:repeat>
+				<!--  -->
+				<tr>
+					<td><h:outputText value="#{basket.totalPrice}" /></td>
+					<td><h:commandButton value="#{basket.placeOrder}" /></td>
+				</tr>
 
-				<hr class="uk-article-divider" align="center" width="100%" />
-
-				<!--first item-->
-				<div class="boxthing lineitems uk-container uk-container-center">
-
-					<!--picture of item-->
-					<div
-						class="itempic uk-width-medium-1-5 uk-width-large-1-5 uk-width-small-1-1">
-					</div>
-
-					<!--name of item-->
-					<div
-						class="boxthing productlinetext uk-width-medium-1-5 uk-width-large-1-5 uk-width-small-1-1">
-
-						<h4 class="small-hide">Name of item:</h4>
-						<span><b>Gnomes with a wheel barrow</b></span>
-
-					</div>
-
-					<!--quantity-->
-					<div
-						class="basketboxthing uk-width-medium-1-5 uk-width-large-1-5 uk-width-small-1-1">
-
-						<h4>Quantity:</h4>
-						<div class="quantitything">
-
-							<input class="quantity" type="number" min="0">
-							<div class="qclear"></div>
-						</div>
-
-					</div>
-
-					<!--price-->
-					<div
-						class="basketboxthing uk-width-medium-1-5 uk-width-large-1-5 uk-width-small-1-1">
-						<div>
-							<h4 class="small-hide">Price:</h4>
-							<p>&#163; 5.00</p>
-						</div>
-					</div>
-
-					<!--remove button-->
-					<div
-						class="removebox uk-width-medium-1-5 uk-width-large-1-5 uk-width-small-1-1">
-						<div>
-							<a class="remove uk-button uk-button-danger uk-button-small"
-								type="submit">Remove</a>
-								
-								
-						</div>
-					</div>
-					
-					
-				</div>
-
-				<hr class="uk-article-divider" align="center" width="100%" />
-
-				<!--second item-->
-				<div class="boxthing lineitems uk-container uk-container-center">
-
-					<!--picture of item-->
-					<div
-						class="itempic uk-width-medium-1-5 uk-width-large-1-5 uk-width-small-1-1">
-					</div>
-
-					<!--name of item-->
-					<div
-						class="boxthing productlinetext uk-width-medium-1-5 uk-width-large-1-5 uk-width-small-1-1">
-
-						<h4 class="small-hide">Name of item:</h4>
-						<span><b>Gnomes with a wheel barrow</b></span>
-
-					</div>
-
-					<!--quantity-->
-
-					<div 
-						class="basketboxthing uk-width-medium-1-5 uk-width-large-1-5 uk-width-small-1-1">
-
-						<h4>Quantity:</h4>
-						<div class="quantitything">
-
-							<input class="quantity" type="number" min="0">
-							<div class="qclear"></div>
-						</div>
-
-					</div>
-
-					<!--price-->
-					<div
-						class="basketboxthing uk-width-medium-1-5 uk-width-large-1-5 uk-width-small-1-1">
-						<div>
-							<h4 class="small-hide">Price:</h4>
-							<p>&#163; 5.00</p>
-						</div>
-					</div>
-
-					<!--remove button-->
-					<div
-						class="removebox uk-width-medium-1-5 uk-width-large-1-5 uk-width-small-1-1">
-						<div>
-							<a class="remove uk-button uk-button-danger uk-button-small"
-								type="submit">Remove</a>
-						</div>
-					</div>
-				</div>
-
-				<hr class="uk-article-divider" align="center" width="100%" />
-
-			</div>
-
-			<!--total-->
-			<div class="totalbox uk-container uk-container-right">
-
-				<h3>Total &#163; 10.00</h3>
-				<a id="checkout" class="uk-button uk-button-large"
-								type="submit">Checkout</a>
-			</div>
-
-		</div>
-
-
-
-
-
+			</h:form>
+		</table>
 
 	</ui:define>
 </ui:composition>
