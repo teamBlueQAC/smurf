@@ -1,7 +1,5 @@
 package com.qa.smurf.controllers;
 
-import java.lang.reflect.Field;
-
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
