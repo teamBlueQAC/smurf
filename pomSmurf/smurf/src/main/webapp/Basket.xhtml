@@ -29,10 +29,10 @@
 			Within the order itself to generate the appropriate output -->
 						<ui:repeat var="line" value="#{basket.order.orderline}">
 							<tr>
-								<td><h:graphicImage value="#{basket.lineitems.product.picUrl}"/>
-								<td><h:outputText value="#{line.product.product.name}" /></td>
-								<td><h:intputText value="#{basket.lineitems.product.quantity}" /></td>
-								<td><h:intputText value="#{basket.lineitems.product.price}" /></td>
+								<td><h:graphicImage value="#{basket.LineItems.product.picUrl}"/>
+								<td><h:outputText value="#{basket.LineItems.product.name}" /></td>
+								<td><h:intputText value="#{basket.LineItems.quantity}" /></td>
+								<td><h:intputText value="#{basket.LineItems.product.price}" /></td>
 								<td><h:commandButton
 										value="#{basket.removeProductFromBasket(basket.lineitems.product.product_id)}" /></td>
 							</tr>
