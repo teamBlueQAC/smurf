@@ -23,6 +23,10 @@
  								<i class="fa fa-shopping-basket" aria-hidden="true"></i>
  								Add to Basket
  							</h:commandButton>
+  							<h:commandButton class="uk-button" type="button" value="#{wishlist.addToWishList(product.product.id)}" >
+ 								<i class="fa fa-star-o" aria-hidden="true"></i>
+ 								Add to Wish List
+ 							</h:commandButton>
  						</h:form>
  						<p></p>
 						<p><h:outputText value = #{product.product.description} /></p>
