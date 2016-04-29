@@ -11,7 +11,7 @@ import com.qa.smurf.service.ProductService;
 @RequestScoped
 public class ProductController {
 	@Inject
-	ProductService productService;
+	private ProductService productService;
 	private Product product;
 	
 	public String findProductById(long id){
@@ -21,9 +21,6 @@ public class ProductController {
 	
 	public Product getProduct(Product product){
 		return this.product;
-	}
-	public void setProduct(Product product){
-		this.product = product;
 	}
 }	
 
