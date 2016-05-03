@@ -1,2 +1,0 @@
-# smurf
-Java EE project
