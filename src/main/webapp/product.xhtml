@@ -8,28 +8,34 @@
 			<div class="uk-grid">
 				<div
 					class="uk-width-large-1-2 uk-width-medium-1-2 uk-width-small-1-1">
-					<h:graphicImage class="uk-thumbnail-large" style="width: 100%;" value=#{picUrl} />
+					<h:graphicImage class="uk-thumbnail-large" style="width: 100%;"
+						value="#{picUrl}" />
 				</div>
 				<div
 					class="uk-width-large-1-2 uk-width-medium-1-2 uk-width-small-1-1">
-					<h:outputText value = "#{product.product.name}"/>
+					<h:outputText value="#{product.name}" />
 					<div class="uk-panel">
 						<h3 class="uk-panel-title"
-							style="padding-top: 20px; padding-bottom: 20px">&#163; 
-							<h:outputText value = #{product.product.price}/>
+							style="padding-top: 20px; padding-bottom: 20px">
+							&#163;
+							<h:outputText value="#{product.price}" />
 						</h3>
 						<h:form>
- 							<h:commandButton class="uk-button" type="button" value="#{basket.addToBasket(product.product.id)}" >
- 								<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+							<h:commandButton class="uk-button" type="button"
+								value="#{basket.addToBasket(product.id)}">
+								<i class="fa fa-shopping-basket" aria-hidden="true"></i>
  								Add to Basket
  							</h:commandButton>
-  							<h:commandButton class="uk-button" type="button" value="#{wishlist.addToWishList(product.product.id)}" >
- 								<i class="fa fa-star-o" aria-hidden="true"></i>
+							<h:commandButton class="uk-button" type="button"
+								value="#{wishlist.addToWishList(product.id)}">
+								<i class="fa fa-star-o" aria-hidden="true"></i>
  								Add to Wish List
  							</h:commandButton>
- 						</h:form>
- 						<p></p>
-						<p><h:outputText value = #{product.product.description} /></p>
+						</h:form>
+						<p></p>
+						<p>
+							<h:outputText value="#{product.description}" />
+						</p>
 					</div>
 				</div>
 				<div
@@ -39,19 +45,19 @@
 							<ul
 								class="uk-slider uk-grid-width-large-1-4 uk-grid-width-medium-1-4 uk-grid-width-small-1-3">
 
-								<ui:repeat var="picUrl" value="#{product.product.pictureloc}"
+								<ui:repeat var="picUrl" value="#{product.pictureloc}"
 									varStatus="status">
-									<li><a href=#{picUrl} data-uk-lightbox=""
-										title=""> <img src=#{picUrl} alt="" />
+									<li><a href="#{picUrl}" data-uk-lightbox="" title="">
+											<img src="#{picUrl}" alt="" />
 									</a></li>
 								</ui:repeat>
 							</ul>
 						</div>
 						<a href=""
 							class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous"
-							data-uk-slider-item="previous"></a> <a href=""
+							data-uk-slider-item="previous" /> <a href=""
 							class="uk-slidenav uk-slidenav-contrast uk-slidenav-next"
-							data-uk-slider-item="next"></a>
+							data-uk-slider-item="next" />
 					</div>
 				</div>
 				<div
