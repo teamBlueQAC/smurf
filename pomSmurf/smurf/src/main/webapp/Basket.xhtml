@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
+
+	<ui:define name="pageTitle">
+		<div id="baskettitlebox" class="boxthing">
+			<h1 class="uk-icon-shopping-basket">Basket</h1>
+		</div>
+	</ui:define>
+
+	<!-- Main body of the html -->
+	<ui:define name="body">
+		<div class="boxthing">
+			<div class="basketitembox uk-grid">
+
+				<!-- The class that the Controller will call -->
+				<table class="basket" border="1" style="width:100%">
+					<tr>
+						<td><h4></h4></td>
+						<td><h4>Product</h4></td>
+						<td><h4>Quantity</h4></td>
+						<td><h4>Price</h4></td>
+						<td><h4>Remove the Item</h4></td>
+					</tr>
+					<h:form>
+						<!-- repeat tag is used to iterate through all the order lines
+			Within the order itself to generate the appropriate output -->
+						<ui:repeat var="line" value="#{basket.order.orderline}">
+							<tr>
+								<td><h:graphicImage value="#{basket.LineItems.product.picUrl}"/>
+								<td><h:outputText value="#{basket.LineItems.product.name}" /></td>
+								<td><h:intputText value="#{basket.LineItems.quantity}" /></td>
+								<td><h:intputText value="#{basket.LineItems.product.price}" /></td>
+								<td><h:commandButton
+										value="#{basket.removeProductFromBasket(basket.lineitems.product.product_id)}" /></td>
+							</tr>
+						</ui:repeat>
+						<!--  -->
+						<div class="totalbox uk-container uk-container-right">
+							<h3>
+								<h:outputText value="#{basket.totalPrice}" />
+							</h3>
+							<!-- Replaced with commandbutton instead of a tag
+							Given the button needs to be callable through JSF -->
+							<h3>
+								<h:commandButton value="#{basket.placeOrder}"
+									class="uk-button uk-button-large" id="checkout" />
+							</h3>
+						</div>
+
+
+					</h:form>
+				</table>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
