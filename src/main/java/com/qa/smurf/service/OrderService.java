@@ -33,23 +33,21 @@ public class OrderService {
 	public void addToBasket(long productId, long userId) {
 		Product product = productRepository.findByID(productId);
 		Order order = orderRepository.getUsersPendingOrder(userId);
-		if(order != null){
+		if (order != null) {
 			boolean foundLineItem = false;
-			for (LineItems li : order.getOrderLineItems()){
-				if(!foundLineItem){
-					if(li.getProduct().getId() == productId){
-						li.setQuantity(li.getQuantity()+1);
+			for (LineItems li : order.getOrderLineItems()) {
+				if (!foundLineItem) {
+					if (li.getProduct().getId() == productId) {
+						li.setQuantity(li.getQuantity() + 1);
 						foundLineItem = true;
 					}
 				}
 				order.addLineItem(new LineItems(order, product, 1, product.getPrice(), product.getQuantityAvailable()));
 			}
 
-		} else{
-			order = new Order(123, new Date(), new Date(), 
-					new Payment(null, null, null, null, null, null), 
-					new Address("Place", "Postcode"), 
-					userRepository.findByID(userId), null);
+		} else {
+			order = new Order(123, new Date(), new Date(), new Payment(null, null, null, null, null, null),
+					new Address("Place", "Postcode"), userRepository.findByID(userId), null);
 		}
 
 	}
@@ -61,15 +59,14 @@ public class OrderService {
 
 	public void clearBasket(long userId) {
 		Order order = orderRepository.getUsersPendingOrder(userId);
-		if(order!=null){
-			for (LineItems li : order.getOrderLineItems()){
-				if(li!=null){
+		if (order != null) {
+			for (LineItems li : order.getOrderLineItems()) {
+				if (li != null) {
 					order.removeLineItem(li);
 				}
 			}
 			orderRepository.removeOrder(order);
 		}
-
 
 	}
 
@@ -81,9 +78,9 @@ public class OrderService {
 	public float calcOrderTotalPending(long userId) {
 		float total = 0;
 		Order order = orderRepository.getUsersPendingOrder(userId);
-		if(order != null){
-			for (LineItems li : order.getOrderLineItems()){
-				total=(float) li.getSubtotal();
+		if (order != null) {
+			for (LineItems li : order.getOrderLineItems()) {
+				total = (float) li.getSubtotal();
 			}
 		}
 		return total;
@@ -96,19 +93,19 @@ public class OrderService {
 	public void removeFromBasket(long productId, long userId) {
 		Product product = productRepository.findByID(productId);
 		Order order = orderRepository.getUsersPendingOrder(userId);
-		if(order != null){
+		if (order != null) {
 			boolean foundLineItem = false;
-			for (LineItems li : order.getOrderLineItems()){
-				if(li.getProduct().getId() == productId){
+			for (LineItems li : order.getOrderLineItems()) {
+				if (li.getProduct().getId() == productId) {
 					order.removeLineItem(li);
 				}
 			}
 
-		} 
+		}
 	}
 
 	public void getLineItems(Order order, long userId) {
-		ArrayList<LineItems>lineItems = order.getOrderLineItems();
+		ArrayList<LineItems> lineItems = order.getOrderLineItems();
 
 	}
 
