@@ -12,6 +12,7 @@ import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.entities.User;
 import com.qa.smurf.repositories.OrderRepository;
+import com.qa.smurf.repositories.OrderStatusRepository;
 import com.qa.smurf.repositories.ProductRepository;
 import com.qa.smurf.repositories.UserRepository;
 
@@ -22,6 +23,9 @@ public class OrderService {
 
 	@Inject
 	OrderRepository orderRepository;
+
+	@Inject
+	OrderStatusRepository orderStatusRepository;
 
 	@Inject
 	UserRepository userRepository;
@@ -42,6 +46,8 @@ public class OrderService {
 						foundLineItem = true;
 					}
 				}
+			}
+			if(!foundLineItem){
 				order.addLineItem(new LineItems(order, product, 1, product.getPrice(), product.getQuantityAvailable()));
 			}
 
@@ -53,7 +59,12 @@ public class OrderService {
 	}
 
 	public void updateOrder(Order order, long userId) {
-		// TODO Auto-generated method stub
+		if(order!=null){
+			orderRepository.updateOrder(order);
+		} else {
+			order = new Order(123, new Date(), new Date(), new Payment(null, null, null, null, null, null),
+					new Address("Place", "Postcode"), userRepository.findByID(userId), null);
+		}
 
 	}
 
@@ -87,6 +98,9 @@ public class OrderService {
 	}
 
 	public void placeOrder(Order order, long userId) {
+		if(order!=null){
+			orderRepository.placeOrder(order);
+		}
 
 	}
 
