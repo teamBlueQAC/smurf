@@ -11,93 +11,32 @@
 	</ui:define>
 	<ui:define name="body">
 		<div class="boxthing">
-			<div class="wishlistitembox uk-grid">
-				<hr class="uk-article-divider" align="center" width="100%" />
-
-				<!--first item-->
-				<div class="boxthing lineItems uk-container uk-container-center">
-
-					<!--picture of item-->
-					<div
-						class="itempic uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1">
-					</div>
-
-					<!--name of item-->
-					<div
-						class="productlinetext uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1">
-
-						<h4 class="small-hide">Name of item:</h4>
-						<span><b>Gnomes with a wheel barrow</b></span>
-
-					</div>
-
-					<!--price-->
-					<div
-						class="wishlistboxthing uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1">
-						<div>
-							<h4 class="small-hide">Price:</h4>
-							<p>&#163; 5.00</p>
-						</div>
-					</div>
-
-					<!--add/remove button-->
-					<div
-						class="removebox uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1">
-						<ul class="uk-list">
-							<li><a class="add uk-button uk-button-medium" type="submit">Add
-									to basket</a></li>
-							<li><a
-								class="remove uk-button uk-button-danger uk-button-medium"
-								type="submit">Remove</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<hr class="uk-article-divider" align="center" width="100%" />
-
-				<!--second item-->
-				<div class="boxthing lineitems uk-container uk-container-center">
-
-					<!--picture of item-->
-					<div
-						class="itempic uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1">
-					</div>
-
-					<!--name of item-->
-					<div
-						class="productlinetext uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1">
-
-						<h4 class="small-hide">Name of item:</h4>
-						<span><b>Gnomes with a wheel barrow</b></span>
-
-					</div>
-
-
-					<!--price-->
-					<div
-						class="wishlistboxthing uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1">
-						<div>
-							<h4 class="small-hide">Price:</h4>
-							<p>&#163; 5.00</p>
-						</div>
-					</div>
-					<div
-						class="removebox uk-width-medium-1-4 uk-width-large-1-4 uk-width-small-1-1"
-						style="height: 100%; display: inline-block;">
-						<div>
-							<ul class="uk-list">
-								<li><a class="add uk-button uk-button-medium" type="submit">Add
-										to basket</a></li>
-
-								<li><a
-									class="remove uk-button uk-button-danger uk-button-medium"
-									type="submit">Remove</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<hr class="uk-article-divider" align="center" width="100%" />
-			</div>
+			<table class="wishlist" border="1" style="width: 100%">
+					<tr>
+						<td><h4></h4></td>
+						<td><h4>Product</h4></td>
+						<td><h4>Price</h4></td>
+						<td><h4>Remove the Item</h4></td>
+					</tr>
+					<h:form>
+						<!-- repeat tag is used to iterate through all the order lines
+			Within the order itself to generate the appropriate output -->
+						<ui:repeat var="line" value="#{wishlist.wishListEntries}">
+							<tr>
+								<td><h:graphicImage
+										value="#{wishlist.wishListEntries.product.picUrl}" /></td>
+								<td><h:outputText value="#{wishlist.wishListEntries.product_name}" /></td>
+								<td><h:outputText
+										value="#{wishlist.wishListEntries.price}" /></td>
+								<td><h:commandButton
+										value="#{wishlist.removeFromWishlist(wishlist.wishListEntries.product_id)}" /></td>
+							</tr>
+						</ui:repeat>
+					</h:form>
+				</table>
+			
+			
+			
 		</div>
 	</ui:define>
 </ui:composition>
