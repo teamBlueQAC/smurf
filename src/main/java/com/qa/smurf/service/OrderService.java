@@ -1,5 +1,6 @@
 package com.qa.smurf.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.inject.Inject;
@@ -26,8 +27,7 @@ public class OrderService {
 	UserRepository userRepository;
 
 	public User getCurrentUser(long userId) {
-		// TODO Auto-generated method stub
-		return null;
+		return userRepository.findByID(userId);
 	}
 
 	public void addToBasket(long productId, long userId) {
@@ -36,9 +36,11 @@ public class OrderService {
 		if(order != null){
 			boolean foundLineItem = false;
 			for (LineItems li : order.getOrderLineItems()){
-				if(li.getProduct().getId() == productId){
-					li.setQuantity(li.getQuantity()+1);
-					foundLineItem = true;
+				if(!foundLineItem){
+					if(li.getProduct().getId() == productId){
+						li.setQuantity(li.getQuantity()+1);
+						foundLineItem = true;
+					}
 				}
 				order.addLineItem(new LineItems(order, product, 1, product.getPrice(), product.getQuantityAvailable()));
 			}
@@ -88,7 +90,6 @@ public class OrderService {
 	}
 
 	public void placeOrder(Order order, long userId) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -107,7 +108,7 @@ public class OrderService {
 	}
 
 	public void getLineItems(Order order, long userId) {
-		// TODO Auto-generated method stub
+		ArrayList<LineItems>lineItems = order.getOrderLineItems();
 
 	}
 
