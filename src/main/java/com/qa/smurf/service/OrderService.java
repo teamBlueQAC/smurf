@@ -58,7 +58,7 @@ public class OrderService {
 
 	}
 
-	public void updateOrder(Order order, long userId) {
+	public void updateQuantity(Order order, long userId) {
 		if(order!=null){
 			orderRepository.updateOrder(order);
 		} else {

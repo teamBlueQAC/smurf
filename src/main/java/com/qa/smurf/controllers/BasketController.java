@@ -32,10 +32,10 @@ public class BasketController {
 		orderService.removeFromBasket(productId, currentUser.getUserId());
 		return "basket";
 	}
-
-	public String updateQuantity() {
-		orderService.updateOrder(order, currentUser.getUserId());
-
+	
+	public String updateQuantity(){
+		orderService.updateQuantity(order, currentUser.getUserId());
+		
 		return "basket";
 	}
 
