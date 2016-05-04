@@ -30,10 +30,8 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/js/components/slideshow.js"></script>
 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/css/components/accordion.min.css" />
-	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/css/vendor/highlight/highlight.css" />
 	<link rel="stylesheet" type="text/css" href="css/default.css" />
-	<link rel="stylesheet" type="text/css" href="HomePage.css" />
+	<link rel="stylesheet" type="text/css" href="css/HomePage.css" />
 </h:head>
 <f:view>
 	<body>
@@ -61,22 +59,19 @@
 							</ul>
 						</div></li>
 				</ul>
-
 				<a href="#offcanvas-1" class="uk-navbar-toggle uk-visible-small"
 					data-uk-offcanvas=""></a>
 				<div class="uk-navbar-flip">
-					<a href=""
-						class="uk-navbar-toggle uk-navbar-toggle-alt uk-visible-small"></a>
+					<a class="uk-navbar-toggle uk-navbar-toggle-alt uk-visible-small"
+						href="" />
 					<ul class="uk-navbar-nav uk-hidden-small">
 						<li><a href="">My Account</a></li>
 						<li><a href=""><i class="fa fa-shopping-basket"
-								aria-hidden="true"></i> &#163;0.00</a></li>
+								aria-hidden="true"></i> &#163; 0</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-
-
 		<div id="offcanvas-1" class="uk-offcanvas">
 			<div class="uk-offcanvas-bar">
 				<div style="width: 100%;">
@@ -97,9 +92,11 @@
 				</ul>
 			</div>
 		</div>
-		<div style="width: 100%; max-width: 1000px; margin: 0 auto;">
+		<div id="mainCont">
 			<ui:insert name="pageTitle" />
-			<ui:insert name="body" />
+			<div style="margin-top: 15px;">
+				<ui:insert name="body" />
+			</div>
 		</div>
 		<div style="position: fixed; bottom: 10px; right: 10px; z-index: 1;">
 			<div>
@@ -109,16 +106,13 @@
 					class="fa fa-hand-lizard-o" aria-hidden="true"></i> E-mail</a>
 			</div>
 		</div>
-		<div id="footer">
-			<div class="boxthing uk-width-1-1"
-				style="height: 50px; padding: 5px;">
-				<ul class="uk-list">
-					<li><a href="">Home</a></li>
-					<li><a href="">About Us</a></li>
-					<li><a href="">Contact Us</a></li>
-					<li><a href="">Catalogue</a></li>
-				</ul>
-			</div>
+		<div id="footer" class="boxthing uk-width-1-1" style="padding: 5px;">
+			<ul class="uk-list" style="text-align: center;">
+				<li><a href="">Home</a></li>
+				<li><a href="">About Us</a></li>
+				<li><a href="">Contact Us</a></li>
+				<li><a href="">Catalogue</a></li>
+			</ul>
 		</div>
 	</body>
 </f:view>

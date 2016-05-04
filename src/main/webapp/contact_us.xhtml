@@ -3,13 +3,15 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
-
-	<link rel="stylesheet" type="text/css" href="css/contact_us.css" />
+	<ui:define name="pageTitle">
+		<div id="ConfirmationPage">
+			<h1 class="ConfirmationText">Contact Us</h1>
+		</div>
+	</ui:define>
 
 	<ui:define name="body">
-		<div class="imagebanner" align="center">
-			<h1 class="bannerheader">You must contact me</h1>
-		</div>
+		<link rel="stylesheet" type="text/css" href="css/contact_us.css" />
+
 
 		<div class="halfaboxthing">
 			<!-- tabs and content !-->

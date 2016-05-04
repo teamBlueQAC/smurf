@@ -32,10 +32,8 @@
 								<td><h:graphicImage
 										value="#{basket.lineItems.product.picUrl}" /></td>
 								<td><h:outputText value="#{basket.lineItems.product.name}" /></td>
-								<td><h:inputText
-										value="#{basket.lineItems.quantity}" /></td>
-								<td><h:outputText
-										value="#{basket.linesItems.price}" /></td>
+								<td><h:inputText value="#{basket.lineItems.quantity}" /></td>
+								<td><h:outputText value="#{basket.linesItems.price}" /></td>
 								<td><h:commandButton
 										value="#{basket.removeProductFromBasket(basket.lineOrders.product_id)}" /></td>
 							</tr>
