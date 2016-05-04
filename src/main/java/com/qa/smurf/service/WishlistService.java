@@ -54,4 +54,9 @@ public class WishlistService {
 
 	}
 
+	public ArrayList<WishListEntry> getWishListEntries(long userId) {
+		ArrayList<WishListEntry> wishList = wishlistRepository.getWishListEntries(userId);
+		return wishList;
+	}
+
 }
