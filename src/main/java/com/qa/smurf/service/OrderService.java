@@ -49,7 +49,6 @@ public class OrderService {
 					new Address("Place", "Postcode"), 
 					userRepository.findByID(userId), null);
 		}
-		// TODO Auto-generated method stub
 
 	}
 
@@ -60,12 +59,20 @@ public class OrderService {
 
 	public void clearBasket(long userId) {
 		Order order = orderRepository.getUsersPendingOrder(userId);
+		if(order!=null){
+			for (LineItems li : order.getOrderLineItems()){
+				if(li!=null){
+					order.removeLineItem(li);
+				}
+			}
+			orderRepository.removeOrder(order);
+		}
 
 
 	}
 
 	public Order getUsersPendingOrder(long userId) {
-		// TODO Auto-generated method stub
+		Order order = orderRepository.findByUserAndStatus(userId, PENDING);
 		return null;
 	}
 
