@@ -2,6 +2,8 @@ package com.qa.smurf.controllers;
 
 
 
+import java.util.ArrayList;
+
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -20,6 +22,7 @@ public class BasketController {
 	CurrentUser currentUser;
 	private User user = orderService.getCurrentUser(currentUser.getUserId());
 	private Order order = orderService.getUsersPendingOrder(currentUser.getUserId());
+	private ArrayList<LineItems> lineItems = order.getOrderLineItems();
 	private float totalPrice = orderService.calcOrderTotalPending(currentUser.getUserId());
 	
 	public String removeProductFromBasket(long productId){

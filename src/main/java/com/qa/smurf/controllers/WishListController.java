@@ -1,10 +1,13 @@
 package com.qa.smurf.controllers;
 
+import java.util.ArrayList;
+
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.qa.smurf.entities.User;
+import com.qa.smurf.entities.WishListEntry;
 import com.qa.smurf.service.OrderService;
 import com.qa.smurf.service.WishlistService;
 
@@ -16,6 +19,7 @@ public class WishListController {
 	@Inject
 	CurrentUser currentUser;
 	private User user = wishlistService.getCurrentUser(currentUser.getUserId());
+	private ArrayList<WishListEntry> wishListEntries = wishlistService.getWishListEntries(currentUser.getUserId());
 	
 	public String addToWishlist(long productId){
 		wishlistService.addToWishlist(productId, currentUser.getUserId());

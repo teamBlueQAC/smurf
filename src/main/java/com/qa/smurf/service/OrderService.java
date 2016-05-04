@@ -99,7 +99,17 @@ public class OrderService {
 
 	public void placeOrder(Order order, long userId) {
 		if(order!=null){
-			orderRepository.placeOrder(order);
+			for(LineItems li : order.getOrderLineItems()){
+				long productId = li.getProduct().getId();
+				Product p = productRepository.findById(productId);
+				int available = li.getProduct().getQuantityAvailable();
+				int liQuantity = li.getQuantity();
+				if(liQuantity <= available){
+					p.setQuantityAvailable(available-liQuantity);
+				}
+			}
+			order.setOrderStatus("PLACED");
+			orderRepository.updateOrder(order);
 		}
 
 	}

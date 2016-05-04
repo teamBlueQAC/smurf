@@ -30,14 +30,14 @@
 						<ui:repeat var="line" value="#{basket.order.orderline}">
 							<tr>
 								<td><h:graphicImage
-										value="#{basket.lineOrders.product.picUrl}" /></td>
-								<td><h:outputText value="#{line.product.product.name}" /></td>
+										value="#{basket.lineItems.product.picUrl}" /></td>
+								<td><h:outputText value="#{basket.lineItems.product.name}" /></td>
 								<td><h:inputText
-										value="#{basket.lineOrders.product.quantity}" /></td>
-								<td><h:inputText
-										value="#{basket.linesOrders.product.price}" /></td>
+										value="#{basket.lineItems.quantity}" /></td>
+								<td><h:outputText
+										value="#{basket.linesItems.price}" /></td>
 								<td><h:commandButton
-										value="#{basket.removeProductFromBasket(basket.lineOrders.product.product_id)}" /></td>
+										value="#{basket.removeProductFromBasket(basket.lineOrders.product_id)}" /></td>
 							</tr>
 						</ui:repeat>
 						<!--  -->
