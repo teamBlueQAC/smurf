@@ -28,7 +28,7 @@ public class BasketController {
 	}
 	
 	public String updateQuantity(){
-		orderService.updateOrder(order, currentUser.getUserId());
+		orderService.updateQuantity(order, currentUser.getUserId());
 		
 		return "basket";
 	}
