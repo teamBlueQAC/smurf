@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "LineItems")
 public class LineItems {
 
+	@Id
 	@ManyToOne
 	@JoinTable(name = "ORDER_ID")
 	private Order order;

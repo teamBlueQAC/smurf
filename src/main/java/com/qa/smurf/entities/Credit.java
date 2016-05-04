@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "Credit")
 public class Credit {
 
+	@Id
 	@OneToOne
 	@JoinColumn(name = "USER_ID")
 	private User user;
