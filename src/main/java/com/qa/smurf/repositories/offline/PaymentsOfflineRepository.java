@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.qa.smurf.InitialData;
-import com.qa.smurf.PaymentRepository;
+import com.qa.smurf.repositories.PaymentRepository;
 import com.qa.smurf.entities.Payment;
 
 public class PaymentsOfflineRepository implements PaymentRepository {
