@@ -6,7 +6,6 @@ package com.qa.smurf;
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import javax.inject.Singleton;
 
 import com.qa.smurf.entities.Address;
@@ -32,7 +31,6 @@ public class InitialData {
 	private ArrayList<Credit> credit = new ArrayList<Credit>();
 	private ArrayList<LineItems> lineItems = new ArrayList<LineItems>();
 	private ArrayList<Order> orders = new ArrayList<Order>();
-	private ArrayList<OrderStatus> orderStatuses = new ArrayList<OrderStatus>();
 	private ArrayList<SupplierOrder> supplierOrders = new ArrayList<SupplierOrder>();
 	private ArrayList<Product> products = new ArrayList<Product>();
 	private ArrayList<Payment> payment = new ArrayList<Payment>();
@@ -49,7 +47,6 @@ public class InitialData {
 	
 	public InitialData() throws ParseException{	//TODO these need to be run in a specific order
 		setOrderInitialData();
-		setOrderStatusInitialData();
 		setCategoriesInitialData();
 		setProdCatInitialData();
 		setSupplierOrderInitialdata();
@@ -61,6 +58,7 @@ public class InitialData {
 		setAccountTypeInitialData();
 		setUserInitialData();
 		setWishlistEntryInitialData();
+		setSupplierInitialData();
 	}
 
 	/**
@@ -158,7 +156,7 @@ public class InitialData {
 		double[] price = {10.10, 20.20, 30.30, 40.40, 50.50};
 		
 		for (int i = 0; i < 5; i++){
-			orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i), getUsers().get(i), getOrderStatuses().get(i)));
+			orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i), getUsers().get(i), OrderStatus.PLACED));
 		}
 	}
 
@@ -213,26 +211,6 @@ public class InitialData {
 	
 	public void addUser(User user){
 		this.users.add(user);
-	}
-
-	private void setOrderStatusInitialData() {
-		String[] name = { "Cancelled", "Delivered", "Dispatched", "Awaiting Confirmation", "Dispatched" };
-		for (int i = 0; i < 5; i++) {
-			//PLZ FIX
-//			orderStatuses.add(new OrderStatus(name[i]));
-		}
-	}
-
-	public ArrayList<OrderStatus> getOrderStatuses() {
-		return orderStatuses;
-	}
-
-	public void addOrderStatus(OrderStatus orderStatus) {
-		orderStatuses.add(orderStatus);
-	}
-
-	public void setOrderStatuses(ArrayList<OrderStatus> orderStatuses) {
-		this.orderStatuses = orderStatuses;
 	}
 	
 	public void setLineItems() throws ParseException {
@@ -310,7 +288,7 @@ public class InitialData {
 		int received[] = { 1, 2, 3, 4, 4 };
 		
 		for (int i = 0; i < 5; i++){
-			supplierOrders.add(new SupplierOrder(getProducts().get(i), getOrderStatuses().get(i), getSuppliers().get(i), i, new Date(), received[i]));
+			supplierOrders.add(new SupplierOrder(getProducts().get(i), OrderStatus.AWAITINGDISPATCH, getSuppliers().get(i), i, new Date(), received[i]));
 		}
 	}
 
