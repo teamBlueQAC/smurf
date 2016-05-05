@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="PaymentPage.css">
+</head>
+
+<body>
+
+	<div class="mainDivs"> 
+		<p></p>
+
+		<table style="width:100%">
+
+			<tr>
+				<td></td>	
+				<td><h2> Personal Details </h2></td>
+				<td></td>	
+			</tr>
+
+			<tr>
+				<td><p> Name: </p> </td>
+				<td><p id="fullName"></p></td>	
+			</tr>
+
+			<tr>
+				<td><p> Email: </p></td>
+				<td><p id="Email"></p></td>	
+			</tr>
+			<tr>
+				<td><p> Contact Number: </p></td>
+				<td><p id="contactNo"></p></td>	
+			</tr>
+
+			<tr>
+				<td></td>	
+				<td><h2> Postal Address </h2></td>
+				<td></td>	
+			</tr>
+
+			<tr>
+				<td><p> Line 1: </p></td>
+				<td><p id="Line1">10 House</td>	
+				<td><p> Line 2: </p></td>
+				<td><p id="Line2">house lane</td>	
+			</tr>
+			<tr>
+				<td><p> Line 3: </p></td>
+				<td><p id="Line3">house Town</td>	
+				<td><p> Line 4: </p></td>
+				<td><p id="Line4">house county</td>	
+			</tr>
+			<tr>
+				<td><p> PostCode: </p></td>
+				<td><p id="PostCode">HO1 1SE</td>	
+				<td><button type="button" onclick="LoadAccountPage()">Change</button></td>	
+				<td><button type="button" onclick="NextBox()">Please Confirm</button></td>
+			</tr>
+		</table>
+
+
+	</div>
+
+	<div class="mainDivs"> 
+		<p></p>
+		<table style="width:100%">
+			<tr>
+				<td></td>	
+				<td><h2> Pay by Credit </h2></td>
+				<td></td>	
+			</tr>
+			<tr>
+				<td><p>Cost of Purchase</p></td>	
+				<td><p id="cost">&#163...</p></td>
+			</tr>
+			<tr>
+				<td><p>Current Credit</p></td>
+				<td><p id="credit">&#163...</p></td>	
+			</tr>
+			<tr>
+				<td><p>Credit Remaining</p></td>	
+				<td><p id="remaining">&#163...</p></td>	
+				<td><button type="button" onclick="LoadBasketPage()">Cancel</button></td>	
+				<td><button type="button" onclick="NextBox()">Confirm</button></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="mainDivs"> 
+		<p></p>
+
+		<div> <!-- Card type -->
+			<table style="width:600px">
+				<tr>
+					<td><p>Please select Card Type</p></td>
+					<td>
+						<div class="dropdown">
+							<button class="dropbtn"><p id="cardType">Card Type</p></button>
+							<div class="dropdown-content">
+								<a href="#" onclick="SelectCard()">Visa</a>
+							</div>
+						</div>
+					</td>
+					<td>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<br>	<br>	<br>
+
+		<!-- Card Details -->
+		<div>
+			<table style="width:100%">
+				<tr>
+					<th>Card</th>
+					<th>Input</th>
+					<th></th>
+				</tr>
+				<tr>
+					<td>Name as on Card</td>
+					<td><input id="cardName" type="text" value=""></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Card Number</td>
+					<td><input id="cardNumber" type="text" value=""></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Expiry Date</td>
+					<td><input type="month" id="expDate" value="1989-04">
+						<!-- <input id="expDate" type="text" value="MM YY"> -->
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Security Number</td>
+					<td><input id="csvNumber" type="text" value="xxx"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td> </td>
+					<td> </td>
+					<td><button type="button" onclick="LoadBasketPage()">Cancel</button></td>	
+					<td><button type="button" onclick="NextBox()">Please Confirm</button></td>
+				</tr>
+			</table>
+		</div>
+
+		<div>
+			<table style="width:100%">
+				<tr>
+					<td></td>	
+					<td><h2> Postal Address </h2></td>
+					<td></td>	
+				</tr>
+
+				<tr>
+					<td><p> Line 1: </p></td>
+					<td><input id="Line1" type="text" name="Line1" value="10 House"></td>	
+					<td><p> Line 2: </p></td>
+					<td><input id="Line2" type="text" name="Line2" value="house lane"></td>	
+				</tr>
+				<tr>
+					<td><p> Line 3: </p></td>
+					<td><input id="Line3" type="text" name="Line3" value="house Town"></td>	
+					<td><p> Line 4: </p></td>
+					<td><input id="Line4" type="text" name="Line4" value="house county"></td>	
+				</tr>
+				<tr>
+					<td><p> PostCode: </p></td>
+					<td><input id="PostCode" type="text" name="postCode" value="HO1 1SE"></td>	
+					<td><button type="button" onclick="LoadBasketPage()">Cancel</button></td>	
+					<td><button type="button" onclick="NextBox()">Please Confirm</button></td>	
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="mainDivs"> 
+	<p></p>
+		<table style="width:100%">
+			<tr>
+				<th>Total Cost</th>
+				<th>Amount Paying</th>
+				<th>Confirm</th>
+			</tr>
+			<tr>
+				<td><p id="total">&#163...</p></td>
+				<td><p id="paying">&#163...</p></td>
+				<td><button type="button" onclick="LoadBasketPage()">Cancel</button></td>
+				<td><button type="button" onclick="NextBox()">Confirm</button></td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>
+
+
+<script>
+//var myTmr = setInterval(nextFunction, 3000);
+//var myTmr = setInterval(ImageTransition, 3000); 
+//var updateTmr = setInterval(updateFunction, 24); 
+
+var currentBox = 1;
+var lastBox = 0;
+var basicInfoBox = 1;
+var creditBox = 2;
+var cardBox = 3;
+
+function NextBox() {
+	if (currentBox == basicInfoBox) {
+
+		if (lastBox == currentBox) {
+			alert("Please complete the previous section");
+		}
+		lastBox = basicInfoBox
+	}
+	else if (currentBox == creditBox) {
+		currentBox = cardBox;
+
+		if (lastBox == currentBox) {
+			alert("Please complete the previous section");
+		}
+		lastBox = creditBox
+	}
+	else if (currentBox == cardBox) {
+
+		if (lastBox == currentBox) {
+			alert("Please complete the previous section");
+		}
+		lastBox = cardBox
+	}
+}
+
+function SelectCard() {
+	document.getElementById("cardType").innerHTML = "Visa";
+}
+
+function LoadBasketPage() {
+
+}
+function LoadAccountPage() {
+
+}
+
+document.getElementById("cardName").value = "MR M MOUSE";
+document.getElementById("cardNumber").value = "xxxx xxxx xxxx " + "5465";
+
+document.getElementById("fullName").innerHTML = "Mickey " + "Mouse";
+document.getElementById("Email").innerHTML = "MickeyMouse@Disney.com";
+document.getElementById("contactNo").innerHTML = "07845 464652";
+
+document.getElementById("cost").innerHTML = "&#163 20.00";
+document.getElementById("credit").innerHTML = "&#163 10.00";
+document.getElementById("remaining").innerHTML = "&#163 10.00";
+
+document.getElementById("total").innerHTML = "&#163 10.00";
+document.getElementById("paying").innerHTML = "&#163 10.00";
+
+document.getElementById("expDate").value = "2016-12";
+
+</script>

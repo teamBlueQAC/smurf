@@ -4,6 +4,14 @@
 	width: 100%;
 }
 
+#mainCont {
+	height: 100%;
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
 .boxthing {
 	display: block;
 	float: left;
@@ -50,7 +58,7 @@
 }
 
 .Gardenbox {
-	background-image: url("copyrightfreeteam.jpg");
+	background-image: url("../images/copyrightfreeteam.jpg");
 	background-repeat: no-repeat;
 	background-origin: content-box;
 	background-position: center;
@@ -61,7 +69,7 @@
 }
 
 .Gnomesbox {
-	background-image: url("selenagnomes.jpg");
+	background-image: url("../images/selenagnomes.jpg");
 	background-repeat: no-repeat;
 	background-origin: content-box;
 	background-position: center;
@@ -72,7 +80,7 @@
 }
 
 .Seedsbox {
-	background-image: url("seeds.jpg");
+	background-image: url("../images/seeds.jpg");
 	background-repeat: no-repeat;
 	background-origin: content-box;
 	background-position: center;
@@ -90,7 +98,6 @@
 
 #footer {
 	background-color: #7EC0EE;
-	height: 150px;
 }
 
 .quantity {
@@ -98,7 +105,7 @@
 }
 
 .itempic {
-	background-image: url("images/gnome.jpg");
+	background-image: url("../images/gnome.jpg");
 	background-size: 150px 90px;
 	background-repeat: no-repeat;
 	background-position: center;
