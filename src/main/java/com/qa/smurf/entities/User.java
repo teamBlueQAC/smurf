@@ -13,11 +13,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-<<<<<<< HEAD
 import javax.validation.constraints.Size;
 
-=======
->>>>>>> 4b49f12... Tidy up of html
 /**
  * 
  * Created by Sam and Elliot
