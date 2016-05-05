@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
-
 import javax.inject.Singleton;
 
 import com.qa.smurf.entities.Address;

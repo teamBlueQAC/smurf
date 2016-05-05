@@ -45,4 +45,11 @@ public class PaymentController {
 			}
 			return false;
 		}
+		
+		public Boolean validateSecurityNumber(int ccv){
+			if(paymentService.validateSecurityNumber(ccv)){
+				return true;
+			}
+			return false;
+		}	
 }

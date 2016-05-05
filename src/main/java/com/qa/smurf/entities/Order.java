@@ -137,5 +137,17 @@ public class Order {
 	public void setPaymentID(Payment paymentID) {
 		this.paymentID = paymentID;
 	}
+	
+	public ArrayList<LineItems> getLineItem() {
+		return lineItem;
+	}
+
+	public void setLineItem(ArrayList<LineItems> lineItem) {
+		this.lineItem = lineItem;
+	}
+
+	public void setOrderStatus(OrderStatus orderStatus) {
+		this.orderStatus = orderStatus;
+	}
 
 }

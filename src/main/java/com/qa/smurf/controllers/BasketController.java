@@ -8,6 +8,7 @@ import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.qa.smurf.entities.LineItems;
 import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.User;
 import com.qa.smurf.service.OrderService;
@@ -30,7 +31,7 @@ public class BasketController {
 	CurrentUser currentUser;
 	private User user = orderService.getCurrentUser(currentUser.getUserId());
 	private Order order = orderService.getUsersPendingOrder(currentUser.getUserId());
-	private ArrayList<LineItems> lineItems = order.getOrderLineItems();
+	private ArrayList<LineItems> lineItems = order.getLineItem();
 	private float totalPrice = orderService.calcOrderTotalPending(currentUser.getUserId());
 
 	public String removeProductFromBasket(long productId) {
