@@ -23,6 +23,7 @@ import com.qa.smurf.entities.ProductType;
 import com.qa.smurf.entities.Supplier;
 import com.qa.smurf.entities.SupplierOrder;
 import com.qa.smurf.entities.User;
+import com.qa.smurf.entities.WishListEntry;
 import com.qa.smurf.util.AccountType;
 import com.qa.smurf.util.OrderStatus;
 
@@ -43,6 +44,7 @@ public class InitialData {
 	private ArrayList<AccountType> accountTypes = new ArrayList<AccountType>();
 	private ArrayList<Supplier> suppliers = new ArrayList<Supplier>();	
 	private ArrayList<User> users = new ArrayList<User>();
+	private ArrayList<WishListEntry> wishListEntries = new ArrayList<WishListEntry>();
 	
 	public InitialData() throws ParseException{	//TODO these need to be run in a specific order
 		setOrderInitialData();
@@ -57,6 +59,7 @@ public class InitialData {
 		setProdSupInitialData();
 		setAccountTypeInitialData();
 		setUserInitialData();
+		setWishlistEntryInitialData();
 	}
 
 	/**
@@ -421,6 +424,33 @@ public class InitialData {
 
 	public void setProdSups(ArrayList<ProdSup> prodSups) {
 		this.prodSups = prodSups;
+	}
+
+
+	/**
+	 * 
+	 * Created by Omar
+	 * 
+	 */
+
+	private void setWishlistEntryInitialData() {
+		double[] cost = { 100.05, 200.40, 400.09, 300.02, 800.32 };
+
+		for (int i = 0; i < 5; i++) {
+			//wishListEntries.add(new WishListEntry(getSuppliers().get(i), getProducts().get(i), cost[i]));		
+		}
+	}
+
+	public ArrayList<WishListEntry> getWishListEntries() {
+		return this.wishListEntries;
+	}
+
+	public void addWishListEntry(WishListEntry wishListEntry) {
+		this.wishListEntries.add(wishListEntry);
+	}
+	
+	public void setWishListEntries(ArrayList<WishListEntry> wishListEntries) {
+		this.wishListEntries = wishListEntries;
 	}
 
 }

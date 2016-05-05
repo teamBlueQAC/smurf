@@ -10,11 +10,11 @@ public interface WishListEntryRepository {
 
 	public void persistWishListEntry(WishListEntry w);
 
-	public void persistWishListEntrys(List<WishListEntry> w);
+	public void persistWishListEntries(List<WishListEntry> w);
 
-	public WishListEntry findByID(long id);
+	public WishListEntry findByProductAndUser(long productID, long userID);
 
-	public ArrayList<WishListEntry> getWishListEntrys();
+	public ArrayList<WishListEntry> getWishListEntries();
 
 	public void updateWishListEntry(WishListEntry w);
 

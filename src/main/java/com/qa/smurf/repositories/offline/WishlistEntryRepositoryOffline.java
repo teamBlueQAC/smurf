@@ -10,7 +10,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
-import com.qa.smurf.entities.Address;
 import com.qa.smurf.entities.WishListEntry;
 import com.qa.smurf.repositories.WishListEntryRepository;
 
@@ -24,24 +23,25 @@ public class WishlistEntryRepositoryOffline implements WishListEntryRepository {
 	}
 
 	@Override
-	public void persistWishListEntrys(List<WishListEntry> wishListEntries) {
+	public void persistWishListEntries(List<WishListEntry> wishListEntries) {
 		for (WishListEntry w: wishListEntries) {
 			initialData.addWishListEntry(w);
 		}
 	}
-
-	@Override
-	public WishListEntry findByID(long id) {
-		for (WishListEntry w: initialData.WishListEntries()) {
-			if (w.getId() == id) {
-				return w;
+	
+	@Override 
+	public WishListEntry findByProductAndUser(long productID, long userID)
+	{		
+		for (WishListEntry wishListEntry: initialData.getWishListEntries()) {
+			if ((wishListEntry.getUser().getId() == userID) && (wishListEntry.getProduct().getId() == productID)) {
+				return wishListEntry;
 			}
 		}
 		return null;
 	}
-
+	
 	@Override
-	public ArrayList<WishListEntry> getWishListEntrys() {
+	public ArrayList<WishListEntry> getWishListEntries() {
 		return initialData.getWishListEntries();
 	}
 
@@ -51,7 +51,12 @@ public class WishlistEntryRepositoryOffline implements WishListEntryRepository {
 	}
 
 	@Override
-	public void removeWishListEntry(WishListEntry w) {
-		
+	public void removeWishListEntry(WishListEntry wishListEntry) {
+		ArrayList<WishListEntry> wishListEntries = initialData.getWishListEntries();
+		for (int i = 0; i < wishListEntries.size(); i++) {
+			if (wishListEntries.get(i).equals(wishListEntry))
+				wishListEntries.remove(i);
+		}
+		initialData.setWishListEntries(wishListEntries);
 	}
 }
