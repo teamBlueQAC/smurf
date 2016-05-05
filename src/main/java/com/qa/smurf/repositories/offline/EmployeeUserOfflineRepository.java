@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.EmployeeUser;
 import com.qa.smurf.entities.Payment;
@@ -11,12 +13,20 @@ import com.qa.smurf.repositories.EmployeeUserRepository;
 
 public class EmployeeUserOfflineRepository implements EmployeeUserRepository {
 
-	try{
+	
 		ArrayList<EmployeeUser> employeeUser = new ArrayList<EmployeeUser>();
-	} catch (ParseException pe){
-		System.err.println();
-	}
-	private InitialData initialData = new InitialData();
+	
+	@PostConstruct	
+	public void init(){
+		try{
+			initialData = new InitialData();
+		} catch (ParseException pe){
+			pe.printStackTrace();
+		}
+		
+	}	
+	
+	private InitialData initialData;
 
 	@Override
 	public void persistEmployeeUser(EmployeeUser eu) {
