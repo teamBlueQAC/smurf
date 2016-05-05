@@ -14,9 +14,9 @@ public interface LineItemsRepository {
 
 	public void persistLineItems(List<LineItems> lineitems);
 
-	public LineItems findByCompositeKey(Order order, Product product);
+	public ArrayList<LineItems> findByCompositeKey(Order order, Product product);
 
-	public LineItems findByProduct(Product product);
+	public ArrayList<LineItems> findByProduct(Product product);
 
 	public ArrayList<LineItems> getLineItems();
 
