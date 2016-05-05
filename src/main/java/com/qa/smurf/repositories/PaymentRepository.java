@@ -23,6 +23,8 @@ public interface PaymentRepository {
 	public Payment findByExpiryDate(String expiryDate);
 
 	public Payment findByNameOnCard(String nameOnCard);
+	
+	public Payment findBySecurityNumber(int ccv);
 
 	public ArrayList<Payment> getPayments();
 
@@ -33,5 +35,7 @@ public interface PaymentRepository {
 	public void updatePayment(Payment p);
 
 	public void removePayment(Payment p);
+
+	
 
 }
