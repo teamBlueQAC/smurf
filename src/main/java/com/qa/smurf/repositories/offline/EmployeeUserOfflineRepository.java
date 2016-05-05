@@ -11,6 +11,11 @@ import com.qa.smurf.repositories.EmployeeUserRepository;
 
 public class EmployeeUserOfflineRepository implements EmployeeUserRepository {
 
+	try{
+		ArrayList<EmployeeUser> employeeUser = new ArrayList<EmployeeUser>();
+	} catch (ParseException pe){
+		System.err.println();
+	}
 	private InitialData initialData = new InitialData();
 
 	@Override
