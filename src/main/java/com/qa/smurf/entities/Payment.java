@@ -1,7 +1,5 @@
 package com.qa.smurf.entities;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -50,7 +48,7 @@ public class Payment {
 
 	private Address address;
 
-	public Payment(String cardNumber, String cardType, Date date, String nameOnCard, Address address, User user) {
+	public Payment(String cardNumber, String cardType, String date, String nameOnCard, Address address, User user) {
 
 		this.cardNumber = cardNumber;
 		this.cardType = cardType;
