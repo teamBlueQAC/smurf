@@ -46,18 +46,10 @@ public class PaymentController {
 			return false;
 		}
 		
-		public String validateSecurityNumber(int ccv){
-			if(Integer.valueOf(ccv).toString().length() != 3){
-				error = "CCV MUST BE 3 DIGITS;" ;
-				return error;
+		public Boolean validateSecurityNumber(int ccv){
+			if(paymentService.validateSecurityNumber(ccv)){
+				return true;
 			}
-			String pattern = "[//d]+";
-			Pattern regexPattern = Pattern.compile(pattern);
-			Matcher matcher = regexPattern.matcher(Long.valueOf(ccv).toString());
-			if(!matcher.find()){
-				error = error + "FIELD MUST ONLY CONTAIN DIGITS;";
-				return error;
-			}
-			return null;
-		}
+			return false;
+		}	
 }

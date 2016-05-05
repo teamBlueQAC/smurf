@@ -52,4 +52,18 @@ public class PaymentService {
 		}
 		return true;
 	}
+	
+	/*method checks the ccv number and makes sure it is only 3 digits long*/
+	public Boolean validateSecurityNumber(int ccv){
+		if(Integer.valueOf(ccv).toString().length() != 3){
+			return false;
+		}
+		String pattern = "[//d]+";
+		Pattern regexPattern = Pattern.compile(pattern);
+		Matcher matcher = regexPattern.matcher(Long.valueOf(ccv).toString());
+		if(!matcher.find()){
+			return false;
+		}
+		return true;
+	}
 }
