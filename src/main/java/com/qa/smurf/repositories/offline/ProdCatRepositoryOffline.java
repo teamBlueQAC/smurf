@@ -9,7 +9,7 @@ import com.qa.smurf.entities.ProdCat;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.repositories.ProdCatRepository;
 
-public class ProdCatRepositoryOffline implements ProdCatRepository {
+class ProdCatRepositoryOffline implements ProdCatRepository {
 	@Inject
 	private InitialData initialData;
 

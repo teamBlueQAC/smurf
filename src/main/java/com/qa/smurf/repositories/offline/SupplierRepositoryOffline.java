@@ -14,7 +14,7 @@ import com.qa.smurf.entities.Supplier;
 import com.qa.smurf.repositories.SupplierRepository;
 import com.qa.smurf.util.AccountType;
 
-public class SupplierRepositoryOffline implements SupplierRepository {
+class SupplierRepositoryOffline implements SupplierRepository {
 	@Inject
 	private InitialData initialData;
 
@@ -27,7 +27,7 @@ public class SupplierRepositoryOffline implements SupplierRepository {
 	//
 	@Override
 	public void persistSuppliers(List<Supplier> suppliers) {
-		for (Supplier s: suppliers) {
+		for (Supplier s : suppliers) {
 			initialData.addSupplier(s);
 		}
 	}
@@ -35,7 +35,7 @@ public class SupplierRepositoryOffline implements SupplierRepository {
 	// Search for Supplier by ID
 	@Override
 	public Supplier findByID(long id) {
-		for (Supplier s: initialData.getSuppliers()) {
+		for (Supplier s : initialData.getSuppliers()) {
 			if (s.getId() == id) {
 				return s;
 			}
@@ -52,12 +52,12 @@ public class SupplierRepositoryOffline implements SupplierRepository {
 	// update Address info
 	@Override
 	public void updateSupplier(Supplier supplier) {
-		
+
 	}
 
 	// delete - most likely wouldn't delete Supplier, we discussed it though
 	@Override
 	public void removeSupplier(Supplier supplier) {
-		
+
 	}
 }

@@ -64,4 +64,9 @@ public class WishListEntry {
 		this.dateAdded = dateAdded;
 	}
 
+	public long getId() {
+		// PLZ FIX
+		return 0;
+	}
+
 }

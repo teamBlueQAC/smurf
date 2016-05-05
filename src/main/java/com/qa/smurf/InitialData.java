@@ -215,7 +215,8 @@ public class InitialData {
 	private void setOrderStatusInitialData() {
 		String[] name = { "Cancelled", "Delivered", "Dispatched", "Awaiting Confirmation", "Dispatched" };
 		for (int i = 0; i < 5; i++) {
-			orderStatuses.add(new OrderStatus(name[i]));
+			//PLZ FIX
+//			orderStatuses.add(new OrderStatus(name[i]));
 		}
 	}
 

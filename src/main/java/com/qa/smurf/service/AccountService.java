@@ -11,10 +11,16 @@ import com.qa.smurf.repositories.PaymentRepository;
 import com.qa.smurf.repositories.UserRepository;
 
 @Stateless
-public class AccountService {
-	@Inject	private UserRepository userRepository;
-	@Inject private PaymentRepository paymentrepository;
-	@Inject private OrderRepository orderRepository;
+class AccountService {
+	@SuppressWarnings("cdi-ambiguous-dependency")
+	@Inject
+	private UserRepository userRepository;
+	@SuppressWarnings("cdi-ambiguous-dependency")
+	@Inject
+	private PaymentRepository paymentrepository;
+	@SuppressWarnings("cdi-ambiguous-dependency")
+	@Inject
+	private OrderRepository orderRepository;
 
 	// update customer info
 	public void updatePersonal(User user) {
