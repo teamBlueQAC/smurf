@@ -13,7 +13,7 @@ import com.qa.smurf.repositories.EmployeeUserRepository;
 
 public class EmployeeUserOfflineRepository implements EmployeeUserRepository {
 
-	
+	private InitialData initialData;
 		ArrayList<EmployeeUser> employeeUser = new ArrayList<EmployeeUser>();
 	
 	@PostConstruct	
@@ -26,7 +26,7 @@ public class EmployeeUserOfflineRepository implements EmployeeUserRepository {
 		
 	}	
 	
-	private InitialData initialData;
+
 
 	@Override
 	public void persistEmployeeUser(EmployeeUser eu) {
