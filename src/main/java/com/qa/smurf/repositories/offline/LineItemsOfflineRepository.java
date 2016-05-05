@@ -31,32 +31,34 @@ public class LineItemsOfflineRepository implements LineItemsRepository {
 
 	}
 
-	public LineItems findByCompositeKey(Order order, Product product) {
+	public ArrayList<LineItems> findByCompositeKey(Order order, Product product) {
+		ArrayList<LineItems> temp = ArrayList<LineItems>();
 		try {
 			for (LineItems l : initialData.getLineItems()) {
 				if (l.getOrder().equals(order) && l.getProduct().equals(product)) {
-					return l;
+					temp.add(l);
 				}
 			}
 		} catch (ParseException pe) {
 			System.err.println();
 		}
 
-		return null;
+		return temp;
 	}
 
-	public LineItems findByProduct(Product product) {
+	public ArrayList<LineItems> findByProduct(Product product) {
+		ArrayList<LineItems> temp = ArrayList<LineItems>();
 		try {
 			for (LineItems l : initialData.getLineItems()) {
 				if (l.getProduct().equals(product)) {
-					return l;
+					temp.add(l);
 				}
 			}
 		} catch (ParseException pe) {
 			System.err.println();
 		}
 
-		return null;
+		return temp;
 	}
 
 	public ArrayList<LineItems> getLineItems() {
