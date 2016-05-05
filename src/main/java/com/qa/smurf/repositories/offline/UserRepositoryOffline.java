@@ -48,7 +48,7 @@ public class UserRepositoryOffline implements UserRepository {
 	 * @param id id of the user
 	 */
 	@Override
-	public User findByID(int id) {
+	public User findByID(long id) {
 		for (User u : initialData.getUsers()) {
 			if (u.getId() == id) {
 				return u;
