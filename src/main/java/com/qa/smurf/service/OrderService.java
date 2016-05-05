@@ -11,8 +11,10 @@ import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.entities.User;
+import com.qa.smurf.repositories.AddressRepository;
 import com.qa.smurf.repositories.OrderRepository;
 import com.qa.smurf.repositories.OrderStatusRepository;
+import com.qa.smurf.repositories.PaymentRepository;
 import com.qa.smurf.repositories.ProductRepository;
 import com.qa.smurf.repositories.UserRepository;
 
@@ -20,6 +22,12 @@ public class OrderService {
 
 	@Inject
 	ProductRepository productRepository;
+	
+	@Inject
+	AddressRepository addressRepository;
+	
+	@Inject
+	PaymentRepository paymentRepository;
 
 	@Inject
 	OrderRepository orderRepository;
@@ -36,10 +44,10 @@ public class OrderService {
 
 	public void addToBasket(long productId, long userId) {
 		Product product = productRepository.findByID(productId);
-		Order order = orderRepository.getUsersPendingOrder(userId);
+		Order order = orderRepository.getBasketOrder(userId);
 		if (order != null) {
 			boolean foundLineItem = false;
-			for (LineItems li : order.getOrderLineItems()) {
+			for (LineItems li : order.getLineItem()) {
 				if (!foundLineItem) {
 					if (li.getProduct().getId() == productId) {
 						li.setQuantity(li.getQuantity() + 1);
@@ -48,12 +56,15 @@ public class OrderService {
 				}
 			}
 			if(!foundLineItem){
-				order.addLineItem(new LineItems(order, product, 1, product.getPrice(), product.getQuantityAvailable()));
+				LineItems li = new LineItems(order, product, 1, product.getPrice(), product.getQuantityAvailable());
+				ArrayList<LineItems> lia = order.getLineItem();
+				lia.add(li);
+				order.setLineItem(lia);
 			}
 
 		} else {
-			order = new Order(123, new Date(), new Date(), new Payment(null, null, null, null, null, null),
-					new Address("Place", "Postcode"), userRepository.findByID(userId), null);
+			order = new Order(123, new Date(), null, paymentRepository.findByUserId(userId),
+					addressRepository.findByUserId(userId), userRepository.findByID(userId), null);
 		}
 
 	}
@@ -62,8 +73,8 @@ public class OrderService {
 		if(order!=null){
 			orderRepository.updateOrder(order);
 		} else {
-			order = new Order(123, new Date(), new Date(), new Payment(null, null, null, null, null, null),
-					new Address("Place", "Postcode"), userRepository.findByID(userId), null);
+			order = new Order(123, new Date(), null, paymentRepository.findByUserId(userId),
+					addressRepository.findByUserId(userId), userRepository.findByID(userId), null);
 		}
 
 	}
