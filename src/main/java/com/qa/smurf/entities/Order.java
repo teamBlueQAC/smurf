@@ -1,5 +1,6 @@
 package com.qa.smurf.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -54,6 +56,12 @@ public class Order {
 	@JoinColumns(@JoinColumn(name = " PAYMENT_ID", nullable = false))
 	@NotNull
 	private Payment paymentID;
+	
+	@OneToMany
+	@JoinColumn(name="LINEITEMS_ORDERID",
+	nullable = false)
+	private ArrayList<LineItems> lineItem;
+
 
 	public Order(double total, Date date, Date dispatchDate, Payment payment, Address address, User user,
 			OrderStatus orderStatus) {
