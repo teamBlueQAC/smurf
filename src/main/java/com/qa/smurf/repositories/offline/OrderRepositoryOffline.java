@@ -93,7 +93,7 @@ public class OrderRepositoryOffline implements OrderRepository {
 	}
 
 	@Override
-	public Order findMostRecentUnPaiedOrder(long userId) {
+	public Order findMostRecentUnPaidOrder(long userId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
