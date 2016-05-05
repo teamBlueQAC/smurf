@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.entities.User;
 import com.qa.smurf.entities.WishListEntry;
+import com.qa.smurf.repositories.ProductRepository;
 import com.qa.smurf.repositories.UserRepository;
 import com.qa.smurf.repositories.WishListEntryRepository;
 
@@ -16,6 +17,8 @@ public class WishlistService {
 	UserRepository userRepository;
 	@Inject
 	WishListEntryRepository wishlistRepository;
+	@Inject
+	ProductRepository productRepository;
 
 	public User getCurrentUser(long userId) {
 		return userRepository.findByID(userId);
@@ -48,7 +51,8 @@ public class WishlistService {
 			}
 		}
 		if(!itemFound){
-			WishListEntry w1 = new WishListEntry(productId, new Date(), userRepository.findByID(userId));
+			Product p = productRepository.findByID(productId);
+			WishListEntry w1 = new WishListEntry(p, new Date(), userRepository.findByID(userId));
 		}
 
 
