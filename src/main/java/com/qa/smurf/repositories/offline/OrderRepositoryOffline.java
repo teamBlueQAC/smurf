@@ -103,22 +103,4 @@ public class OrderRepositoryOffline implements OrderRepository {
 		//return null;
 	//}
 
-	@Override
-	public Order getBasketOrder(long userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Order getUsersPendingOrder(long userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Order findByUserAndStatus(long userId, OrderStatus pending) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
