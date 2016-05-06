@@ -8,7 +8,6 @@ import javax.inject.Named;
 
 import com.qa.smurf.entities.User;
 import com.qa.smurf.entities.WishListEntry;
-import com.qa.smurf.service.OrderService;
 import com.qa.smurf.service.WishlistService;
 
 @Named(value = "wishlist")
