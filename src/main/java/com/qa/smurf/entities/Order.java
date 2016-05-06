@@ -158,4 +158,9 @@ public class Order {
 
 	}
 
+	public void removeLineItem(LineItems li) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

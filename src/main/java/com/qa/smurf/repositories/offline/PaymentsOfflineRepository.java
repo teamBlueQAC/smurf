@@ -2,15 +2,18 @@ package com.qa.smurf.repositories.offline;
 
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 
 import com.qa.smurf.InitialData;
 import com.qa.smurf.repositories.PaymentRepository;
 import com.qa.smurf.entities.Payment;
 
+@Default
+@Stateless
 public class PaymentsOfflineRepository implements PaymentRepository {
 
 	private InitialData initialData;
@@ -114,6 +117,12 @@ public class PaymentsOfflineRepository implements PaymentRepository {
 
 	@Override
 	public Payment findBySecurityNumber(int ccv) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Payment findByUserId(long userId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

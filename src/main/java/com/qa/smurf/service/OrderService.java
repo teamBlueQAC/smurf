@@ -53,7 +53,8 @@ public class OrderService {
 			}
 
 		} else {
-			order = new Order(123, new Date(), null, paymentRepository.findByID(userId),
+
+			order = new Order(123, new Date(), null, paymentRepository.findByUserId(userId),
 					userRepository.findByID(userId).getAddress(), userRepository.findByID(userId), null);
 		}
 	}
@@ -62,7 +63,8 @@ public class OrderService {
 		if(order!=null){
 			orderRepository.updateOrder(order);
 		} else {
-			order = new Order(123, new Date(), null, paymentRepository.findByID(userId),
+
+			order = new Order(123, new Date(), null, paymentRepository.findByUserId(userId),
 					userRepository.findByID(userId).getAddress(), userRepository.findByID(userId), null);
 		}
 
