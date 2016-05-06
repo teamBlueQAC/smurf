@@ -14,7 +14,6 @@ import com.qa.smurf.entities.Product;
 import com.qa.smurf.entities.User;
 import com.qa.smurf.repositories.AddressRepository;
 import com.qa.smurf.repositories.OrderRepository;
-import com.qa.smurf.repositories.OrderStatusRepository;
 import com.qa.smurf.repositories.PaymentRepository;
 import com.qa.smurf.repositories.ProductRepository;
 import com.qa.smurf.repositories.UserRepository;
