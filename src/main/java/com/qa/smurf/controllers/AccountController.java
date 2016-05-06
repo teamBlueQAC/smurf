@@ -1,5 +1,7 @@
 package com.qa.smurf.controllers;
 
+import java.util.ArrayList;
+
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -17,7 +19,7 @@ public class AccountController {
 	@Inject
 	private CurrentUser currentUser;
 	private Payment payment = accountService.getUsersPayment(currentUser.getUserId());
-	private Order order = accountService.getUsersOrder(currentUser.getUserId());
+	private ArrayList<Order> order = accountService.getUsersOrder(currentUser.getUserId());
 	private User user = accountService.getCustomerDetails(currentUser.getUserId());
 
 	public String updatePersonal() {
@@ -36,7 +38,7 @@ public class AccountController {
 		return "account";
 	}
 
-	public Order getOrder() {
+	public ArrayList<Order> getOrder() {
 		return order;
 	}
 

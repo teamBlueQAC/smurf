@@ -1,5 +1,7 @@
 package com.qa.smurf.service;
 
+import java.util.ArrayList;
+
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
@@ -42,7 +44,7 @@ public class AccountService {
 		return paymentrepository.findByID(userId);
 	}
 
-	public Order getUsersOrder(long userId) {
-		return orderRepository.findMostRecentUnPaidOrder(userId);
+	public ArrayList<Order> getUsersOrder(long userId) {
+		return orderRepository.findByUser(userRepository.findByID(userId));
 	}
 }
