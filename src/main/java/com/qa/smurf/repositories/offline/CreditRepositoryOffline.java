@@ -13,7 +13,7 @@ import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.User;
 //import com.qa.smurf.repositories.CategoryRepository;
 
-public class CreditOfflineRepository implements CreditRepository {
+public class CreditRepositoryOffline implements CreditRepository {
 	
 	
 	InitialData initialData;

@@ -11,7 +11,7 @@ import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.repositories.LineItemsRepository;
 
-public class LineItemsOfflineRepository implements LineItemsRepository {
+public class LineItemsRepositoryOffline implements LineItemsRepository {
 
 	@Inject
 	private InitialData initialData;

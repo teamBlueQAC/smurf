@@ -11,7 +11,7 @@ import com.qa.smurf.entities.EmployeeUser;
 import com.qa.smurf.entities.Payment;
 import com.qa.smurf.repositories.EmployeeUserRepository;
 
-public class EmployeeUserOfflineRepository implements EmployeeUserRepository {
+public class EmployeeUserRepositoryOffline implements EmployeeUserRepository {
 
 	private InitialData initialData;
 		ArrayList<EmployeeUser> employeeUser = new ArrayList<EmployeeUser>();

@@ -14,7 +14,7 @@ import com.qa.smurf.entities.Payment;
 
 @Default
 @Stateless
-public class PaymentsOfflineRepository implements PaymentRepository {
+public class PaymentsRepositoryOffline implements PaymentRepository {
 
 	private InitialData initialData;
 	
