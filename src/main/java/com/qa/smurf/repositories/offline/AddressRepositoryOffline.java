@@ -13,7 +13,7 @@ import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Address;
 import com.qa.smurf.repositories.AddressRepository;
 
-class AddressRepositoryOffline implements AddressRepository {
+public class AddressRepositoryOffline implements AddressRepository {
 	@Inject
 	InitialData initialData;
 

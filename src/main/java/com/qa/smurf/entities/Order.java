@@ -48,7 +48,7 @@ public class Order {
 
 	@OneToOne
 	@JoinColumn(name = "ORDERSTATUS_ID")
-	private String orderStatus;
+	private OrderStatus orderStatus;
 
 	@JoinColumns({ @JoinColumn(name = "LINE1"), @JoinColumn(name = "POSTCODE") })
 	private Address address;
@@ -62,14 +62,14 @@ public class Order {
 	private ArrayList<LineItems> lineItem;
 
 	public Order(double total, Date date, Date dispatchDate, Payment payment, Address address, User user,
-			String orderStatus) {
+			OrderStatus orderStatus2) {
 		this.total = total;
 		this.date = date;
 		this.dispatchDate = dispatchDate;
 		this.paymentID = payment;
 		this.address = address;
 		this.user = user;
-		this.orderStatus = orderStatus;
+		this.orderStatus = orderStatus2;
 	}
 
 	public long getId() {
@@ -112,12 +112,12 @@ public class Order {
 		this.dispatchDate = dispatchDate;
 	}
 
-	public String getOrderStatus() {
+	public OrderStatus getOrderStatus() {
 		return orderStatus;
 	}
 
-	public void setOrderStatusID(String orderStatus) {
-		this.orderStatus = orderStatus;
+	public void setOrderStatusID(OrderStatus os) {
+		this.orderStatus = os;
 	}
 
 	public Address getAddress() {
@@ -144,8 +144,8 @@ public class Order {
 		this.lineItem = lineItem;
 	}
 
-	public void setOrderStatus(String string) {
-		this.orderStatus = string;
+	public void setOrderStatus(OrderStatus os) {
+		this.orderStatus = os;
 	}
 
 	public ArrayList<LineItems> getOrderLineItems() {

@@ -17,6 +17,7 @@ import com.qa.smurf.repositories.OrderStatusRepository;
 import com.qa.smurf.repositories.PaymentRepository;
 import com.qa.smurf.repositories.ProductRepository;
 import com.qa.smurf.repositories.UserRepository;
+import com.qa.smurf.util.OrderStatus;
 
 public class OrderService {
 
@@ -93,6 +94,8 @@ public class OrderService {
 	}
 
 	public Order getUsersPendingOrder(long userId) {
+		//FIX ME
+		OrderStatus o = new OrderStatus("1");
 		Order order = orderRepository.findByUserAndStatus(userId, PENDING);
 		return null;
 	}

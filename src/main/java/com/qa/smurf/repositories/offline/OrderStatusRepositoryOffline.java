@@ -11,7 +11,7 @@ import com.qa.smurf.util.OrderStatus;
  * Author - Tom
  */
 
-class OrderStatusRepositoryOffline implements OrderStatusRepository {
+public class OrderStatusRepositoryOffline implements OrderStatusRepository {
 	@Inject
 	private InitialData initialData;
 

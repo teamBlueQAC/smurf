@@ -16,7 +16,7 @@ import com.qa.smurf.repositories.ProductTypeRepository;
  *         Offline Repository for the ProductType Repository
  *
  */
-class ProductTypeRepositoryOffline implements ProductTypeRepository {
+public class ProductTypeRepositoryOffline implements ProductTypeRepository {
 
 	@Inject
 	private InitialData initialData;

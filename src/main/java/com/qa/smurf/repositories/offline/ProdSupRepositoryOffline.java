@@ -13,7 +13,7 @@ import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.ProdSup;
 import com.qa.smurf.repositories.ProdSupRepository;
 
-class ProdSupRepositoryOffline implements ProdSupRepository{
+public class ProdSupRepositoryOffline implements ProdSupRepository{
 	@Inject
 	private InitialData initialData;
 	

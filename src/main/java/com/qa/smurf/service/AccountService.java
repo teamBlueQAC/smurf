@@ -11,7 +11,7 @@ import com.qa.smurf.repositories.PaymentRepository;
 import com.qa.smurf.repositories.UserRepository;
 
 @Stateless
-class AccountService {
+public class AccountService {
 	@SuppressWarnings("cdi-ambiguous-dependency")
 	@Inject
 	private UserRepository userRepository;

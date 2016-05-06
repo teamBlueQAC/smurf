@@ -11,7 +11,7 @@ import com.qa.smurf.entities.Product;
 import com.qa.smurf.entities.User;
 import com.qa.smurf.repositories.ProductRepository;
 
-class ProductRepositoryOffline implements ProductRepository {
+public class ProductRepositoryOffline implements ProductRepository {
 
 	@Inject
 	private InitialData initialData;
