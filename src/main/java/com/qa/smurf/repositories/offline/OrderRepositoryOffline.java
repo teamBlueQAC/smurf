@@ -5,6 +5,9 @@ package com.qa.smurf.repositories.offline;
 */
 
 import java.util.ArrayList;
+
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
@@ -13,6 +16,8 @@ import com.qa.smurf.entities.User;
 import com.qa.smurf.repositories.OrderRepository;
 import com.qa.smurf.util.OrderStatus;
 
+@Default
+@Stateless
 public class OrderRepositoryOffline implements OrderRepository {
 	@Inject
 	private InitialData initialData;
@@ -92,8 +97,26 @@ public class OrderRepositoryOffline implements OrderRepository {
 
 	}
 
+	//@Override
+	//public Order findMostRecentUnPaidOrder(long userId) {
+		// TODO Auto-generated method stub
+		//return null;
+	//}
+
 	@Override
-	public Order findMostRecentUnPaidOrder(long userId) {
+	public Order getBasketOrder(long userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Order getUsersPendingOrder(long userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Order findByUserAndStatus(long userId, OrderStatus pending) {
 		// TODO Auto-generated method stub
 		return null;
 	}

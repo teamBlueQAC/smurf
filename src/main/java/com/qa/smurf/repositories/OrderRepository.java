@@ -27,4 +27,10 @@ public interface OrderRepository {
 	public void removeOrder(Order o);
 
 	public Order findMostRecentUnPaidOrder(long userId);
+
+	public Order getBasketOrder(long userId);
+
+	public Order getUsersPendingOrder(long userId);
+
+	public Order findByUserAndStatus(long userId, OrderStatus pending);
 }

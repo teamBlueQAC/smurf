@@ -12,7 +12,6 @@ import javax.inject.Inject;
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Supplier;
 import com.qa.smurf.repositories.SupplierRepository;
-import com.qa.smurf.util.AccountType;
 
 class SupplierRepositoryOffline implements SupplierRepository {
 	@Inject

@@ -7,13 +7,13 @@ import javax.inject.Named;
 import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.User;
-import com.qa.smurf.util.AccountType;
+import com.qa.smurf.service.AccountService;
 
 @Named(value = "account")
 @RequestScoped
 public class AccountController {
 	@Inject
-	private AccountType accountService;
+	private AccountService accountService;
 	@Inject
 	private CurrentUser currentUser;
 	private Payment payment = accountService.getUsersPayment(currentUser.getUserId());

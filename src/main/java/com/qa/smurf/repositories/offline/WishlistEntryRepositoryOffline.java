@@ -28,13 +28,14 @@ public class WishlistEntryRepositoryOffline implements WishListEntryRepository {
 			initialData.addWishListEntry(w);
 		}
 	}
-	
-	@Override 
-	public WishListEntry findByProductAndUser(long productID, long userID)
-	{		
-		for (WishListEntry wishListEntry: initialData.getWishListEntries()) {
-			if ((wishListEntry.getUser().getId() == userID) && (wishListEntry.getProduct().getId() == productID)) {
-				return wishListEntry;
+
+
+	@Override
+	public WishListEntry findByID(long id) {
+		for (WishListEntry w: initialData.getWishListEntries()) {
+			if (w.getId() == id) {
+				return w;
+
 			}
 		}
 		return null;
@@ -58,5 +59,17 @@ public class WishlistEntryRepositoryOffline implements WishListEntryRepository {
 				wishListEntries.remove(i);
 		}
 		initialData.setWishListEntries(wishListEntries);
+	}
+
+	@Override
+	public ArrayList<WishListEntry> getWishListEntries(long userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public WishListEntry findByProductAndUser(long productID, long userID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

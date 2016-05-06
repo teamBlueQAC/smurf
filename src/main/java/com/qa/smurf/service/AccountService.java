@@ -1,6 +1,7 @@
 package com.qa.smurf.service;
 
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qa.smurf.entities.Order;
@@ -10,15 +11,13 @@ import com.qa.smurf.repositories.OrderRepository;
 import com.qa.smurf.repositories.PaymentRepository;
 import com.qa.smurf.repositories.UserRepository;
 
+@Default
 @Stateless
-class AccountService {
-	@SuppressWarnings("cdi-ambiguous-dependency")
+public class AccountService {
 	@Inject
 	private UserRepository userRepository;
-	@SuppressWarnings("cdi-ambiguous-dependency")
 	@Inject
 	private PaymentRepository paymentrepository;
-	@SuppressWarnings("cdi-ambiguous-dependency")
 	@Inject
 	private OrderRepository orderRepository;
 
@@ -44,6 +43,6 @@ class AccountService {
 	}
 
 	public Order getUsersOrder(long userId) {
-		return orderRepository.findMostRecentUnPaiedOrder(userId);
+		return orderRepository.findMostRecentUnPaidOrder(userId);
 	}
 }
