@@ -442,10 +442,11 @@ public class InitialData {
 	 */
 
 	private void setWishlistEntryInitialData() {
-		double[] cost = { 100.05, 200.40, 400.09, 300.02, 800.32 };
+		
+		//ArrayList<Date> dates = new Date;
 
 		for (int i = 0; i < 5; i++) {
-			//wishListEntries.add(new WishListEntry(getSuppliers().get(i), getProducts().get(i), cost[i]));		
+			wishListEntries.add(new WishListEntry(getProducts().get(i), new Date(), getUsers().get(i)));		
 		}
 	}
 
