@@ -56,6 +56,8 @@ public class OrderService {
 
 			order = new Order(123, new Date(), null, paymentRepository.findByUserId(userId),
 					userRepository.findByID(userId).getAddress(), userRepository.findByID(userId), null);
+			LineItems li = new LineItems(order, product, 1, product.getPrice(), product.getQuantityAvailable());
+			order.addLineItem(li);
 		}
 	}
 
