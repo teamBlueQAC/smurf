@@ -53,7 +53,6 @@ public class InitialData {
 		setProductInitialData();
 		setAddressInitialData();
 		setProdSupInitialData();
-		//setAccountTypeInitialData();
 		setUserInitialData();
 		setWishlistEntryInitialData();
 		setSupplierInitialData();
@@ -154,7 +153,7 @@ public class InitialData {
 		double[] price = {10.10, 20.20, 30.30, 40.40, 50.50};
 		
 		for (int i = 0; i < 5; i++){
-//			orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i), getUsers().get(i), getOrderStatuses().get(i)));
+			orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i), getUsers().get(i), OrderStatus.PLACED));
 		}
 	}
 
@@ -244,13 +243,14 @@ public class InitialData {
 		
 		
 		
-//		ArrayList<AccountType> accountType = getAccountTypes();
-		
-//		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Big Mann"));
-//		employeeUser.add(new EmployeeUser(accountType.get(1), "Mr Patrick Starfish"));
-//		employeeUser.add(new EmployeeUser(accountType.get(2), "Miss Wo Mann"));
-//		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr James Trainer"));
-//		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Stewart Noob"));
+		// AccountType deleted accountType needs to be an enumber 
+		/*
+		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Big Mann"));
+		employeeUser.add(new EmployeeUser(accountType.get(1), "Mr Patrick Starfish"));
+		employeeUser.add(new EmployeeUser(accountType.get(2), "Miss Wo Mann"));
+		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr James Trainer"));
+		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Stewart Noob"));
+		*/
 	}
 	
 	public void addEmployeeUser(EmployeeUser eu){
@@ -260,27 +260,6 @@ public class InitialData {
 	public ArrayList<EmployeeUser> getEmployeeUser(){
 		return employeeUser;
 	}
-	
-
-	// Populates the ArrayList for Account Type with 3 different account types.
-
-	//private void setAccountTypeInitialData() {
-//		accountTypes.add(new AccountType(1, "Inventory Manager"));
-//		accountTypes.add(new AccountType(1, "Accounts Worker"));
-//		accountTypes.add(new AccountType(1, "Warehouse Worker"));
-	//}
-
-//	public ArrayList<AccountType> getAccountTypes() {
-//		return this.accountTypes;
-//	}
-//
-//	public void addAccountType(AccountType accountType) {
-//		this.accountTypes.add(accountType);
-//	}
-//
-//	public void setAccountType(ArrayList<AccountType> accountTypes) {
-//		this.accountTypes = accountTypes;
-//	}
 
 	private void setSupplierOrderInitialdata() {
 		int received[] = { 1, 2, 3, 4, 4 };
@@ -411,7 +390,6 @@ public class InitialData {
 	}
 
 
-
 	/**
 	 * 
 	 * Created by Omar
@@ -427,9 +405,7 @@ public class InitialData {
 		}
 	}
 
-	/*
-	 * public ArrayList<WishListEntry> getWishListEntries() {
-	 
+	public ArrayList<WishListEntry> getWishListEntries() {
 		return this.wishListEntries;
 	}
 
@@ -439,15 +415,6 @@ public class InitialData {
 	
 	public void setWishListEntries(ArrayList<WishListEntry> wishListEntries) {
 		this.wishListEntries = wishListEntries;
-
-	public void addWishListEntry(WishListEntry w) {
-		// TODO Auto-generated method stub
-		
 	}
 
-	public ArrayList<WishListEntry> getWishListEntries() {
-		// TODO Auto-generated method stub
-		return null;
-	*/
-	}
-
+}
