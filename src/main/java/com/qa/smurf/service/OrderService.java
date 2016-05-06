@@ -21,11 +21,16 @@ import com.qa.smurf.util.OrderStatus;
 
 @Stateless
 public class OrderService {
-	@Inject private ProductRepository productRepository;
-	@Inject private	AddressRepository addressRepository;
-	@Inject private	PaymentRepository paymentRepository;
-	@Inject private	OrderRepository orderRepository;
-	@Inject private	UserRepository userRepository;
+	@Inject
+	private ProductRepository productRepository;
+	@Inject
+	private AddressRepository addressRepository;
+	@Inject
+	private PaymentRepository paymentRepository;
+	@Inject
+	private OrderRepository orderRepository;
+	@Inject
+	private UserRepository userRepository;
 
 	public User getCurrentUser(long userId) {
 		return userRepository.findByID(userId);
@@ -45,7 +50,7 @@ public class OrderService {
 					}
 				}
 			}
-			if(!foundLineItem){
+			if (!foundLineItem) {
 				LineItems li = new LineItems(order, product, 1, product.getPrice(), product.getQuantityAvailable());
 				ArrayList<LineItems> lia = order.getLineItem();
 				lia.add(li);
@@ -63,8 +68,8 @@ public class OrderService {
 	}
 
 	private Order getUsersPendingOrder(ArrayList<Order> oa) {
-		for(Order o:oa){
-			if(o.getOrderStatus() == OrderStatus.PENDING){
+		for (Order o : oa) {
+			if (o.getOrderStatus() == OrderStatus.PENDING) {
 				return o;
 			}
 		}
@@ -72,7 +77,7 @@ public class OrderService {
 	}
 
 	public void updateQuantity(Order order, long userId) {
-		if(order!=null){
+		if (order != null) {
 			orderRepository.updateOrder(order);
 		} else {
 
@@ -117,14 +122,14 @@ public class OrderService {
 	}
 
 	public void placeOrder(Order order, long userId) {
-		if(order!=null){
-			for(LineItems li : order.getLineItem()){
+		if (order != null) {
+			for (LineItems li : order.getLineItem()) {
 				long productId = li.getProduct().getId();
 				Product p = productRepository.findByID(productId);
 				int available = li.getProduct().getQuantityAvailable();
 				int liQuantity = li.getQuantity();
-				if(liQuantity <= available){
-					p.setQuantityAvailable(available-liQuantity);
+				if (liQuantity <= available) {
+					p.setQuantityAvailable(available - liQuantity);
 				}
 			}
 			order.setOrderStatus(OrderStatus.PLACED);
@@ -152,11 +157,10 @@ public class OrderService {
 
 	private int getLineItem(ArrayList<LineItems> lia, LineItems li) {
 		int index = 0;
-		for(LineItems check:lia){
-			if(check.getProduct().getId() == li.getProduct().getId()){
+		for (LineItems check : lia) {
+			if (check.getProduct().getId() == li.getProduct().getId()) {
 				return index;
-			}
-			else{
+			} else {
 				index = index + 1;
 			}
 		}
