@@ -37,6 +37,14 @@ public class WishListController {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public ArrayList<WishListEntry> getWishListEntries() {
+		return wishListEntries;
+	}
+
+	public void setWishListEntries(ArrayList<WishListEntry> wishListEntries) {
+		this.wishListEntries = wishListEntries;
+	}
 	
 
 }
