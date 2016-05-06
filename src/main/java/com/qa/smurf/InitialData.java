@@ -244,13 +244,13 @@ public class InitialData {
 		
 		
 		// AccountType deleted accountType needs to be an enumber 
-		/*
+		
 		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Big Mann"));
 		employeeUser.add(new EmployeeUser(accountType.get(1), "Mr Patrick Starfish"));
 		employeeUser.add(new EmployeeUser(accountType.get(2), "Miss Wo Mann"));
 		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr James Trainer"));
 		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Stewart Noob"));
-		*/
+		
 	}
 	
 	public void addEmployeeUser(EmployeeUser eu){
