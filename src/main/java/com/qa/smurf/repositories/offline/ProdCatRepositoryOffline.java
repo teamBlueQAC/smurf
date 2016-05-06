@@ -1,6 +1,7 @@
 package com.qa.smurf.repositories.offline;
 
 import java.util.ArrayList;
+
 import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
