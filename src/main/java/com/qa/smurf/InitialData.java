@@ -422,16 +422,5 @@ public class InitialData {
 
 	}
 	
-	public void addWishListEntry1(WishListEntry w) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public ArrayList<WishListEntry> getWishListEntries1() {
-		// TODO Auto-generated method stub
-		return null;
-	
-	}
-	
 }
 
