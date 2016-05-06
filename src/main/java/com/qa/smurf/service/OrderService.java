@@ -34,7 +34,8 @@ public class OrderService {
 
 	public void addToBasket(long productId, long userId) {
 		Product product = productRepository.findByID(productId);
-		Order order = orderRepository.getBasketOrder(userId);
+		ArrayList<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
+		Order order = getUsersPendingOrder(oa);
 		if (order != null) {
 			boolean foundLineItem = false;
 			for (LineItems li : order.getLineItem()) {
@@ -59,6 +60,15 @@ public class OrderService {
 		}
 	}
 
+	private Order getUsersPendingOrder(ArrayList<Order> oa) {
+		for(Order o:oa){
+			if(o.getOrderStatus() == OrderStatus.PENDING){
+				return o;
+			}
+		}
+		return null;
+	}
+
 	public void updateQuantity(Order order, long userId) {
 		if(order!=null){
 			orderRepository.updateOrder(order);
@@ -71,7 +81,8 @@ public class OrderService {
 	}
 
 	public void clearBasket(long userId) {
-		Order order = orderRepository.getUsersPendingOrder(userId);
+		ArrayList<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
+		Order order = getUsersPendingOrder(oa);
 		if (order != null) {
 			for (LineItems li : order.getLineItem()) {
 				if (li != null) {
@@ -86,13 +97,15 @@ public class OrderService {
 	}
 
 	public Order getUsersPendingOrder(long userId) {
-		Order order = orderRepository.findByUserAndStatus(userId, OrderStatus.PENDING);
-		return null;
+		ArrayList<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
+		Order order = getUsersPendingOrder(oa);
+		return order;
 	}
 
 	public float calcOrderTotalPending(long userId) {
 		float total = 0;
-		Order order = orderRepository.getUsersPendingOrder(userId);
+		ArrayList<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
+		Order order = getUsersPendingOrder(oa);
 		if (order != null) {
 			for (LineItems li : order.getLineItem()) {
 				total = (float) li.getSubtotal();
@@ -119,7 +132,8 @@ public class OrderService {
 	}
 
 	public void removeFromBasket(long productId, long userId) {
-		Order order = orderRepository.getUsersPendingOrder(userId);
+		ArrayList<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
+		Order order = getUsersPendingOrder(oa);
 		if (order != null) {
 			for (LineItems li : order.getLineItem()) {
 				if (li.getProduct().getId() == productId) {
