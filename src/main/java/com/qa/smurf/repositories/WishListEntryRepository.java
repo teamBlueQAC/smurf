@@ -20,4 +20,8 @@ public interface WishListEntryRepository {
 
 	public void removeWishListEntry(WishListEntry w);
 
+	public WishListEntry findByID(long id);
+
+	ArrayList<WishListEntry> getWishListEntries(long userId);
+
 }

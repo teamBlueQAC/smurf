@@ -405,7 +405,11 @@ public class InitialData {
 		}
 	}
 
-	public ArrayList<WishListEntry> getWishListEntries() {
+
+	
+	 public ArrayList<WishListEntry> getWishListEntries() {
+	 
+
 		return this.wishListEntries;
 	}
 
@@ -415,6 +419,19 @@ public class InitialData {
 	
 	public void setWishListEntries(ArrayList<WishListEntry> wishListEntries) {
 		this.wishListEntries = wishListEntries;
+
+	}
+	
+	public void addWishListEntry1(WishListEntry w) {
+		// TODO Auto-generated method stub
+		
 	}
 
+	public ArrayList<WishListEntry> getWishListEntries1() {
+		// TODO Auto-generated method stub
+		return null;
+	
+	}
+	
 }
+
