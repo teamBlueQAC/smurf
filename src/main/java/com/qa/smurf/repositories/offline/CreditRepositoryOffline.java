@@ -9,7 +9,6 @@ import javax.annotation.PostConstruct;
 import com.qa.smurf.repositories.CreditRepository;
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Credit;
-import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.User;
 //import com.qa.smurf.repositories.CategoryRepository;
 

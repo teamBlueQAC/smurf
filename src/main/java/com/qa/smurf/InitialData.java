@@ -23,6 +23,7 @@ import com.qa.smurf.entities.Supplier;
 import com.qa.smurf.entities.SupplierOrder;
 import com.qa.smurf.entities.User;
 import com.qa.smurf.entities.WishListEntry;
+import com.qa.smurf.util.AccountType;
 import com.qa.smurf.util.OrderStatus;
 
 @Singleton
@@ -242,15 +243,13 @@ public class InitialData {
 		*/
 		
 		
+				
+		employeeUser.add(new EmployeeUser(AccountType.values()[0], "Mr Big Mann"));
+		employeeUser.add(new EmployeeUser(AccountType.values()[0], "Mr Patrick Starfish"));
+		employeeUser.add(new EmployeeUser(AccountType.values()[0], "Miss Wo Mann"));
+		employeeUser.add(new EmployeeUser(AccountType.values()[1], "Mr James Trainer"));
+		employeeUser.add(new EmployeeUser(AccountType.values()[1], "Mr Stewart Noob"));
 		
-		// AccountType deleted accountType needs to be an enumber 
-		/*
-		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Big Mann"));
-		employeeUser.add(new EmployeeUser(accountType.get(1), "Mr Patrick Starfish"));
-		employeeUser.add(new EmployeeUser(accountType.get(2), "Miss Wo Mann"));
-		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr James Trainer"));
-		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Stewart Noob"));
-		*/
 	}
 	
 	public void addEmployeeUser(EmployeeUser eu){

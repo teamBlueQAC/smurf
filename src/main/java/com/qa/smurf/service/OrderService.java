@@ -6,10 +6,8 @@ import java.util.Date;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import com.qa.smurf.entities.Address;
 import com.qa.smurf.entities.LineItems;
 import com.qa.smurf.entities.Order;
-import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.entities.User;
 import com.qa.smurf.repositories.AddressRepository;

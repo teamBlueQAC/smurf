@@ -8,7 +8,6 @@ import javax.inject.Named;
 
 import com.qa.smurf.entities.User;
 import com.qa.smurf.entities.WishListEntry;
-import com.qa.smurf.service.OrderService;
 import com.qa.smurf.service.WishlistService;
 
 @Named(value = "wishlist")
@@ -37,6 +36,14 @@ public class WishListController {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public ArrayList<WishListEntry> getWishListEntries() {
+		return wishListEntries;
+	}
+
+	public void setWishListEntries(ArrayList<WishListEntry> wishListEntries) {
+		this.wishListEntries = wishListEntries;
 	}
 	
 

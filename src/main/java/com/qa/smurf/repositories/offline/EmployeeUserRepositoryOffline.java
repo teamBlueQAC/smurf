@@ -8,7 +8,6 @@ import javax.annotation.PostConstruct;
 
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.EmployeeUser;
-import com.qa.smurf.entities.Payment;
 import com.qa.smurf.repositories.EmployeeUserRepository;
 
 public class EmployeeUserRepositoryOffline implements EmployeeUserRepository {
