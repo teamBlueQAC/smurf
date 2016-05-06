@@ -1,28 +1,49 @@
 package com.qa.smurf.service;
 
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+
+import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.User;
+import com.qa.smurf.repositories.OrderRepository;
+import com.qa.smurf.repositories.PaymentRepository;
+import com.qa.smurf.repositories.UserRepository;
 
-public class AccountService {
+@Stateless
+class AccountService {
+	@SuppressWarnings("cdi-ambiguous-dependency")
+	@Inject
+	private UserRepository userRepository;
+	@SuppressWarnings("cdi-ambiguous-dependency")
+	@Inject
+	private PaymentRepository paymentrepository;
+	@SuppressWarnings("cdi-ambiguous-dependency")
+	@Inject
+	private OrderRepository orderRepository;
 
-	public void updatePersonal(User user, long userId) {
-		// TODO Auto-generated method stub
-		
+	// update customer info
+	public void updatePersonal(User user) {
+		if (user != null) {
+			userRepository.updateUser(user);
+		}
 	}
 
+	public User getCustomerDetails(long userId) {
+		return userRepository.findByID(userId);
+	}
+
+	// update payment
 	public void updatePayment(Payment payment) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public User getCurrentUser(long userId) {
-		// TODO Auto-generated method stub
-		return null;
+		if (payment != null)
+			paymentrepository.updatePayment(payment);
 	}
 
 	public Payment getUsersPayment(long userId) {
-		// TODO Auto-generated method stub
-		return null;
+		return paymentrepository.findByID(userId);
 	}
 
+	public Order getUsersOrder(long userId) {
+		return orderRepository.findMostRecentUnPaiedOrder(userId);
+	}
 }

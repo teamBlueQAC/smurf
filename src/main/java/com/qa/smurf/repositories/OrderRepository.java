@@ -26,4 +26,5 @@ public interface OrderRepository {
 
 	public void removeOrder(Order o);
 
+	public Order findMostRecentUnPaidOrder(long userId);
 }

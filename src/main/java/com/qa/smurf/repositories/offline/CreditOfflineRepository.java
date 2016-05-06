@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import com.qa.smurf.repositories.CreditRepository;
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Credit;
@@ -12,8 +14,19 @@ import com.qa.smurf.entities.User;
 //import com.qa.smurf.repositories.CategoryRepository;
 
 public class CreditOfflineRepository implements CreditRepository {
-	InitialData initialData = new InitialData();
+	
+	
+	InitialData initialData;
 
+	@PostConstruct	
+	public void init(){
+		try{
+			initialData = new InitialData();
+		} catch (ParseException pe){
+			pe.printStackTrace();
+		}	
+	}	
+	
 	public void persistCredit(Credit credit) {
 		initialData.addCredit(credit);
 

@@ -5,13 +5,24 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import com.qa.smurf.InitialData;
-import com.qa.smurf.PaymentRepository;
+import com.qa.smurf.repositories.PaymentRepository;
 import com.qa.smurf.entities.Payment;
 
 public class PaymentsOfflineRepository implements PaymentRepository {
 
-	private InitialData initialData = new InitialData();
+	private InitialData initialData;
+	
+	@PostConstruct	
+	public void init(){
+		try{
+			initialData = new InitialData();
+		} catch (ParseException pe){
+			pe.printStackTrace();
+		}	
+	}	
 
 	public void persistPayment(Payment payment) {
 		initialData.addPayment(payment);
@@ -99,5 +110,11 @@ public class PaymentsOfflineRepository implements PaymentRepository {
 				initialData.getPayment().remove(p);
 			}
 		}
+	}
+
+	@Override
+	public Payment findBySecurityNumber(int ccv) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

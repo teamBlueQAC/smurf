@@ -12,9 +12,8 @@ import javax.inject.Inject;
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.ProdSup;
 import com.qa.smurf.repositories.ProdSupRepository;
-import com.qa.smurf.util.AccountType;
 
-public class ProdSupRepositoryOffline implements ProdSupRepository{
+class ProdSupRepositoryOffline implements ProdSupRepository{
 	@Inject
 	private InitialData initialData;
 	

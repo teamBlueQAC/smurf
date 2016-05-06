@@ -48,8 +48,8 @@ public class UserRepositoryOffline implements UserRepository {
 	 * @param id id of the user
 	 */
 	@Override
-	public User findByID(int id) {
-		for (User u : initialData.getUser()) {
+	public User findByID(long id) {
+		for (User u : initialData.getUsers()) {
 			if (u.getId() == id) {
 				return u;
 			}
@@ -72,7 +72,7 @@ public class UserRepositoryOffline implements UserRepository {
 	 */
 	@Override
 	public void updateUser(User user) {
-		ArrayList<User> users = initialData.getUser();
+		ArrayList<User> users = initialData.getUsers();
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).getId() == user.getId())
 				users.set(i, user);
@@ -88,7 +88,7 @@ public class UserRepositoryOffline implements UserRepository {
 	 */
 	@Override
 	public void removeUser(User user) {
-		ArrayList<User> users = initialData.getUser();
+		ArrayList<User> users = initialData.getUsers();
 		for (int i = 0; i < users.size(); i++) {
 			if (users.get(i).equals(user))
 				users.remove(i);

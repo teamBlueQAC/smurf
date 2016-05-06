@@ -45,6 +45,7 @@ public class InitialData {
 	private ArrayList<Supplier> suppliers = new ArrayList<Supplier>();	
 	private ArrayList<User> users = new ArrayList<User>();
 	private ArrayList<WishListEntry> wishListEntries = new ArrayList<WishListEntry>();
+	private ArrayList<EmployeeUser> employeeUser = new ArrayList<EmployeeUser>();
 	
 	public InitialData() throws ParseException{	//TODO these need to be run in a specific order
 		setOrderInitialData();
@@ -135,14 +136,13 @@ public class InitialData {
 		
 		//  Author : willseaford - This method returns an ArrayList of Payment objects and has a dependency on the User object class being instantiated. 
 	
-		SimpleDateFormat sdf = new SimpleDateFormat("MM/yy");
 		
 		ArrayList<User> users = getUsers();
-		payment.add(new Payment("1234567891011121", "debit", sdf.parse("06/25"), "Mr W Seaford", new Address("23 Holway Road", "TA1 2EZ") ,users.get(0)));
-		payment.add(new Payment("1234678901246789", "credit", sdf.parse("02/24"), "Mr S Smith", new Address("71 Mountbatton", "BS37 S35") , users.get(1)));
-		payment.add(new Payment("0987654321234567", "debit", sdf.parse("04/17"), "Miss E Smitten", new Address("1 Beaumont Court", "E1 4NX") , users.get(2)));
-		payment.add(new Payment("1357708642135790", "credit", sdf.parse("02/26"), "Mr W T Beaumont", new Address("14 Louise Road", "E15 4NW") ,users.get(3)));
-		payment.add(new Payment("2468097531246809", "debit", sdf.parse("02/19"), "Mrs D Matthison", new Address("908 The Heart", "M50 2JY") , users.get(4)));
+		payment.add(new Payment("1234567891011121", "debit", "06/25", "Mr W Seaford", new Address("23 Holway Road", "TA1 2EZ") ,users.get(0)));
+		payment.add(new Payment("1234678901246789", "credit", "02/24", "Mr S Smith", new Address("71 Mountbatton", "BS37 S35") , users.get(1)));
+		payment.add(new Payment("0987654321234567", "debit", "04/17", "Miss E Smitten", new Address("1 Beaumont Court", "E1 4NX") , users.get(2)));
+		payment.add(new Payment("1357708642135790", "credit", "02/26", "Mr W T Beaumont", new Address("14 Louise Road", "E15 4NW") ,users.get(3)));
+		payment.add(new Payment("2468097531246809", "debit", "02/19", "Mrs D Matthison", new Address("908 The Heart", "M50 2JY") , users.get(4)));
 
 	}
 	
@@ -218,7 +218,8 @@ public class InitialData {
 	private void setOrderStatusInitialData() {
 		String[] name = { "Cancelled", "Delivered", "Dispatched", "Awaiting Confirmation", "Dispatched" };
 		for (int i = 0; i < 5; i++) {
-			orderStatuses.add(new OrderStatus(name[i]));
+			//PLZ FIX
+//			orderStatuses.add(new OrderStatus(name[i]));
 		}
 	}
 
@@ -255,7 +256,7 @@ public class InitialData {
 	public ArrayList<LineItems> getLineItems(){
 		return lineItems;
 	}
-	public ArrayList<EmployeeUser> getEmployeeUser(){
+	public void setEmployeeUser(){
 		
 		/* 
 		 * Author : willseaford
@@ -266,7 +267,7 @@ public class InitialData {
 		*/
 		
 		
-		ArrayList<EmployeeUser> employeeUser = new ArrayList<EmployeeUser>();
+		
 		ArrayList<AccountType> accountType = getAccountTypes();
 		
 		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Big Mann"));
@@ -274,9 +275,16 @@ public class InitialData {
 		employeeUser.add(new EmployeeUser(accountType.get(2), "Miss Wo Mann"));
 		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr James Trainer"));
 		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Stewart Noob"));
-
+	}
+	
+	public void addEmployeeUser(EmployeeUser eu){
+		employeeUser.add(eu);
+	}
+	
+	public ArrayList<EmployeeUser> getEmployeeUser(){
 		return employeeUser;
 	}
+	
 
 	// Populates the ArrayList for Account Type with 3 different account types.
 

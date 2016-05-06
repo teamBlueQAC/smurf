@@ -4,26 +4,27 @@ import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.User;
-import com.qa.smurf.service.AccountService;
+import com.qa.smurf.util.AccountType;
 
 @Named(value = "account")
 @RequestScoped
 public class AccountController {
 	@Inject
-	AccountService accountService;
+	private AccountType accountService;
 	@Inject
-	CurrentUser currentUser;
-	private User user = accountService.getCurrentUser(currentUser.getUserId());
-	
+	private CurrentUser currentUser;
 	private Payment payment = accountService.getUsersPayment(currentUser.getUserId());
+	private Order order = accountService.getUsersOrder(currentUser.getUserId());
+	private User user = accountService.getCustomerDetails(currentUser.getUserId());
 
 	public String updatePersonal() {
 		if (user.getName().isEmpty() || user.getAddress().getLine1().isEmpty()
 				|| user.getAddress().getPostcode().isEmpty() || user.getEmail().isEmpty() || user.getPhone().isEmpty())
 			return "account";
-		accountService.updatePersonal(user, currentUser.getUserId());
+		accountService.updatePersonal(user);
 		return "account";
 	}
 
@@ -35,19 +36,23 @@ public class AccountController {
 		return "account";
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
+	public Order getOrder() {
+		return order;
 	}
 
 	public Payment getPayment() {
 		return payment;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
 	public void setPayment(Payment payment) {
 		this.payment = payment;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

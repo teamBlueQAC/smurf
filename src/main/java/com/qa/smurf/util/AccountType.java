@@ -12,6 +12,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.qa.smurf.entities.EmployeeUser;
+import com.qa.smurf.entities.Order;
+import com.qa.smurf.entities.Payment;
+import com.qa.smurf.entities.User;
 
 @Entity
 @Table(name = "AccountType")
@@ -56,5 +59,30 @@ public class AccountType {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Payment getUsersPayment(long userId) {
+		// PLZ FIX
+		return null;
+	}
+
+	public Order getUsersOrder(long userId) {
+		// PLZ FIX
+		return null;
+	}
+
+	public User getCustomerDetails(long userId) {
+		// PLZ FIX
+		return null;
+	}
+
+	public void updatePersonal(User user) {
+		// PLZ FIX
+		
+	}
+
+	public void updatePayment(Payment payment) {
+		// PLZ FIX
+		
 	}
 }

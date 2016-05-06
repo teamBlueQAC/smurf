@@ -1,50 +1,15 @@
 package com.qa.smurf.util;
 
-/**
- * 
- * Created by Omar
- * 
- */
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.Size;
-
-@Entity
-@Table(name = "OrderStatus")
-public class OrderStatus {
-
-	@Id
-	@Column(name = "ORDERSTATUS_ID")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-
-	@Column(name = "NAME", length = 16)
-	@Size(min = 1, max = 16)
-	private String name;
-
-	public OrderStatus(String name) {
-		this.name = name;
-	}
+public enum OrderStatus {
+	PENDING, PLACED, PROCESSING, AWAITINGDISPATCH, DELIVERED, PAIED;
 
 	public long getId() {
-		return id;
+		// PLZ FIX
+		return 0;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public Object getName() {
+		// PLZ FIX
+		return null;
 	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 }

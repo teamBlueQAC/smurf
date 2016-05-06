@@ -1,6 +1,5 @@
 package com.qa.smurf.repositories.offline;
 
-//import com.qa.smurf.entities;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,51 +30,37 @@ public class LineItemsOfflineRepository implements LineItemsRepository {
 
 	}
 
-	public LineItems findByCompositeKey(Order order, Product product) {
-		try {
-			for (LineItems l : initialData.getLineItems()) {
-				if (l.getOrder().equals(order) && l.getProduct().equals(product)) {
-					return l;
-				}
+	public ArrayList<LineItems> findByCompositeKey(Order order, Product product) {
+		ArrayList<LineItems> temp = new ArrayList<LineItems>();
+		for (LineItems l : initialData.getLineItems()) {
+			if (l.getOrder().equals(order) && l.getProduct().equals(product)) {
+				temp.add(l);
 			}
-		} catch (ParseException pe) {
-			System.err.println();
 		}
 
-		return null;
+		return temp;
 	}
 
-	public LineItems findByProduct(Product product) {
-		try {
-			for (LineItems l : initialData.getLineItems()) {
-				if (l.getProduct().equals(product)) {
-					return l;
-				}
+	public ArrayList<LineItems> findByProduct(Product product) {
+		ArrayList<LineItems> temp = new ArrayList<LineItems>();
+		for (LineItems l : initialData.getLineItems()) {
+			if (l.getProduct().equals(product)) {
+				temp.add(l);
 			}
-		} catch (ParseException pe) {
-			System.err.println();
 		}
 
-		return null;
+		return temp;
 	}
 
 	public ArrayList<LineItems> getLineItems() {
 		ArrayList<LineItems> lineitems = new ArrayList<LineItems>();
-		try {
-			lineitems = initialData.getLineItems();
-		} catch (ParseException pe) {
-			System.err.println();
-		}
+		lineitems = initialData.getLineItems();
 		return lineitems;
 	}
 
 	public LineItems readLineItems(LineItems p) {
 		ArrayList<LineItems> lineitems = new ArrayList<LineItems>();
-		try {
-			lineitems = initialData.getLineItems();
-		} catch (ParseException pe) {
-			System.err.println();
-		}
+		lineitems = initialData.getLineItems();
 		for (int i = 0; i < lineitems.size(); i++) {
 			if (lineitems.get(i).equals(p)) {
 				return lineitems.get(i);

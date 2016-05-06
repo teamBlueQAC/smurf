@@ -13,7 +13,7 @@ public interface UserRepository {
 
 	public void persistUsers(List<User> user);
 
-	public User findByID(int id);
+	public User findByID(long userId);
 
 	public ArrayList<User> getUser();
 

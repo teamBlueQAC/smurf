@@ -71,10 +71,24 @@
 					<ul class="uk-navbar-nav uk-hidden-small">
 						<li><input autocomplete="off" class="uk-search-field"
 							placeholder="search" type="search" /></li>
-						<li><a href="">My Account</a></li>
+						<li><button class="uk-button"
+								data-uk-modal="{target:'#modal1'}">Login</button></li>
 						<li><a href=""><i class="fa fa-shopping-basket"
-								aria-hidden="true"></i> &#163; 0</a></li>
+								aria-hidden="true"></i> &#163; </a></li>
 					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="modal1" class="uk-modal">
+			<div class="uk-modal-dialog">
+				<button type="button" class="uk-modal-close uk-close"></button>
+				<div class="uk-modal-header">
+					<h2>Headline</h2>
+				</div>
+				<p>stuff</p>
+				<div class="uk-modal-footer uk-text-right">
+					<button type="button" class="uk-button">Forgot Password</button>
+					<button type="button" class="uk-button uk-button-primary">Confirm</button>
 				</div>
 			</div>
 		</div>

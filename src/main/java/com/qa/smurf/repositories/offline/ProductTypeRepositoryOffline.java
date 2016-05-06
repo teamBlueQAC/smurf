@@ -13,18 +13,20 @@ import com.qa.smurf.repositories.ProductTypeRepository;
  * 
  * @author Nathan Orme
  *
- * Offline Repository for the ProductType Repository
+ *         Offline Repository for the ProductType Repository
  *
  */
-public class ProductTypeRepositoryOffline implements ProductTypeRepository {
+class ProductTypeRepositoryOffline implements ProductTypeRepository {
 
 	@Inject
 	private InitialData initialData;
 
 	/**
-	 * Iterates through the passed list of product types,
-	 * Then adds them to the system.
-	 * @param productType - productTypes that gets added 
+	 * Iterates through the passed list of product types, Then adds them to the
+	 * system.
+	 * 
+	 * @param productType
+	 *            - productTypes that gets added
 	 */
 	@Override
 	public void persistProductType(ProductType productType) {
@@ -32,9 +34,11 @@ public class ProductTypeRepositoryOffline implements ProductTypeRepository {
 	}
 
 	/**
-	 * Iterates through the passed list of product types,
-	 * Then adds them to the system.
-	 * @param productType - productTypes that gets added 
+	 * Iterates through the passed list of product types, Then adds them to the
+	 * system.
+	 * 
+	 * @param productType
+	 *            - productTypes that gets added
 	 */
 	@Override
 	public void persistProductTypes(List<ProductType> productType) {
@@ -46,7 +50,9 @@ public class ProductTypeRepositoryOffline implements ProductTypeRepository {
 
 	/**
 	 * Gets the product type from the storage
-	 * @param id - id of the product type 
+	 * 
+	 * @param id
+	 *            - id of the product type
 	 */
 	@Override
 	public ProductType findByID(int id) {
@@ -64,9 +70,11 @@ public class ProductTypeRepositoryOffline implements ProductTypeRepository {
 	}
 
 	/**
-	 * Iterates through the existing list of product types,
-	 * Then updated the specified product type from the list. 
-	 * @param productType - productType that gets updated 
+	 * Iterates through the existing list of product types, Then updated the
+	 * specified product type from the list.
+	 * 
+	 * @param productType
+	 *            - productType that gets updated
 	 */
 	@Override
 	public void updateProductType(ProductType productType) {
@@ -80,9 +88,11 @@ public class ProductTypeRepositoryOffline implements ProductTypeRepository {
 	}
 
 	/**
-	 * Iterates through the existing list of product types,
-	 * Then removes the specified product type from the list. 
-	 * @param productType - productType that gets removed 
+	 * Iterates through the existing list of product types, Then removes the
+	 * specified product type from the list.
+	 * 
+	 * @param productType
+	 *            - productType that gets removed
 	 */
 	@Override
 	public void removeProductType(ProductType productType) {

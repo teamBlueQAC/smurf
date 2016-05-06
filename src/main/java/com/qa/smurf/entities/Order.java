@@ -48,7 +48,7 @@ public class Order {
 
 	@OneToOne
 	@JoinColumn(name = "ORDERSTATUS_ID")
-	private OrderStatus orderStatus;
+	private String orderStatus;
 
 	@JoinColumns({ @JoinColumn(name = "LINE1"), @JoinColumn(name = "POSTCODE") })
 	private Address address;
@@ -56,15 +56,13 @@ public class Order {
 	@JoinColumns(@JoinColumn(name = " PAYMENT_ID", nullable = false))
 	@NotNull
 	private Payment paymentID;
-	
+
 	@OneToMany
-	@JoinColumn(name="LINEITEMS_ORDERID",
-	nullable = false)
+	@JoinColumn(name = "LINEITEMS_ORDERID", nullable = false)
 	private ArrayList<LineItems> lineItem;
 
-
 	public Order(double total, Date date, Date dispatchDate, Payment payment, Address address, User user,
-			OrderStatus orderStatus) {
+			String orderStatus) {
 		this.total = total;
 		this.date = date;
 		this.dispatchDate = dispatchDate;
@@ -114,11 +112,11 @@ public class Order {
 		this.dispatchDate = dispatchDate;
 	}
 
-	public OrderStatus getOrderStatus() {
+	public String getOrderStatus() {
 		return orderStatus;
 	}
 
-	public void setOrderStatusID(OrderStatus orderStatus) {
+	public void setOrderStatusID(String orderStatus) {
 		this.orderStatus = orderStatus;
 	}
 
@@ -136,6 +134,28 @@ public class Order {
 
 	public void setPaymentID(Payment paymentID) {
 		this.paymentID = paymentID;
+	}
+
+	public ArrayList<LineItems> getLineItem() {
+		return lineItem;
+	}
+
+	public void setLineItem(ArrayList<LineItems> lineItem) {
+		this.lineItem = lineItem;
+	}
+
+	public void setOrderStatus(String string) {
+		this.orderStatus = string;
+	}
+
+	public ArrayList<LineItems> getOrderLineItems() {
+		// PLZ FIX
+		return null;
+	}
+
+	public void addLineItem(LineItems lineItems) {
+		// PLZ FIX
+
 	}
 
 }
