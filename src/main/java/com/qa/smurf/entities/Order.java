@@ -120,6 +120,7 @@ public class Order {
 		this.orderStatus = orderStatus;
 	}
 
+	
 	public Address getAddress() {
 		return address;
 	}
@@ -136,14 +137,28 @@ public class Order {
 		this.paymentID = paymentID;
 	}
 
+	/**
+	 * Gets the array of lineItems for the order
+	 * 
+	 */
 	public ArrayList<LineItems> getLineItem() {
 		return lineItem;
 	}
 
+	/**
+	 * Sets the lineItems for the order
+	 * 
+	 * @param lineItem the array of line items.
+	 */
 	public void setLineItem(ArrayList<LineItems> lineItem) {
 		this.lineItem = lineItem;
 	}
 
+	/**
+	 * Sets the status for the order
+	 * 
+	 * @param orderStatus based on the enum class values
+	 */
 	public void setOrderStatus(OrderStatus orderStatus) {
 		this.orderStatus = orderStatus;
 	}
