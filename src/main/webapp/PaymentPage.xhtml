@@ -10,10 +10,6 @@
 
 	<ui:define name="body">
 		<style>
-#mainSubCont {
-	height: 800px;
-}
-
 .subDiv {
 	padding: 30px;
 }
@@ -162,8 +158,10 @@ input {
 				</table>
 			</div>
 		</div>
-		<div class="uk-width-1-1">
-			<button class="uk-button-large" type="button" onclick="NextBox()">Confirm</button>
+		<div class="uk-width-1-1"
+			style="display: block; float: left; height: 100px;">
+			<button style="position: absolute; right: 23%;"
+				class="uk-button-large" type="button" onclick="NextBox()">Confirm</button>
 		</div>
 	</ui:define>
 </ui:composition>

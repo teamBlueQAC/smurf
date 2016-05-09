@@ -4,6 +4,10 @@
 	width: 100%;
 }
 
+#footerUL>li {
+	padding: 5px;
+}
+
 html, body {
 	height: 100%;
 	width: 100%;
@@ -44,6 +48,7 @@ html, body {
 .categoryboxthing {
 	width: 100%;
 	padding-top: 20px;
+	height: 300px;
 }
 
 .categoryheader {
@@ -66,26 +71,24 @@ html, body {
 
 .Gardenbox {
 	background-image: url("../img/copyrightfreeteam.jpg");
-	background-repeat: no-repeat;
-	background-origin: content-box;
-	background-position: center;
-	background-size: 100% 100%;
 }
 
 .Gnomesbox {
-	background-image: url("../img/selenagnomes.jpg");
-	background-repeat: no-repeat;
-	background-origin: content-box;
-	background-position: center;
-	background-size: 100% 100%;
+	background-image: url("../img/selenagnomez.png");
 }
 
 .Seedsbox {
 	background-image: url("../img/seeds.jpg");
+	float: right;
+	display: block;
+}
+
+.picbox {
 	background-repeat: no-repeat;
 	background-origin: content-box;
 	background-position: center;
 	background-size: 100% 100%;
+	height: 100%;
 }
 
 .infobox {
