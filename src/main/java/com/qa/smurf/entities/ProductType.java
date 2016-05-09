@@ -28,7 +28,8 @@ public class ProductType {
 	private String name;
 
 	public ProductType(int id, String name) {
-
+		this.id = id;
+		this.name = name;
 	}
 
 	public int getId() {

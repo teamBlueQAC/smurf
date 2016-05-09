@@ -41,7 +41,7 @@ public class Credit {
 		return user;
 	}
 
-	public void setUserID(User userID) {
+	public void setUser(User userID) {
 		this.user = userID;
 	}
 

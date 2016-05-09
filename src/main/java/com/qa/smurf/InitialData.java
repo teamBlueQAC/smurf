@@ -11,7 +11,7 @@ import javax.inject.Singleton;
 import com.qa.smurf.entities.Address;
 import com.qa.smurf.entities.Category;
 import com.qa.smurf.entities.Credit;
-import com.qa.smurf.entities.EmployeeUser;
+import com.qa.smurf.entities.EmployeeUserTest;
 import com.qa.smurf.entities.LineItems;
 import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Payment;
@@ -41,7 +41,7 @@ public class InitialData {
 	private ArrayList<Supplier> suppliers = new ArrayList<Supplier>();	
 	private ArrayList<User> users = new ArrayList<User>();
 	private ArrayList<WishListEntry> wishListEntries = new ArrayList<WishListEntry>();
-	private ArrayList<EmployeeUser> employeeUsers = new ArrayList<EmployeeUser>();
+	private ArrayList<EmployeeUserTest> employeeUsers = new ArrayList<EmployeeUserTest>();
 	
 	public InitialData() throws ParseException{	//these need to be run in a specific order
 		setAddressInitialData();
@@ -247,22 +247,22 @@ public class InitialData {
 	
 	
 	private void setEmployeeUserInitialData(){
-		employeeUsers.add(new EmployeeUser("Mr Big Mann"));
-		employeeUsers.add(new EmployeeUser("Mr Patrick Starfish"));
-		employeeUsers.add(new EmployeeUser("Miss Wo Mann"));
-		employeeUsers.add(new EmployeeUser("Mr James Trainer"));
-		employeeUsers.add(new EmployeeUser("Mr Stewart Noob"));
+		employeeUsers.add(new EmployeeUserTest("Mr Big Mann"));
+		employeeUsers.add(new EmployeeUserTest("Mr Patrick Starfish"));
+		employeeUsers.add(new EmployeeUserTest("Miss Wo Mann"));
+		employeeUsers.add(new EmployeeUserTest("Mr James Trainer"));
+		employeeUsers.add(new EmployeeUserTest("Mr Stewart Noob"));
 		
 	}
 	
-	public void addEmployeeUser(EmployeeUser eu){
+	public void addEmployeeUser(EmployeeUserTest eu){
 		employeeUsers.add(eu);
 	}
 	
-	public ArrayList<EmployeeUser> getEmployeeUser(){
+	public ArrayList<EmployeeUserTest> getEmployeeUser(){
 		return employeeUsers;
 	}
-	public void setEmployeeUsers(ArrayList<EmployeeUser> employeeUsers){
+	public void setEmployeeUsers(ArrayList<EmployeeUserTest> employeeUsers){
 		this.employeeUsers = employeeUsers;
 	}
 

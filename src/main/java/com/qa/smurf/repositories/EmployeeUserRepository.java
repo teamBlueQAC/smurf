@@ -4,20 +4,20 @@ package com.qa.smurf.repositories;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.qa.smurf.entities.EmployeeUser;
+import com.qa.smurf.entities.EmployeeUserTest;
 
 public interface EmployeeUserRepository {
 
-	public void persistEmployeeUser(EmployeeUser eu);
+	public void persistEmployeeUser(EmployeeUserTest eu);
 
-	public void persistEmployeeUsers(List<EmployeeUser> eu);
+	public void persistEmployeeUsers(List<EmployeeUserTest> eu);
 
-	public EmployeeUser findByID(long id);
+	public EmployeeUserTest findByID(long id);
 
-	public ArrayList<EmployeeUser> getEmployeeUsers();
+	public ArrayList<EmployeeUserTest> getEmployeeUsers();
 
-	public void updateEmployeeUser(EmployeeUser eu);
+	public void updateEmployeeUser(EmployeeUserTest eu);
 
-	public void removeEmployeeUser(EmployeeUser eu);
+	public void removeEmployeeUser(EmployeeUserTest eu);
 
 }

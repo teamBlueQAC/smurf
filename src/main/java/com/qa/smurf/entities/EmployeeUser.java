@@ -20,12 +20,17 @@ public class EmployeeUser {
 	@Column(name = "NAME", nullable = false, length = 255)
 	@NotNull
 	private String name;
-	public EmployeeUser( String name) {
+	
+	public EmployeeUser(String name) {
 		this.name = name;
 	}
 
 	public long getID() {
 		return id;
+	}
+	
+	public void setID(long id){
+		this.id = id;
 	}
 
 	public String getName() {
