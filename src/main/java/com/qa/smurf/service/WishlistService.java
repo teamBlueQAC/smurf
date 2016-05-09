@@ -25,7 +25,7 @@ public class WishlistService {
 	}
 
 	public void removeFromWishlist(long productId, long userId) {
-		ArrayList<WishListEntry> wishList = wishlistRepository.getWishListEntries(userId);
+		ArrayList<WishListEntry> wishList = wishlistRepository.findByUser(userRepository.findByID(userId));
 		boolean itemFound = false;
 		for (WishListEntry w : wishList) {
 			if (!itemFound) {
@@ -40,7 +40,7 @@ public class WishlistService {
 	}
 
 	public void addToWishlist(long productId, long userId) {
-		ArrayList<WishListEntry> wishList = wishlistRepository.getWishListEntries(userId);
+		ArrayList<WishListEntry> wishList = wishlistRepository.findByUser(userRepository.findByID(userId));
 		boolean itemFound = false;
 		for (WishListEntry w : wishList) {
 			if (!itemFound) {
@@ -58,7 +58,7 @@ public class WishlistService {
 	}
 
 	public ArrayList<WishListEntry> getWishListEntries(long userId) {
-		ArrayList<WishListEntry> wishList = wishlistRepository.getWishListEntries(userId);
+		ArrayList<WishListEntry> wishList = wishlistRepository.findByUser(userRepository.findByID(userId));
 		return wishList;
 	}
 
