@@ -27,7 +27,7 @@ import com.qa.smurf.util.OrderStatus;
 
 @Singleton
 public class InitialData {
-	private ArrayList<Credit> credit = new ArrayList<Credit>();
+	private ArrayList<Credit> credits = new ArrayList<Credit>();
 	private ArrayList<LineItems> lineItems = new ArrayList<LineItems>();
 	private ArrayList<Order> orders = new ArrayList<Order>();
 	private ArrayList<SupplierOrder> supplierOrders = new ArrayList<SupplierOrder>();
@@ -41,21 +41,23 @@ public class InitialData {
 	private ArrayList<Supplier> suppliers = new ArrayList<Supplier>();	
 	private ArrayList<User> users = new ArrayList<User>();
 	private ArrayList<WishListEntry> wishListEntries = new ArrayList<WishListEntry>();
-	private ArrayList<EmployeeUser> employeeUser = new ArrayList<EmployeeUser>();
+	private ArrayList<EmployeeUser> employeeUsers = new ArrayList<EmployeeUser>();
 	
-	public InitialData() throws ParseException{	//TODO these need to be run in a specific order
+	public InitialData() throws ParseException{	//these need to be run in a specific order
+		setAddressInitialData();
+		setUserInitialData();
+		setSupplierInitialData();
+		setPaymentInitialData();
 		setOrderInitialData();
+		setProductInitialData();
+		setLineItemsInitialData();
+		setSupplierOrderInitialData();
+		setEmployeeUserInitialData();
+		setProductTypeInitialData();
 		setCategoriesInitialData();
 		setProdCatInitialData();
-		setSupplierOrderInitialdata();
-		setCategoriesInitialData();
-		setProductTypeInitialdata();
-		setProductInitialData();
-		setAddressInitialData();
 		setProdSupInitialData();
-		setUserInitialData();
 		setWishlistEntryInitialData();
-		setSupplierInitialData();
 	}
 
 	/**
@@ -127,7 +129,7 @@ public class InitialData {
 		this.addresses = addresses;
 	}
 	
-	public void setPayment() throws ParseException {
+	private void setPaymentInitialData() throws ParseException {
 		
 		//  Author : willseaford - This method returns an ArrayList of Payment objects and has a dependency on the User object class being instantiated. 
 	
@@ -147,6 +149,10 @@ public class InitialData {
 	
 	public ArrayList<Payment> getPayment(){
 		return this.payment;
+	}
+	
+	public void setPayment(ArrayList<Payment> payments){
+		this.payment = payments;
 	}
 	
 	private void setOrderInitialData() throws ParseException{
@@ -169,25 +175,29 @@ public class InitialData {
 		this.orders = orders;
 	}
 		
-	public void setCredit() {
+	public void setCreditInitialData() {
 		
 		// Author : willseaford - 
 		ArrayList<User> users = getUsers();
 		
-		credit.add(new Credit(users.get(0), 0.0, 0.0, 1));
-		credit.add(new Credit(users.get(1), 2000.00, 1000.00, 2));
-		credit.add(new Credit(users.get(2), 0.0, 0.0, 3));
-		credit.add(new Credit(users.get(3), 1500.00, 400.00, 4));
-		credit.add(new Credit(users.get(4), 0.0, 0.0, 1));
+		credits.add(new Credit(users.get(0), 0.0, 0.0, 1));
+		credits.add(new Credit(users.get(1), 2000.00, 1000.00, 2));
+		credits.add(new Credit(users.get(2), 0.0, 0.0, 3));
+		credits.add(new Credit(users.get(3), 1500.00, 400.00, 4));
+		credits.add(new Credit(users.get(4), 0.0, 0.0, 1));
 		
 	}
 	
 	public void addCredit(Credit credit){
-		this.credit.add(credit);
+		this.credits.add(credit);
 	}
 	
 	public ArrayList<Credit> getCredit(){
-		return credit;
+		return credits;
+	}
+	
+	public void setCredit(ArrayList<Credit> credit){
+		this.credits = credit;
 	}
 	
 	//Creates an ArrayList that is populated by dummy data.
@@ -210,7 +220,7 @@ public class InitialData {
 		this.users.add(user);
 	}
 	
-	public void setLineItems() throws ParseException {
+	private void setLineItemsInitialData() throws ParseException {
 		
 		//  Author : willseaford - This method sets an ArrayList of LineItems objects and has a dependency on the order and product object classes being instantiated. 
 		
@@ -231,7 +241,12 @@ public class InitialData {
 	public ArrayList<LineItems> getLineItems(){
 		return lineItems;
 	}
-	public void setEmployeeUser(){
+	public void setLineItems(ArrayList<LineItems> lineItems){
+		this.lineItems = lineItems;
+	}
+	
+	
+	private void setEmployeeUserInitialData(){
 		
 		/* 
 		 * Author : willseaford
@@ -243,23 +258,26 @@ public class InitialData {
 		
 		
 				
-		employeeUser.add(new EmployeeUser("Mr Big Mann"));
-		employeeUser.add(new EmployeeUser("Mr Patrick Starfish"));
-		employeeUser.add(new EmployeeUser("Miss Wo Mann"));
-		employeeUser.add(new EmployeeUser("Mr James Trainer"));
-		employeeUser.add(new EmployeeUser("Mr Stewart Noob"));
+		employeeUsers.add(new EmployeeUser("Mr Big Mann"));
+		employeeUsers.add(new EmployeeUser("Mr Patrick Starfish"));
+		employeeUsers.add(new EmployeeUser("Miss Wo Mann"));
+		employeeUsers.add(new EmployeeUser("Mr James Trainer"));
+		employeeUsers.add(new EmployeeUser("Mr Stewart Noob"));
 		
 	}
 	
 	public void addEmployeeUser(EmployeeUser eu){
-		employeeUser.add(eu);
+		employeeUsers.add(eu);
 	}
 	
 	public ArrayList<EmployeeUser> getEmployeeUser(){
-		return employeeUser;
+		return employeeUsers;
+	}
+	public void setEmployeeUsers(ArrayList<EmployeeUser> employeeUsers){
+		this.employeeUsers = employeeUsers;
 	}
 
-	private void setSupplierOrderInitialdata() {
+	private void setSupplierOrderInitialData() {
 		int received[] = { 1, 2, 3, 4, 4 };
 		
 		for (int i = 0; i < 5; i++){
@@ -323,7 +341,7 @@ public class InitialData {
 
 	// Populates the ArrayList for Product Type with 3 different product types.
 
-	private void setProductTypeInitialdata() {
+	private void setProductTypeInitialData() {
 		productTypes.add(new ProductType(1, "Seeds"));
 		productTypes.add(new ProductType(1, "Gardening Tools"));
 		productTypes.add(new ProductType(1, "Selena Gnomes"));
@@ -402,12 +420,7 @@ public class InitialData {
 			wishListEntries.add(new WishListEntry(getProducts().get(i), new Date(), getUsers().get(i)));		
 		}
 	}
-
-
-	
-	 public ArrayList<WishListEntry> getWishListEntries() {
-	 
-
+	public ArrayList<WishListEntry> getWishListEntries() {
 		return this.wishListEntries;
 	}
 
@@ -417,7 +430,6 @@ public class InitialData {
 	
 	public void setWishListEntries(ArrayList<WishListEntry> wishListEntries) {
 		this.wishListEntries = wishListEntries;
-
 	}
 	
 }
