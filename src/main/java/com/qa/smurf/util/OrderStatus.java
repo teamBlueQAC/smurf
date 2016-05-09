@@ -1,7 +1,7 @@
 package com.qa.smurf.util;
 
 public enum OrderStatus {
-	PENDING, PLACED, PROCESSING, AWAITINGDISPATCH, DELIVERED, PAIED;
+	PENDING, PLACED, PROCESSING, AWAITINGDISPATCH, DELIVERED, PAID;
 	
 	
 	//private long id;
@@ -12,7 +12,7 @@ public enum OrderStatus {
 	}
 
 	//needs review
-	public Object getName() {
+	public String getName() {
 		return this.name();
 	}
 }
