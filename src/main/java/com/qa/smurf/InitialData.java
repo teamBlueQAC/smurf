@@ -106,11 +106,11 @@ public class InitialData {
 	 */
 
 	private void setAddressInitialData() {
-		String[] addressLine1 = { "54 abbey lane", "54 abbey lane", "54 abbey lane", "54 abbey lane", "54 abbey lane" };
-		String[] addressLine2 = { "ayfter road", "ayfter road", "ayfter road", "ayfter road", "ayfter road" };
-		String[] addressLine3 = { "Birgmingham", "Birgmingham", "Birgmingham", "Birgmingham", "Birgmingham" };
-		String[] addressLine4 = { "UK", "UK", "UK", "UK", "UK" };
-		String[] postCode = { "NX7 4GH", "NX7 4GH", "NX7 4GH", "NX7 4GH", "NX7 4GH" };
+		String[] addressLine1 = { "1 abbey lane", 	"2 north road", "3 south road", "4 east road", 	"5 west road" 	};
+		String[] addressLine2 = { "ayfter road", 	"north", 		"South", 		"North", 		"West" 			};
+		String[] addressLine3 = { "Birgmingham", 	"Leeds", 		"Southampton", 	"Norwich", 		"Aberystwyth" 	};
+		String[] addressLine4 = { "UK", 			"UK", 			"UK", 			"UK", 			"UK" 			};
+		String[] postCode = 	{ "NX7 4GH", 		"LE7 4GH", 		"SO7 4GH", 		"NX7 4GH", 		"NX7 4GH" 	 	};
 
 		for (int i = 0; i < 5; i++) {
 			addresses.add(new Address(addressLine1[i], addressLine2[i], addressLine3[i], addressLine4[i], postCode[i]));
