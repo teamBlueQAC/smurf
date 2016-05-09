@@ -67,5 +67,16 @@ public class LineItemsRepositoryOffline implements LineItemsRepository {
 		}
 		return null;
 	}
+	
+	@Override
+	public void removeLineItem(LineItems lineItem) {
+		ArrayList<LineItems> lineItems = initialData.getLineItems();
+		for (int i = 0; i < lineItems.size(); i++) {
+			if (lineItems.get(i).equals(lineItem)){
+				lineItems.remove(i);
+				break;
+			}
+		}
+	}
 
 }

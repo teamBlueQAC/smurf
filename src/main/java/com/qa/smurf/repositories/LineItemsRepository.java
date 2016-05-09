@@ -22,4 +22,6 @@ public interface LineItemsRepository {
 
 	public LineItems readLineItems(LineItems p);
 
+	public void removeLineItem(LineItems lineItem);
+
 }

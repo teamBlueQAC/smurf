@@ -25,40 +25,29 @@ public class WishlistService {
 	}
 
 	public void removeFromWishlist(long productId, long userId) {
-		ArrayList<WishListEntry> wishList = wishlistRepository.getWishListEntries(userId);
-		boolean itemFound = false;
-		for (WishListEntry w : wishList) {
-			if (!itemFound) {
-				Product p = w.getProduct();
-				if (p.getId() == productId) {
-					itemFound = true;
-					wishlistRepository.removeWishListEntry(w);
-				}
-			}
+		WishListEntry wishlistEntry = wishlistRepository.findByProductAndUser(productRepository.findByID(productId), userRepository.findByID(userId));
+		if(wishlistEntry!=null){
+			System.out.println("Item already exists in wishlist");
+		} else {
+			wishlistRepository.removeWishListEntry(wishlistEntry);
 		}
 
 	}
 
 	public void addToWishlist(long productId, long userId) {
-		ArrayList<WishListEntry> wishList = wishlistRepository.getWishListEntries(userId);
-		boolean itemFound = false;
-		for (WishListEntry w : wishList) {
-			if (!itemFound) {
-				Product p = w.getProduct();
-				if (p.getId() == productId) {
-					itemFound = true;
-				}
-			}
-		}
-		if (!itemFound) {
-			Product p = productRepository.findByID(productId);
-			WishListEntry w1 = new WishListEntry(p, new Date(), userRepository.findByID(userId));
+		Product product = productRepository.findByID(productId);
+		WishListEntry wishlistEntry = wishlistRepository.findByProductAndUser(product, userRepository.findByID(userId));
+		if(wishlistEntry!=null){
+			System.out.println("Item already exists in wishlist");
+		} else {
+			WishListEntry newWishlistEntry = new WishListEntry(product, new Date(), userRepository.findByID(userId));
+			wishlistRepository.persistWishListEntry(newWishlistEntry);
 		}
 
 	}
 
 	public ArrayList<WishListEntry> getWishListEntries(long userId) {
-		ArrayList<WishListEntry> wishList = wishlistRepository.getWishListEntries(userId);
+		ArrayList<WishListEntry> wishList = wishlistRepository.findByUser(userRepository.findByID(userId));
 		return wishList;
 	}
 

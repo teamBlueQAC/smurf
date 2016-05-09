@@ -11,6 +11,7 @@ import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.entities.User;
 import com.qa.smurf.repositories.AddressRepository;
+import com.qa.smurf.repositories.LineItemsRepository;
 import com.qa.smurf.repositories.OrderRepository;
 import com.qa.smurf.repositories.PaymentRepository;
 import com.qa.smurf.repositories.ProductRepository;
@@ -21,6 +22,8 @@ import com.qa.smurf.util.OrderStatus;
 public class OrderService {
 	@Inject
 	private ProductRepository productRepository;
+	@Inject
+	private LineItemsRepository lineItemsRepository;
 	@Inject
 	private AddressRepository addressRepository;
 	@Inject
@@ -44,6 +47,7 @@ public class OrderService {
 				if (!foundLineItem) {
 					if (li.getProduct().getId() == productId) {
 						li.setQuantity(li.getQuantity() + 1);
+						lineItemsRepository.persistLineItems(li);
 						foundLineItem = true;
 					}
 				}
@@ -51,8 +55,10 @@ public class OrderService {
 			if (!foundLineItem) {
 				LineItems li = new LineItems(order, product, 1, product.getPrice(), product.getQuantityAvailable());
 				ArrayList<LineItems> lia = order.getLineItem();
+				lineItemsRepository.persistLineItems(li);
 				lia.add(li);
 				order.setLineItem(lia);
+				orderRepository.persistOrder(order);
 			}
 
 		} else {
@@ -61,7 +67,9 @@ public class OrderService {
 					userRepository.findByID(userId).getAddress(), userRepository.findByID(userId), null);
 			order.setOrderStatus(OrderStatus.PENDING);
 			LineItems li = new LineItems(order, product, 1, product.getPrice(), product.getQuantityAvailable());
+			lineItemsRepository.persistLineItems(li);
 			order.addLineItem(li);
+			orderRepository.persistOrder(order);
 		}
 	}
 
@@ -81,6 +89,8 @@ public class OrderService {
 
 			order = new Order(123, new Date(), null, paymentRepository.findByUserId(userId),
 					userRepository.findByID(userId).getAddress(), userRepository.findByID(userId), null);
+
+			orderRepository.persistOrder(order);
 		}
 
 	}
@@ -94,6 +104,8 @@ public class OrderService {
 					ArrayList<LineItems> lia = order.getLineItem();
 					lia.clear();
 					order.setLineItem(lia);
+					lineItemsRepository.removeLineItem(li);
+					orderRepository.persistOrder(order);
 				}
 			}
 			orderRepository.removeOrder(order);
@@ -132,6 +144,7 @@ public class OrderService {
 			}
 			order.setOrderStatus(OrderStatus.PLACED);
 			orderRepository.updateOrder(order);
+			orderRepository.persistOrder(order);
 		}
 
 	}
@@ -146,6 +159,7 @@ public class OrderService {
 					int index = getLineItem(lia, li);
 					lia.remove(index);
 					order.setLineItem(lia);
+					lineItemsRepository.removeLineItem(li);
 					return;
 				}
 			}
