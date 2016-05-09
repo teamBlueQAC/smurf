@@ -58,7 +58,7 @@
 	   var changeTmr = setInterval(ChangeSlide,  4000);
 	   var updateTmr = setInterval(updateSlider,  24);
 	   document.getElementById("wrapper").style.opacity = 1;
-	   
+
 	   function BoxArrangement() {
 		   if (window.innerWidth >= 999) {
 			   document.getElementById("box1").style.width = '33.3%'; //'333px';
@@ -80,4 +80,3 @@
 			document.getElementById("box1").style.backgroundImage = "url(img/seeds.jpg)";
 			document.getElementById("box2").style.backgroundImage = "url(img/seeds2.jpg)";
 			document.getElementById("box3").style.backgroundImage = "url(img/purple-garden.jpg)";
-	
