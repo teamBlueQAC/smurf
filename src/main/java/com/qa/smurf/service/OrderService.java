@@ -102,7 +102,7 @@ public class OrderService {
 			for (LineItems li : order.getLineItem()) {
 				if (li != null) {
 					ArrayList<LineItems> lia = order.getLineItem();
-					lia.clear();
+					lia.remove(li);
 					order.setLineItem(lia);
 					lineItemsRepository.removeLineItem(li);
 					orderRepository.persistOrder(order);
