@@ -13,6 +13,6 @@ public enum OrderStatus {
 
 	//needs review
 	public String getName() {
-		return this.name();
+		return this.toString();
 	}
 }
