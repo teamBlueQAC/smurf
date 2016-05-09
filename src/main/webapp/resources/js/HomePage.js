@@ -64,5 +64,4 @@
 	   var changeTmr = setInterval(ChangeSlide,  2000);
 	   var updateTmr = setInterval(updateSlider,  24);
 	   document.getElementById("wrapper").style.opacity = 1;
-	   alert("running");
 	

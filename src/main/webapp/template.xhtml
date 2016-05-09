@@ -82,14 +82,21 @@
 		<div id="modal1" class="uk-modal">
 			<div class="uk-modal-dialog">
 				<button type="button" class="uk-modal-close uk-close"></button>
-				<div class="uk-modal-header">
-					<h2>Headline</h2>
-				</div>
-				<p>stuff</p>
-				<div class="uk-modal-footer uk-text-right">
-					<button type="button" class="uk-button">Forgot Password</button>
-					<button type="button" class="uk-button uk-button-primary">Confirm</button>
-				</div>
+					<form class="uk-form">
+	                    <fieldset>
+	                        <legend>Login</legend>
+	                        <div class="uk-form-row" >
+	                            <input type="text" placeholder="Username"/>
+	                        </div>
+	                        <div class="uk-form-row">
+	                            <input type="password" placeholder="Password"/>
+	                        </div>
+	                        <div class="uk-form-row">
+	                        	<button class="uk-button uk-button-primary">Forgot Password</button>
+	                            <button class="uk-button uk-button-success">Submit</button>
+	                        </div>
+	                    </fieldset>
+                    </form>
 			</div>
 		</div>
 		<div id="offcanvas-1" class="uk-offcanvas">
@@ -126,7 +133,7 @@
 					class="fa fa-hand-lizard-o" aria-hidden="true"></i> E-mail</a>
 			</div>
 		</div>
-		<div id="footer" class="boxthing uk-width-1-1" style="padding: 5px;">
+		<div id="footer" class="boxthing uk-width-1-1">
 			<ul class="uk-list" style="text-align: center;">
 				<li><a href="http://localhost:8080/smurf/faces/HomePage.xhtml">Home</a></li>
 				<li><a href="http://localhost:8080/smurf/faces/aboutus.xhtml">About Us</a></li>
