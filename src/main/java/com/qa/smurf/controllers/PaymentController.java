@@ -20,39 +20,42 @@ public class PaymentController {
 		@Inject
 		PaymentService paymentService;
 		
+		private Boolean matchesPattern(String input, String pattern){
+			Pattern regexPattern = Pattern.compile(pattern);
+			Matcher matcher = regexPattern.matcher(input);
+			return matcher.find();
+		}
+		
 		public Payment findByCardName(String name){
 			String pattern = "^[a-zA-Z0-9]*$";
-			Pattern regexPattern = Pattern.compile(pattern);
-			Matcher matcher = regexPattern.matcher(name);
-			if(!matcher.find()){
-				return null;
+			Payment returnPayment = null;
+			
+			if(matchesPattern(name, pattern)){
+				returnPayment = paymentService.findByCardName(name);
 			}
-			return paymentService.findByCardName(name);
+			return returnPayment;
 		}
 		
 		public Payment findByCardNumber(String cardNumber){
-			
-			if(Long.valueOf(cardNumber).toString().length() != 16){
-				return null;
-			}
 			String pattern = "[//d]+";
-			Pattern regexPattern = Pattern.compile(pattern);
-			Matcher matcher = regexPattern.matcher(Long.valueOf(cardNumber).toString());
-			if(!matcher.find()){
-				return null;
+			Payment returnPayment = null;
+			
+			if(Long.valueOf(cardNumber).toString().length() != 16 && 
+					matchesPattern(cardNumber, pattern)){
+				returnPayment = paymentService.findByCardNumber(cardNumber);
 			}
-			return paymentService.findByCardNumber(cardNumber);
+			return returnPayment;
 		}
 		
 		public Payment findByExpiryDate(String expiryDate){
 			String pattern = "[0-9][0-9][0-9][0-9]";
+			Payment returnPayment = null;
 			expiryDate.replace("/", "");
-			Pattern regexPattern = Pattern.compile(pattern);
-			Matcher matcher = regexPattern.matcher(expiryDate);
-			if(!matcher.find()){
-				return null;
+			
+			if(matchesPattern(expiryDate, pattern)){
+				returnPayment = paymentService.findByExpiryDate(expiryDate);
 			}
-			return paymentService.findByExpiryDate(expiryDate);
+			return returnPayment;
 		}
 		
 		public Payment validateCardType(String cardType){
@@ -62,16 +65,13 @@ public class PaymentController {
 			return paymentService.findByCardType(cardType);
 		}
 		
-		public Payment validateSecurityNumber(int ccv){
-			if(Integer.valueOf(ccv).toString().length() != 3){
-				return null;
+		public Payment validateSecurityNumber(String ccv){
+			String pattern = "[0-9][0-9][0-9]";
+			Payment returnPayment = null;
+
+			if(matchesPattern(ccv, pattern)){
+				returnPayment = paymentService.findByExpiryDate(ccv);
 			}
-			String pattern = "[//d]+";
-			Pattern regexPattern = Pattern.compile(pattern);
-			Matcher matcher = regexPattern.matcher(Long.valueOf(ccv).toString());
-			if(!matcher.find()){
-				return null;
-			}
-			return paymentService.findBySecurityNumber(ccv);
+			return returnPayment;
 		}	
 }
