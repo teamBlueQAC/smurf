@@ -17,13 +17,19 @@ class AddressRepositoryOffline implements AddressRepository {
 	@Inject
 	private InitialData initialData;
 
-	//
+	/**
+	 * Adds the address to the storage
+	 * @param address - address that gets saved 
+	 */
 	@Override
 	public void persistAddress(Address address) {
 		initialData.addAddress(address);
 	}
 
-	//
+	/**
+	 * Adds all the addresses to the storage
+	 * @param addresses addresses that need saving
+	 */
 	@Override
 	public void persistAddresses(List<Address> addresses) {
 		for (Address a : addresses) {
@@ -31,7 +37,13 @@ class AddressRepositoryOffline implements AddressRepository {
 		}
 	}
 
-	// Search for address by postcode and Line1 to create a composite key
+
+	/**
+	 * Search for address by postcode and Line1 to create a composite key
+	 * @param postCode part of the composite key
+	 * @param line1 other part of the composite key. 
+	 * 
+	 */
 	@Override
 	public Address findByPostCodeAndLine1(String postCode, String line1) {
 		for (Address a : initialData.getAddresses()) {
@@ -42,8 +54,11 @@ class AddressRepositoryOffline implements AddressRepository {
 		return null;
 	}
 
-	// Search for address by postcode - but return array due to possible
-	// multiple results
+	/**Search for address by postcode - but return array due to possible
+	 *  multiple results
+	 *  
+	 *  @param postcode postcode to use for search
+	 */
 	@Override
 	public ArrayList<Address> findByPostCode(String postCode) {
 		ArrayList<Address> tempArray = new ArrayList<Address>();
@@ -56,8 +71,11 @@ class AddressRepositoryOffline implements AddressRepository {
 		return tempArray;
 	}
 
-	// Search for address via line one - return as array due to possible
-	// multiple results
+	/**Search for address via line one - return as array due to possible
+	 * multiple results
+	 * 
+	 * @param line1 the first line of the address
+	 */
 	@Override
 	public ArrayList<Address> findByLine1(String line1) {
 		ArrayList<Address> tempArray = new ArrayList<Address>();
@@ -70,7 +88,9 @@ class AddressRepositoryOffline implements AddressRepository {
 		return tempArray;
 	}
 
-	// Fetch the entire list of addresses
+	/**
+	 * gets all the addresses when called
+	 */
 	@Override
 	public ArrayList<Address> getAddresses() {
 		return initialData.getAddresses();

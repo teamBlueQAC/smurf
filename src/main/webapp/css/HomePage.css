@@ -20,22 +20,21 @@ p {
 }
 
 .section1 {
-	background-color: yellow;
+	background-color: #d0e4fe;
 	height: 320px;
 }
 
 .section2 {
-	background-color: red;
+	background-color: #d0e4fe;
 	height: 290px;
 }
 
 .section3 {
-	background-color: blue;
+	background-color: #d0e4fe;
 	height: 290px;
 }
 
 .slideshow {
-	background-color: purple;
 	width: 100%;
 	height: 100%;
 }
@@ -43,15 +42,26 @@ p {
 #wrapper {
 	width: 100%;
 	height: 100%;
-	background-image: url("img/gnome_banner.jpg");
+	background-image: url("gnome.jpg");
 	background-color: black;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.box {
+	display: block;
+	float: left;
+	width: 100%;
+	height: 100%;
+	background-image: url("gnome.jpg");
+	background-color: green;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
 
 .welcomeText {
 	margin-top: 20px;
-	background-color: green;
+	background-color: #fcefab;
 	float: left;
 	width: 70%;
 	height: 80%;
