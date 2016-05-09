@@ -23,7 +23,6 @@ import com.qa.smurf.entities.Supplier;
 import com.qa.smurf.entities.SupplierOrder;
 import com.qa.smurf.entities.User;
 import com.qa.smurf.entities.WishListEntry;
-import com.qa.smurf.util.AccountType;
 import com.qa.smurf.util.OrderStatus;
 
 @Singleton
@@ -244,11 +243,11 @@ public class InitialData {
 		
 		
 				
-		employeeUser.add(new EmployeeUser(AccountType.values()[0], "Mr Big Mann"));
-		employeeUser.add(new EmployeeUser(AccountType.values()[0], "Mr Patrick Starfish"));
-		employeeUser.add(new EmployeeUser(AccountType.values()[0], "Miss Wo Mann"));
-		employeeUser.add(new EmployeeUser(AccountType.values()[1], "Mr James Trainer"));
-		employeeUser.add(new EmployeeUser(AccountType.values()[1], "Mr Stewart Noob"));
+		employeeUser.add(new EmployeeUser("Mr Big Mann"));
+		employeeUser.add(new EmployeeUser("Mr Patrick Starfish"));
+		employeeUser.add(new EmployeeUser("Miss Wo Mann"));
+		employeeUser.add(new EmployeeUser("Mr James Trainer"));
+		employeeUser.add(new EmployeeUser("Mr Stewart Noob"));
 		
 	}
 	
