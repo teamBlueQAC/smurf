@@ -104,6 +104,7 @@ public class OrderService {
 					ArrayList<LineItems> lia = order.getLineItem();
 					lia.clear();
 					order.setLineItem(lia);
+					lineItemsRepository.removeLineItem(li);
 					orderRepository.persistOrder(order);
 				}
 			}
@@ -158,6 +159,7 @@ public class OrderService {
 					int index = getLineItem(lia, li);
 					lia.remove(index);
 					order.setLineItem(lia);
+					lineItemsRepository.removeLineItem(li);
 					return;
 				}
 			}
