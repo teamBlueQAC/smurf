@@ -53,6 +53,7 @@ public class OrderService {
 				ArrayList<LineItems> lia = order.getLineItem();
 				lia.add(li);
 				order.setLineItem(lia);
+				orderRepository.persistOrder(order);
 			}
 
 		} else {
@@ -62,6 +63,7 @@ public class OrderService {
 			order.setOrderStatus(OrderStatus.PENDING);
 			LineItems li = new LineItems(order, product, 1, product.getPrice(), product.getQuantityAvailable());
 			order.addLineItem(li);
+			orderRepository.persistOrder(order);
 		}
 	}
 
@@ -81,6 +83,8 @@ public class OrderService {
 
 			order = new Order(123, new Date(), null, paymentRepository.findByUserId(userId),
 					userRepository.findByID(userId).getAddress(), userRepository.findByID(userId), null);
+
+			orderRepository.persistOrder(order);
 		}
 
 	}
@@ -94,6 +98,7 @@ public class OrderService {
 					ArrayList<LineItems> lia = order.getLineItem();
 					lia.clear();
 					order.setLineItem(lia);
+					orderRepository.persistOrder(order);
 				}
 			}
 			orderRepository.removeOrder(order);
@@ -132,6 +137,7 @@ public class OrderService {
 			}
 			order.setOrderStatus(OrderStatus.PLACED);
 			orderRepository.updateOrder(order);
+			orderRepository.persistOrder(order);
 		}
 
 	}
