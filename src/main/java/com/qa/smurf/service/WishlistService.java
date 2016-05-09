@@ -27,10 +27,10 @@ public class WishlistService {
 	public void removeFromWishlist(long productId, long userId) {
 		ArrayList<WishListEntry> wishList = wishlistRepository.getWishListEntries(userId);
 		boolean itemFound = false;
-		for(WishListEntry w : wishList){
-			if(!itemFound){
+		for (WishListEntry w : wishList) {
+			if (!itemFound) {
 				Product p = w.getProduct();
-				if(p.getId()==productId){
+				if (p.getId() == productId) {
 					itemFound = true;
 					wishlistRepository.removeWishListEntry(w);
 				}
@@ -42,19 +42,18 @@ public class WishlistService {
 	public void addToWishlist(long productId, long userId) {
 		ArrayList<WishListEntry> wishList = wishlistRepository.getWishListEntries(userId);
 		boolean itemFound = false;
-		for(WishListEntry w : wishList){
-			if(!itemFound){
+		for (WishListEntry w : wishList) {
+			if (!itemFound) {
 				Product p = w.getProduct();
-				if(p.getId()==productId){
+				if (p.getId() == productId) {
 					itemFound = true;
 				}
 			}
 		}
-		if(!itemFound){
+		if (!itemFound) {
 			Product p = productRepository.findByID(productId);
 			WishListEntry w1 = new WishListEntry(p, new Date(), userRepository.findByID(userId));
 		}
-
 
 	}
 

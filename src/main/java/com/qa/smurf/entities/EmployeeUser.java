@@ -17,39 +17,23 @@ public class EmployeeUser {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-//	@ManyToOne
-//	@JoinColumn(name = "ACCOUNTTYPE_ID")
-//	private AccountType accountType;
-
 	@Column(name = "NAME", nullable = false, length = 255)
 	@NotNull
 	private String name;
-
-//	public EmployeeUser(AccountType accountType, String name) {
-//		this.accountType = accountType;
-//		this.name = name;
-//	}
+	public EmployeeUser( String name) {
+		this.name = name;
+	}
 
 	public long getID() {
 		return id;
 	}
 
-//	public AccountType getAccountType() {
-//		return accountType;
-//	}
-
 	public String getName() {
 		return name;
 	}
-
-//	public void setAccountType(AccountType accountType) {
-//		this.accountType = accountType;
-//	}
-
 	
 	public void setName(String name) {
 		this.name = name;
-
 	}
 	
 }

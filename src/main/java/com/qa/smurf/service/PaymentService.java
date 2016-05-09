@@ -1,8 +1,5 @@
 package com.qa.smurf.service;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import javax.inject.Inject;
 
 import com.qa.smurf.entities.Payment;

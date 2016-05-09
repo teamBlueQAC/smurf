@@ -6,6 +6,8 @@ package com.qa.smurf;
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.ParseException;
+
+import javax.annotation.PostConstruct;
 import javax.inject.Singleton;
 
 import com.qa.smurf.entities.Address;
@@ -27,7 +29,7 @@ import com.qa.smurf.util.OrderStatus;
 
 @Singleton
 public class InitialData {
-	private ArrayList<Credit> credit = new ArrayList<Credit>();
+	private ArrayList<Credit> credits = new ArrayList<Credit>();
 	private ArrayList<LineItems> lineItems = new ArrayList<LineItems>();
 	private ArrayList<Order> orders = new ArrayList<Order>();
 	private ArrayList<SupplierOrder> supplierOrders = new ArrayList<SupplierOrder>();
@@ -41,23 +43,26 @@ public class InitialData {
 	private ArrayList<Supplier> suppliers = new ArrayList<Supplier>();	
 	private ArrayList<User> users = new ArrayList<User>();
 	private ArrayList<WishListEntry> wishListEntries = new ArrayList<WishListEntry>();
-	private ArrayList<EmployeeUser> employeeUser = new ArrayList<EmployeeUser>();
+	private ArrayList<EmployeeUser> employeeUsers = new ArrayList<EmployeeUser>();
 	
-	public InitialData() throws ParseException{	//TODO these need to be run in a specific order
+
+	@PostConstruct
+	public void initial () throws ParseException {
+		setAddressInitialData();
+		setUserInitialData();
+		setSupplierInitialData();
+		setPaymentInitialData();
 		setOrderInitialData();
+		setProductInitialData();
+		setLineItemsInitialData();
+		setSupplierOrderInitialData();
+		setEmployeeUserInitialData();
+		setProductTypeInitialData();
 		setCategoriesInitialData();
 		setProdCatInitialData();
-		setSupplierOrderInitialdata();
-		setCategoriesInitialData();
-		setProductTypeInitialdata();
-		setProductInitialData();
-		setAddressInitialData();
 		setProdSupInitialData();
-		setUserInitialData();
 		setWishlistEntryInitialData();
-		setSupplierInitialData();
 	}
-
 	/**
 	 * 
 	 * Created by Omar
@@ -104,11 +109,11 @@ public class InitialData {
 	 */
 
 	private void setAddressInitialData() {
-		String[] addressLine1 = { "54 abbey lane", "54 abbey lane", "54 abbey lane", "54 abbey lane", "54 abbey lane" };
-		String[] addressLine2 = { "ayfter road", "ayfter road", "ayfter road", "ayfter road", "ayfter road" };
-		String[] addressLine3 = { "Birgmingham", "Birgmingham", "Birgmingham", "Birgmingham", "Birgmingham" };
-		String[] addressLine4 = { "UK", "UK", "UK", "UK", "UK" };
-		String[] postCode = { "NX7 4GH", "NX7 4GH", "NX7 4GH", "NX7 4GH", "NX7 4GH" };
+		String[] addressLine1 = { "1 abbey lane", 	"2 north road", "3 south road", "4 east road", 	"5 west road" 	};
+		String[] addressLine2 = { "ayfter road", 	"north", 		"South", 		"North", 		"West" 			};
+		String[] addressLine3 = { "Birgmingham", 	"Leeds", 		"Southampton", 	"Norwich", 		"Aberystwyth" 	};
+		String[] addressLine4 = { "UK", 			"UK", 			"UK", 			"UK", 			"UK" 			};
+		String[] postCode = 	{ "NX7 4GH", 		"LE7 4GH", 		"SO7 4GH", 		"NX7 4GH", 		"NX7 4GH" 	 	};
 
 		for (int i = 0; i < 5; i++) {
 			addresses.add(new Address(addressLine1[i], addressLine2[i], addressLine3[i], addressLine4[i], postCode[i]));
@@ -127,7 +132,7 @@ public class InitialData {
 		this.addresses = addresses;
 	}
 	
-	public void setPayment() throws ParseException {
+	private void setPaymentInitialData() throws ParseException {
 		
 		//  Author : willseaford - This method returns an ArrayList of Payment objects and has a dependency on the User object class being instantiated. 
 	
@@ -147,6 +152,10 @@ public class InitialData {
 	
 	public ArrayList<Payment> getPayment(){
 		return this.payment;
+	}
+	
+	public void setPayment(ArrayList<Payment> payments){
+		this.payment = payments;
 	}
 	
 	private void setOrderInitialData() throws ParseException{
@@ -169,25 +178,29 @@ public class InitialData {
 		this.orders = orders;
 	}
 		
-	public void setCredit() {
+	public void setCreditInitialData() {
 		
 		// Author : willseaford - 
 		ArrayList<User> users = getUsers();
 		
-		credit.add(new Credit(users.get(0), 0.0, 0.0, 1));
-		credit.add(new Credit(users.get(1), 2000.00, 1000.00, 2));
-		credit.add(new Credit(users.get(2), 0.0, 0.0, 3));
-		credit.add(new Credit(users.get(3), 1500.00, 400.00, 4));
-		credit.add(new Credit(users.get(4), 0.0, 0.0, 1));
+		credits.add(new Credit(users.get(0), 0.0, 0.0, 1));
+		credits.add(new Credit(users.get(1), 2000.00, 1000.00, 2));
+		credits.add(new Credit(users.get(2), 0.0, 0.0, 3));
+		credits.add(new Credit(users.get(3), 1500.00, 400.00, 4));
+		credits.add(new Credit(users.get(4), 0.0, 0.0, 1));
 		
 	}
 	
 	public void addCredit(Credit credit){
-		this.credit.add(credit);
+		this.credits.add(credit);
 	}
 	
 	public ArrayList<Credit> getCredit(){
-		return credit;
+		return credits;
+	}
+	
+	public void setCredit(ArrayList<Credit> credit){
+		this.credits = credit;
 	}
 	
 	//Creates an ArrayList that is populated by dummy data.
@@ -210,7 +223,7 @@ public class InitialData {
 		this.users.add(user);
 	}
 	
-	public void setLineItems() throws ParseException {
+	private void setLineItemsInitialData() throws ParseException {
 		
 		//  Author : willseaford - This method sets an ArrayList of LineItems objects and has a dependency on the order and product object classes being instantiated. 
 		
@@ -231,37 +244,32 @@ public class InitialData {
 	public ArrayList<LineItems> getLineItems(){
 		return lineItems;
 	}
-	public void setEmployeeUser(){
+	public void setLineItems(ArrayList<LineItems> lineItems){
+		this.lineItems = lineItems;
+	}
+	
+	
+	private void setEmployeeUserInitialData(){
+		employeeUsers.add(new EmployeeUser("Mr Big Mann"));
+		employeeUsers.add(new EmployeeUser("Mr Patrick Starfish"));
+		employeeUsers.add(new EmployeeUser("Miss Wo Mann"));
+		employeeUsers.add(new EmployeeUser("Mr James Trainer"));
+		employeeUsers.add(new EmployeeUser("Mr Stewart Noob"));
 		
-		/* 
-		 * Author : willseaford
-			This method returns an ArrayList of EmployeeUser objects and has a dependency on the AccountType class being instantiated. 
-		  	The method: - Creates ArrayLists of EmployeeUser and AccountType and initialises AccountType
-		  	 			- adds each instance.
-		  				- returns the ArrayList
-		*/
-		
-		
-		
-		// AccountType deleted accountType needs to be an enumber 
-		/*
-		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Big Mann"));
-		employeeUser.add(new EmployeeUser(accountType.get(1), "Mr Patrick Starfish"));
-		employeeUser.add(new EmployeeUser(accountType.get(2), "Miss Wo Mann"));
-		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr James Trainer"));
-		employeeUser.add(new EmployeeUser(accountType.get(0), "Mr Stewart Noob"));
-		*/
 	}
 	
 	public void addEmployeeUser(EmployeeUser eu){
-		employeeUser.add(eu);
+		employeeUsers.add(eu);
 	}
 	
 	public ArrayList<EmployeeUser> getEmployeeUser(){
-		return employeeUser;
+		return employeeUsers;
+	}
+	public void setEmployeeUsers(ArrayList<EmployeeUser> employeeUsers){
+		this.employeeUsers = employeeUsers;
 	}
 
-	private void setSupplierOrderInitialdata() {
+	private void setSupplierOrderInitialData() {
 		int received[] = { 1, 2, 3, 4, 4 };
 		
 		for (int i = 0; i < 5; i++){
@@ -290,6 +298,15 @@ public class InitialData {
 				getProductTypes().get(2), "zombie green seeds.", 60, 700));
 
 		products.add(new Product(2, "garden utensils", "EWRE-WRFS-SAZC", "blue", 5.00, false, "mydocs", 700,
+				getProductTypes().get(3), "big and scary garden utensils.", 70, 400));
+		
+		products.add(new Product(3, "gnome2", "GHTY-YTER-GFD2", "blue", 40.00, false, "mydocs", 500,
+				getProductTypes().get(1), "Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
+
+		products.add(new Product(4, "seeds2", "SDFF-DFGF-JGG2", "green", 10.00, false, "mydocs", 600,
+				getProductTypes().get(2), "zombie green seeds.", 60, 700));
+
+		products.add(new Product(5, "garden utensils2", "EWRE-WRFS-SAZ2", "blue", 5.00, false, "mydocs", 700,
 				getProductTypes().get(3), "big and scary garden utensils.", 70, 400));
 	}
 
@@ -325,10 +342,10 @@ public class InitialData {
 
 	// Populates the ArrayList for Product Type with 3 different product types.
 
-	private void setProductTypeInitialdata() {
+	private void setProductTypeInitialData() {
 		productTypes.add(new ProductType(1, "Seeds"));
-		productTypes.add(new ProductType(1, "Gardening Tools"));
-		productTypes.add(new ProductType(1, "Selena Gnomes"));
+		productTypes.add(new ProductType(2, "Gardening Tools"));
+		productTypes.add(new ProductType(3, "Selena Gnomes"));
 	}
 
 	public ArrayList<ProductType> getProductTypes() {
@@ -349,6 +366,8 @@ public class InitialData {
 		categories.add(new Category(1, "axe wielding"));
 		categories.add(new Category(2, "zombie"));
 		categories.add(new Category(3, "big and scary"));
+		categories.add(new Category(4, "small and scary"));
+		categories.add(new Category(5, "big and not scary"));
 	}
 
 	public ArrayList<Category> getCategories() {
@@ -397,19 +416,11 @@ public class InitialData {
 	 */
 
 	private void setWishlistEntryInitialData() {
-		
-		//ArrayList<Date> dates = new Date;
-
 		for (int i = 0; i < 5; i++) {
 			wishListEntries.add(new WishListEntry(getProducts().get(i), new Date(), getUsers().get(i)));		
 		}
 	}
-
-
-	
-	 public ArrayList<WishListEntry> getWishListEntries() {
-	 
-
+	public ArrayList<WishListEntry> getWishListEntries() {
 		return this.wishListEntries;
 	}
 
@@ -419,7 +430,6 @@ public class InitialData {
 	
 	public void setWishListEntries(ArrayList<WishListEntry> wishListEntries) {
 		this.wishListEntries = wishListEntries;
-
 	}
 	
 }

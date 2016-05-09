@@ -6,9 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
-import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Product;
-import com.qa.smurf.entities.User;
 import com.qa.smurf.repositories.ProductRepository;
 
 class ProductRepositoryOffline implements ProductRepository {
