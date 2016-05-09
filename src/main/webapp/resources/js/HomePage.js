@@ -28,11 +28,11 @@
 		   				counter = 1;
 		   			} 
 		   			if (counter == 1) {
-		   				document.getElementById("wrapper").style.backgroundImage = "url(img/gnome_banner.jpg)";
+		   				document.getElementById("wrapper").style.backgroundImage = "url(img/gnome.jpg)";
 		   				//document.getElementById("slideLink").href = "https://www.google.co.uk"
 		   			}	
 		   			else if (counter == 2) {
-		   				document.getElementById("wrapper").style.backgroundImage = "url(img/garden-tools-banner.jpg)";
+		   				document.getElementById("wrapper").style.backgroundImage = "url(img/spade2.0.jpg)";
 		   				//document.getElementById("slideLink").href = "https://www.google.co.uk"
 		   			}
 		   			else if (counter == 3) {
@@ -55,7 +55,7 @@
 	   	
 		   	BoxArrangement();
 	   }
-	   var changeTmr = setInterval(ChangeSlide,  2000);
+	   var changeTmr = setInterval(ChangeSlide,  4000);
 	   var updateTmr = setInterval(updateSlider,  24);
 	   document.getElementById("wrapper").style.opacity = 1;
 	   
@@ -77,7 +77,7 @@
 		   }
 	   }
 
-			document.getElementById("box1").style.backgroundImage = "url(img/gnome_banner.jpg)";
-			document.getElementById("box2").style.backgroundImage = "url(img/gnome_banner.jpg)";
-			document.getElementById("box3").style.backgroundImage = "url(img/gnome_banner.jpg)";
+			document.getElementById("box1").style.backgroundImage = "url(img/seeds.jpg)";
+			document.getElementById("box2").style.backgroundImage = "url(img/seeds2.jpg)";
+			document.getElementById("box3").style.backgroundImage = "url(img/purple-garden.jpg)";
 	
