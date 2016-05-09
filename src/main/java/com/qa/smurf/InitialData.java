@@ -6,6 +6,8 @@ package com.qa.smurf;
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.ParseException;
+
+import javax.annotation.PostConstruct;
 import javax.inject.Singleton;
 
 import com.qa.smurf.entities.Address;
@@ -43,7 +45,9 @@ public class InitialData {
 	private ArrayList<WishListEntry> wishListEntries = new ArrayList<WishListEntry>();
 	private ArrayList<EmployeeUser> employeeUsers = new ArrayList<EmployeeUser>();
 	
-	public InitialData() throws ParseException{	//these need to be run in a specific order
+
+	@PostConstruct
+	public void initial () throws ParseException {
 		setAddressInitialData();
 		setUserInitialData();
 		setSupplierInitialData();
@@ -59,7 +63,6 @@ public class InitialData {
 		setProdSupInitialData();
 		setWishlistEntryInitialData();
 	}
-
 	/**
 	 * 
 	 * Created by Omar
