@@ -2,14 +2,17 @@ package com.qa.smurf.util;
 
 public enum OrderStatus {
 	PENDING, PLACED, PROCESSING, AWAITINGDISPATCH, DELIVERED, PAIED;
-
+	
+	
+	//private long id;
+	
+	//needs review
 	public long getId() {
-		// PLZ FIX
-		return 0;
+		return this.ordinal();
 	}
 
+	//needs review
 	public Object getName() {
-		// PLZ FIX
-		return null;
+		return this.name();
 	}
 }
