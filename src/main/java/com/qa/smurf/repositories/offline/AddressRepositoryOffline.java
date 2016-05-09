@@ -15,7 +15,7 @@ import com.qa.smurf.repositories.AddressRepository;
 
 class AddressRepositoryOffline implements AddressRepository {
 	@Inject
-	InitialData initialData;
+	private InitialData initialData;
 
 	//
 	@Override
