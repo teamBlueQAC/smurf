@@ -247,17 +247,6 @@ public class InitialData {
 	
 	
 	private void setEmployeeUserInitialData(){
-		
-		/* 
-		 * Author : willseaford
-			This method returns an ArrayList of EmployeeUser objects and has a dependency on the AccountType class being instantiated. 
-		  	The method: - Creates ArrayLists of EmployeeUser and AccountType and initialises AccountType
-		  	 			- adds each instance.
-		  				- returns the ArrayList
-		*/
-		
-		
-				
 		employeeUsers.add(new EmployeeUser("Mr Big Mann"));
 		employeeUsers.add(new EmployeeUser("Mr Patrick Starfish"));
 		employeeUsers.add(new EmployeeUser("Miss Wo Mann"));
@@ -307,6 +296,15 @@ public class InitialData {
 
 		products.add(new Product(2, "garden utensils", "EWRE-WRFS-SAZC", "blue", 5.00, false, "mydocs", 700,
 				getProductTypes().get(3), "big and scary garden utensils.", 70, 400));
+		
+		products.add(new Product(3, "gnome2", "GHTY-YTER-GFD2", "blue", 40.00, false, "mydocs", 500,
+				getProductTypes().get(1), "Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
+
+		products.add(new Product(4, "seeds2", "SDFF-DFGF-JGG2", "green", 10.00, false, "mydocs", 600,
+				getProductTypes().get(2), "zombie green seeds.", 60, 700));
+
+		products.add(new Product(5, "garden utensils2", "EWRE-WRFS-SAZ2", "blue", 5.00, false, "mydocs", 700,
+				getProductTypes().get(3), "big and scary garden utensils.", 70, 400));
 	}
 
 	public ArrayList<Product> getProducts() {
@@ -343,8 +341,8 @@ public class InitialData {
 
 	private void setProductTypeInitialData() {
 		productTypes.add(new ProductType(1, "Seeds"));
-		productTypes.add(new ProductType(1, "Gardening Tools"));
-		productTypes.add(new ProductType(1, "Selena Gnomes"));
+		productTypes.add(new ProductType(2, "Gardening Tools"));
+		productTypes.add(new ProductType(3, "Selena Gnomes"));
 	}
 
 	public ArrayList<ProductType> getProductTypes() {
@@ -365,6 +363,8 @@ public class InitialData {
 		categories.add(new Category(1, "axe wielding"));
 		categories.add(new Category(2, "zombie"));
 		categories.add(new Category(3, "big and scary"));
+		categories.add(new Category(4, "small and scary"));
+		categories.add(new Category(5, "big and not scary"));
 	}
 
 	public ArrayList<Category> getCategories() {
@@ -413,9 +413,6 @@ public class InitialData {
 	 */
 
 	private void setWishlistEntryInitialData() {
-		
-		//ArrayList<Date> dates = new Date;
-
 		for (int i = 0; i < 5; i++) {
 			wishListEntries.add(new WishListEntry(getProducts().get(i), new Date(), getUsers().get(i)));		
 		}
