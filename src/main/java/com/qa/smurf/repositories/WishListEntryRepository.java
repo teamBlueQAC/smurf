@@ -4,6 +4,8 @@ package com.qa.smurf.repositories;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.qa.smurf.entities.Product;
+import com.qa.smurf.entities.User;
 import com.qa.smurf.entities.WishListEntry;
 
 public interface WishListEntryRepository {
@@ -12,16 +14,14 @@ public interface WishListEntryRepository {
 
 	public void persistWishListEntries(List<WishListEntry> w);
 
-	public WishListEntry findByProductAndUser(long productID, long userID);
+	public WishListEntry findByProductAndUser(Product product, User user);
 
 	public ArrayList<WishListEntry> getWishListEntries();
-
-	public void updateWishListEntry(WishListEntry w);
 
 	public void removeWishListEntry(WishListEntry w);
 
 	public WishListEntry findByID(long id);
 
-	ArrayList<WishListEntry> getWishListEntries(long userId);
+	public ArrayList<WishListEntry> findByUser(User user);
 
 }
