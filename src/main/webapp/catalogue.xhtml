@@ -6,7 +6,7 @@
 
 	<ui:define name="pageTitle">
 		<div id="baskettitlebox" class="boxthing">
-			<h1 class="uk-icon-shopping-basket">Basket</h1>
+			<h1 class="uk-icon-shopping-list">Catalogue</h1>
 		</div>
 	</ui:define>
 	<ui:define name="body">
@@ -15,68 +15,67 @@
 			style="width: 100%; display: block; float: left; padding-top: 10px;">
 			<div
 				style="width: 100%; height: 200px; display: block; float: left; padding-bottom: 20px; background-color: lime;">
-				<img src="image/gnome_banner.jpg" alt="Gnome" align="middle"
+				<img src="../img/gnome.jpg" alt="Gnome" align="middle"
 					style="width: 100%; height: 225px;" />
 			</div>
 		</div>
-		<div style="height: 1250px; width: 100%; float: center">
+		<div style="height: 1250px; width: 100%;">
 			<div
-				style="width: 100%; display: block; float: center; padding-bottom: 20px; text-align: center">
+				style="width: 100%; display: block; padding-bottom: 20px; text-align: center">
 				<!-- First Row -->
 				<div class="boxthing" style="width: 100%; padding-top: 20px;">
 					<!-- Blank Box - 10% -->
-					<div
+					<!--<div
 						class="boxthing uk-width-medium-1-3 uk-width-large-1-3 uk-width-small-1-1"
 						style="width: 5%; height: 200px; background-color: white; display: inline-block;">
 						<div style="margin: 20px; float: left;"></div>
-					</div>
+					</div>-->
 					<!-- Content Box - 20% -->
 					<h:form>
 						<div style="max-width: 100%; max-height: 100%; margin: 20px;">
-							<h3>
-								<h:outputText value="#{product.product.name}" />
-								<h:graphicImage value="" onclick="TOPRODUCT" />
-							</h3>
+							
+							<h:graphicImage value="" onclick="TOPRODUCT" />
+							
 						</div>
 					</h:form>
-					>
+					
 					<!-- Blank Box - 5% -->
-					<div
+					<!--<div
 						class="boxthing uk-width-medium-1-3 uk-width-large-1-3 uk-width-small-1-1"
 						style="width: 5%; height: 200px; background-color: white; display: inline-block;">
 						<div style="margin: 20px; float: left;"></div>
-					</div>
+					</div>-->
 					<!-- Content Box - 27% -->
 					<h:form>
 						<div style="max-width: 100%; max-height: 100%; margin: 20px;">
 							<h3>
 								<h:outputText value="#{product.product.name}" />
-								<h:graphicImage value="" onclick="TOPRODUCT" />
 							</h3>
 						</div>
 					</h:form>
 					<!-- Blank Box - 5% -->
-					<div
+					<!--<div
 						class="boxthing uk-width-medium-1-3 uk-width-large-1-3 uk-width-small-1-1"
 						style="width: 5%; height: 200px; background-color: white; display: inline-block;">
 						<div style="margin: 20px; float: left;"></div>
-					</div>
+					</div>-->
 					<!-- Content Box - 27% -->
 					<h:form>
 						<div style="max-width: 100%; max-height: 100%; margin: 20px;">
 							<h3>
-								<h:outputText value="#{product.product.name}" />
-								<h:graphicImage value="" onclick="TOPRODUCT" />
+								<h:outputText value="#{product.product.description}" />
 							</h3>
 						</div>
 					</h:form>
 					<!-- Blank Box - 4% -->
-					<div
+					<!-- <div
 						class="boxthing uk-width-medium-1-3 uk-width-large-1-3 uk-width-small-1-1"
 						style="width: 4%; height: 200px; background-color: white; display: inline-block;">
 						<div style="margin: 20px; float: left;"></div>
-					</div>
+					</div>-->
 				</div>
+				
+				
 				<!-- Second Row -->
 				<div class="boxthing" style="width: 100%; padding-top: 20px;">
 					<!-- Blank Box - 10% -->
