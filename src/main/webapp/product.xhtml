@@ -6,13 +6,11 @@
 	<ui:define name="body">
 		<div class="boxthing" style="width: 100%; padding-top: 20px;">
 			<div class="uk-grid">
-				<div
-					class="uk-width-large-1-2 uk-width-medium-1-2 uk-width-small-1-1">
+				<div class="uk-width-medium-1-2 uk-width-small-1-1">
 					<h:graphicImage class="uk-thumbnail-large" style="width: 100%;"
 						value="#{picUrl}" />
 				</div>
-				<div
-					class="uk-width-large-1-2 uk-width-medium-1-2 uk-width-small-1-1">
+				<div class="uk-width-medium-1-2 uk-width-small-1-1">
 					<h:outputText value="#{product.product.name}" />
 					<div class="uk-panel">
 						<h3 class="uk-panel-title"
@@ -38,12 +36,11 @@
 						</p>
 					</div>
 				</div>
-				<div
-					class="uk-width-large-1-2 uk-width-medium-1-2 uk-width-small-1-1">
+				<div class="uk-width-medium-1-2 uk-width-small-1-1">
 					<div class="uk-slidenav-position" data-uk-slider="">
 						<div class="uk-slider-container">
 							<ul
-								class="uk-slider uk-grid-width-large-1-4 uk-grid-width-medium-1-4 uk-grid-width-small-1-3">
+								class="uk-slider uk-grid-width-medium-1-4 uk-grid-width-small-1-3">
 
 								<ui:repeat var="picUrl" value="#{product.product.pictureLoc}"
 									varStatus="status">
@@ -60,8 +57,7 @@
 							data-uk-slider-item="next" />
 					</div>
 				</div>
-				<div
-					class="uk-width-large-1-2 uk-width-medium-1-2 uk-width-small-1-1">
+				<div class="uk-width-medium-1-2 uk-width-small-1-1">
 					<div class="uk-accordion" data-uk-accordion="">
 
 						<h3 class="uk-accordion-title">Sizing Options</h3>
