@@ -17,15 +17,10 @@ import com.qa.smurf.util.OrderStatus;
 
 @Stateless
 public class PaymentService {
-
-	@Inject
-	private UserRepository userRepository;
-	@Inject
-	private PaymentRepository paymentRepository;
-	@Inject
-	private CreditRepository creditRepository;
-	@Inject
-	private OrderRepository orderRepository;
+	@Inject	private UserRepository userRepository;
+	@Inject	private PaymentRepository paymentRepository;
+	@Inject	private CreditRepository creditRepository;
+	@Inject	private OrderRepository orderRepository;
 
 	/*
 	 * Method checks to see if the card number is 16 digits long and only
@@ -95,5 +90,9 @@ public class PaymentService {
 			System.out.println("Credit is less than the order total");
 			return 0.0;
 		}
+	}
+
+	public Payment getPayment(User user) {
+		return paymentRepository.findByUserId(user.getId());
 	}
 }

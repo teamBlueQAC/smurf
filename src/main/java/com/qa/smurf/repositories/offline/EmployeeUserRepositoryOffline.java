@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.EmployeeUser;
 import com.qa.smurf.repositories.EmployeeUserRepository;
 
+@Default
+@Stateless
 public class EmployeeUserRepositoryOffline implements EmployeeUserRepository {
 
 	@Inject

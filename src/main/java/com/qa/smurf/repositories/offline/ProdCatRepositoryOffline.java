@@ -2,6 +2,8 @@ package com.qa.smurf.repositories.offline;
 
 import java.util.ArrayList;
 
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
@@ -10,7 +12,9 @@ import com.qa.smurf.entities.ProdCat;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.repositories.ProdCatRepository;
 
-class ProdCatRepositoryOffline implements ProdCatRepository {
+@Default
+@Stateless
+public class ProdCatRepositoryOffline implements ProdCatRepository {
 	@Inject
 	private InitialData initialData;
 

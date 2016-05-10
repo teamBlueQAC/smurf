@@ -2,12 +2,14 @@ package com.qa.smurf.service;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.repositories.ProductRepository;
 
+@Stateless
 public class ProductService {
 	@Inject
 	private ProductRepository productRepository;

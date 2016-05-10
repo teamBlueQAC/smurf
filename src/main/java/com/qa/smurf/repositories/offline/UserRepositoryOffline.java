@@ -2,6 +2,9 @@ package com.qa.smurf.repositories.offline;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.User;
@@ -14,6 +17,8 @@ import com.qa.smurf.repositories.UserRepository;
  *         Offline Repository for the User Repository
  *
  */
+@Default
+@Stateless
 public class UserRepositoryOffline implements UserRepository {
 	@Inject
 	private InitialData initialData;
@@ -54,9 +59,11 @@ public class UserRepositoryOffline implements UserRepository {
 	public User findByID(long id) {
 		for (User u : initialData.getUsers()) {
 			if (u.getId() == id) {
+				System.out.println("user id = " + id);
 				return u;
 			}
 		}
+		System.out.println("user id is null");
 		return null;
 	}
 

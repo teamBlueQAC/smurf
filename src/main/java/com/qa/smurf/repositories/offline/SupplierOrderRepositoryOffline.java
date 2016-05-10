@@ -5,6 +5,8 @@ package com.qa.smurf.repositories.offline;
 
 import java.util.ArrayList;
 
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
@@ -14,6 +16,8 @@ import com.qa.smurf.entities.SupplierOrder;
 import com.qa.smurf.repositories.SupplierOrderRepository;
 import com.qa.smurf.util.OrderStatus;
 
+@Default
+@Stateless
 public class SupplierOrderRepositoryOffline implements SupplierOrderRepository {
 	@Inject
 	private InitialData initialData;
