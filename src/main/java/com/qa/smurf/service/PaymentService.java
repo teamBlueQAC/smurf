@@ -1,20 +1,29 @@
 package com.qa.smurf.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import com.qa.smurf.entities.Credit;
+import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.User;
 import com.qa.smurf.repositories.CreditRepository;
+import com.qa.smurf.repositories.OrderRepository;
 import com.qa.smurf.repositories.PaymentRepository;
+import com.qa.smurf.repositories.UserRepository;
+import com.qa.smurf.util.OrderStatus;
 
 public class PaymentService {
-
+	
 	@Inject
-	PaymentRepository paymentRepository;
-
+	private UserRepository userRepository;
 	@Inject
-	CreditRepository creditRepository;
+	private PaymentRepository paymentRepository;
+	@Inject
+	private CreditRepository creditRepository;
+	@Inject
+	private OrderRepository orderRepository;
 
 	/*Method checks to see if the card number is 16 digits long and only contains numbers*/
 	public Payment findByCardNumber(String cardNumber){
@@ -41,13 +50,38 @@ public class PaymentService {
 		return paymentRepository.findBySecurityNumber(ccv);
 	}
 
-	public Double getAmountRemaining(Double total, User user) {
+	public Double getAmountPaying(Double total, User user) {
 		Credit credit = creditRepository.findByUser(user);
 		Double amount = credit.getAmount();
 		if(total>=amount){
 			return total-amount;
 		} else {
 			System.out.println("Total is less than the amount of credit");
+			return 0.0;
+		}
+	}
+
+	public User getCurrentUser(long userId) {
+		return userRepository.findByID(userId);
+	}
+
+	public Order getPlacedOrder(User user) {
+		List<Order> orders = orderRepository.findByUser(user);
+		for(Order o : orders){
+			if(o.getOrderStatus() == OrderStatus.PLACED){
+				return o;
+			}
+		}
+		return null;
+	}
+
+	public Double getAmountRemaining(Double orderTotal, User user) {
+		Credit credit = creditRepository.findByUser(user);
+		Double amount = credit.getAmount();
+		if(amount>=orderTotal){
+			return amount-orderTotal;
+		} else {
+			System.out.println("Credit is less than the order total");
 			return 0.0;
 		}
 	}
