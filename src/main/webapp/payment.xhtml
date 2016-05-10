@@ -34,15 +34,15 @@ input {
 				<table class="uk-width-1-1">
 					<tr>
 						<td><p>Name:</p></td>
-						<td><h:outputText value="#{user.user.name}" /></td>
+						<td><h:outputText value="#{payment.user.name}" /></td>
 					</tr>
 					<tr>
 						<td><p>Email:</p></td>
-						<td><h:outputText value="#{user.user.email}" /></td>
+						<td><h:outputText value="#{payment.user.email}" /></td>
 					</tr>
 					<tr>
 						<td><p>Contact Number:</p></td>
-						<td><h:outputText value="#{user.user.phoneNumber}" /></td>
+						<td><h:outputText value="#{payment.user.phone}" /></td>
 					</tr>
 				</table>
 			</div>
@@ -57,11 +57,11 @@ input {
 					</tr>
 					<tr>
 						<td><p>Current Credit</p></td>
-						<td><h:outputText value="#{credit.credit.amount}" /></td>
+						<td><h:outputText value="#{payment.credit.amount}" /></td>
 					</tr>
 					<tr>
 						<td><p>Credit Remaining</p></td>
-						<td><h:outputText value="#{credit.credit.amountRemaining}" /></td>
+						<td><h:outputText value="#{payment.credit.amountRemaining}" /></td>
 					</tr>
 				</table>
 			</div>
@@ -72,23 +72,23 @@ input {
 				<table class="uk-width-1-1">
 					<tr>
 						<td><p>Line 1:</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:inputText value="#{payment.user.address.line1}" /></td>
 					</tr>
 					<tr>
 						<td><p>Line 2:</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:inputText value="#{payment.user.address.line2}" /></td>
 					</tr>
 					<tr>
 						<td><p>Line 3:</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:inputText value="#{payment.user.address.line3}" /></td>
 					</tr>
 					<tr>
 						<td><p>Line 4:</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:inputText value="#{payment.user.address.line4}" /></td>
 					</tr>
 					<tr>
 						<td><p>PostCode:</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:inputText value="#{payment.user.address.postcode}" /></td>
 					</tr>
 				</table>
 			</div>
@@ -99,23 +99,23 @@ input {
 				<table class="uk-width-1-1">
 					<tr>
 						<td><p>Line 1:</p></td>
-						<td><h:outputText value="#{user.user.address.line1}" /></td>
+						<td><h:inputText value="#{payment.user.address.line1}" /></td>
 					</tr>
 					<tr>
 						<td><p>Line 2:</p></td>
-						<td><h:outputText value="#{user.user.address.line2}" /></td>
+						<td><h:inputText value="#{payment.user.address.line2}" /></td>
 					</tr>
 					<tr>
 						<td><p>Line 3:</p></td>
-						<td><h:outputText value="#{user.user.address.line3}" /></td>
+						<td><h:inputText value="#{payment.user.address.line3}" /></td>
 					</tr>
 					<tr>
 						<td><p>Line 4:</p></td>
-						<td><h:outputText value="#{user.user.address.line4}" /></td>
+						<td><h:inputText value="#{payment.user.address.line4}" /></td>
 					</tr>
 					<tr>
 						<td><p>PostCode:</p></td>
-						<td><h:outputText value="#{user.user.address.postcode}" /></td>
+						<td><h:inputText value="#{payment.user.address.postcode}" /></td>
 					</tr>
 				</table>
 			</div>
@@ -126,19 +126,19 @@ input {
 				<table class="uk-width-1-1">
 					<tr>
 						<td><p>Name as on Card</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:inputText value="#{payment.payment.nameOnCard}" /></td>
 					</tr>
 					<tr>
 						<td><p>Card Number</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:inputText value="#{payment.payment.cardNumber}" /></td>
 					</tr>
 					<tr>
 						<td><p>Expiry Date</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:inputText value="#{payment.payment.expiryDate}" /></td>
 					</tr>
 					<tr>
 						<td><p>Security Number</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:inputText value="000" /></td>
 					</tr>
 				</table>
 			</div>
@@ -146,16 +146,9 @@ input {
 
 		<div class="mainDivs">
 			<div class="subDiv">
-				<table class="uk-width-1-1">
-					<tr>
-						<th>Total Cost</th>
-						<th>Amount Paying</th>
-					</tr>
-					<tr>
-						<td><h:outputText value="#{payment.placedOrder.total}" /></td>
-						<td><h:outputText value="#{payment.getAmountPaying(payment.placedOrder.total,user.user)}" /></td>
-					</tr>
-				</table>
+				<h4>Total Cost:</h4>
+				<h:outputText value="#{payment.placedOrder.total}" />
+
 			</div>
 		</div>
 		<div class="uk-width-1-1"

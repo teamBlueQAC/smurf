@@ -7,13 +7,17 @@ package com.qa.smurf.repositories.offline;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Supplier;
 import com.qa.smurf.repositories.SupplierRepository;
 
-class SupplierRepositoryOffline implements SupplierRepository {
+@Default
+@Stateless
+public class SupplierRepositoryOffline implements SupplierRepository {
 	@Inject
 	private InitialData initialData;
 

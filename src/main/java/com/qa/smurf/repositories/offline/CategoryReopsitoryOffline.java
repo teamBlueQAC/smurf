@@ -3,12 +3,16 @@ package com.qa.smurf.repositories.offline;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Category;
 import com.qa.smurf.repositories.CategoryRepository;
 
+@Default
+@Stateless
 public class CategoryReopsitoryOffline implements CategoryRepository {
 
 	@Inject

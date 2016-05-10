@@ -7,12 +7,8 @@ import com.qa.smurf.repositories.CreditRepository;
 import com.qa.smurf.repositories.UserRepository;
 
 public class CreditService {
-	
-	@Inject
-	CreditRepository creditRepository;
-	@Inject
-	UserRepository userRepository;
-	
+	@Inject private CreditRepository creditRepository;
+	@Inject private UserRepository userRepository;
 	
 	public Credit findByUserId(long id){
 		return creditRepository.findByUser(userRepository.findByID(id));

@@ -12,8 +12,7 @@ import com.qa.smurf.service.ProductService;
 @Named(value = "product")
 @RequestScoped
 public class ProductController {
-	@Inject
-	private ProductService productService;
+	@Inject	private ProductService productService;
 	private Product product;
 	private List<Product> products = productService.getProducts();
 	
@@ -39,7 +38,3 @@ public class ProductController {
 		this.products = products;
 	}
 }	
-
-
-
-

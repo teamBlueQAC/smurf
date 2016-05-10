@@ -6,7 +6,6 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.User;
 import com.qa.smurf.repositories.UserRepository;
@@ -15,16 +14,20 @@ import com.qa.smurf.repositories.UserRepository;
  * 
  * @author Nathan Orme
  *
- * Offline Repository for the User Repository
+ *         Offline Repository for the User Repository
  *
  */
+@Default
+@Stateless
 public class UserRepositoryOffline implements UserRepository {
 	@Inject
 	private InitialData initialData;
 
 	/**
 	 * Adds the user to the storage
-	 * @param user - user that gets saved 
+	 * 
+	 * @param user
+	 *            - user that gets saved
 	 */
 	@Override
 	public void persistUser(User user) {
@@ -34,7 +37,9 @@ public class UserRepositoryOffline implements UserRepository {
 
 	/**
 	 * Adds the user to the storage
-	 * @param user - list of user that gets saved 
+	 * 
+	 * @param user
+	 *            - list of user that gets saved
 	 */
 	@Override
 	public void persistUsers(List<User> user) {
@@ -46,15 +51,19 @@ public class UserRepositoryOffline implements UserRepository {
 
 	/**
 	 * Gets the user from the storage
-	 * @param id id of the user
+	 * 
+	 * @param id
+	 *            id of the user
 	 */
 	@Override
 	public User findByID(long id) {
 		for (User u : initialData.getUsers()) {
 			if (u.getId() == id) {
+				System.out.println("user id = " + id);
 				return u;
 			}
 		}
+		System.out.println("user id is null");
 		return null;
 	}
 
@@ -67,9 +76,11 @@ public class UserRepositoryOffline implements UserRepository {
 	}
 
 	/**
-	 * Iterates through the existing list of users,
-	 * Then updates the specified user from the list. 
-	 * @param user user that gets updated 
+	 * Iterates through the existing list of users, Then updates the specified
+	 * user from the list.
+	 * 
+	 * @param user
+	 *            user that gets updated
 	 */
 	@Override
 	public void updateUser(User user) {
@@ -83,9 +94,11 @@ public class UserRepositoryOffline implements UserRepository {
 	}
 
 	/**
-	 * Iterates through the existing list of users,
-	 * Then removes the specified user from the list. 
-	 * @param user user that gets removed 
+	 * Iterates through the existing list of users, Then removes the specified
+	 * user from the list.
+	 * 
+	 * @param user
+	 *            user that gets removed
 	 */
 	@Override
 	public void removeUser(User user) {

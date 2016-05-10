@@ -1,6 +1,5 @@
 package com.qa.smurf.controllers;
 
-
 import java.util.List;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
@@ -23,9 +22,9 @@ import com.qa.smurf.service.OrderService;
 public class BasketController {
 
 	@Inject
-	OrderService orderService;
+	private OrderService orderService;
 	@Inject
-	CurrentUser currentUser;
+	private CurrentUser currentUser;
 	private User user = orderService.getCurrentUser(currentUser.getUserId());
 	private Order order = orderService.getUsersPendingOrder(currentUser.getUserId());
 

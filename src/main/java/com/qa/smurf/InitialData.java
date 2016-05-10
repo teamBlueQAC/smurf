@@ -193,11 +193,11 @@ public class InitialData {
 		// Author : willseaford -
 		ArrayList<User> users = getUsers();
 
-		credits.add(new Credit(users.get(0), 0.0, 0.0, 1));
-		credits.add(new Credit(users.get(1), 2000.00, 1000.00, 2));
-		credits.add(new Credit(users.get(2), 0.0, 0.0, 3));
-		credits.add(new Credit(users.get(3), 1500.00, 400.00, 4));
-		credits.add(new Credit(users.get(4), 0.0, 0.0, 1));
+		credits.add(new Credit(users.get(0), 0.0, 0.0));
+		credits.add(new Credit(users.get(1), 2000.00, 1000.00));
+		credits.add(new Credit(users.get(2), 0.0, 0.0));
+		credits.add(new Credit(users.get(3), 1500.00, 400.00));
+		credits.add(new Credit(users.get(4), 0.0, 0.0));
 
 	}
 

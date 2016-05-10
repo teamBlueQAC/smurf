@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qa.smurf.repositories.CreditRepository;
@@ -12,6 +14,8 @@ import com.qa.smurf.entities.Credit;
 import com.qa.smurf.entities.User;
 //import com.qa.smurf.repositories.CategoryRepository;
 
+@Default
+@Stateless
 public class CreditRepositoryOffline implements CreditRepository {	
 	
 	@Inject
