@@ -15,19 +15,21 @@ import com.qa.smurf.service.WishlistService;
 public class WishListController {
 	@Inject private WishlistService wishlistService;
 	@Inject	private CurrentUser currentUser;
+
+
 	private User user = wishlistService.getCurrentUser(currentUser.getUserId());
 	private ArrayList<WishListEntry> wishListEntries = wishlistService.getWishListEntries(currentUser.getUserId());
-	
-	public String addToWishlist(long productId){
+
+	public String addToWishlist(long productId) {
 		wishlistService.addToWishlist(productId, currentUser.getUserId());
 		return "wishlist";
 	}
-	
-	public String removeFromWishlist(long productId){
+
+	public String removeFromWishlist(long productId) {
 		wishlistService.removeFromWishlist(productId, currentUser.getUserId());
 		return "wishlist";
 	}
-	
+
 	public User getUser() {
 		return user;
 	}
@@ -44,3 +46,4 @@ public class WishListController {
 		this.wishListEntries = wishListEntries;
 	}
 }
+
