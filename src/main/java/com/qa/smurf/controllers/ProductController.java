@@ -1,5 +1,7 @@
 package com.qa.smurf.controllers;
 
+import java.util.List;
+
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -13,6 +15,7 @@ public class ProductController {
 	@Inject
 	private ProductService productService;
 	private Product product;
+	private List<Product> products;
 	
 	public Product findById(long id){
 		this.product = productService.findById(id);
@@ -26,6 +29,14 @@ public class ProductController {
 	
 	public Product getProduct(){
 		return product;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 }	
 
