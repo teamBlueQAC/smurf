@@ -24,12 +24,12 @@
 						<ui:repeat var="line" value="#{wishlist.wishListEntries}">
 							<tr>
 								<td><h:graphicImage
-										value="#{wishlist.wishListEntries.product.picUrl}" /></td>
-								<td><h:outputText value="#{wishlist.wishListEntries.product_name}" /></td>
+										value="#{line.product.pictureLoc}" /></td>
+								<td><h:outputText value="#{line.product.name}" /></td>
 								<td><h:outputText
-										value="#{wishlist.wishListEntries.price}" /></td>
+										value="#{line.product.price}" /></td>
 								<td><h:commandButton
-										value="#{wishlist.removeFromWishlist(wishlist.wishListEntries.product_id)}" /></td>
+										value="#{wishlist.removeFromWishlist(line.product.id)}" /></td>
 							</tr>
 						</ui:repeat>
 					</h:form>

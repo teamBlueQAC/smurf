@@ -1,7 +1,7 @@
 package com.qa.smurf.service;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -10,7 +10,6 @@ import com.qa.smurf.entities.LineItems;
 import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.entities.User;
-import com.qa.smurf.repositories.AddressRepository;
 import com.qa.smurf.repositories.LineItemsRepository;
 import com.qa.smurf.repositories.OrderRepository;
 import com.qa.smurf.repositories.PaymentRepository;
@@ -25,8 +24,6 @@ public class OrderService {
 	@Inject
 	private LineItemsRepository lineItemsRepository;
 	@Inject
-	private AddressRepository addressRepository;
-	@Inject
 	private PaymentRepository paymentRepository;
 	@Inject
 	private OrderRepository orderRepository;
@@ -39,7 +36,7 @@ public class OrderService {
 
 	public void addToBasket(long productId, long userId) {
 		Product product = productRepository.findByID(productId);
-		ArrayList<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
+		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
 		Order order = getUsersPendingOrder(oa);
 		if (order != null) {
 			boolean foundLineItem = false;
@@ -54,7 +51,7 @@ public class OrderService {
 			}
 			if (!foundLineItem) {
 				LineItems li = new LineItems(order, product, 1, product.getPrice(), product.getQuantityAvailable());
-				ArrayList<LineItems> lia = order.getLineItem();
+				List<LineItems> lia = order.getLineItem();
 				lineItemsRepository.persistLineItems(li);
 				lia.add(li);
 				order.setLineItem(lia);
@@ -73,7 +70,7 @@ public class OrderService {
 		}
 	}
 
-	private Order getUsersPendingOrder(ArrayList<Order> oa) {
+	private Order getUsersPendingOrder(List<Order> oa) {
 		for (Order o : oa) {
 			if (o.getOrderStatus() == OrderStatus.PENDING) {
 				return o;
@@ -96,12 +93,12 @@ public class OrderService {
 	}
 
 	public void clearBasket(long userId) {
-		ArrayList<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
+		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
 		Order order = getUsersPendingOrder(oa);
 		if (order != null) {
 			for (LineItems li : order.getLineItem()) {
 				if (li != null) {
-					ArrayList<LineItems> lia = order.getLineItem();
+					List<LineItems> lia = order.getLineItem();
 					lia.remove(li);
 					order.setLineItem(lia);
 					lineItemsRepository.removeLineItem(li);
@@ -114,14 +111,14 @@ public class OrderService {
 	}
 
 	public Order getUsersPendingOrder(long userId) {
-		ArrayList<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
+		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
 		Order order = getUsersPendingOrder(oa);
 		return order;
 	}
 
 	public float calcOrderTotalPending(long userId) {
 		float total = 0;
-		ArrayList<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
+		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
 		Order order = getUsersPendingOrder(oa);
 		if (order != null) {
 			for (LineItems li : order.getLineItem()) {
@@ -150,12 +147,12 @@ public class OrderService {
 	}
 
 	public void removeFromBasket(long productId, long userId) {
-		ArrayList<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
+		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
 		Order order = getUsersPendingOrder(oa);
 		if (order != null) {
 			for (LineItems li : order.getLineItem()) {
 				if (li.getProduct().getId() == productId) {
-					ArrayList<LineItems> lia = order.getLineItem();
+					List<LineItems> lia = order.getLineItem();
 					int index = getLineItem(lia, li);
 					lia.remove(index);
 					order.setLineItem(lia);
@@ -167,7 +164,7 @@ public class OrderService {
 		}
 	}
 
-	private int getLineItem(ArrayList<LineItems> lia, LineItems li) {
+	private int getLineItem(List<LineItems> lia, LineItems li) {
 		int index = 0;
 		for (LineItems check : lia) {
 			if (check.getProduct().getId() == li.getProduct().getId()) {
@@ -179,9 +176,7 @@ public class OrderService {
 		return 0;
 	}
 
-	public void getLineItems(Order order, long userId) {
-		ArrayList<LineItems> lineItems = order.getLineItem();
-
+	public List<LineItems> getLineItems(Order order, long userId) {
+		return order.getLineItem();
 	}
-
 }

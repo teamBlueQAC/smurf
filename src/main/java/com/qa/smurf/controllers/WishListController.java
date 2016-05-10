@@ -13,10 +13,8 @@ import com.qa.smurf.service.WishlistService;
 @Named(value = "wishlist")
 @RequestScoped
 public class WishListController {
-	
-	@Inject WishlistService wishlistService;
-	@Inject
-	CurrentUser currentUser;
+	@Inject private WishlistService wishlistService;
+	@Inject	private CurrentUser currentUser;
 	private User user = wishlistService.getCurrentUser(currentUser.getUserId());
 	private ArrayList<WishListEntry> wishListEntries = wishlistService.getWishListEntries(currentUser.getUserId());
 	
@@ -45,6 +43,4 @@ public class WishListController {
 	public void setWishListEntries(ArrayList<WishListEntry> wishListEntries) {
 		this.wishListEntries = wishListEntries;
 	}
-	
-
 }

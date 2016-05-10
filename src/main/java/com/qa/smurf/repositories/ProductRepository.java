@@ -19,5 +19,4 @@ public interface ProductRepository {
 	public void updateProduct(Product pr);
 
 	public void removeProduct(Product pr);
-
 }
