@@ -32,6 +32,8 @@ public class BasketController {
 	private User user = orderService.getCurrentUser(currentUser.getUserId());
 	private Order order = orderService.getUsersPendingOrder(currentUser.getUserId());
 	private ArrayList<LineItems> lineItems = order.getLineItem();
+	
+
 	private float totalPrice = orderService.calcOrderTotalPending(currentUser.getUserId());
 
 	public String removeProductFromBasket(long productId) {
@@ -76,6 +78,14 @@ public class BasketController {
 
 	public float getTotalPrice() {
 		return totalPrice;
+	}
+	
+	public ArrayList<LineItems> getLineItems() {
+		return lineItems;
+	}
+
+	public void setLineItems(ArrayList<LineItems> lineItems) {
+		this.lineItems = lineItems;
 	}
 
 }
