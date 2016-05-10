@@ -15,7 +15,7 @@ public class ProductController {
 	@Inject
 	private ProductService productService;
 	private Product product;
-	private List<Product> products;
+	private List<Product> products = productService.getProducts();
 	
 	public Product findById(long id){
 		this.product = productService.findById(id);
