@@ -82,23 +82,21 @@
 		</div>
 		<div id="modal1" class="uk-modal">
 			<div class="uk-modal-dialog">
-				<button type="button" class="uk-modal-close uk-close"></button>
-				<form class="uk-form">
+				<button type="button" class="uk-modal-close uk-close"></button>				
+				<h:form class="uk-form">
 					<fieldset>
 						<legend>Login</legend>
 						<div class="uk-form-row">
-							<input type="text" placeholder="Username" />
+							<h:inputText id="username" value="#{user.username}"/>
 						</div>
 						<div class="uk-form-row">
-							<input type="password" placeholder="Password" />
+							<h:inputText id="password" value="#{user.password}"/>
 						</div>
 						<div class="uk-form-row">
-							<button class="uk-button uk-button-primary">Forgot
-								Password</button>
-							<button class="uk-button uk-button-success">Submit</button>
+							<h:commandButton class="uk-button uk-button-success" value="Login" action="#{user.login}" rendered="#{!currentUser}"/>
 						</div>
 					</fieldset>
-				</form>
+				</h:form>
 			</div>
 		</div>
 		<div id="offcanvas-1" class="uk-offcanvas">
