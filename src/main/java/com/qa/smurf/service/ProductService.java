@@ -9,8 +9,11 @@ public class ProductService {
 	@Inject
 	ProductRepository productRepository;
 
-	public Product findByProductId(long id) {
+	public Product findById(long id) {
 		return productRepository.findByID(id);
 	}
-
+	
+	public Product findByName(String name){
+		return productRepository.findByName(name);
+	}
 }

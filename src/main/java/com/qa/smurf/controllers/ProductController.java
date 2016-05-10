@@ -14,13 +14,18 @@ public class ProductController {
 	private ProductService productService;
 	private Product product;
 	
-	public String findProductById(long id){
-		this.product = productService.findByProductId(id);
-		return "product";
+	public Product findById(long id){
+		this.product = productService.findById(id);
+		return product;
 	}
 	
-	public Product getProduct(Product product){
-		return this.product;
+	public Product findByName(String name){
+		this.product = productService.findByName(name);
+		return product;
+	} 
+	
+	public Product getProduct(){
+		return product;
 	}
 }	
 
