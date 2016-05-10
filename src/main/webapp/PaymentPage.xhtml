@@ -34,15 +34,15 @@ input {
 				<table class="uk-width-1-1">
 					<tr>
 						<td><p>Name:</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:outputText value="#{user.user.name}" /></td>
 					</tr>
 					<tr>
 						<td><p>Email:</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:outputText value="#{user.user.email}" /></td>
 					</tr>
 					<tr>
 						<td><p>Contact Number:</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:outputText value="#{user.user.phoneNumber}" /></td>
 					</tr>
 				</table>
 			</div>
@@ -53,15 +53,15 @@ input {
 				<table class="uk-width-1-1">
 					<tr>
 						<td><p>Cost of Purchase</p></td>
-						<td><h:outputText value="" /></td>
+						<td><h:outputText value="#{basket.totalPrice}" /></td>
 					</tr>
 					<tr>
 						<td><p>Current Credit</p></td>
-						<td><h:outputText value="" /></td>
+						<td><h:outputText value="#{credit.credit.amount}" /></td>
 					</tr>
 					<tr>
 						<td><p>Credit Remaining</p></td>
-						<td><h:outputText value="" /></td>
+						<td><h:outputText value="#{credit.credit.amountRemaining}" /></td>
 					</tr>
 				</table>
 			</div>
@@ -99,23 +99,23 @@ input {
 				<table class="uk-width-1-1">
 					<tr>
 						<td><p>Line 1:</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:outputText value="#{user.user.address.line1}" /></td>
 					</tr>
 					<tr>
 						<td><p>Line 2:</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:outputText value="#{user.user.address.line2}" /></td>
 					</tr>
 					<tr>
 						<td><p>Line 3:</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:outputText value="#{user.user.address.line3}" /></td>
 					</tr>
 					<tr>
 						<td><p>Line 4:</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:outputText value="#{user.user.address.line4}" /></td>
 					</tr>
 					<tr>
 						<td><p>PostCode:</p></td>
-						<td><h:inputText value="" /></td>
+						<td><h:outputText value="#{user.user.address.postcode}" /></td>
 					</tr>
 				</table>
 			</div>
@@ -152,8 +152,8 @@ input {
 						<th>Amount Paying</th>
 					</tr>
 					<tr>
-						<td><h:outputText value="" /></td>
-						<td><h:outputText value="" /></td>
+						<td><h:outputText value="#{basket.totalPrice}" /></td>
+						<td><h:outputText value="#{payment.getAmountRemaining(basket.totalPrice,user.user)}" /></td>
 					</tr>
 				</table>
 			</div>
