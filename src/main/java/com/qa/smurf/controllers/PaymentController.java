@@ -101,4 +101,12 @@ public class PaymentController {
 		public void setPlacedOrder(Order placedOrder) {
 			this.placedOrder = placedOrder;
 		}
+
+		public User getUser() {
+			return user;
+		}
+
+		public void setUser(User user) {
+			this.user = user;
+		}
 }
