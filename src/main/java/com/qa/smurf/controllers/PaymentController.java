@@ -26,7 +26,7 @@ public class PaymentController {
 		private User user = paymentService.getCurrentUser(currentUser.getUserId());
 		
 		private Order placedOrder = paymentService.getPlacedOrder(user);
-
+ 
 		private Boolean matchesPattern(String input, String pattern){
 			Pattern regexPattern = Pattern.compile(pattern);
 			Matcher matcher = regexPattern.matcher(input);
