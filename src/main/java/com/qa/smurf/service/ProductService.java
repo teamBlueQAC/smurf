@@ -1,16 +1,28 @@
 package com.qa.smurf.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
+import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.repositories.ProductRepository;
 
 public class ProductService {
 	@Inject
-	ProductRepository productRepository;
+	private ProductRepository productRepository;
+	@Inject
+	private InitialData initialData;
 
-	public Product findByProductId(long id) {
+	public Product findById(long id) {
 		return productRepository.findByID(id);
 	}
+	
+	public Product findByName(String name){
+		return productRepository.findByName(name);
+	}
 
+	public List<Product> getProducts() {
+		return initialData.getProducts();
+	}
 }

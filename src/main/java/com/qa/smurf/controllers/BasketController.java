@@ -1,7 +1,7 @@
 package com.qa.smurf.controllers;
 
-import java.util.ArrayList;
 
+import java.util.List;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -28,7 +28,8 @@ public class BasketController {
 	CurrentUser currentUser;
 	private User user = orderService.getCurrentUser(currentUser.getUserId());
 	private Order order = orderService.getUsersPendingOrder(currentUser.getUserId());
-	private ArrayList<LineItems> lineItems = order.getLineItem();
+
+	private List<LineItems> lineItems = order.getLineItem();
 
 	private float totalPrice = orderService.calcOrderTotalPending(currentUser.getUserId());
 
@@ -52,7 +53,6 @@ public class BasketController {
 	// calls the orderService to add a product to the basket.
 	public void addToBasket(long productId) {
 		orderService.addToBasket(productId, currentUser.getUserId());
-
 	}
 
 	public void getLineItems(Order order) {
@@ -76,11 +76,19 @@ public class BasketController {
 		return totalPrice;
 	}
 
-	public ArrayList<LineItems> getLineItems() {
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
+	public List<LineItems> getLineItems() {
 		return lineItems;
 	}
 
-	public void setLineItems(ArrayList<LineItems> lineItems) {
+	public void setLineItems(List<LineItems> lineItems) {
 		this.lineItems = lineItems;
 	}
 

@@ -13,11 +13,12 @@ public interface ProductRepository {
 	public void persistProducts(List<Product> pr);
 
 	public Product findByID(long id);
+	
+	public Product findByName(String name);
 
 	public ArrayList<Product> getProducts();
 
 	public void updateProduct(Product pr);
 
 	public void removeProduct(Product pr);
-
 }

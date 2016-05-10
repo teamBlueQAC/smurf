@@ -3,6 +3,7 @@ package com.qa.smurf.service;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import com.qa.smurf.entities.Product;
@@ -12,14 +13,12 @@ import com.qa.smurf.repositories.ProductRepository;
 import com.qa.smurf.repositories.UserRepository;
 import com.qa.smurf.repositories.WishListEntryRepository;
 
+@Stateless
 public class WishlistService {
-	@Inject
-	UserRepository userRepository;
-	@Inject
-	WishListEntryRepository wishlistRepository;
-	@Inject
-	ProductRepository productRepository;
-
+	@Inject private UserRepository userRepository;
+	@Inject private WishListEntryRepository wishlistRepository;
+	@Inject private ProductRepository productRepository;
+	
 	public User getCurrentUser(long userId) {
 		return userRepository.findByID(userId);
 	}
@@ -50,5 +49,4 @@ public class WishlistService {
 		ArrayList<WishListEntry> wishList = wishlistRepository.findByUser(userRepository.findByID(userId));
 		return wishList;
 	}
-
 }
