@@ -41,18 +41,19 @@
 	<body>
 		<div id="banner"
 			style="width: 100%; height: 150px; background-color: #fcefab;">
-			<a href="HomePage.xhtml"><img src="img/logoAlpha.png"
+			<a href="home.xhtml"><img src="img/logoAlpha.png"
 				style="float: left;" /></a>
 		</div>
 		<div id="menu" data-uk-sticky="{boundary:'#footer'}"
 			style="height: 40px; background-color: #7EC0EE;">
 			<div style="width: 100%; max-width: 1000px; margin: 0 auto;">
 				<ul class="uk-navbar-nav uk-hidden-small">
-					<li class="uk-active"><a href="HomePage.xhtml">Home</a></li>
-					<li><a href="aboutus.xhtml">About Us</a></li>
-					<li><a href="contact_us.xhtml">Contact Us</a></li>
+					<li id="home"><a href="home.xhtml">Home</a></li>
+					<li id="aboutus"><a href="aboutus.xhtml">About Us</a></li>
+					<li id="contactus"><a href="contactus.xhtml">Contact Us</a></li>
 					<li aria-expanded="false" aria-haspopup="true" class="uk-parent"
-						data-uk-dropdown="category.xhtml"><a href="category.xhtml">Catalogue</a>
+						data-uk-dropdown="category.xhtml" id="category"><a
+						href="category.xhtml">Catalogue</a>
 						<div style="top: 40px; left: 0px;"
 							class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
 							<ul class="uk-nav uk-nav-navbar">
@@ -71,10 +72,11 @@
 						href="" />
 					<ul class="uk-navbar-nav uk-hidden-small">
 						<li><input autocomplete="off" class="uk-search-field"
-							placeholder="search" type="search" /></li>
+							style="background: #eee; margin: 5px;" placeholder="search"
+							type="search" /></li>
 						<li><button class="uk-button"
-								data-uk-modal="{target:'#modal1'}" style="margin-top: 5px">Login</button></li>
-						<li><a href="Basket.xhtml"><i
+								data-uk-modal="{target:'#modal1'}" style="margin: 5px">Login</button></li>
+						<li><a href="basket.xhtml"><i
 								class="fa fa-shopping-basket" aria-hidden="true"></i> &#163; </a></li>
 					</ul>
 				</div>
@@ -82,23 +84,21 @@
 		</div>
 		<div id="modal1" class="uk-modal">
 			<div class="uk-modal-dialog">
-				<button type="button" class="uk-modal-close uk-close"></button>
-				<form class="uk-form">
+				<button type="button" class="uk-modal-close uk-close"></button>				
+				<h:form class="uk-form">
 					<fieldset>
 						<legend>Login</legend>
 						<div class="uk-form-row">
-							<input type="text" placeholder="Username" />
+							<h:inputText id="username" value="#{user.username}"/>
 						</div>
 						<div class="uk-form-row">
-							<input type="password" placeholder="Password" />
+							<h:inputText id="password" value="#{user.password}"/>
 						</div>
 						<div class="uk-form-row">
-							<button class="uk-button uk-button-primary">Forgot
-								Password</button>
-							<button class="uk-button uk-button-success">Submit</button>
+							<h:commandButton class="uk-button uk-button-success" value="Login" action="#{user.login}" rendered="#{!currentUser}"/>
 						</div>
 					</fieldset>
-				</form>
+				</h:form>
 			</div>
 		</div>
 		<div id="offcanvas-1" class="uk-offcanvas">
@@ -108,9 +108,9 @@
 						src="img/tractor.png" />
 				</div>
 				<ul class="uk-list uk-list-line" style="color: white;">
-					<li><a href="HomePage.xhtml">Home</a></li>
+					<li><a href="home.xhtml">Home</a></li>
 					<li><a href="aboutus.xhtml">About Us</a></li>
-					<li><a href="contact_us.xhtml">Contact Us</a></li>
+					<li><a href="contactus.xhtml">Contact Us</a></li>
 					<li style="font-weight: bold; border-top: none;">Catalogue
 						<ul>
 							<li><a href="">Gnomes</a></li>
@@ -137,12 +137,13 @@
 		</div>
 		<div id="footer" class="boxthing uk-width-1-1">
 			<ul id="footerUL" class="uk-list" style="text-align: center;">
-				<li><a href="HomePage.xhtml">Home</a></li>
+				<li><a href="home.xhtml">Home</a></li>
 				<li><a href="aboutus.xhtml">About Us</a></li>
-				<li><a href="contact_us.xhtml">Contact Us</a></li>
+				<li><a href="contactus.xhtml">Contact Us</a></li>
 				<li><a href="category.xhtml">Catalogue</a></li>
 			</ul>
 		</div>
 	</body>
+	<h:outputScript library="js" name="navb.js" />
 </f:view>
 </html>

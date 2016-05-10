@@ -18,10 +18,7 @@ import com.qa.smurf.repositories.UserRepository;
  * Offline Repository for the User Repository
  *
  */
-@Default
-@Stateless
 public class UserRepositoryOffline implements UserRepository {
-
 	@Inject
 	private InitialData initialData;
 
@@ -98,7 +95,5 @@ public class UserRepositoryOffline implements UserRepository {
 				users.remove(i);
 		}
 		initialData.setUsers(users);
-
 	}
-
 }

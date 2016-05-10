@@ -7,7 +7,6 @@ import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Category;
-import com.qa.smurf.entities.Product;
 import com.qa.smurf.repositories.CategoryRepository;
 
 public class CategoryReopsitoryOffline implements CategoryRepository {

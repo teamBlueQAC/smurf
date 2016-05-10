@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.qa.smurf.entities.Payment;
+import com.qa.smurf.entities.User;
 //import com.qa.smurf.service.AddressService;
 import com.qa.smurf.service.PaymentService;
 //import com.qa.smurf.service.UserService;
@@ -74,4 +75,8 @@ public class PaymentController {
 			}
 			return returnPayment;
 		}	
+		
+		public Double getAmountRemaining(Double total, User user){
+			return paymentService.getAmountRemaining(total, user);
+		}
 }
