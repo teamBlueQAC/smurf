@@ -7,6 +7,7 @@ import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.User;
 //import com.qa.smurf.service.AddressService;
@@ -18,9 +19,14 @@ import com.qa.smurf.service.PaymentService;
 	// A series of method using regular expressions to validate the user input.
 public class PaymentController {
 		
-		@Inject
-		PaymentService paymentService;
+		@Inject private PaymentService paymentService;
 		
+		@Inject private CurrentUser currentUser;
+
+		private User user = paymentService.getCurrentUser(currentUser.getUserId());
+		
+		private Order placedOrder = paymentService.getPlacedOrder(user);
+
 		private Boolean matchesPattern(String input, String pattern){
 			Pattern regexPattern = Pattern.compile(pattern);
 			Matcher matcher = regexPattern.matcher(input);
@@ -76,7 +82,23 @@ public class PaymentController {
 			return returnPayment;
 		}	
 		
-		public Double getAmountRemaining(Double total, User user){
-			return paymentService.getAmountRemaining(total, user);
+		public Double getAmountPaying(Double total, User user){
+			return paymentService.getAmountPaying(total, user);
+		}
+		
+		public Double getCreditRemaining(Double orderTotal, User user){
+			return paymentService.getAmountRemaining(orderTotal, user);
+		}
+		
+		public CurrentUser getCurrentUser() {
+			return currentUser;
+		}
+		
+		public Order getPlacedOrder() {
+			return placedOrder;
+		}
+
+		public void setPlacedOrder(Order placedOrder) {
+			this.placedOrder = placedOrder;
 		}
 }
