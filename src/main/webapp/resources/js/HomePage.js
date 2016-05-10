@@ -19,7 +19,7 @@
 		   	}
 		   	else if (updateStatus == fadeOutStatus) {
 		   		if (document.getElementById("wrapper").style.opacity > 0) {
-		   			slideAlpha -= 0.1;
+		   			slideAlpha -= 0.05;
 		   			document.getElementById("wrapper").style.opacity = slideAlpha;
 		   		} 
 		   		else {
@@ -44,7 +44,7 @@
 		   	}
 		   	else if (updateStatus == fadeInStatus) {
 		   		if (slideAlpha < 1) {
-		   			slideAlpha = slideAlpha + 0.1;
+		   			slideAlpha = slideAlpha + 0.05;
 		   			document.getElementById("wrapper").style.opacity = slideAlpha;
 		   		}
 		   		else {
@@ -61,22 +61,22 @@
 
 	   function BoxArrangement() {
 		   if (window.innerWidth >= 999) {
-			   document.getElementById("box1").style.width = '33.3%'; //'333px';
-			   document.getElementById("box2").style.width = '33.3%'; //'333px';
-			   document.getElementById("box3").style.width = '33.3%'; //'333px';
+			   document.getElementById("box1").style.width = '27.3%'; //'333px';
+			   document.getElementById("box2").style.width = '27.3%'; //'333px';
+			   document.getElementById("box3").style.width = '27.3%'; //'333px';
 		   }
 		   else if (window.innerWidth >= 666) {
-			   document.getElementById("box1").style.width = '100%'; //'666px';
-			   document.getElementById("box2").style.width = '50%'; //'333px';
-			   document.getElementById("box3").style.width = '50%'; //'333px';
+			   document.getElementById("box1").style.width = '94%'; //'666px';
+			   document.getElementById("box2").style.width = '44%'; //'333px';
+			   document.getElementById("box3").style.width = '44%'; //'333px';
 		   }
 		   else {
-			   document.getElementById("box1").style.width = '100%'; //'333px';
-			   document.getElementById("box2").style.width = '100%'; //'333px';
-			   document.getElementById("box3").style.width = '100%'; //'333px';
+			   document.getElementById("box1").style.width = '94%'; //'333px';
+			   document.getElementById("box2").style.width = '94%'; //'333px';
+			   document.getElementById("box3").style.width = '94%'; //'333px';
 		   }
 	   }
 
-			document.getElementById("box1").style.backgroundImage = "url(img/seeds.jpg)";
-			document.getElementById("box2").style.backgroundImage = "url(img/seeds2.jpg)";
-			document.getElementById("box3").style.backgroundImage = "url(img/purple-garden.jpg)";
+			document.getElementById("boxa").style.backgroundImage = "url(img/seeds.jpg)";
+			document.getElementById("boxb").style.backgroundImage = "url(img/seeds2.jpg)";
+			document.getElementById("boxc").style.backgroundImage = "url(img/purple-garden.jpg)";
