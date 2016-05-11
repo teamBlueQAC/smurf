@@ -4,8 +4,13 @@
 	width: 100%;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	color: white;
+}
+
 .uk-link, a {
 	color: white;
+	text-decoration: underline;
 }
 
 .uk-nav-navbar>li>a:hover {
