@@ -9,6 +9,7 @@ import javax.inject.Named;
 
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.service.ProductService;
+import com.qa.smurf.util.ProductType;
 
 @Named(value = "product")
 @RequestScoped
@@ -31,6 +32,10 @@ public class ProductController {
 		this.product = productService.findByName(name);
 		return product;
 	} 
+	public Product findByType(ProductType productType){
+		this.product = productService.findByType(productType);
+		return product;
+	}
 	
 	public Product getProduct(){
 		return product;
