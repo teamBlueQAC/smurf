@@ -21,6 +21,15 @@ a, .uk-tab>li>a {
 	background: #351C8C;
 }
 
+.uk-button {
+	color: #351C8C;
+}
+
+.uk-modal-dialog {
+	background-color: #8A77CB;
+	width: 325px;
+}
+
 .uk-link:hover, a:hover, .uk-tab>li>a:hover, .uk-tab>li.uk-active>a {
 	color: #351C8C;
 }
