@@ -32,6 +32,8 @@
 		href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/css/components/slideshow.min.css" />
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/js/components/slideshow.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/js/components/parallax.js"></script>
 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/css/components/accordion.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/default.css" />
@@ -40,12 +42,12 @@
 <f:view>
 	<body>
 		<div id="banner"
-			style="width: 100%; height: 150px; background-color: #fcefab;">
-			<a href="home.xhtml"><img src="img/logoAlpha.png"
-				style="float: left;" /></a>
+			style="width: 100%; height: 150px; background-color: #8A77CB;">
+			<a href="home.xhtml"><img src="img/logoNew.png"
+				style="float: left; padding: 20px;" /></a>
 		</div>
 		<div id="menu" data-uk-sticky="{boundary:'#footer'}"
-			style="height: 40px; background-color: #7EC0EE;">
+			style="height: 40px; background-color: #351C8C;">
 			<div style="width: 100%; max-width: 1000px; margin: 0 auto;">
 				<ul class="uk-navbar-nav uk-hidden-small">
 					<li id="home"><a href="home.xhtml">Home</a></li>
@@ -123,7 +125,7 @@
 		</div>
 		<div id="mainCont">
 			<ui:insert name="pageTitle" />
-			<div style="margin-top: 15px; width: 100%; height: 100%;">
+			<div style="margin-top: 15px; width: 100%;">
 				<ui:insert name="body" />
 			</div>
 		</div>

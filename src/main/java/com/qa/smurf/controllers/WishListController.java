@@ -17,8 +17,8 @@ public class WishListController {
 	@Inject	private CurrentUser currentUser;
 
 
-	private User user = wishlistService.getCurrentUser(currentUser.getUserId());
-	private ArrayList<WishListEntry> wishListEntries = wishlistService.getWishListEntries(currentUser.getUserId());
+	private User user;
+	private ArrayList<WishListEntry> wishListEntries;
 
 	public String addToWishlist(long productId) {
 		wishlistService.addToWishlist(productId, currentUser.getUserId());
@@ -31,6 +31,7 @@ public class WishListController {
 	}
 
 	public User getUser() {
+		user = wishlistService.getCurrentUser(currentUser.getUserId());
 		return user;
 	}
 
@@ -39,6 +40,7 @@ public class WishListController {
 	}
 
 	public ArrayList<WishListEntry> getWishListEntries() {
+		wishListEntries = wishlistService.getWishListEntries(currentUser.getUserId());
 		return wishListEntries;
 	}
 
