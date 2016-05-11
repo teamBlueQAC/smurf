@@ -4,15 +4,24 @@
 	width: 100%;
 }
 
-.uk-link, a {
+h1, h2, h3, h4, h5, h6 {
 	color: white;
+}
+
+a, .uk-tab>li>a {
+	color: white;
+	text-decoration: underline;
+}
+
+.uk-tab>li>a {
+	text-decoration: none;
 }
 
 .uk-nav-navbar>li>a:hover {
 	background: #351C8C;
 }
 
-.uk-link:hover, a:hover {
+.uk-link:hover, a:hover, .uk-tab>li>a:hover, .uk-tab>li.uk-active>a {
 	color: #351C8C;
 }
 
@@ -51,6 +60,7 @@ html, body {
 
 .hlinks {
 	text-align: right;
+	text-decoration: underline;
 }
 
 .header {
@@ -68,8 +78,8 @@ html, body {
 	height: 300px;
 }
 
-.categoryheader {
-	padding-top: 10px
+.categoryheaders {
+	text-align: center;
 }
 
 .lineitems {

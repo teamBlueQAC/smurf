@@ -10,7 +10,6 @@ import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.EmployeeUser;
-import com.qa.smurf.entities.EmployeeUserTest;
 import com.qa.smurf.repositories.EmployeeUserRepository;
 
 @Default

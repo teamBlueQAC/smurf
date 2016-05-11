@@ -10,30 +10,26 @@
 		</div>
 	</ui:define>
 	<ui:define name="body">
-		<div class="boxthing">
-			<table class="wishlist" border="1" style="width: 100%">
-					<tr>
-						<td><h4></h4></td>
-						<td><h4>Product</h4></td>
-						<td><h4>Price</h4></td>
-						<td><h4>Remove the Item</h4></td>
-					</tr>
-					<h:form rendered="wishlist.wishlistEntries != null">
-						<!-- repeat tag is used to iterate through all the order lines
+		<table class="wishlist" border="1" style="width: 100%">
+			<tr>
+				<td><h4></h4></td>
+				<td><h4>Product</h4></td>
+				<td><h4>Price</h4></td>
+				<td><h4>Remove the Item</h4></td>
+			</tr>
+			<h:form rendered="wishlist.wishlistEntries != null">
+				<!-- repeat tag is used to iterate through all the order lines
 			Within the order itself to generate the appropriate output -->
-						<ui:repeat var="line" value="#{wishlist.wishListEntries}">
-							<tr>
-								<td><h:graphicImage
-										value="#{line.product.pictureLoc}" /></td>
-								<td><h:outputText value="#{line.product.name}" /></td>
-								<td><h:outputText
-										value="#{line.product.price}" /></td>
-								<td><h:commandButton
-										value="#{wishlist.removeFromWishlist(line.product.id)}" /></td>
-							</tr>
-						</ui:repeat>
-					</h:form>
-				</table>			
-		</div>
+				<ui:repeat var="line" value="#{wishlist.wishListEntries}">
+					<tr>
+						<td><h:graphicImage value="#{line.product.pictureLoc}" /></td>
+						<td><h:outputText value="#{line.product.name}" /></td>
+						<td><h:outputText value="#{line.product.price}" /></td>
+						<td><h:commandButton
+								value="#{wishlist.removeFromWishlist(line.product.id)}" /></td>
+					</tr>
+				</ui:repeat>
+			</h:form>
+		</table>
 	</ui:define>
 </ui:composition>

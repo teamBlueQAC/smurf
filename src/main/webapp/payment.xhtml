@@ -47,25 +47,27 @@ input {
 				</table>
 			</div>
 		</div>
-		<div class="mainDivs">
-			<div class="subDiv">
-				<h2>Credit</h2>
-				<table class="uk-width-1-1">
-					<tr>
-						<td><p>Cost of Purchase</p></td>
-						<td><h:outputText value="#{payment.placedOrder.total}" /></td>
-					</tr>
-					<tr>
-						<td><p>Current Credit</p></td>
-						<td><h:outputText value="#{payment.credit.amount}" /></td>
-					</tr>
-					<tr>
-						<td><p>Credit Remaining</p></td>
-						<td><h:outputText value="#{payment.credit.amountRemaining}" /></td>
-					</tr>
-				</table>
+		<h:form rendered="payment.credit != null">
+			<div class="mainDivs">
+				<div class="subDiv">
+					<h2>Credit</h2>
+					<table class="uk-width-1-1">
+						<tr>
+							<td><p>Cost of Purchase</p></td>
+							<td><h:outputText value="#{payment.placedOrder.total}" /></td>
+						</tr>
+						<tr>
+							<td><p>Current Credit</p></td>
+							<td><h:outputText value="#{payment.credit.amount}" /></td>
+						</tr>
+						<tr>
+							<td><p>Credit Remaining</p></td>
+							<td><h:outputText value="#{payment.credit.amountRemaining}" /></td>
+						</tr>
+					</table>
+				</div>
 			</div>
-		</div>
+		</h:form>
 		<div class="mainDivs">
 			<div class="subDiv">
 				<h2>Postal Address</h2>
