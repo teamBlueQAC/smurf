@@ -168,8 +168,13 @@ public class InitialData {
 		double[] price = { 10.10, 20.20, 30.30, 40.40, 50.50 };
 
 		for (int i = 0; i < 5; i++) {
+			if(i != 0){
 			orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i),
 					getUsers().get(i), OrderStatus.PLACED));
+			} else {
+				orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i),
+						getUsers().get(i), OrderStatus.PENDING));
+			}
 		}
 	}
 
@@ -304,22 +309,22 @@ public class InitialData {
 
 	// Products nabz & Dean
 	private void setProductInitialData() {
-		products.add(new Product(0, "gnome", "GHTY-YTER-GFDG", "blue", 40.00, false, "mydocs", 500,
+		products.add(new Product(0, "Day Dream Gnome", "GHTY-YTER-GFDG", "blue", 40.00, false, "DayDreamGnome", 500,
 				ProductType.GNOME, "Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
 
-		products.add(new Product(1, "seeds", "SDFF-DFGF-JGGJ", "green", 10.00, false, "mydocs", 600,
+		products.add(new Product(1, "Sunflower Seeds", "SDFF-DFGF-JGGJ", "green", 10.00, false, "SunflowerSeeds", 600,
 				ProductType.SEED, "zombie green seeds.", 60, 700));
 
-		products.add(new Product(2, "garden utensils", "EWRE-WRFS-SAZC", "blue", 5.00, false, "mydocs", 700,
+		products.add(new Product(2, "Wheelbarrow", "EWRE-WRFS-SAZC", "blue", 5.00, false, "WheelBarrow", 700,
 				ProductType.TOOL, "big and scary garden utensils.", 70, 400));
 
-		products.add(new Product(3, "gnome2", "GHTY-YTER-GFD2", "blue", 40.00, false, "temp_dwarf", 500,
+		products.add(new Product(3, "Peace Gnome", "GHTY-YTER-GFD2", "blue", 40.00, false, "PeaceGnome", 500,
 				ProductType.GNOME, "Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
 
-		products.add(new Product(4, "seeds2", "SDFF-DFGF-JGG2", "green", 10.00, false, "mydocs", 600,
+		products.add(new Product(4, "Pumpkin Seeds", "SDFF-DFGF-JGG2", "green", 10.00, false, "PumpkinSeeds", 600,
 				ProductType.SEED, "zombie green seeds.", 60, 700));
 
-		products.add(new Product(5, "garden utensils2", "EWRE-WRFS-SAZ2", "blue", 5.00, false, "mydocs", 700,
+		products.add(new Product(5, "Lawn Mower", "EWRE-WRFS-SAZ2", "blue", 5.00, false, "LawnMower", 700,
 				ProductType.TOOL, "big and scary garden utensils.", 70, 400));
 	}
 
