@@ -246,6 +246,8 @@ public class InitialData {
 		ArrayList<Product> product = getProducts();
 
 		lineItems.add(new LineItems(order.get(0), product.get(0), 250, 400.00, 34));
+		ArrayList<LineItems> li = lineItems;
+		order.get(0).setLineItem(li);
 		lineItems.add(new LineItems(order.get(1), product.get(1), 450, 1400.00, 67));
 		lineItems.add(new LineItems(order.get(2), product.get(2), 600, 4200.00, 2));
 		lineItems.add(new LineItems(order.get(3), product.get(3), 560, 5400.00, 45));
