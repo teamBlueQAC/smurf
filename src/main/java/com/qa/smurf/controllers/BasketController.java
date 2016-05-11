@@ -44,8 +44,13 @@ public class BasketController {
 
 	// gets called when adding a product
 	// calls the orderService to add a product to the basket.
-	public void addToBasket(long productId) {
-		orderService.addToBasket(productId, currentUser.getUserId());
+	public String addToBasket(long productId) {
+		long userId = -1;
+		if (currentUser.getUsername() != null){
+			userId = currentUser.getUserId();
+		}
+		orderService.addToBasket(productId, userId);
+		return "basket";
 	}
 
 	public void getLineItems(Order order) {

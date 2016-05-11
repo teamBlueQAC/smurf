@@ -8,7 +8,7 @@
 			<div class="uk-grid">
 				<div class="uk-width-medium-1-2 uk-width-small-1-1">
 					<h:graphicImage class="uk-thumbnail-large" style="width: 100%;"
-						value="#{picUrl}" />
+						value="../img/#{product.product.pictureLoc}.jpg" />
 				</div>
 				<div class="uk-width-medium-1-2 uk-width-small-1-1">
 					<h:outputText value="#{product.product.name}" />
@@ -16,18 +16,18 @@
 						<h3 class="uk-panel-title"
 							style="padding-top: 20px; padding-bottom: 20px">
 							&#163;
-							<h:outputText value="#{product.product.price}" />
+							<h:outputText value="#{product.getProductPrice()}" />
 						</h3>
 						<h:form>
-							<h:commandButton class="uk-button" type="button"
-								value="#{basket.addToBasket(product.product.id)}">
+							<h:commandButton class="uk-button" value="Add to Basket"
+								action="#{basket.addToBasket(product.product.id)}">
 								<i class="fa fa-shopping-basket" aria-hidden="true"></i>
- 								Add to Basket
+ 								
  							</h:commandButton>
-							<h:commandButton class="uk-button" type="button"
-								value="#{wishlist.addToWishlist(product.product.id)}">
+							<h:commandButton class="uk-button" type="button" value="Add to Wish List"
+								action="#{wishlist.addToWishlist(product.product.id)}">
 								<i class="fa fa-star-o" aria-hidden="true"></i>
- 								Add to Wish List
+ 								
  							</h:commandButton>
 						</h:form>
 						<p></p>

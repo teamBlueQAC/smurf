@@ -16,7 +16,7 @@ public class LoginController {
 	@Inject
 	private CurrentUser currentUser;
 	
-	public void login() {
+	public void submit() {
 		int id = userService.authenticate(currentUser.getUsername(), currentUser.getPassword());
 		
 		if(id != -1) {
@@ -26,14 +26,15 @@ public class LoginController {
 		}
 	}
 	
-	public void logout() {
+	public String logout() {
+		System.out.println("Here");
 		currentUser.setUsername(null);
 		currentUser.setPassword(null);
 		currentUser.setUserId(-1);
+		return "homepage";
 	}
 	
 	public boolean isLoggedIn() {	
-		System.out.println(currentUser.getUserId());
 		return currentUser.getUserId() != -1 ? true : false;
 	}
 

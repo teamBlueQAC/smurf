@@ -40,12 +40,14 @@ public class OrderService {
 		Order order = getUsersPendingOrder(oa);
 		if (order != null) {
 			boolean foundLineItem = false;
-			for (LineItems li : order.getLineItem()) {
-				if (!foundLineItem) {
-					if (li.getProduct().getId() == productId) {
-						li.setQuantity(li.getQuantity() + 1);
-						lineItemsRepository.persistLineItems(li);
-						foundLineItem = true;
+			if(order.getLineItem()!=null){
+				for (LineItems li : order.getLineItem()) {
+					if (!foundLineItem) {
+						if (li.getProduct().getId() == productId) {
+							li.setQuantity(li.getQuantity() + 1);
+							lineItemsRepository.persistLineItems(li);
+							foundLineItem = true;
+						}
 					}
 				}
 			}
