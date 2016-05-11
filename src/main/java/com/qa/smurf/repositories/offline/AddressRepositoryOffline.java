@@ -19,7 +19,7 @@ import com.qa.smurf.repositories.AddressRepository;
 @Stateless
 public class AddressRepositoryOffline implements AddressRepository {
 	@Inject
-	private InitialData initialData;
+	private InitialData initialData/* = new InitialData()*/;
 
 	/**
 	 * Adds the address to the storage
@@ -103,12 +103,12 @@ public class AddressRepositoryOffline implements AddressRepository {
 	// update Address info
 	@Override
 	public void updateAddress(Address address) {
-
+			/*Found no business logic. Either unneeded, in which case delete. Or forgotton - delete*/
 	}
 
 	// delete - most likely wouldn't delete address
 	@Override
 	public void removeAddress(Address address) {
-
+		/*Found no business logic. Either unneeded, in which case delete. Or forgotton - delete*/
 	}
 }
