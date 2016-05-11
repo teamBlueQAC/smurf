@@ -43,4 +43,8 @@ public class ProductController {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
+	
+	public String getProductPrice(Product product){
+		return productService.productPriceTo2DP(product);
+	}
 }	
