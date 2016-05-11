@@ -140,12 +140,8 @@
 							<h:inputSecret id="password1" value="#{register.user.password}"></h:inputSecret>
 						</div>
 						<div class="uk-form-row">
-							<h:outputLabel for="password2" value="Confirm Password:" />
-							<h:inputSecret id="password2" value="#{register.user.password}"></h:inputSecret>
-						</div>
-						<div class="uk-form-row">
 							<h:outputLabel for="email" value="Email:" />
-							<h:inputSecret id="email" value="#{register.user.email}"></h:inputSecret>
+							<h:inputText id="email" value="#{register.user.email}"></h:inputSecret>
 						</div>
 						<div class="uk-form-row">
 							<h:commandButton value="Login" action="#{register.submit}"></h:commandButton>
