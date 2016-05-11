@@ -33,15 +33,14 @@ public class LineItemsRepositoryOffline implements LineItemsRepository {
 
 	}
 
-	public ArrayList<LineItems> findByCompositeKey(Order order, Product product) {
-		ArrayList<LineItems> temp = new ArrayList<LineItems>();
+	public LineItems findByCompositeKey(Order order, Product product) {
 		for (LineItems l : initialData.getLineItems()) {
 			if (l.getOrder().equals(order) && l.getProduct().equals(product)) {
-				temp.add(l);
+				return l;
 			}
 		}
 
-		return temp;
+		return null;
 	}
 
 	public ArrayList<LineItems> findByProduct(Product product) {
