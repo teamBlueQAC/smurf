@@ -29,6 +29,10 @@ a, .uk-tab>li>a {
 	padding: 5px;
 }
 
+#footer {
+	margin-top: 50px;
+}
+
 html, body {
 	height: 100%;
 	width: 100%;
