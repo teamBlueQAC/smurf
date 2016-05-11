@@ -121,8 +121,10 @@ public class OrderService {
 		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
 		Order order = getUsersPendingOrder(oa);
 		if (order != null) {
-			for (LineItems li : order.getLineItem()) {
-				total = (float) li.getSubtotal();
+			if(order.getLineItem()!=null){
+				for (LineItems li : order.getLineItem()) {
+					total = (float) li.getSubtotal();
+				}
 			}
 		}
 		return total;
