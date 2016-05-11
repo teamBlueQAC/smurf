@@ -13,13 +13,15 @@ import com.qa.smurf.service.ProductService;
 @Named(value = "product")
 @RequestScoped
 public class ProductController {
-	@Inject	private ProductService productService;
+	@Inject	
+	private ProductService productService;
 	private Product product;
 	private List<Product> products;
 	
 	@PostConstruct
 	public void init() {
 		products = productService.getProducts();
+		product = products.get(3);
 	}
 	
 	public Product findById(long id){
@@ -46,5 +48,8 @@ public class ProductController {
 	
 	public String getProductPrice(Product product){
 		return productService.productPriceTo2DP(product);
+	}
+	public String getProductPrice(){
+		return productService.productPriceTo2DP(this.product);
 	}
 }	
