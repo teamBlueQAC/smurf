@@ -19,7 +19,7 @@
 					</h2>
 					<h4>
 					    &#163;
-						<h:outputText value="#{line.price}"/>
+						<h:outputText value="#{product.getProductPrice(line)}" />
 					</h4>
 					<p>
 						<h:outputText value="#{line.description}" />
