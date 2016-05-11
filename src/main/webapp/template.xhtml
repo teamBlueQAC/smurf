@@ -46,7 +46,7 @@
 				style="float: left; padding: 20px;" /></a>
 		</div>
 		<div id="menu" data-uk-sticky="{boundary:'#footer'}"
-			style="height: 40px; background-color: #351C8C;">
+			style="height: 40px; background-color: #351C8C; z-index: 9999;">
 			<div style="width: 100%; max-width: 1000px; margin: 0 auto;">
 				<ul class="uk-navbar-nav uk-hidden-small">
 					<li id="home"><a href="home.xhtml">Home</a></li>
@@ -76,25 +76,26 @@
 							style="background: #eee; margin: 5px;" placeholder="search"
 							type="search" /></li>
 						<h:panelGroup rendered="#{!login.loggedIn}">
-						<li><button class="uk-button"
-								data-uk-modal="{target:'#modal1'}" style="margin: 5px">Login</button></li>
+							<li><button class="uk-button"
+									data-uk-modal="{target:'#modal1'}" style="margin: 5px">Login</button></li>
 						</h:panelGroup>
-						
+
 						<h:panelGroup rendered="#{login.loggedIn}">
-						<li aria-expanded="false" aria-haspopup="true" class="uk-parent"
-						data-uk-dropdown="category.xhtml" id="category"><a
-						href="category.xhtml">#{currentUser.username}</a>
-						<div style="top: 40px; left: 0px;"
-							class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
-							<ul class="uk-nav uk-nav-navbar">
-								<li><a href="#">UserCP</a></li>
-								<li class="uk-nav-divider"></li>
-								<li><a href="#">Logout</a></li>
-							</ul>
-						</div></li>
+							<li aria-expanded="false" aria-haspopup="true" class="uk-parent"
+								data-uk-dropdown="category.xhtml" id="category"><a
+								href="category.xhtml">#{currentUser.username}</a>
+								<div style="top: 40px; left: 0px;"
+									class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
+									<ul class="uk-nav uk-nav-navbar">
+										<li><a href="#">UserCP</a></li>
+										<li class="uk-nav-divider"></li>
+										<li><a href="#">Logout</a></li>
+									</ul>
+								</div></li>
 						</h:panelGroup>
 						<li><a href="basket.xhtml"><i
-								class="fa fa-shopping-basket" aria-hidden="true"></i> &#163;5.00 </a></li>
+								class="fa fa-shopping-basket" aria-hidden="true"></i> &#163;5.00
+						</a></li>
 					</ul>
 				</div>
 			</div>
@@ -104,10 +105,10 @@
 				<button type="button" class="uk-modal-close uk-close"></button>
 				<h:form class="uk-form">
 					<fieldset>
-						<legend>Login</legend>				
+						<legend>Login</legend>
 						<div class="uk-form-row">
-							<h:outputLabel for="username" value="Username:" />   
-							<h:inputText id="username"  value="#{currentUser.username}"></h:inputText>
+							<h:outputLabel for="username" value="Username:" />
+							<h:inputText id="username" value="#{currentUser.username}"></h:inputText>
 						</div>
 						<div class="uk-form-row">
 							<h:outputLabel for="password" value="Password:" />
@@ -142,7 +143,7 @@
 		</div>
 		<div id="mainCont">
 			<ui:insert name="pageTitle" />
-			<div style="margin-top: 15px; width: 100%;">
+			<div id="bodyCont" style="margin-top: 15px; width: 100%;">
 				<ui:insert name="body" />
 			</div>
 		</div>
