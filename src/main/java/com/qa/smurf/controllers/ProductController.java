@@ -14,7 +14,7 @@ import com.qa.smurf.service.ProductService;
 public class ProductController {
 	@Inject	private ProductService productService;
 	private Product product;
-	private List<Product> products = productService.getProducts();
+	private List<Product> products;
 	
 	public Product findById(long id){
 		this.product = productService.findById(id);
@@ -31,6 +31,7 @@ public class ProductController {
 	}
 
 	public List<Product> getProducts() {
+		products = productService.getProducts();
 		return products;
 	}
 
