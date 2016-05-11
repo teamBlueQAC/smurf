@@ -7,71 +7,122 @@ import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.qa.smurf.entities.Credit;
+import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Payment;
+import com.qa.smurf.entities.User;
+import com.qa.smurf.service.CreditService;
 //import com.qa.smurf.service.AddressService;
 import com.qa.smurf.service.PaymentService;
 //import com.qa.smurf.service.UserService;
 
-	@Named(value = "payment")
-	@RequestScoped
-	// A series of method using regular expressions to validate the user input.
+@Named(value = "payment")
+@RequestScoped
+// A series of method using regular expressions to validate the user input.
 public class PaymentController {
-		
-		@Inject
-		PaymentService paymentService;
-		
-		public Payment findByCardName(String name){
-			String pattern = "^[a-zA-Z0-9]*$";
-			Pattern regexPattern = Pattern.compile(pattern);
-			Matcher matcher = regexPattern.matcher(name);
-			if(!matcher.find()){
-				return null;
-			}
-			return paymentService.findByCardName(name);
+	@Inject	private PaymentService paymentService;
+	@Inject	private CreditService creditService;
+	@Inject	private CurrentUser currentUser;
+	private User user = paymentService.getCurrentUser(1);
+	private Credit credit = creditService.findByUserId(user.getId());
+	private Order placedOrder = paymentService.getPlacedOrder(user);
+	private Payment payment = paymentService.getPayment(user);
+
+	private Boolean matchesPattern(String input, String pattern) {
+		Pattern regexPattern = Pattern.compile(pattern);
+		Matcher matcher = regexPattern.matcher(input);
+		return matcher.find();
+	}
+
+	public Payment findByCardName(String name) {
+		String pattern = "^[a-zA-Z0-9]*$";
+		Payment returnPayment = null;
+
+		if (matchesPattern(name, pattern)) {
+			returnPayment = paymentService.findByCardName(name);
 		}
-		
-		public Payment findByCardNumber(String cardNumber){
-			
-			if(Long.valueOf(cardNumber).toString().length() != 16){
-				return null;
-			}
-			String pattern = "[//d]+";
-			Pattern regexPattern = Pattern.compile(pattern);
-			Matcher matcher = regexPattern.matcher(Long.valueOf(cardNumber).toString());
-			if(!matcher.find()){
-				return null;
-			}
-			return paymentService.findByCardNumber(cardNumber);
+		return returnPayment;
+	}
+
+	public Payment findByCardNumber(String cardNumber) {
+		String pattern = "[//d]+";
+		Payment returnPayment = null;
+
+		if (Long.valueOf(cardNumber).toString().length() != 16 && matchesPattern(cardNumber, pattern)) {
+			returnPayment = paymentService.findByCardNumber(cardNumber);
 		}
-		
-		public Payment findByExpiryDate(String expiryDate){
-			String pattern = "[0-9][0-9][0-9][0-9]";
-			expiryDate.replace("/", "");
-			Pattern regexPattern = Pattern.compile(pattern);
-			Matcher matcher = regexPattern.matcher(expiryDate);
-			if(!matcher.find()){
-				return null;
-			}
-			return paymentService.findByExpiryDate(expiryDate);
+		return returnPayment;
+	}
+
+	public Payment findByExpiryDate(String expiryDate) {
+		String pattern = "[0-9][0-9][0-9][0-9]";
+		Payment returnPayment = null;
+		expiryDate.replace("/", "");
+
+		if (matchesPattern(expiryDate, pattern)) {
+			returnPayment = paymentService.findByExpiryDate(expiryDate);
 		}
-		
-		public Payment validateCardType(String cardType){
-			if(!cardType.toLowerCase().equals("credit")||!cardType.toLowerCase().equals("debit")){
-				return null;
-			}
-			return paymentService.findByCardType(cardType);
+		return returnPayment;
+	}
+
+	public Payment validateCardType(String cardType) {
+		if (!cardType.toLowerCase().equals("credit") || !cardType.toLowerCase().equals("debit")) {
+			return null;
 		}
-		
-		public Payment validateSecurityNumber(int ccv){
-			if(Integer.valueOf(ccv).toString().length() != 3){
-				return null;
-			}
-			String pattern = "[//d]+";
-			Pattern regexPattern = Pattern.compile(pattern);
-			Matcher matcher = regexPattern.matcher(Long.valueOf(ccv).toString());
-			if(!matcher.find()){
-				return null;
-			}
-			return paymentService.findBySecurityNumber(ccv);
-		}	
+		return paymentService.findByCardType(cardType);
+	}
+
+	public Payment validateSecurityNumber(String ccv) {
+		String pattern = "[0-9][0-9][0-9]";
+		Payment returnPayment = null;
+
+		if (matchesPattern(ccv, pattern)) {
+			returnPayment = paymentService.findByExpiryDate(ccv);
+		}
+		return returnPayment;
+	}
+
+	public Double getAmountPaying(Double total, User user) {
+		return paymentService.getAmountPaying(total, user);
+	}
+
+	public Double getCreditRemaining(Double orderTotal, User user) {
+		return paymentService.getAmountRemaining(orderTotal, user);
+	}
+
+	public CurrentUser getCurrentUser() {
+		return currentUser;
+	}
+
+	public Order getPlacedOrder() {
+		return placedOrder;
+	}
+
+	public void setPlacedOrder(Order placedOrder) {
+		this.placedOrder = placedOrder;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Credit getCredit() {
+		return credit;
+	}
+
+	public void setCredit(Credit credit) {
+		this.credit = credit;
+	}
+
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
 }

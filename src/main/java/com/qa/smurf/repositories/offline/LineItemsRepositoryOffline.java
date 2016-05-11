@@ -3,6 +3,8 @@ package com.qa.smurf.repositories.offline;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
@@ -11,6 +13,8 @@ import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.repositories.LineItemsRepository;
 
+@Default
+@Stateless
 public class LineItemsRepositoryOffline implements LineItemsRepository {
 
 	@Inject
@@ -66,6 +70,17 @@ public class LineItemsRepositoryOffline implements LineItemsRepository {
 			}
 		}
 		return null;
+	}
+	
+	@Override
+	public void removeLineItem(LineItems lineItem) {
+		ArrayList<LineItems> lineItems = initialData.getLineItems();
+		for (int i = 0; i < lineItems.size(); i++) {
+			if (lineItems.get(i).equals(lineItem)){
+				lineItems.remove(i);
+			}
+		}
+		initialData.setLineItems(lineItems);
 	}
 
 }

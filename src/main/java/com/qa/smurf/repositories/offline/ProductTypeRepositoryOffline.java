@@ -3,6 +3,8 @@ package com.qa.smurf.repositories.offline;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
@@ -16,7 +18,9 @@ import com.qa.smurf.repositories.ProductTypeRepository;
  *         Offline Repository for the ProductType Repository
  *
  */
-class ProductTypeRepositoryOffline implements ProductTypeRepository {
+@Default
+@Stateless
+public class ProductTypeRepositoryOffline implements ProductTypeRepository {
 
 	@Inject
 	private InitialData initialData;

@@ -3,7 +3,6 @@ package com.qa.smurf.service;
 import java.util.ArrayList;
 
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qa.smurf.entities.Order;
@@ -13,7 +12,6 @@ import com.qa.smurf.repositories.OrderRepository;
 import com.qa.smurf.repositories.PaymentRepository;
 import com.qa.smurf.repositories.UserRepository;
 
-@Default
 @Stateless
 public class AccountService {
 	@Inject

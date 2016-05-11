@@ -26,15 +26,10 @@ public class Credit {
 	@NotNull
 	private Double amountRemaining;
 
-	@Column(name = "QUARTER", nullable = false)
-	@NotNull
-	private int quarter;
-
-	public Credit(User user, double amount, double amountRemaining, int quarter) {
+	public Credit(User user, double amount, double amountRemaining) {
 		this.user = user;
 		this.amount = amount;
 		this.amountRemaining = amountRemaining;
-		this.quarter = quarter;
 	}
 
 	public User getUser() {
@@ -60,13 +55,5 @@ public class Credit {
 	public void setAmountRemaining(Double amountRemaining) {
 		this.amountRemaining = amountRemaining;
 	}
-
-	public int getQuarter() {
-		return quarter;
-	}
-
-	public void setQuarter(int quarter) {
-		this.quarter = quarter;
-	}
-
+	
 }

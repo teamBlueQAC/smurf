@@ -1,12 +1,12 @@
 package com.qa.smurf.repositories.offline;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
+import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
 import com.qa.smurf.repositories.PaymentRepository;
@@ -14,17 +14,14 @@ import com.qa.smurf.entities.Payment;
 
 @Default
 @Stateless
-public class PaymentsRepositoryOffline implements PaymentRepository {
+public class PaymentRepositoryOffline implements PaymentRepository {
 
+	@Inject
 	private InitialData initialData;
 	
 	@PostConstruct	
 	public void init(){
-		try{
-			initialData = new InitialData();
-		} catch (ParseException pe){
-			pe.printStackTrace();
-		}	
+		initialData = new InitialData();	
 	}	
 
 	public void persistPayment(Payment payment) {

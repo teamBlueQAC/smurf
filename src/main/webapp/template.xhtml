@@ -41,17 +41,19 @@
 	<body>
 		<div id="banner"
 			style="width: 100%; height: 150px; background-color: #fcefab;">
-			<img src="images/logoAlpha.png" style="float: left;" />
+			<a href="home.xhtml"><img src="img/logoAlpha.png"
+				style="float: left;" /></a>
 		</div>
 		<div id="menu" data-uk-sticky="{boundary:'#footer'}"
 			style="height: 40px; background-color: #7EC0EE;">
 			<div style="width: 100%; max-width: 1000px; margin: 0 auto;">
 				<ul class="uk-navbar-nav uk-hidden-small">
-					<li class="uk-active"><a href="">Home</a></li>
-					<li><a href="">About Us</a></li>
-					<li><a href="">Contact Us</a></li>
+					<li id="home"><a href="home.xhtml">Home</a></li>
+					<li id="aboutus"><a href="aboutus.xhtml">About Us</a></li>
+					<li id="contactus"><a href="contactus.xhtml">Contact Us</a></li>
 					<li aria-expanded="false" aria-haspopup="true" class="uk-parent"
-						data-uk-dropdown=""><a href="">Catalogue</a>
+						data-uk-dropdown="category.xhtml" id="category"><a
+						href="category.xhtml">Catalogue</a>
 						<div style="top: 40px; left: 0px;"
 							class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
 							<ul class="uk-nav uk-nav-navbar">
@@ -70,38 +72,45 @@
 						href="" />
 					<ul class="uk-navbar-nav uk-hidden-small">
 						<li><input autocomplete="off" class="uk-search-field"
-							placeholder="search" type="search" /></li>
+							style="background: #eee; margin: 5px;" placeholder="search"
+							type="search" /></li>
 						<li><button class="uk-button"
-								data-uk-modal="{target:'#modal1'}">Login</button></li>
-						<li><a href=""><i class="fa fa-shopping-basket"
-								aria-hidden="true"></i> &#163; </a></li>
+								data-uk-modal="{target:'#modal1'}" style="margin: 5px">Login</button></li>
+						<li><a href="basket.xhtml"><i
+								class="fa fa-shopping-basket" aria-hidden="true"></i> &#163; </a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 		<div id="modal1" class="uk-modal">
 			<div class="uk-modal-dialog">
-				<button type="button" class="uk-modal-close uk-close"></button>
-				<div class="uk-modal-header">
-					<h2>Headline</h2>
-				</div>
-				<p>stuff</p>
-				<div class="uk-modal-footer uk-text-right">
-					<button type="button" class="uk-button">Forgot Password</button>
-					<button type="button" class="uk-button uk-button-primary">Confirm</button>
-				</div>
+				<button type="button" class="uk-modal-close uk-close"></button>				
+				<h:form class="uk-form">
+					<fieldset>
+						<legend>Login</legend>
+						<div class="uk-form-row">
+							<h:inputText id="username" value="#{user.username}"/>
+						</div>
+						<div class="uk-form-row">
+							<h:inputText id="password" value="#{user.password}"/>
+						</div>
+						<div class="uk-form-row">
+							<h:commandButton class="uk-button uk-button-success" value="Login" action="#{user.login}" rendered="#{!currentUser}"/>
+						</div>
+					</fieldset>
+				</h:form>
 			</div>
 		</div>
 		<div id="offcanvas-1" class="uk-offcanvas">
 			<div class="uk-offcanvas-bar">
 				<div style="width: 100%;">
 					<img style="margin: 0 auto; display: block; padding-top: 15px;"
-						src="images/tractor.png" />
+						src="img/tractor.png" />
 				</div>
 				<ul class="uk-list uk-list-line" style="color: white;">
-					<li><a href="">Home</a></li>
-					<li><a href="">About Us</a></li>
-					<li><a href="">Contact Us</a></li>
+					<li><a href="home.xhtml">Home</a></li>
+					<li><a href="aboutus.xhtml">About Us</a></li>
+					<li><a href="contactus.xhtml">Contact Us</a></li>
 					<li style="font-weight: bold; border-top: none;">Catalogue
 						<ul>
 							<li><a href="">Gnomes</a></li>
@@ -114,7 +123,7 @@
 		</div>
 		<div id="mainCont">
 			<ui:insert name="pageTitle" />
-			<div style="margin-top: 15px;">
+			<div style="margin-top: 15px; width: 100%; height: 100%;">
 				<ui:insert name="body" />
 			</div>
 		</div>
@@ -126,14 +135,15 @@
 					class="fa fa-hand-lizard-o" aria-hidden="true"></i> E-mail</a>
 			</div>
 		</div>
-		<div id="footer" class="boxthing uk-width-1-1" style="padding: 5px;">
-			<ul class="uk-list" style="text-align: center;">
-				<li><a href="">Home</a></li>
-				<li><a href="">About Us</a></li>
-				<li><a href="">Contact Us</a></li>
-				<li><a href="">Catalogue</a></li>
+		<div id="footer" class="boxthing uk-width-1-1">
+			<ul id="footerUL" class="uk-list" style="text-align: center;">
+				<li><a href="home.xhtml">Home</a></li>
+				<li><a href="aboutus.xhtml">About Us</a></li>
+				<li><a href="contactus.xhtml">Contact Us</a></li>
+				<li><a href="category.xhtml">Catalogue</a></li>
 			</ul>
 		</div>
 	</body>
+	<h:outputScript library="js" name="navb.js" />
 </f:view>
 </html>

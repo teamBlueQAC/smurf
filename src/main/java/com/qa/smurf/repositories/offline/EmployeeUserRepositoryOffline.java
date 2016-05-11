@@ -1,47 +1,46 @@
 package com.qa.smurf.repositories.offline;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
+import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
+import com.qa.smurf.entities.EmployeeUser;
 import com.qa.smurf.entities.EmployeeUserTest;
 import com.qa.smurf.repositories.EmployeeUserRepository;
 
+@Default
+@Stateless
 public class EmployeeUserRepositoryOffline implements EmployeeUserRepository {
 
+	@Inject
 	private InitialData initialData;
-		ArrayList<EmployeeUserTest> employeeUser = new ArrayList<EmployeeUserTest>();
+		ArrayList<EmployeeUser> employeeUser = new ArrayList<EmployeeUser>();
 	
 	@PostConstruct	
 	public void init(){
-		try{
-			initialData = new InitialData();
-		} catch (ParseException pe){
-			pe.printStackTrace();
-		}
-		
+		initialData = new InitialData();		
 	}	
-	
-
 
 	@Override
-	public void persistEmployeeUser(EmployeeUserTest eu) {
+	public void persistEmployeeUser(EmployeeUser eu) {
 		initialData.addEmployeeUser(eu);
 	}
 
 	@Override
-	public void persistEmployeeUsers(List<EmployeeUserTest> eu) {
-		for (EmployeeUserTest employeeUser : eu) {
+	public void persistEmployeeUsers(List<EmployeeUser> eu) {
+		for (EmployeeUser employeeUser : eu) {
 			initialData.addEmployeeUser(employeeUser);
 		}
 	}
 
 	@Override
-	public EmployeeUserTest findByID(long id) {
-		for (EmployeeUserTest employeeUser : initialData.getEmployeeUser()) {
+	public EmployeeUser findByID(long id) {
+		for (EmployeeUser employeeUser : initialData.getEmployeeUser()) {
 			if (employeeUser.getID() == id) {
 				return employeeUser;
 			}
@@ -50,14 +49,14 @@ public class EmployeeUserRepositoryOffline implements EmployeeUserRepository {
 	}
 
 	@Override
-	public ArrayList<EmployeeUserTest> getEmployeeUsers() {
+	public ArrayList<EmployeeUser> getEmployeeUsers() {
 		return initialData.getEmployeeUser();
 	}
 
 	@Override
-	public void updateEmployeeUser(EmployeeUserTest eUser) {
-		ArrayList<EmployeeUserTest> employeeUserList = initialData.getEmployeeUser();
-		for (EmployeeUserTest employeeUser : employeeUserList) {
+	public void updateEmployeeUser(EmployeeUser eUser) {
+		ArrayList<EmployeeUser> employeeUserList = initialData.getEmployeeUser();
+		for (EmployeeUser employeeUser : employeeUserList) {
 			if (employeeUser.getID() == eUser.getID()) {
 				employeeUser = eUser;
 			}
@@ -65,8 +64,10 @@ public class EmployeeUserRepositoryOffline implements EmployeeUserRepository {
 	}
 
 	@Override
-	public void removeEmployeeUser(EmployeeUserTest eu) {
+	public void removeEmployeeUser(EmployeeUser eu) {
 		initialData.getEmployeeUser().remove(eu);
 	}
+
+	
 
 }

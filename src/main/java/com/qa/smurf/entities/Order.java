@@ -1,6 +1,6 @@
 package com.qa.smurf.entities;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -59,7 +59,7 @@ public class Order {
 
 	@OneToMany
 	@JoinColumn(name = "LINEITEMS_ORDERID", nullable = false)
-	private ArrayList<LineItems> lineItem;
+	private List<LineItems> lineItem;
 
 	public Order(double total, Date date, Date dispatchDate, Payment payment, Address address, User user, OrderStatus orderStatus) {
 		this.total = total;
@@ -120,6 +120,7 @@ public class Order {
 		this.orderStatus = orderStatus;
 	}
 
+	
 	public Address getAddress() {
 		return address;
 	}
@@ -136,19 +137,33 @@ public class Order {
 		this.paymentID = paymentID;
 	}
 
-	public ArrayList<LineItems> getLineItem() {
+	/**
+	 * Gets the array of lineItems for the order
+	 * 
+	 */
+	public List<LineItems> getLineItem() {
 		return lineItem;
 	}
 
-	public void setLineItem(ArrayList<LineItems> lineItem) {
+	/**
+	 * Sets the lineItems for the order
+	 * 
+	 * @param lineItem the array of line items.
+	 */
+	public void setLineItem(List<LineItems> lineItem) {
 		this.lineItem = lineItem;
 	}
 
+	/**
+	 * Sets the status for the order
+	 * 
+	 * @param orderStatus based on the enum class values
+	 */
 	public void setOrderStatus(OrderStatus orderStatus) {
 		this.orderStatus = orderStatus;
 	}
 
-	public ArrayList<LineItems> getOrderLineItems() {
+	public List<LineItems> getOrderLineItems() {
 		// PLZ FIX
 		return null;
 	}
