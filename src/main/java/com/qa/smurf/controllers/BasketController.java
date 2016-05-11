@@ -25,12 +25,9 @@ public class BasketController {
 	private OrderService orderService;
 	@Inject
 	private CurrentUser currentUser;
-	private User user = orderService.getCurrentUser(currentUser.getUserId());
-	private Order order = orderService.getUsersPendingOrder(currentUser.getUserId());
-
-	private List<LineItems> lineItems = order.getLineItem();
-
-	private float totalPrice = orderService.calcOrderTotalPending(currentUser.getUserId());
+	private User user;
+	private Order order;
+	private List<LineItems> lineItems;
 
 	public String removeProductFromBasket(long productId) {
 		orderService.removeFromBasket(productId, user.getId());
@@ -64,18 +61,20 @@ public class BasketController {
 	}
 
 	public User getUser() {
+		user  = orderService.getCurrentUser(currentUser.getUserId());
 		return user;
 	}
 
-	public void setUser(User user) {
+	/*public void setUser(User user) {
 		this.user = user;
-	}
+	}*/
 
 	public float getTotalPrice() {
-		return totalPrice;
+		return orderService.calcOrderTotalPending(currentUser.getUserId());
 	}
 
 	public Order getOrder() {
+		order  = orderService.getUsersPendingOrder(user.getId());
 		return order;
 	}
 
@@ -84,6 +83,7 @@ public class BasketController {
 	}
 
 	public List<LineItems> getLineItems() {
+		lineItems = order.getLineItem();
 		return lineItems;
 	}
 
