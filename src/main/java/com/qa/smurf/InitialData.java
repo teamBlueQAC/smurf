@@ -5,7 +5,6 @@ package com.qa.smurf;
  */
 import java.util.ArrayList;
 import java.util.Date;
-import java.text.ParseException;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Singleton;
@@ -14,14 +13,13 @@ import com.qa.smurf.entities.Address;
 import com.qa.smurf.entities.Category;
 import com.qa.smurf.entities.Credit;
 import com.qa.smurf.entities.EmployeeUser;
-import com.qa.smurf.entities.EmployeeUserTest;
 import com.qa.smurf.entities.LineItems;
 import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.ProdCat;
 import com.qa.smurf.entities.ProdSup;
 import com.qa.smurf.entities.Product;
-import com.qa.smurf.entities.ProductType;
+import com.qa.smurf.util.ProductType;
 import com.qa.smurf.entities.Supplier;
 import com.qa.smurf.entities.SupplierOrder;
 import com.qa.smurf.entities.User;
@@ -38,7 +36,6 @@ public class InitialData {
 	private ArrayList<Payment> payment = new ArrayList<Payment>();
 	private ArrayList<ProdCat> prodCats = new ArrayList<ProdCat>();
 	private ArrayList<Category> categories = new ArrayList<Category>();
-	private ArrayList<ProductType> productTypes = new ArrayList<ProductType>();
 	private ArrayList<Address> addresses = new ArrayList<Address>();
 	private ArrayList<ProdSup> prodSups = new ArrayList<ProdSup>();
 	private ArrayList<Supplier> suppliers = new ArrayList<Supplier>();
@@ -47,8 +44,7 @@ public class InitialData {
 	private ArrayList<EmployeeUser> employeeUsers = new ArrayList<EmployeeUser>();
 
 	@PostConstruct
-	public void initial() throws ParseException {
-
+	public void initial(){
 		setAddressInitialData();
 		setUserInitialData();
 		setSupplierInitialData();
@@ -58,7 +54,6 @@ public class InitialData {
 		setLineItemsInitialData();
 		setSupplierOrderInitialData();
 		setEmployeeUserInitialData();
-		setProductTypeInitialData();
 		setCategoriesInitialData();
 		setProdCatInitialData();
 		setProdSupInitialData();
@@ -137,7 +132,7 @@ public class InitialData {
 		this.addresses = addresses;
 	}
 
-	private void setPaymentInitialData() throws ParseException {
+	private void setPaymentInitialData(){
 
 		// Author : willseaford - This method returns an ArrayList of Payment
 		// objects and has a dependency on the User object class being
@@ -169,7 +164,7 @@ public class InitialData {
 		this.payment = payments;
 	}
 
-	private void setOrderInitialData() throws ParseException {
+	private void setOrderInitialData() {
 		double[] price = { 10.10, 20.20, 30.30, 40.40, 50.50 };
 
 		for (int i = 0; i < 5; i++) {
@@ -241,7 +236,7 @@ public class InitialData {
 		this.users.add(user);
 	}
 
-	private void setLineItemsInitialData() throws ParseException {
+	private void setLineItemsInitialData() {
 
 		// Author : willseaford - This method sets an ArrayList of LineItems
 		// objects and has a dependency on the order and product object classes
@@ -315,22 +310,22 @@ public class InitialData {
 	// Products nabz & Dean
 	private void setProductInitialData() {
 		products.add(new Product(0, "gnome", "GHTY-YTER-GFDG", "blue", 40.00, false, "mydocs", 500,
-				getProductTypes().get(1), "Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
+				ProductType.GNOME, "Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
 
 		products.add(new Product(1, "seeds", "SDFF-DFGF-JGGJ", "green", 10.00, false, "mydocs", 600,
-				getProductTypes().get(2), "zombie green seeds.", 60, 700));
+				ProductType.SEED, "zombie green seeds.", 60, 700));
 
 		products.add(new Product(2, "garden utensils", "EWRE-WRFS-SAZC", "blue", 5.00, false, "mydocs", 700,
-				getProductTypes().get(3), "big and scary garden utensils.", 70, 400));
+				ProductType.TOOL, "big and scary garden utensils.", 70, 400));
 
 		products.add(new Product(3, "gnome2", "GHTY-YTER-GFD2", "blue", 40.00, false, "mydocs", 500,
-				getProductTypes().get(1), "Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
+				ProductType.GNOME, "Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
 
 		products.add(new Product(4, "seeds2", "SDFF-DFGF-JGG2", "green", 10.00, false, "mydocs", 600,
-				getProductTypes().get(2), "zombie green seeds.", 60, 700));
+				ProductType.SEED, "zombie green seeds.", 60, 700));
 
 		products.add(new Product(5, "garden utensils2", "EWRE-WRFS-SAZ2", "blue", 5.00, false, "mydocs", 700,
-				getProductTypes().get(3), "big and scary garden utensils.", 70, 400));
+				ProductType.TOOL, "big and scary garden utensils.", 70, 400));
 	}
 
 	public ArrayList<Product> getProducts() {
@@ -362,27 +357,6 @@ public class InitialData {
 	public void setProdCats(ArrayList<ProdCat> prodCats) {
 		this.prodCats = prodCats;
 	}
-
-	// Populates the ArrayList for Product Type with 3 different product types.
-
-	private void setProductTypeInitialData() {
-		productTypes.add(new ProductType(1, "Seeds"));
-		productTypes.add(new ProductType(2, "Gardening Tools"));
-		productTypes.add(new ProductType(3, "Selena Gnomes"));
-	}
-
-	public ArrayList<ProductType> getProductTypes() {
-		return productTypes;
-	}
-
-	public void addProductType(ProductType productType) {
-		this.productTypes.add(productType);
-	}
-
-	public void setProductTypes(ArrayList<ProductType> productTypes) {
-		this.productTypes = productTypes;
-	}
-
 	// Category Nabz & Dean
 
 	private void setCategoriesInitialData() {
