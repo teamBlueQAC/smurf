@@ -1,19 +1,25 @@
 package com.qa.smurf.controller;
 
+import com.qa.smurf.controllers.CreditController;
+
 import junit.framework.TestCase;
 
 public class CreditControllerTest extends TestCase {
 
-	public CreditControllerTest(String name) {
-		super(name);
+	CreditController creditControllerTest;
+	
+	public void init(){
+		creditControllerTest.
 	}
-
-	protected void setUp() throws Exception {
-		super.setUp();
+	
+	@Test
+	public void initTest(){
+		
 	}
-
-	protected void tearDown() throws Exception {
-		super.tearDown();
+	
+	@Test
+	public void getCreditTest(){
+		assertNotNull(creditControllerTest.getCredit());
 	}
 
 }
