@@ -51,6 +51,7 @@ html, body {
 
 .hlinks {
 	text-align: right;
+	text-decoration: underline;
 }
 
 .header {
@@ -68,8 +69,8 @@ html, body {
 	height: 300px;
 }
 
-.categoryheader {
-	padding-top: 10px
+.categoryheaders {
+	text-decoration-color: white 
 }
 
 .lineitems {
