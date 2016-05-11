@@ -12,22 +12,22 @@ public class UserService {
 	@Inject
 	private UserRepository userRepository;
 	
-	public void authenticate(String username, String password) {
+	public int authenticate(String username, String password) {
 		for(User user : userRepository.getUser()) {
-			//How are we authenticating with no username? maybe email?
-			if(user.getEmail().equalsIgnoreCase(username)) {
-				
+			if(username.equalsIgnoreCase(user.getUsername()) && password.equals(user.getPassword())) {
+				return user.getId();
 			}
 		}
+		return -1;
 	}
 	
 	public void addUser(User user) {
 		userRepository.persistUser(user);
 	}
 	
-	public boolean userExists(String email) {
+	public boolean userExists(String username) {
 		for(User user : userRepository.getUser()) {
-			if(user.getEmail().equalsIgnoreCase(email)) {
+			if(user.getUsername().equalsIgnoreCase(username)) {
 				return true;
 			}
 		}

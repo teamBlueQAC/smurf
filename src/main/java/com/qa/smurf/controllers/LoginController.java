@@ -4,9 +4,14 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.qa.smurf.service.UserService;
+
 @Named(value = "login")
 @RequestScoped
 public class LoginController {
+	
+	@Inject
+	private UserService userService;
 	
 	private String username;
 	private String password;
@@ -15,8 +20,13 @@ public class LoginController {
 	private CurrentUser currentUser;
 	
 	public void login() {
-		System.out.println(username + ", " + password);
-		currentUser.setUserId(1);
+		int id = userService.authenticate(username, password);
+		
+		if(id != -1) {
+			currentUser.setUserId(id);
+		} else {
+			logout();
+		}
 	}
 	
 	public void logout() {

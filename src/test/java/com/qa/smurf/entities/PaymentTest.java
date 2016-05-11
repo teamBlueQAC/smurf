@@ -8,7 +8,7 @@ public class PaymentTest extends TestCase {
 	public PaymentTest(String name) {
 		super(name);
 		Address address = new Address("", "");
-		User user = new User(0, "", "", "", "", null, false, address, null);
+		User user = new User(0, "", "", "", "", "", null, false, address, null);
 		payment = new Payment("", "", "", "", address, user);
 	}
 
@@ -62,7 +62,7 @@ public class PaymentTest extends TestCase {
 	}
 
 	public void testSetUser() {
-		User newUser = new User(1, "a", "a", "a", "a", null, false, null, null);
+		User newUser = new User(1, "a", "a", "a", "a", "a", null, false, null, null);
 		payment.setUser(newUser);
 		assertEquals(newUser, payment.getUser());
 	}
