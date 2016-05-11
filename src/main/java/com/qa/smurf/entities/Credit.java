@@ -36,7 +36,7 @@ public class Credit {
 		return user;
 	}
 
-	public void setUserID(User userID) {
+	public void setUser(User userID) {
 		this.user = userID;
 	}
 
@@ -55,4 +55,5 @@ public class Credit {
 	public void setAmountRemaining(Double amountRemaining) {
 		this.amountRemaining = amountRemaining;
 	}
+	
 }

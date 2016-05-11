@@ -23,10 +23,10 @@ public class PaymentController {
 	@Inject	private PaymentService paymentService;
 	@Inject	private CreditService creditService;
 	@Inject	private CurrentUser currentUser;
-	private User user = paymentService.getCurrentUser(1);
-	private Credit credit = creditService.findByUserId(user.getId());
-	private Order placedOrder = paymentService.getPlacedOrder(user);
-	private Payment payment = paymentService.getPayment(user);
+	private User user;
+	private Credit credit;
+	private Order placedOrder;
+	private Payment payment;
 
 	private Boolean matchesPattern(String input, String pattern) {
 		Pattern regexPattern = Pattern.compile(pattern);
@@ -95,6 +95,7 @@ public class PaymentController {
 	}
 
 	public Order getPlacedOrder() {
+		placedOrder = paymentService.getPlacedOrder(user);
 		return placedOrder;
 	}
 
@@ -103,6 +104,7 @@ public class PaymentController {
 	}
 
 	public User getUser() {
+		user = paymentService.getCurrentUser(currentUser.getUserId());
 		return user;
 	}
 
@@ -111,6 +113,7 @@ public class PaymentController {
 	}
 
 	public Credit getCredit() {
+		credit = creditService.findByUserId(user.getId());
 		return credit;
 	}
 
@@ -119,6 +122,7 @@ public class PaymentController {
 	}
 
 	public Payment getPayment() {
+		payment = paymentService.getPayment(user);
 		return payment;
 	}
 
