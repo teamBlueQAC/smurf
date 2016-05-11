@@ -216,16 +216,11 @@ public class InitialData {
 	}
 
 	private void setUserInitialData() {
-		users.add(new User(1, "Sam Elleray", "Chickens1", "sam@chickens.com", "07881508168", new Date(), true,
-				new Address("12 High Street", "Whocares", "Somerset", "England", "WH1 1t1"), new Date()));
-		users.add(new User(2, "Boris Seaford", "willpower3", "boris@will.com", "08005428106", new Date(), true,
-				new Address("15 Orchard Road", "Funplace", "Somerset", "England", "WH7 1GA"), new Date()));
-		users.add(new User(3, "Will Weiner", "Password123", "random@email.com", "07826719832", new Date(), true,
-				new Address("4 The Limes", "Lowton", "Warrington", "England", "WA3 1HZ"), new Date()));
-		users.add(new User(4, "Tom Bob", "Thisisapassword", "thisis@anemail", "01942836745", new Date(), true,
-				new Address("28 Kings Cl", "Ashbury", "Swindon", "England", "SN5 7PA"), new Date()));
-		users.add(new User(5, "James Trainer", "JamesPassword", "James@James.com", "07325428106", new Date(), true,
-				new Address("15 Vale Cl", "Cranleigh", "Oxford", "England", "OX5 7PA"), new Date()));
+		users.add(new User(1, "Sam Elleray", "Sam", "Chickens1", "sam@chickens.com", "07881508168", new Date(), true, new Address("12 High Street", "Whocares", "Somerset", "England", "WH1 1t1"), new Date()));
+		users.add(new User(2, "Boris Seaford", "Boris", "willpower3", "boris@will.com", "08005428106", new Date(), true, new Address("15 Orchard Road", "Funplace", "Somerset", "England", "WH7 1GA"), new Date()));
+		users.add(new User(3, "Will Weiner", "Will", "Password123", "random@email.com", "07826719832", new Date(), true, new Address("4 The Limes", "Lowton", "Warrington", "England", "WA3 1HZ"), new Date()));
+		users.add(new User(4, "Tom Bob", "Tom", "Thisisapassword", "thisis@anemail", "01942836745", new Date(), true, new Address("28 Kings Cl", "Ashbury", "Swindon", "England", "SN5 7PA"), new Date()));
+		users.add(new User(5, "James Trainer", "James", "JamesPassword", "James@James.com", "07325428106", new Date(), true, new Address("15 Vale Cl", "Cranleigh", "Oxford", "England", "OX5 7PA"), new Date()));
 	}
 
 	public void setUsers(ArrayList<User> users) {
@@ -318,7 +313,7 @@ public class InitialData {
 		products.add(new Product(2, "garden utensils", "EWRE-WRFS-SAZC", "blue", 5.00, false, "mydocs", 700,
 				ProductType.TOOL, "big and scary garden utensils.", 70, 400));
 
-		products.add(new Product(3, "gnome2", "GHTY-YTER-GFD2", "blue", 40.00, false, "mydocs", 500,
+		products.add(new Product(3, "gnome2", "GHTY-YTER-GFD2", "blue", 40.00, false, "temp_dwarf", 500,
 				ProductType.GNOME, "Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
 
 		products.add(new Product(4, "seeds2", "SDFF-DFGF-JGG2", "green", 10.00, false, "mydocs", 600,

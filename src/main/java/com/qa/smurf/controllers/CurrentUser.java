@@ -3,7 +3,9 @@ package com.qa.smurf.controllers;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
+@Named(value = "currentUser")
 @SessionScoped
 public class CurrentUser implements Serializable {
 

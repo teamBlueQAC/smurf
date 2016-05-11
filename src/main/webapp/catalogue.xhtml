@@ -13,12 +13,13 @@
 		<ui:repeat var="line" value="#{product.products}">
 			<div class="boxthing uk-width-medium-1-3 uk-width-small-1-1">
 				<div style="padding: 20px;">
-					<h:graphicImage value="#{line.pictureLoc}" />
+					<h:graphicImage value="../img/#{line.pictureLoc}.jpg" />
 					<h2>
 						<h:outputText value="#{line.name}" />
 					</h2>
 					<h4>
-						<h:outputText value="#{line.price}" />
+					    &#163;
+						<h:outputText value="#{product.getProductPrice(line)}" />
 					</h4>
 					<p>
 						<h:outputText value="#{line.description}" />

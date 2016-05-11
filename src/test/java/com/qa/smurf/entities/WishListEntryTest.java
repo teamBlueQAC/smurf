@@ -12,7 +12,7 @@ public class WishListEntryTest extends TestCase {
 	public WishListEntryTest(String name) {
 		super(name);
 		Product product = new Product(0, "", "", "", 0.0, false, "", 0, ProductType.GNOME, "", 0, 0);
-		User user = new User(0, "", "", "", "", new Date(), false, new Address("", ""), new Date());
+		User user = new User(0, "", "", "", "", "", new Date(), false, new Address("", ""), new Date());
 		wishListEntry = new WishListEntry(product, new Date(), user);
 	}
 
@@ -31,7 +31,7 @@ public class WishListEntryTest extends TestCase {
 	}
 
 	public void testSetUser() {
-		User newUser = new User(1, "a", "a", "a", "a", new Date(), false, new Address("a", "a"), new Date());
+		User newUser = new User(1, "a", "a", "a","a", "a", new Date(), false, new Address("a", "a"), new Date());
 		wishListEntry.setUser(newUser);
 		assertEquals(newUser, wishListEntry.getUser());
 	}

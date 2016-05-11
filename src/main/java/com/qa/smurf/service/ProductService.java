@@ -27,4 +27,8 @@ public class ProductService {
 	public List<Product> getProducts() {
 		return initialData.getProducts();
 	}
+
+	public String productPriceTo2DP(Product product) {
+		return String.format("%.2f", product.getPrice());
+	}
 }
