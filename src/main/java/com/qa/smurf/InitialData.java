@@ -310,22 +310,22 @@ public class InitialData {
 	// Products nabz & Dean
 	private void setProductInitialData() {
 		products.add(new Product(0, "Day Dream Gnome", "GHTY-YTER-GFDG", "blue", 40.00, false, "DayDreamGnome", 500,
-				ProductType.GNOME, "Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
+				ProductType.GNOME, "A traditional garden gnome, a great new addition to your lawn. To be cleaned of with a dam cloth.", 40, 500));
 
-		products.add(new Product(1, "Sunflower Seeds", "SDFF-DFGF-JGGJ", "green", 10.00, false, "SunflowerSeeds", 600,
-				ProductType.SEED, "zombie green seeds.", 60, 700));
+		products.add(new Product(1, "Sunflower Seeds", "SDFF-DFGF-JGGJ", "yellow", 10.00, false, "SunflowerSeeds", 600,
+				ProductType.SEED, "Helianthus annuus, Sunflower seeds forms beautiful tall sunflowers which are bright yellow.", 60, 700));
 
-		products.add(new Product(2, "Wheelbarrow", "EWRE-WRFS-SAZC", "blue", 5.00, false, "WheelBarrow", 700,
-				ProductType.TOOL, "big and scary garden utensils.", 70, 400));
+		products.add(new Product(2, "Wheelbarrow", "EWRE-WRFS-SAZC", "red", 5.00, false, "WheelBarrow", 700,
+				ProductType.TOOL, "This sturdy and reliable wheelbarrow is ideal for gardening work, with a great capacity.", 70, 400));
 
 		products.add(new Product(3, "Peace Gnome", "GHTY-YTER-GFD2", "blue", 40.00, false, "PeaceGnome", 500,
-				ProductType.GNOME, "Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
+				ProductType.GNOME, "This garden gnome ideal for garden beds, adds a vibrant feel to your garden.", 40, 500));
 
-		products.add(new Product(4, "Pumpkin Seeds", "SDFF-DFGF-JGG2", "green", 10.00, false, "PumpkinSeeds", 600,
-				ProductType.SEED, "zombie green seeds.", 60, 700));
+		products.add(new Product(4, "Pumpkin Seeds", "SDFF-DFGF-JGG2", "orange", 10.00, false, "PumpkinSeeds", 600,
+				ProductType.SEED, "Cucurbita maxima, Pumpkin Seeds form large orange pumpkins, great for decoration at festive times like halloween.", 60, 700));
 
 		products.add(new Product(5, "Lawn Mower", "EWRE-WRFS-SAZ2", "blue", 5.00, false, "LawnMower", 700,
-				ProductType.TOOL, "big and scary garden utensils.", 70, 400));
+				ProductType.TOOL, "Top of the range WORX robotic lawn mower, cuts the lawn so you don't have to. Provides multiple height settings for different lawn heights. Intergated with a 36V lithium-ion battery technology.", 70, 400));
 	}
 
 	public ArrayList<Product> getProducts() {
