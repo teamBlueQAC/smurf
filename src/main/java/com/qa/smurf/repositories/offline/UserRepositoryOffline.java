@@ -21,7 +21,7 @@ import com.qa.smurf.repositories.UserRepository;
 @Stateless
 public class UserRepositoryOffline implements UserRepository {
 	@Inject
-	private InitialData initialData;
+	private InitialData initialData = new InitialData();
 
 	/**
 	 * Adds the user to the storage

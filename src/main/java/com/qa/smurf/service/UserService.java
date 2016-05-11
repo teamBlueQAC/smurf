@@ -5,12 +5,13 @@ import javax.inject.Inject;
 
 import com.qa.smurf.entities.User;
 import com.qa.smurf.repositories.UserRepository;
+import com.qa.smurf.repositories.offline.UserRepositoryOffline;
 
 @Stateless
 public class UserService {
 	 
 	@Inject
-	private UserRepository userRepository;
+	private UserRepositoryOffline userRepository;
 	
 	public int authenticate(String username, String password) {
 		for(User user : userRepository.getUser()) {

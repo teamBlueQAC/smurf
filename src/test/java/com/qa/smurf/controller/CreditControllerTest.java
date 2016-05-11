@@ -1,7 +1,7 @@
 package com.qa.smurf.controller;
 
 import javax.inject.Inject;
-
+import org.mockito.Mockito.*;
 import org.junit.Test;
 
 import com.qa.smurf.controllers.CreditController;
