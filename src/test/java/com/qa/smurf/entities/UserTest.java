@@ -9,7 +9,7 @@ public class UserTest extends TestCase {
 	User user;
 	public UserTest(String name) {
 		super(name);
-		user = new User(0, "", "", "", "", new Date(), false, new Address("", ""), new Date());
+		user = new User(0, "", "", "", "", "", new Date(), false, new Address("", ""), new Date());
 	}
 
 	public void testGetId() {
