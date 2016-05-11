@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.repositories.ProductRepository;
+import com.qa.smurf.util.ProductType;
 
 @Stateless
 public class ProductService {
@@ -30,5 +31,9 @@ public class ProductService {
 
 	public String productPriceTo2DP(Product product) {
 		return String.format("%.2f", product.getPrice());
+	}
+
+	public Product findByType(ProductType productType) {
+		return productRepository.findByType(productType);
 	}
 }
