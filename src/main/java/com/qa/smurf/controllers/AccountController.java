@@ -18,9 +18,9 @@ public class AccountController {
 	private AccountService accountService;
 	@Inject
 	private CurrentUser currentUser;
-	private Payment payment = accountService.getUsersPayment(currentUser.getUserId());
-	private ArrayList<Order> order = accountService.getUsersOrder(currentUser.getUserId());
-	private User user = accountService.getCustomerDetails(currentUser.getUserId());
+	private Payment payment;
+	private ArrayList<Order> order;
+	private User user;
 
 	public String updatePersonal() {
 		if (user.getName().isEmpty() || user.getAddress().getLine1().isEmpty()
@@ -39,14 +39,17 @@ public class AccountController {
 	}
 
 	public ArrayList<Order> getOrder() {
+		order = accountService.getUsersOrder(currentUser.getUserId());
 		return order;
 	}
 
 	public Payment getPayment() {
+		payment = accountService.getUsersPayment(currentUser.getUserId());
 		return payment;
 	}
 
 	public User getUser() {
+		user = accountService.getCustomerDetails(currentUser.getUserId());
 		return user;
 	}
 
