@@ -52,11 +52,11 @@ public class BasketController {
 	}
 
 	public void getLineItems(Order order) {
-		orderService.getLineItems(order, user.getId());
+		orderService.getLineItems(order, currentUser.getUserId());
 	}
 
 	public String placeOrder() {
-		orderService.placeOrder(order, user.getId());
+		orderService.placeOrder(order, currentUser.getUserId());
 		return "order";
 	}
 
@@ -74,7 +74,7 @@ public class BasketController {
 	}
 
 	public Order getOrder() {
-		order  = orderService.getUsersPendingOrder(user.getId());
+		order  = orderService.getUsersPendingOrder(currentUser.getUserId());
 		return order;
 	}
 

@@ -168,8 +168,13 @@ public class InitialData {
 		double[] price = { 10.10, 20.20, 30.30, 40.40, 50.50 };
 
 		for (int i = 0; i < 5; i++) {
+			if(i != 0){
 			orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i),
 					getUsers().get(i), OrderStatus.PLACED));
+			} else {
+				orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i),
+						getUsers().get(i), OrderStatus.PENDING));
+			}
 		}
 	}
 
