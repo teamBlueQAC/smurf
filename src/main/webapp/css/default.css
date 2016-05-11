@@ -4,16 +4,32 @@
 	width: 100%;
 }
 
+.uk-link, a {
+	color: white;
+}
+
+.uk-nav-navbar>li>a:hover {
+	background: #351C8C;
+}
+
+.uk-link:hover, a:hover {
+	color: #351C8C;
+}
+
 #footerUL>li {
 	padding: 5px;
 }
-
 
 html, body {
 	height: 100%;
 	width: 100%;
 	margin: 0;
-	background-color: #d0e4fe;
+	background-color: #8A77CB;
+	color: white;
+}
+
+.uk-navbar-nav>li>a {
+	color: white;
 }
 
 #mainCont {
@@ -95,10 +111,6 @@ html, body {
 .infobox {
 	display: inline-block;
 	float: left;
-}
-
-#footer {
-	background-color: #7EC0EE;
 }
 
 .quantity {
