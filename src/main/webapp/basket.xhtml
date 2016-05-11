@@ -14,7 +14,8 @@
 	<ui:define name="body">
 		<div class="boxthing">
 			<div class="basketitembox uk-grid">
-				<!-- The class that the Controller will call -->
+<!-- 				<h:form rendered="#{basket.order.lineItem} != null"> -->
+					<!-- The class that the Controller will call -->
 					<ui:repeat var="line" value="#{basket.order.lineItem}">
 						<div>
 							<div>
@@ -47,6 +48,7 @@
 								class="uk-button uk-button-large" id="checkout" />
 						</h3>
 					</div>
+<!-- 				</h:form> -->
 			</div>
 		</div>
 	</ui:define>

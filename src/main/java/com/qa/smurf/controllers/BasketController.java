@@ -20,35 +20,37 @@ import com.qa.smurf.service.OrderService;
 @Named(value = "basket")
 @RequestScoped
 public class BasketController {
-
-	@Inject
-	private OrderService orderService;
-	@Inject
-	private CurrentUser currentUser;
+	@Inject	private OrderService orderService;
+	@Inject	private CurrentUser currentUser;
 	private User user;
 	private Order order;
 	private List<LineItems> lineItems;
 
 	public String removeProductFromBasket(long productId) {
-		orderService.removeFromBasket(productId, user.getId());
+		orderService.removeFromBasket(productId, currentUser.getUserId());
 		return "basket";
 	}
 
 	public String updateQuantity() {
-		orderService.updateQuantity(order, user.getId());
+		orderService.updateQuantity(order, currentUser.getUserId());
 
 		return "basket";
 	}
 
 	public String clearBasket() {
-		orderService.clearBasket(user.getId());
+		orderService.clearBasket(currentUser.getUserId());
 		return "basket";
 	}
 
 	// gets called when adding a product
 	// calls the orderService to add a product to the basket.
-	public void addToBasket(long productId) {
-		orderService.addToBasket(productId, user.getId());
+	public String addToBasket(long productId) {
+		long userId = -1;
+		if (currentUser.getUsername() != null){
+			userId = currentUser.getUserId();
+		}
+		orderService.addToBasket(productId, userId);
+		return "basket";
 	}
 
 	public void getLineItems(Order order) {
