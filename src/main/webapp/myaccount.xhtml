@@ -81,10 +81,10 @@
 							<td>date order placed :</td>
 							<td>date order shipped :</td>
 						</tr>
-						<ui:repeat var="order" value="order.orders">
+						<ui:repeat var="order" value="#{order.orders}">
 							<tr>
-								<td><h:inputText value="#{order.date}" /></td>
-								<td><h:inputText value="#{order.dispatchDate}" /></td>
+								<td><h:outputText value="#{order.date}" /></td>
+								<td><h:outputText value="#{order.dispatchDate}" /></td>
 							</tr>
 						</ui:repeat>
 					</tbody>
