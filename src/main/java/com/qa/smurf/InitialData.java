@@ -168,8 +168,13 @@ public class InitialData {
 		double[] price = { 10.10, 20.20, 30.30, 40.40, 50.50 };
 
 		for (int i = 0; i < 5; i++) {
+			if(i != 0){
 			orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i),
 					getUsers().get(i), OrderStatus.PLACED));
+			} else {
+				orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i),
+						getUsers().get(i), OrderStatus.PENDING));
+			}
 		}
 	}
 
@@ -216,16 +221,11 @@ public class InitialData {
 	}
 
 	private void setUserInitialData() {
-		users.add(new User(1, "Sam Elleray", "Chickens1", "sam@chickens.com", "07881508168", new Date(), true,
-				new Address("12 High Street", "Whocares", "Somerset", "England", "WH1 1t1"), new Date()));
-		users.add(new User(2, "Boris Seaford", "willpower3", "boris@will.com", "08005428106", new Date(), true,
-				new Address("15 Orchard Road", "Funplace", "Somerset", "England", "WH7 1GA"), new Date()));
-		users.add(new User(3, "Will Weiner", "Password123", "random@email.com", "07826719832", new Date(), true,
-				new Address("4 The Limes", "Lowton", "Warrington", "England", "WA3 1HZ"), new Date()));
-		users.add(new User(4, "Tom Bob", "Thisisapassword", "thisis@anemail", "01942836745", new Date(), true,
-				new Address("28 Kings Cl", "Ashbury", "Swindon", "England", "SN5 7PA"), new Date()));
-		users.add(new User(5, "James Trainer", "JamesPassword", "James@James.com", "07325428106", new Date(), true,
-				new Address("15 Vale Cl", "Cranleigh", "Oxford", "England", "OX5 7PA"), new Date()));
+		users.add(new User(1, "Sam Elleray", "Sam", "Chickens1", "sam@chickens.com", "07881508168", new Date(), true, new Address("12 High Street", "Whocares", "Somerset", "England", "WH1 1t1"), new Date()));
+		users.add(new User(2, "Boris Seaford", "Boris", "willpower3", "boris@will.com", "08005428106", new Date(), true, new Address("15 Orchard Road", "Funplace", "Somerset", "England", "WH7 1GA"), new Date()));
+		users.add(new User(3, "Will Weiner", "Will", "Password123", "random@email.com", "07826719832", new Date(), true, new Address("4 The Limes", "Lowton", "Warrington", "England", "WA3 1HZ"), new Date()));
+		users.add(new User(4, "Tom Bob", "Tom", "Thisisapassword", "thisis@anemail", "01942836745", new Date(), true, new Address("28 Kings Cl", "Ashbury", "Swindon", "England", "SN5 7PA"), new Date()));
+		users.add(new User(5, "James Trainer", "James", "JamesPassword", "James@James.com", "07325428106", new Date(), true, new Address("15 Vale Cl", "Cranleigh", "Oxford", "England", "OX5 7PA"), new Date()));
 	}
 
 	public void setUsers(ArrayList<User> users) {
@@ -309,22 +309,22 @@ public class InitialData {
 
 	// Products nabz & Dean
 	private void setProductInitialData() {
-		products.add(new Product(0, "gnome", "GHTY-YTER-GFDG", "blue", 40.00, false, "mydocs", 500,
+		products.add(new Product(0, "Day Dream Gnome", "GHTY-YTER-GFDG", "blue", 40.00, false, "DayDreamGnome", 500,
 				ProductType.GNOME, "Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
 
-		products.add(new Product(1, "seeds", "SDFF-DFGF-JGGJ", "green", 10.00, false, "mydocs", 600,
+		products.add(new Product(1, "Sunflower Seeds", "SDFF-DFGF-JGGJ", "green", 10.00, false, "SunflowerSeeds", 600,
 				ProductType.SEED, "zombie green seeds.", 60, 700));
 
-		products.add(new Product(2, "garden utensils", "EWRE-WRFS-SAZC", "blue", 5.00, false, "mydocs", 700,
+		products.add(new Product(2, "Wheelbarrow", "EWRE-WRFS-SAZC", "blue", 5.00, false, "WheelBarrow", 700,
 				ProductType.TOOL, "big and scary garden utensils.", 70, 400));
 
-		products.add(new Product(3, "gnome2", "GHTY-YTER-GFD2", "blue", 40.00, false, "mydocs", 500,
+		products.add(new Product(3, "Peace Gnome", "GHTY-YTER-GFD2", "blue", 40.00, false, "PeaceGnome", 500,
 				ProductType.GNOME, "Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
 
-		products.add(new Product(4, "seeds2", "SDFF-DFGF-JGG2", "green", 10.00, false, "mydocs", 600,
+		products.add(new Product(4, "Pumpkin Seeds", "SDFF-DFGF-JGG2", "green", 10.00, false, "PumpkinSeeds", 600,
 				ProductType.SEED, "zombie green seeds.", 60, 700));
 
-		products.add(new Product(5, "garden utensils2", "EWRE-WRFS-SAZ2", "blue", 5.00, false, "mydocs", 700,
+		products.add(new Product(5, "Lawn Mower", "EWRE-WRFS-SAZ2", "blue", 5.00, false, "LawnMower", 700,
 				ProductType.TOOL, "big and scary garden utensils.", 70, 400));
 	}
 

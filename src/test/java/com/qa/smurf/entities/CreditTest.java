@@ -9,7 +9,7 @@ public class CreditTest extends TestCase {
 
 	public CreditTest(String name) {
 		super(name);
-		credit = new Credit(new User(0, "", "", "", "", null, true, new Address("", ""), null), 0, 0);
+		credit = new Credit(new User(0, "", "", "", "", "", null, true, new Address("", ""), null), 0, 0);
 	}
 
 	@Test
@@ -18,7 +18,7 @@ public class CreditTest extends TestCase {
 	}
 
 	public void testSetUser() {
-		User newUser = new User(1, "q", "w", "e", "r", null, true, new Address("t", "y"), null);
+		User newUser = new User(1, "q", "b", "w", "e", "r", null, true, new Address("t", "y"), null);
 		credit.setUser(newUser);
 		assertEquals(newUser , credit.getUser());
 	}

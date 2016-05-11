@@ -15,7 +15,6 @@
 		<div class="boxthing">
 			<div class="basketitembox uk-grid">
 				<!-- The class that the Controller will call -->
-				<h:form rendered="basket.order.lineItem != null">
 					<ui:repeat var="line" value="#{basket.order.lineItem}">
 						<div>
 							<div>
@@ -44,13 +43,10 @@
 						<!-- Replaced with commandbutton instead of a tag
 							Given the button needs to be callable through JSF -->
 						<h3>
-							<h:commandButton value="#{basket.placeOrder}"
+							<h:commandButton value="#{basket.placeOrder()}"
 								class="uk-button uk-button-large" id="checkout" />
 						</h3>
 					</div>
-
-
-				</h:form>
 			</div>
 		</div>
 	</ui:define>

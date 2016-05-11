@@ -31,6 +31,10 @@ public class User {
 
 	@Column(name = "NAME", length = 255)
 	private String name;
+	
+	@Column(name = "USERNAME", length = 255)
+	@NotNull
+	private String username;
 
 	@Column(name = "PASSWORD", nullable = false, length = 64)
 	@NotNull
@@ -61,10 +65,11 @@ public class User {
 
 	public User() {}
 	
-	public User(int id, String name, String password, String email, String phoneNumber, Date lastLogin,
+	public User(int id, String name, String username, String password, String email, String phoneNumber, Date lastLogin,
 			boolean isActive, Address address, Date dateCreated) {
 		this.id= id;
 		this.name=name;
+		this.username = username;
 		this.password=password;
 		this.email= email;
 		this.phone = phoneNumber;
@@ -145,4 +150,13 @@ public class User {
 	public void setCreated(Date created) {
 		this.created = created;
 	}
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 }

@@ -15,7 +15,7 @@ public class OrderTest extends TestCase {
 		super(name);
 		Payment payment = new Payment("", "", "", "", null, null);
 		Address address = new Address("", "");
-		User user = new User(0, "", "", "", "", null, false, address, null);
+		User user = new User(0, "", "", "", "", "", null, false, address, null);
 		order = new Order(0, new Date(), new Date(), payment, address, user, orderStatus);
 		ArrayList<LineItems> LineItems = new ArrayList<LineItems>();
 		order.setLineItem(LineItems);
@@ -35,7 +35,7 @@ public class OrderTest extends TestCase {
 	}
 
 	public void testSetUser() {
-		User newUser = new User(1, "a", "a", "a", "a", null, false, null, null);
+		User newUser = new User(1, "a", "a", "a", "a", "a", null, false, null, null);
 		order.setUser(newUser);
 		assertEquals(newUser, order.getUser());
 	}
