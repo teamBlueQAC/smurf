@@ -83,7 +83,7 @@
 						<h:panelGroup rendered="#{login.loggedIn}">
 						<li aria-expanded="false" aria-haspopup="true" class="uk-parent"
 						data-uk-dropdown="category.xhtml" id="category"><a
-						href="category.xhtml">#{login.username}</a>
+						href="category.xhtml">#{currentUser.username}</a>
 						<div style="top: 40px; left: 0px;"
 							class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
 							<ul class="uk-nav uk-nav-navbar">
@@ -107,11 +107,11 @@
 						<legend>Login</legend>				
 						<div class="uk-form-row">
 							<h:outputLabel for="username" value="Username:" />   
-							<h:inputText id="username"  value="#{login.username}"></h:inputText>
+							<h:inputText id="username"  value="#{currentUser.username}"></h:inputText>
 						</div>
 						<div class="uk-form-row">
 							<h:outputLabel for="password" value="Password:" />
-							<h:inputSecret id="password" value="#{login.password}"></h:inputSecret>
+							<h:inputSecret id="password" value="#{currentUser.password}"></h:inputSecret>
 						</div>
 						<div class="uk-form-row">
 							<h:commandButton value="Login" action="#{login.login}"></h:commandButton>
