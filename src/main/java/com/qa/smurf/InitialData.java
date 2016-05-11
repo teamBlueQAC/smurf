@@ -313,7 +313,7 @@ public class InitialData {
 		products.add(new Product(2, "garden utensils", "EWRE-WRFS-SAZC", "blue", 5.00, false, "mydocs", 700,
 				ProductType.TOOL, "big and scary garden utensils.", 70, 400));
 
-		products.add(new Product(3, "gnome2", "GHTY-YTER-GFD2", "blue", 40.00, false, "mydocs", 500,
+		products.add(new Product(3, "gnome2", "GHTY-YTER-GFD2", "blue", 40.00, false, "temp_dwarf", 500,
 				ProductType.GNOME, "Huge scary gnome with 3 eyes and a huge shovel.", 40, 500));
 
 		products.add(new Product(4, "seeds2", "SDFF-DFGF-JGG2", "green", 10.00, false, "mydocs", 600,

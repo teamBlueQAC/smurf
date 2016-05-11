@@ -23,7 +23,7 @@
 				<ui:repeat var="line" value="#{wishlist.wishListEntries}">
 					<tr>
 						<td><h:graphicImage value="#{line.product.pictureLoc}" /></td>
-						<td><h:outputText value="#{line.product.name}" /></td>
+						<td><h3>&#163;</h3><h:outputText value="#{line.product.name}" /></td>
 						<td><h:outputText value="#{line.product.price}" /></td>
 						<td><h:commandButton
 								value="#{wishlist.removeFromWishlist(line.product.id)}" /></td>

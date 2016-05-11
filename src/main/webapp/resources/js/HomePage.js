@@ -1,5 +1,10 @@
 		
-	   var counter = 1;
+
+var slideArray = [];
+var currentSlide = 0;
+var screenWidth = 500;
+var screenHeight = 400;	   
+var counter = 1;
 	   
 	   var pendingStatus = 1;
 	   var fadeOutStatus = 2;
@@ -7,6 +12,43 @@
 	   
 	   var updateStatus = pendingStatus;
 	   var slideAlpha = 1;
+
+	   var width = 100;
+
+	   function Object(ID, x, y, width, height) {
+	      this.objectID = ID;
+	      this.xPos = x;
+	      this.yPos = y;
+	      this.object_width = width;
+	      this.object_height = height;
+	      this.a = 1;
+	      this.src = "img/seeds2.jpg";
+	   }
+
+
+	   function initialiseSlides() {
+
+	      	// Add a single Slide
+	      	slideArray.push(new Object(currentSlide, 5, 5, (screenWidth - 10), (screenHeight - 10)));
+	   	slideArray[currentSlide].src = "img/gnome.jpg";
+	      	currentSlide++;
+
+	      	// Add a single Slide
+	      	slideArray.push(new Object(currentSlide, 5, 5, (screenWidth - 10), (screenHeight - 10)));
+	   	slideArray[currentSlide].src = "img/spade2.0.jpg";
+	      	slideArray[currentSlide].a = 0;
+	      	currentSlide++;
+
+	      	// Add a single Slide
+	      	slideArray.push(new Object(currentSlide, 5, 5, (screenWidth - 10), (screenHeight - 10)));
+	   	slideArray[currentSlide].src = "img/seeds2.jpg";
+	      	slideArray[currentSlide].a = 0;
+	      	currentSlide++;
+
+
+	      	currentSlide = 0;
+	   }
+	   initialiseSlides();
 	   
 	   function ChangeSlide() {
 	   		updateStatus = fadeOutStatus;
@@ -14,8 +56,8 @@
 	   }
 
 	   function updateSlider() {
-		   	if (updateStatus == pendingStatus) {
-	
+		   if (updateStatus == pendingStatus) {
+				
 		   	}
 		   	else if (updateStatus == fadeOutStatus) {
 		   		if (document.getElementById("wrapper").style.opacity > 0) {
@@ -55,6 +97,25 @@
 	   	
 		   	BoxArrangement();
 	   }
+	   
+	   function drawOnCanvas() {
+
+			var canvas = document.getElementById("canvas_1");
+
+			if (canvas.getContext) {
+				var canvas_context = canvas.getContext("2d");
+		      	// Clear Canvas
+		     	canvas_context.clearRect( 0, 0, screenWidth, screenHeight );
+
+				canvas_context.globalAlpha = slideArray[currentSlide].a;
+				var img = new Image();
+				img.src = slideArray[currentSlide].src;
+				width = document.getElementById("canvas_1").width; 
+				canvas_context.drawImage( img , slideArray[currentSlide].xPos, slideArray[currentSlide].yPos, (width - 10), (150 - 10) );  
+				
+			}
+		}
+	   
 	   var changeTmr = setInterval(ChangeSlide,  4000);
 	   var updateTmr = setInterval(updateSlider,  24);
 	   document.getElementById("wrapper").style.opacity = 1;
@@ -76,7 +137,7 @@
 			   document.getElementById("box3").style.width = '94%'; //'333px';
 		   }
 	   }
-
+ 
 			document.getElementById("boxa").style.backgroundImage = "url(img/seeds.jpg)";
 			document.getElementById("boxb").style.backgroundImage = "url(img/seeds2.jpg)";
 			document.getElementById("boxc").style.backgroundImage = "url(img/purple-garden.jpg)";
