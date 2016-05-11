@@ -113,7 +113,7 @@ public class PaymentController {
 	}
 
 	public Credit getCredit() {
-		credit = creditService.findByUserId(user.getId());
+		credit = creditService.findByUserId(currentUser.getUserId());
 		return credit;
 	}
 
@@ -122,7 +122,9 @@ public class PaymentController {
 	}
 
 	public Payment getPayment() {
-		payment = paymentService.getPayment(user);
+		System.out.println("About to get payment for user:" + currentUser.getUserId());
+		User paymentUser = paymentService.getCurrentUser(currentUser.getUserId());
+		payment = paymentService.getPayment(paymentUser);
 		return payment;
 	}
 
