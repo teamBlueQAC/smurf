@@ -79,8 +79,9 @@
 						<h:panelGroup rendered="#{!login.loggedIn}">
 						<li><button class="uk-button"
 								data-uk-modal="{target:'#modal1'}" style="margin: 5px">Login</button></li>
-						</h:panelGroup>
-						
+						<li><button class="uk-button"
+								data-uk-modal="{target:'#modal2'}" style="margin: 5px">Register</button></li>
+						</h:panelGroup>						
 						<h:panelGroup rendered="#{login.loggedIn}">
 						<li aria-expanded="false" aria-haspopup="true" class="uk-parent"
 						data-uk-dropdown="category.xhtml" id="category"><a
@@ -88,9 +89,11 @@
 						<div style="top: 40px; left: 0px;"
 							class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
 							<ul class="uk-nav uk-nav-navbar">
-								<li><a href="#">UserCP</a></li>
+								<li><a href="#">Account Management</a></li>
 								<li class="uk-nav-divider"></li>
-								<li><a href="#">Logout</a></li>
+								<li><a href="#">Wishlist</a></li>
+								<li class="uk-nav-divider"></li>
+								<li><h:link value="Logout" action="#{login.logout}" /></li>
 							</ul>
 						</div></li>
 						</h:panelGroup>
@@ -115,7 +118,36 @@
 							<h:inputSecret id="password" value="#{currentUser.password}"></h:inputSecret>
 						</div>
 						<div class="uk-form-row">
-							<h:commandButton value="Login" action="#{login.login}"></h:commandButton>
+							<h:commandButton class="uk-button uk-button-primary" value="Login" action="#{login.submit}"></h:commandButton>
+						</div>
+					</fieldset>
+				</h:form>
+			</div>
+		</div>
+		<div id="modal2" class="uk-modal">
+			<div class="uk-modal-dialog">
+				<button type="button" class="uk-modal-close uk-close"></button>
+				<h:form class="uk-form">
+					<fieldset>
+						<legend>Register</legend>				
+						<div class="uk-form-row">
+							<h:outputLabel for="username" value="Username:" />   
+							<h:inputText id="username"  value="#{register.user.username}"></h:inputText>
+						</div>
+						<div class="uk-form-row">
+							<h:outputLabel for="password1" value="Password:" />
+							<h:inputSecret id="password1" value="#{register.user.password}"></h:inputSecret>
+						</div>
+						<div class="uk-form-row">
+							<h:outputLabel for="password2" value="Confirm Password:" />
+							<h:inputSecret id="password2" value="#{register.user.password}"></h:inputSecret>
+						</div>
+						<div class="uk-form-row">
+							<h:outputLabel for="email" value="Email:" />
+							<h:inputSecret id="email" value="#{register.user.email}"></h:inputSecret>
+						</div>
+						<div class="uk-form-row">
+							<h:commandButton value="Login" action="#{register.submit}"></h:commandButton>
 						</div>
 					</fieldset>
 				</h:form>
