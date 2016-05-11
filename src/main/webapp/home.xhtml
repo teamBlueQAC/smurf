@@ -4,28 +4,33 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
 
-	<ui:define name="body">
-		<link rel="stylesheet" type="text/css" href="css/HomePage.css" />
+<ui:define name="body">
+	<link rel="stylesheet" type="text/css" href="css/HomePage.css" />
+		
+	<div class="boxthing" style="width: 100%; padding-top: 20px;">	
 		<div class="section1">
 			<div class="slideshow">
 				<div id="wrapper" style="background-image:img/gnome.jpg"></div>
 			</div>
 		</div>
+	</div>
+	
+	<div class="boxthing" style="width: 100%; padding-top: 20px;">
 		<div class="section2">
 			<div class="embed"></div>
 			<div class="welcomeText">
-				<h1>NB Gardens</h1>
-				<p style="text-align: center;">Welcome to NB Gardens, your one
+				<h1 class="home">NB Gardens</h1>
+				<p class="home" style="text-align: center;">Welcome to NB Gardens, your one
 					stop shop for everything you need to make your garden feel like
 					home</p>
 			</div>
 
 			<div class="embed"></div>
 		</div>
-		<div class="boxthing" style="width: 100%; padding-top: 20px;">
+	</div>
+		
+	<div class="boxthingV2" style="width: 100%; padding-top: 20px;">
 		<div class="section3">
-
-			<div class="boxthing" style="width: 100%; height: 100%;">
 				<!-- Box One -->
 				<div id="box1" class="categories">
 					<div class="title">
@@ -49,15 +54,12 @@
 					</div>
 					<div id="boxc" class="box"></div>
 				</div>
-
-
-
-			</div>
 		</div>
-</div>
 
-		<h:outputScript library="js" name="HomePage.js" />
+	</div>
 
-	</ui:define>
+	<h:outputScript library="js" name="HomePage.js" />
+
+</ui:define>
 
 </ui:composition>
