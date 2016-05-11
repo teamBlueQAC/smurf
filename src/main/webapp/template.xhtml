@@ -37,7 +37,6 @@
 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/css/components/accordion.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/default.css" />
-	<link rel="stylesheet" type="text/css" href="css/HomePage.css" />
 </h:head>
 <f:view>
 	<body>
@@ -86,18 +85,19 @@
 		</div>
 		<div id="modal1" class="uk-modal">
 			<div class="uk-modal-dialog">
-				<button type="button" class="uk-modal-close uk-close"></button>				
+				<button type="button" class="uk-modal-close uk-close"></button>
 				<h:form class="uk-form">
 					<fieldset>
 						<legend>Login</legend>
 						<div class="uk-form-row">
-							<h:inputText id="username" value="#{user.username}"/>
+							<h:inputText id="username" value="#{user.username}" />
 						</div>
 						<div class="uk-form-row">
-							<h:inputText id="password" value="#{user.password}"/>
+							<h:inputText id="password" value="#{user.password}" />
 						</div>
 						<div class="uk-form-row">
-							<h:commandButton class="uk-button uk-button-success" value="Login" action="#{user.login}" rendered="#{!currentUser}"/>
+							<h:commandButton class="uk-button uk-button-success"
+								value="Login" action="#{user.login}" rendered="#{!currentUser}" />
 						</div>
 					</fieldset>
 				</h:form>
@@ -138,6 +138,9 @@
 			</div>
 		</div>
 		<div id="footer" class="boxthing uk-width-1-1">
+			<div style="background-color: white; height: 1px;" />
+			<div style="background-color: rgb(53, 28, 140); height: 3px;" />
+			<div style="background-color: white; height: 1px;" />
 			<ul id="footerUL" class="uk-list" style="text-align: center;">
 				<li><a href="home.xhtml">Home</a></li>
 				<li><a href="aboutus.xhtml">About Us</a></li>
