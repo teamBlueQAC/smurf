@@ -14,26 +14,37 @@
 	<ui:define name="body">
 		<div class="boxthing">
 			<div class="basketitembox uk-grid">
-
 				<!-- The class that the Controller will call -->
-				<table class="basket" border="1" style="width: 100%">
-					<tr>
-						<td><h4></h4></td>
-						<td><h4>Product</h4></td>
-						<td><h4>Quantity</h4></td>
-						<td><h4>Price</h4></td>
-						<td><h4>Remove the Item</h4></td>
-					</tr>
-					<h:form>
-						<!-- repeat tag is used to iterate through all the order lines
+				<h:form rendered="basket.order.lineItem != null">
+					<!-- repeat tag is used to iterate through all the order lines
 			Within the order itself to generate the appropriate output -->
+<<<<<<< HEAD
+					<ui:repeat var="line" value="#{basket.order.lineItem}">
+						<div>
+							<div>
+								<h:graphicImage value="#{line.product.pictureLoc}" />
+							</div>
+							<div>
+								<h:outputText value="#{line.product.name}" />
+							</div>
+							<div>
+								<h:inputText value="#{line.quantity}" />
+							</div>
+							<div>
+								<h:outputText value="#{line.product.price}" />
+							</div>
+							<div>
+								<h:commandButton
+									value="#{basket.removeProductFromBasket(line.product.id)}" />
+							</div>
+=======
 						<ui:repeat var="line" value="#{basket.order.lineItem}">
 							<tr>
 								<td><h:graphicImage
 										value="#{line.product.pictureLoc}" /></td>
 								<td><h:outputText value="#{line.product.name}" /></td>
 								<td><h:inputText value="#{line.quantity}" /></td>
-								<td><h:outputText value="#{line.product.price}" /></td>
+								<td><h3>&#163;</h3><h:outputText value="#{line.product.price}" /></td>
 								<td><h:commandButton
 										value="#{basket.removeProductFromBasket(line.product.id)}" /></td>
 							</tr>
@@ -41,7 +52,7 @@
 						<!--  -->
 						<div class="totalbox uk-container uk-container-right">
 							<h3>
-								<h:outputText value="#{basket.totalPrice}" />
+								<h:outputText value="#{basket.getTotalPrice()}" />
 							</h3>
 							<!-- Replaced with commandbutton instead of a tag
 							Given the button needs to be callable through JSF -->
@@ -49,11 +60,24 @@
 								<h:commandButton value="#{basket.placeOrder}"
 									class="uk-button uk-button-large" id="checkout" />
 							</h3>
+>>>>>>> branch 'master' of https://github.com/teamBlueQAC/smurf.git
 						</div>
+					</ui:repeat>
+					<!--  -->
+					<div class="totalbox uk-container uk-container-right">
+						<h3>
+							<h:outputText value="#{basket.getTotalPrice()}" />
+						</h3>
+						<!-- Replaced with commandbutton instead of a tag
+							Given the button needs to be callable through JSF -->
+						<h3>
+							<h:commandButton value="#{basket.placeOrder}"
+								class="uk-button uk-button-large" id="checkout" />
+						</h3>
+					</div>
 
 
-					</h:form>
-				</table>
+				</h:form>
 			</div>
 		</div>
 	</ui:define>

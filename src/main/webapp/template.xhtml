@@ -32,20 +32,21 @@
 		href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/css/components/slideshow.min.css" />
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/js/components/slideshow.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/js/components/parallax.js"></script>
 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/css/components/accordion.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/default.css" />
-	<link rel="stylesheet" type="text/css" href="css/HomePage.css" />
 </h:head>
 <f:view>
 	<body>
 		<div id="banner"
-			style="width: 100%; height: 150px; background-color: #fcefab;">
-			<a href="home.xhtml"><img src="img/logoAlpha.png"
-				style="float: left;" /></a>
+			style="width: 100%; height: 150px; background-color: #8A77CB;">
+			<a href="home.xhtml"><img src="img/logoNew.png"
+				style="float: left; padding: 20px;" /></a>
 		</div>
 		<div id="menu" data-uk-sticky="{boundary:'#footer'}"
-			style="height: 40px; background-color: #7EC0EE;">
+			style="height: 40px; background-color: #351C8C;">
 			<div style="width: 100%; max-width: 1000px; margin: 0 auto;">
 				<ul class="uk-navbar-nav uk-hidden-small">
 					<li id="home"><a href="home.xhtml">Home</a></li>
@@ -74,28 +75,46 @@
 						<li><input autocomplete="off" class="uk-search-field"
 							style="background: #eee; margin: 5px;" placeholder="search"
 							type="search" /></li>
+						<h:panelGroup rendered="#{!login.loggedIn}">
 						<li><button class="uk-button"
 								data-uk-modal="{target:'#modal1'}" style="margin: 5px">Login</button></li>
+						</h:panelGroup>
+						
+						<h:panelGroup rendered="#{login.loggedIn}">
+						<li aria-expanded="false" aria-haspopup="true" class="uk-parent"
+						data-uk-dropdown="category.xhtml" id="category"><a
+						href="category.xhtml">#{login.username}</a>
+						<div style="top: 40px; left: 0px;"
+							class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
+							<ul class="uk-nav uk-nav-navbar">
+								<li><a href="#">UserCP</a></li>
+								<li class="uk-nav-divider"></li>
+								<li><a href="#">Logout</a></li>
+							</ul>
+						</div></li>
+						</h:panelGroup>
 						<li><a href="basket.xhtml"><i
-								class="fa fa-shopping-basket" aria-hidden="true"></i> &#163; </a></li>
+								class="fa fa-shopping-basket" aria-hidden="true"></i> &#163;5.00 </a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 		<div id="modal1" class="uk-modal">
 			<div class="uk-modal-dialog">
-				<button type="button" class="uk-modal-close uk-close"></button>				
+				<button type="button" class="uk-modal-close uk-close"></button>
 				<h:form class="uk-form">
 					<fieldset>
-						<legend>Login</legend>
+						<legend>Login</legend>				
 						<div class="uk-form-row">
-							<h:inputText id="username" value="#{user.username}"/>
+							<h:outputLabel for="username" value="Username:" />   
+							<h:inputText id="username"  value="#{login.username}"></h:inputText>
 						</div>
 						<div class="uk-form-row">
-							<h:inputText id="password" value="#{user.password}"/>
+							<h:outputLabel for="password" value="Password:" />
+							<h:inputSecret id="password" value="#{login.password}"></h:inputSecret>
 						</div>
 						<div class="uk-form-row">
-							<h:commandButton class="uk-button uk-button-success" value="Login" action="#{user.login}" rendered="#{!currentUser}"/>
+							<h:commandButton value="Login" action="#{login.login}"></h:commandButton>
 						</div>
 					</fieldset>
 				</h:form>
@@ -123,7 +142,7 @@
 		</div>
 		<div id="mainCont">
 			<ui:insert name="pageTitle" />
-			<div style="margin-top: 15px; width: 100%; height: 100%;">
+			<div style="margin-top: 15px; width: 100%;">
 				<ui:insert name="body" />
 			</div>
 		</div>
@@ -136,6 +155,9 @@
 			</div>
 		</div>
 		<div id="footer" class="boxthing uk-width-1-1">
+			<div style="background-color: white; height: 1px;" />
+			<div style="background-color: rgb(53, 28, 140); height: 3px;" />
+			<div style="background-color: white; height: 1px;" />
 			<ul id="footerUL" class="uk-list" style="text-align: center;">
 				<li><a href="home.xhtml">Home</a></li>
 				<li><a href="aboutus.xhtml">About Us</a></li>

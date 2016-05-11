@@ -4,16 +4,41 @@
 	width: 100%;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	color: white;
+}
+
+a, .uk-tab>li>a {
+	color: white;
+	text-decoration: underline;
+}
+
+.uk-tab>li>a {
+	text-decoration: none;
+}
+
+.uk-nav-navbar>li>a:hover {
+	background: #351C8C;
+}
+
+.uk-link:hover, a:hover, .uk-tab>li>a:hover, .uk-tab>li.uk-active>a {
+	color: #351C8C;
+}
+
 #footerUL>li {
 	padding: 5px;
 }
-
 
 html, body {
 	height: 100%;
 	width: 100%;
 	margin: 0;
-	background-color: #d0e4fe;
+	background-color: #8A77CB;
+	color: white;
+}
+
+.uk-navbar-nav>li>a {
+	color: white;
 }
 
 #mainCont {
@@ -35,6 +60,7 @@ html, body {
 
 .hlinks {
 	text-align: right;
+	text-decoration: underline;
 }
 
 .header {
@@ -52,8 +78,8 @@ html, body {
 	height: 300px;
 }
 
-.categoryheader {
-	padding-top: 10px
+.categoryheaders {
+	text-align: center;
 }
 
 .lineitems {
@@ -71,7 +97,7 @@ html, body {
 }
 
 .Gardenbox {
-	background-image: url("../img/copyrightfreeteam.jpg");
+	background-image: url("../img/spade2.0.jpg");
 }
 
 .Gnomesbox {
@@ -95,10 +121,6 @@ html, body {
 .infobox {
 	display: inline-block;
 	float: left;
-}
-
-#footer {
-	background-color: #7EC0EE;
 }
 
 .quantity {

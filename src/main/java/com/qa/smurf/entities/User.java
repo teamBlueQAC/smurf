@@ -59,8 +59,19 @@ public class User {
 	@NotNull
 	private Date created;
 
-	public User(int id, String name, String password, String email, String phoneNumber, Date lastlogin,
-			boolean isActive, Address address, Date datecreated) {
+	public User() {}
+	
+	public User(int id, String name, String password, String email, String phoneNumber, Date lastLogin,
+			boolean isActive, Address address, Date dateCreated) {
+		this.id= id;
+		this.name=name;
+		this.password=password;
+		this.email= email;
+		this.phone = phoneNumber;
+		this.lastLogin = lastLogin;
+		this.isActivate = isActive;
+		this.address = address;
+		this.created = dateCreated;
 	}
 
 	public int getId() {

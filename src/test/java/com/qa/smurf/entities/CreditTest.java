@@ -17,31 +17,40 @@ public class CreditTest extends TestCase {
 		assertNotNull(credit.getUser());
 	}
 
-	// public void testSetUserID() {
-	// fail("Not yet implemented");
-	// }
-	//
-	// public void testGetAmount() {
-	// fail("Not yet implemented");
-	// }
-	//
-	// public void testSetAmount() {
-	// fail("Not yet implemented");
-	// }
-	//
-	// public void testGetAmountRemaining() {
-	// fail("Not yet implemented");
-	// }
-	//
-	// public void testSetAmountRemaining() {
-	// fail("Not yet implemented");
-	// }
-	//
-	// public void testGetQuarter() {
-	// fail("Not yet implemented");
-	// }
-	//
-	// public void testSetQuarter() {
-	// fail("Not yet implemented");
-	// }
+	public void testSetUser() {
+		User newUser = new User(1, "q", "w", "e", "r", null, true, new Address("t", "y"), null);
+		credit.setUser(newUser);
+		assertEquals(newUser , credit.getUser());
+	}
+
+	public void testGetAmount() {
+		assertNotNull(credit.getAmount());
+	}
+
+	public void testSetAmount() {
+		credit.setAmount(1.5);
+		assertEquals(1.5, credit.getAmount());
+	}
+
+	public void testGetAmountRemaining() {
+		assertNotNull(credit.getAmountRemaining());
+	}
+
+	public void testSetAmountRemaining() {
+		credit.setAmountRemaining(1.5);
+		assertEquals(1.5, credit.getAmountRemaining());
+	}
+
+	/*
+	public void testGetQuarter() {
+		assertNotNull(credit.getQuarter());
+	}
+
+	public void testSetQuarter() {
+		credit.setQuarter(2);
+		assertEquals(2, credit.getQuarter());
+	}
+	
+	*/
+
 }

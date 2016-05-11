@@ -10,9 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import com.qa.smurf.util.ProductType;
 
 @Entity
 @Table(name = "product")
@@ -51,8 +52,7 @@ public class Product {
 	@NotNull
 	private int quantityAvailable;
 
-	@ManyToOne
-	@JoinColumn(name = "TYPE_ID")
+	@JoinColumn(name = "TYPE")
 	private ProductType productType;
 
 	@Column(name = "DESCRIPTION", length = 510)
@@ -178,5 +178,4 @@ public class Product {
 		this.reorderThreshold = reorderThreshold;
 		this.reorderedAmount = reorderedAmount;
 	}
-
 }
