@@ -3,8 +3,8 @@ package com.qa.smurf.repositories;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.qa.smurf.entities.Product;
+import com.qa.smurf.util.ProductType;
 
 public interface ProductRepository {
 
@@ -15,6 +15,8 @@ public interface ProductRepository {
 	public Product findByID(long id);
 	
 	public Product findByName(String name);
+	
+	public Product findByType(ProductType productType);
 
 	public ArrayList<Product> getProducts();
 
