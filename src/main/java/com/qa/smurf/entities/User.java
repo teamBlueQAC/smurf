@@ -59,6 +59,8 @@ public class User {
 	@NotNull
 	private Date created;
 
+	public User() {}
+	
 	public User(int id, String name, String password, String email, String phoneNumber, Date lastLogin,
 			boolean isActive, Address address, Date dateCreated) {
 		this.id= id;

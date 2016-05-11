@@ -1,5 +1,7 @@
 package com.qa.smurf.entities;
 
+import com.qa.smurf.util.ProductType;
+
 import junit.framework.TestCase;
 
 public class ProductTest extends TestCase {
@@ -7,7 +9,7 @@ public class ProductTest extends TestCase {
 	Product product;
 	public ProductTest(String name) {
 		super(name);
-		ProductType prodType = new ProductType(0, "");
+		ProductType prodType = ProductType.GNOME;
 		product = new Product(0, "", "", "", 0.0, false, "", 0, prodType, "", 0, 0);
 	}
 
@@ -89,9 +91,7 @@ public class ProductTest extends TestCase {
 	}
 
 	public void testSetProductType() {
-		ProductType prodType = new ProductType(1, "a");
-		product.setProductType(prodType);
-		assertEquals(prodType, product.getProductType());
+		assertEquals(ProductType.GNOME, product.getProductType());
 	}
 
 	public void testGetDescription() {
