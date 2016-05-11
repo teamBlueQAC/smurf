@@ -76,10 +76,26 @@
 						<li><input autocomplete="off" class="uk-search-field"
 							style="background: #eee; margin: 5px;" placeholder="search"
 							type="search" /></li>
+						<h:panelGroup rendered="#{!login.loggedIn}">
 						<li><button class="uk-button"
 								data-uk-modal="{target:'#modal1'}" style="margin: 5px">Login</button></li>
+						</h:panelGroup>
+						
+						<h:panelGroup rendered="#{login.loggedIn}">
+						<li aria-expanded="false" aria-haspopup="true" class="uk-parent"
+						data-uk-dropdown="category.xhtml" id="category"><a
+						href="category.xhtml">#{login.username}</a>
+						<div style="top: 40px; left: 0px;"
+							class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
+							<ul class="uk-nav uk-nav-navbar">
+								<li><a href="#">UserCP</a></li>
+								<li class="uk-nav-divider"></li>
+								<li><a href="#">Logout</a></li>
+							</ul>
+						</div></li>
+						</h:panelGroup>
 						<li><a href="basket.xhtml"><i
-								class="fa fa-shopping-basket" aria-hidden="true"></i> &#163; </a></li>
+								class="fa fa-shopping-basket" aria-hidden="true"></i> &#163;5.00 </a></li>
 					</ul>
 				</div>
 			</div>
@@ -89,15 +105,17 @@
 				<button type="button" class="uk-modal-close uk-close"></button>				
 				<h:form class="uk-form">
 					<fieldset>
-						<legend>Login</legend>
+						<legend>Login</legend>				
 						<div class="uk-form-row">
-							<h:inputText id="username" value="#{user.username}"/>
+							<h:outputLabel for="username" value="Username:" />   
+							<h:inputText id="username"  value="#{login.username}"></h:inputText>
 						</div>
 						<div class="uk-form-row">
-							<h:inputText id="password" value="#{user.password}"/>
+							<h:outputLabel for="password" value="Password:" />
+							<h:inputSecret id="password" value="#{login.password}"></h:inputSecret>
 						</div>
 						<div class="uk-form-row">
-							<h:commandButton class="uk-button uk-button-success" value="Login" action="#{user.login}" rendered="#{!currentUser}"/>
+							<h:commandButton value="Login" action="#{login.login}"></h:commandButton>
 						</div>
 					</fieldset>
 				</h:form>
