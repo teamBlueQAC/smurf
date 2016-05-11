@@ -19,7 +19,7 @@ import com.qa.smurf.repositories.AddressRepository;
 @Stateless
 public class AddressRepositoryOffline implements AddressRepository {
 	@Inject
-	private InitialData initialData/* = new InitialData()*/;
+	private InitialData initialData;
 
 	/**
 	 * Adds the address to the storage

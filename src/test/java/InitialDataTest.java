@@ -154,12 +154,12 @@ public class InitialDataTest {
 		assertEquals(newUsers, initialDataTest.getUsers());
 	}
 
-	@Test
-	public void testAddUser() {
-		User newUser = new User(1, "a", "a", "a", "a", new Date(), true, new Address("a", "a"), new Date());
-		initialDataTest.addUser(newUser);
-		assertEquals(newUser, initialDataTest.getUsers().get(initialDataTest.getUsers().size() -1));
-	}
+	//@Test
+	//public void testAddUser() {
+		//User newUser = new User(1, "a", "a", "a", "a", new Date(), true, new Address("a", "a"), new Date());
+		//initialDataTest.addUser(newUser);
+		//assertEquals(newUser, initialDataTest.getUsers().get(initialDataTest.getUsers().size() -1));
+	//}
 
 	@Test
 	public void testAddLineItems() {

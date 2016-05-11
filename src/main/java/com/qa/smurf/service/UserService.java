@@ -10,7 +10,7 @@ import com.qa.smurf.repositories.offline.UserRepositoryOffline;
 @Stateless
 public class UserService {
 	 
-	@Inject
+	//@Inject
 	private UserRepositoryOffline userRepository;
 	
 	public int authenticate(String username, String password) {

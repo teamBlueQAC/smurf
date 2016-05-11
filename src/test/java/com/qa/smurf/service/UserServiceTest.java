@@ -28,36 +28,41 @@ public class UserServiceTest {
 	@Mock
 	private UserRepository uRep;
 	@Mock 
-	UserRepositoryOffline uRepOff;
+	private UserRepositoryOffline uRepOff;
 	@Mock
-	InitialData initialData;
+	private InitialData initialData;
+	
 	@InjectMocks
-	private UserService uService = new UserService();
-	//ArrayList<User> users = initialData.getUsers();
+	private UserService uService;
+	
 	@Before
 	public void initMockito(){
+		MockitoAnnotations.initMocks(initialData);
+		MockitoAnnotations.initMocks(uRep);
+		MockitoAnnotations.initMocks(uRepOff);
 		MockitoAnnotations.initMocks(this);
 	}
 	
-	/*
+	
 	@Test
-	public void testAuthenticate() {
-		Mockito.stub(uService.authenticate(any(String()), any(String())));
-		assertNotNull(uService.authenticate("Will", "Password123"));
+	public void testAuthenticate(){
+		Mockito.when(uService.authenticate("tyu", "ghj")).thenReturn(1);
+		assertNotNull(uService.authenticate("tyu", "ghj"));
+		
 	}
-	*/
+	
+	
 	@Test
 	public void testAddUser() {
 		User newUser = new User(1, "billy", "mayes");
 		uService.addUser(newUser);
 		String search = newUser.toString();
-		//when(uService.addUser(newUser)).thenReturn(true);
-		Mockito.stub(uService.userExists(search)).toReturn(true);
+		Mockito.when(uService.userExists(newUser.getName())).thenReturn(true);
 		assertTrue(uService.userExists(newUser.getName()));
 	}
 	
+	
 	/*
-
 	@Test
 	public void testUserExists() {
 		fail("Not yet implemented");
