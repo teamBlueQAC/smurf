@@ -33,33 +33,33 @@ public class BasketController {
 	private float totalPrice = orderService.calcOrderTotalPending(currentUser.getUserId());
 
 	public String removeProductFromBasket(long productId) {
-		orderService.removeFromBasket(productId, currentUser.getUserId());
+		orderService.removeFromBasket(productId, user.getId());
 		return "basket";
 	}
 
 	public String updateQuantity() {
-		orderService.updateQuantity(order, currentUser.getUserId());
+		orderService.updateQuantity(order, user.getId());
 
 		return "basket";
 	}
 
 	public String clearBasket() {
-		orderService.clearBasket(currentUser.getUserId());
+		orderService.clearBasket(user.getId());
 		return "basket";
 	}
 
 	// gets called when adding a product
 	// calls the orderService to add a product to the basket.
 	public void addToBasket(long productId) {
-		orderService.addToBasket(productId, currentUser.getUserId());
+		orderService.addToBasket(productId, user.getId());
 	}
 
 	public void getLineItems(Order order) {
-		orderService.getLineItems(order, currentUser.getUserId());
+		orderService.getLineItems(order, user.getId());
 	}
 
 	public String placeOrder() {
-		orderService.placeOrder(order, currentUser.getUserId());
+		orderService.placeOrder(order, user.getId());
 		return "order";
 	}
 
