@@ -68,15 +68,15 @@ var counter = 1;
 		   			} 
 		   			if (counter == 1) {
 		   				document.getElementById("wrapper").style.backgroundImage = "url(img/gnome.jpg)";
-		   				//document.getElementById("slideLink").href = "https://www.google.co.uk"
+		   				document.getElementById("slideLink").href = "catalogue.xhtml";
 		   			}	
 		   			else if (counter == 2) {
 		   				document.getElementById("wrapper").style.backgroundImage = "url(img/spade2.0.jpg)";
-		   				//document.getElementById("slideLink").href = "https://www.google.co.uk"
+		   				document.getElementById("slideLink").href = "catalogue.xhtml";
 		   			}
 		   			else if (counter == 3) {
 		   				document.getElementById("wrapper").style.backgroundImage = "url(img/seeds2.jpg)";
-		   				//document.getElementById("slideLink").href = "https://www.google.co.uk"
+		   				document.getElementById("slideLink").href = "catalogue.xhtml";
 		   			}  
 		   			updateStatus = fadeInStatus;
 		   		}   		
