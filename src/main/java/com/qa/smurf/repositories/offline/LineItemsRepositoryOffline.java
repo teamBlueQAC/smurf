@@ -21,11 +21,11 @@ public class LineItemsRepositoryOffline implements LineItemsRepository {
 	private InitialData initialData;
 
 	@Override
-	public void persistLineItems(LineItems lineitems) {
-		initialData.addLineItems(lineitems);
-
+	public void persistLineItem(LineItems lineitem) {
+		initialData.addLineItems(lineitem);
 	}
 
+	@Override
 	public void persistLineItems(List<LineItems> lineitems) {
 		for (LineItems l : lineitems) {
 			initialData.addLineItems(l);
@@ -33,17 +33,18 @@ public class LineItemsRepositoryOffline implements LineItemsRepository {
 
 	}
 
-	public ArrayList<LineItems> findByCompositeKey(Order order, Product product) {
-		ArrayList<LineItems> temp = new ArrayList<LineItems>();
+	@Override
+	public LineItems findByCompositeKey(Order order, Product product) {
 		for (LineItems l : initialData.getLineItems()) {
-			if (l.getOrder().equals(order) && l.getProduct().equals(product)) {
-				temp.add(l);
+			if (order.equals(l.getOrder()) && product.equals(l.getProduct())) {
+				return l;
 			}
 		}
 
-		return temp;
+		return null;
 	}
 
+	@Override
 	public ArrayList<LineItems> findByProduct(Product product) {
 		ArrayList<LineItems> temp = new ArrayList<LineItems>();
 		for (LineItems l : initialData.getLineItems()) {
@@ -55,12 +56,14 @@ public class LineItemsRepositoryOffline implements LineItemsRepository {
 		return temp;
 	}
 
+	@Override
 	public ArrayList<LineItems> getLineItems() {
 		ArrayList<LineItems> lineitems = new ArrayList<LineItems>();
 		lineitems = initialData.getLineItems();
 		return lineitems;
 	}
 
+	@Override
 	public LineItems readLineItems(LineItems p) {
 		ArrayList<LineItems> lineitems = new ArrayList<LineItems>();
 		lineitems = initialData.getLineItems();
@@ -78,9 +81,23 @@ public class LineItemsRepositoryOffline implements LineItemsRepository {
 		for (int i = 0; i < lineItems.size(); i++) {
 			if (lineItems.get(i).equals(lineItem)){
 				lineItems.remove(i);
+				break;
 			}
 		}
-		initialData.setLineItems(lineItems);
+		
+	}
+	
+	@Override
+	public void updateLineItem(LineItems lineItem) {
+		ArrayList<LineItems> lineItems = initialData.getLineItems();
+		for (int i = 0; i < lineItems.size(); i++) {
+			if (lineItems.get(i).getOrder().equals(lineItem.getOrder()) &&
+					lineItems.get(i).getProduct().equals(lineItem.getProduct())){
+				lineItems.set(i, lineItem);
+				break;
+			}
+		}
+		
 	}
 
 }

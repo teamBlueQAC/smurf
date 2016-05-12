@@ -11,7 +11,7 @@
 	</ui:define>
 	<ui:define name="body">
 		<ui:repeat var="line" value="#{product.products}">
-			<ui:fragment rendered="#{line.productType.toString() eq 'GNOME'}">
+			<ui:fragment rendered="#{line.productType.toString() eq filter.productType}">
 				<br />
 				<div class="boxthing uk-width-medium-1-3 uk-width-small-1-1">
 					<div style="padding: 20px; height: 400px">

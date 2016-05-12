@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.repositories.ProductRepository;
+import com.qa.smurf.util.ProductType;
 
 @Default
 @Stateless
@@ -42,7 +43,7 @@ public class ProductRepositoryOffline implements ProductRepository {
 		return null;
 
 	}
-	
+
 	@Override
 	public Product findByName(String name) {
 		ArrayList<Product> products = initialData.getProducts();
@@ -82,5 +83,16 @@ public class ProductRepositoryOffline implements ProductRepository {
 			}
 		}
 
+	}
+
+	@Override
+	public Product findByType(ProductType productType) {
+		ArrayList<Product> products = initialData.getProducts();
+		for (int i = 0; i < products.size(); i++) {
+			if (products.get(i).getProductType().equals(productType)) {
+				return products.get(i);
+			}
+		}
+		return null;
 	}
 }

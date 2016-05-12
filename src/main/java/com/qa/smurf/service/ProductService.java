@@ -33,7 +33,11 @@ public class ProductService {
 		return String.format("%.2f", product.getPrice());
 	}
 
-	public Product findByType(ProductType productType) {
-		return productRepository.findByType(productType);
+	public Product findByType(String productType) {
+		for (ProductType p : ProductType.values()) {
+			if(p.toString().equalsIgnoreCase(productType))
+				return productRepository.findByType(p);
+		}
+		return null;
 	}
 }

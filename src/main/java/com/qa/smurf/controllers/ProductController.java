@@ -9,7 +9,6 @@ import javax.inject.Named;
 
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.service.ProductService;
-import com.qa.smurf.util.ProductType;
 
 @Named(value = "product")
 @RequestScoped
@@ -18,6 +17,7 @@ public class ProductController {
 	private ProductService productService;
 	private Product product;
 	private List<Product> products;
+	private String productType;
 	
 	@PostConstruct
 	public void init() {
@@ -34,7 +34,8 @@ public class ProductController {
 		this.product = productService.findByName(name);
 		return product;
 	} 
-	public Product findByType(ProductType productType){
+	
+	public Product findByType(){
 		this.product = productService.findByType(productType);
 		return product;
 	}
@@ -56,5 +57,14 @@ public class ProductController {
 	}
 	public String getProductPrice(){
 		return productService.productPriceTo2DP(this.product);
+	}
+
+	public String getProductType() {
+		return productType;
+	}
+
+	public void changeType(String productType) {
+		System.out.println("--Changing type to " + productType);
+		this.productType = productType;
 	}
 }	
