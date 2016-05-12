@@ -26,7 +26,7 @@
 						<td><h3>&#163;</h3><h:outputText value="#{line.product.name}" /></td>
 						<td><h:outputText value="#{line.product.price}" /></td>
 						<td><h:commandButton
-								value="#{wishlist.removeFromWishlist(line.product.id)}" /></td>
+								action="#{wishlist.removeFromWishlist(line.product.id)}" /></td>
 					</tr>
 				</ui:repeat>
 			</h:form>
