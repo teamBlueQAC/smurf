@@ -17,7 +17,7 @@
 				<td><h4>Price</h4></td>
 				<td><h4>Remove the Item</h4></td>
 			</tr>
-			<h:form rendered="wishlist.wishlistEntries != null">
+			<h:form>
 				<!-- repeat tag is used to iterate through all the order lines
 			Within the order itself to generate the appropriate output -->
 				<ui:repeat var="line" value="#{wishlist.wishListEntries}">
@@ -26,7 +26,7 @@
 						<td><h3>&#163;</h3><h:outputText value="#{line.product.name}" /></td>
 						<td><h:outputText value="#{line.product.price}" /></td>
 						<td><h:commandButton
-								 value="Add to Basket" action="#{wishlist.removeFromWishlist(line.product.id)}"/></td>
+								 value="Remove From Wishlist" action="#{wishlist.removeFromWishlist(line.product.id)}"/></td>
 					</tr>
 				</ui:repeat>
 			</h:form>
