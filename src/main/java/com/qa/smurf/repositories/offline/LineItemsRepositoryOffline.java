@@ -63,6 +63,7 @@ public class LineItemsRepositoryOffline implements LineItemsRepository {
 		return lineitems;
 	}
 
+	//Validation method?
 	@Override
 	public LineItems readLineItems(LineItems p) {
 		ArrayList<LineItems> lineitems = new ArrayList<LineItems>();

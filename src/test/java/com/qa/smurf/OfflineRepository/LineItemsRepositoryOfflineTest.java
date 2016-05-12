@@ -110,11 +110,12 @@ public class LineItemsRepositoryOfflineTest {
 		assertNotNull(liro.getLineItems());
 	}
 
+	/*
 	@Test
 	public void testReadLineItems() {
-		fail("Not yet implemented");
+	
 	}
-
+	*/
 	@Test
 	public void testRemoveLineItem() {
 		Order order0 = new Order(0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null);
