@@ -29,6 +29,10 @@ public class WishListController {
 		wishlistService.removeFromWishlist(productId, currentUser.getUserId());
 		return "wishlist";
 	}
+	
+	public String addToBasket(long productId){
+		return wishlistService.addToBasketFromWishlist(productId, currentUser.getUserId());
+	}
 
 	public User getUser() {
 		user = wishlistService.getCurrentUser(currentUser.getUserId());

@@ -16,6 +16,7 @@
 				<td><h4>Product</h4></td>
 				<td><h4>Price</h4></td>
 				<td><h4>Remove the Item</h4></td>
+				<td><h4>Add To Basket</h4></td>
 			</tr>
 			<h:form>
 				<!-- repeat tag is used to iterate through all the order lines
@@ -23,10 +24,13 @@
 				<ui:repeat var="line" value="#{wishlist.wishListEntries}">
 					<tr>
 						<td><h:graphicImage value="#{line.product.pictureLoc}" /></td>
-						<td><h3>&#163;</h3><h:outputText value="#{line.product.name}" /></td>
+						<td><h3>&#163;</h3>
+							<h:outputText value="#{line.product.name}" /></td>
 						<td><h:outputText value="#{line.product.price}" /></td>
-						<td><h:commandButton
-								 value="Remove From Wishlist" action="#{wishlist.removeFromWishlist(line.product.id)}"/></td>
+						<td><h:commandButton value="Remove From Wishlist"
+								action="#{wishlist.removeFromWishlist(line.product.id)}" /></td>
+						<td><h:commandButton value="Add To Basket"
+								action="#{wishlist.addToBasket(line.product.id)}" /></td>
 					</tr>
 				</ui:repeat>
 			</h:form>
