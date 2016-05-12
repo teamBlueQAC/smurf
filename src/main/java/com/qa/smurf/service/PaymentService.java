@@ -74,8 +74,10 @@ public class PaymentService {
 
 	public Order getPlacedOrder(User user) {
 		List<Order> orders = orderRepository.findByUser(user);
+		System.out.println("Orders Size" + orders.size());
 		for (Order o : orders) {
 			if (o.getOrderStatus() == OrderStatus.PLACED) {
+				System.out.println("order found");
 				return o;
 			}
 		}
@@ -92,17 +94,19 @@ public class PaymentService {
 			return 0.0;
 		}
 	}
-	
+
 	public float calcOrderTotalPlaced(long userId) {
 		float total = 0;
 		Order order = getPlacedOrder(userRepository.findByID(userId));
 		if (order != null) {
+			System.out.println("Order Not Null");
 			if(order.getLineItem()!=null){
 				for (LineItems li : order.getLineItem()) {
-					total = (float) li.getSubtotal();
+					total += (li.getProduct().getPrice())*(li.getQuantity());
 				}
 			}
 		}
+		System.out.println("Pending Total = " + total);
 		return total;
 	}
 

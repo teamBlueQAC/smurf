@@ -63,7 +63,7 @@ public class BasketController {
 	}
 
 	public String placeOrder() {
-		orderService.placeOrder(order, currentUser.getUserId());
+		orderService.placeOrder(currentUser.getUserId());
 		return "payment";
 	}
 

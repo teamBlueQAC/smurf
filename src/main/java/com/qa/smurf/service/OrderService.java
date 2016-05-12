@@ -39,10 +39,10 @@ public class OrderService {
 		Product product = productRepository.findByID(productId);
 		List<Order> orders = orderRepository.findByUser(userRepository.findByID(userId));
 		Order order = getPendingOrders(orders);		
-		
+
 		if (order != null) {
 			LineItems foundLineItem = lineItemsRepository.findByCompositeKey(order, productRepository.findByID(productId));
-			
+
 			if (foundLineItem == null){			
 				newLineItem(order, product);
 				orderRepository.updateOrder(order);
@@ -53,9 +53,9 @@ public class OrderService {
 		} else {
 			newOrder(product, userId);
 		}
-		
+
 	}
-	
+
 	private LineItems updateLineQuantity(LineItems lineItem, Order order){
 		lineItem.setQuantity(lineItem.getQuantity() + 1);
 		lineItemsRepository.updateLineItem(lineItem);
@@ -66,12 +66,12 @@ public class OrderService {
 		System.out.println("New Order Total = " + order.getTotal());
 		return lineItem;
 	}
-	
+
 	private LineItems newLineItem(Order order, Product product){
 		LineItems newLineItem = new LineItems(order, product, 1, product.getPrice(), 0);
 		lineItemsRepository.persistLineItem(newLineItem);
 		List<LineItems> lineItems = order.getLineItem();
-		
+
 		if (lineItems == null){
 			lineItems = new ArrayList<LineItems>();
 		}
@@ -83,7 +83,7 @@ public class OrderService {
 		System.out.println("New Order Total = " + order.getTotal());
 		return newLineItem;
 	}
-	
+
 	private Double calculateOrderTotal(Order order, LineItems lineItem) {
 		Double total = 0.0;
 		if(order.getLineItem()!=null){
@@ -101,7 +101,7 @@ public class OrderService {
 				userRepository.findByID(userId).getAddress(), userRepository.findByID(userId), OrderStatus.PENDING);
 		orderRepository.persistOrder(order);
 		newLineItem(order, product);
-		
+
 	}
 
 	private Order getPendingOrders(List<Order> oa) {
@@ -151,14 +151,17 @@ public class OrderService {
 		if (order != null) {
 			if(order.getLineItem()!=null){
 				for (LineItems li : order.getLineItem()) {
-					total = (float) li.getSubtotal();
+					total += (li.getProduct().getPrice())*(li.getQuantity());
 				}
 			}
 		}
+		System.out.println("Pending Total = " + total);
 		return total;
 	}
 
-	public void placeOrder(Order order, long userId) {
+	public void placeOrder(long userId) {
+		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
+		Order order = getPendingOrders(oa);
 		if (order != null) {
 			for (LineItems li : order.getLineItem()) {
 				long productId = li.getProduct().getId();
@@ -170,8 +173,8 @@ public class OrderService {
 				}
 			}
 			order.setOrderStatus(OrderStatus.PLACED);
+			System.out.println("Order Status = " + order.getOrderStatus());
 			orderRepository.updateOrder(order);
-			orderRepository.persistOrder(order);
 		}
 
 	}
