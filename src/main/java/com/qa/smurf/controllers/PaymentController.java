@@ -82,6 +82,10 @@ public class PaymentController {
 		return returnPayment;
 	}
 	
+	public float getTotalPrice() {
+		return paymentService.calcOrderTotalPlaced(currentUser.getUserId());
+	}
+	
 	public String confirmPayment(){
 		return paymentService.confirmPayment(placedOrder, credit, payment, currentUser.getUserId());
 	}

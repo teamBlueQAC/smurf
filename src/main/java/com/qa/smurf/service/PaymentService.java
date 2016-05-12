@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import com.qa.smurf.entities.Credit;
+import com.qa.smurf.entities.LineItems;
 import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.User;
@@ -90,6 +91,19 @@ public class PaymentService {
 			System.out.println("Credit is less than the order total");
 			return 0.0;
 		}
+	}
+	
+	public float calcOrderTotalPlaced(long userId) {
+		float total = 0;
+		Order order = getPlacedOrder(userRepository.findByID(userId));
+		if (order != null) {
+			if(order.getLineItem()!=null){
+				for (LineItems li : order.getLineItem()) {
+					total = (float) li.getSubtotal();
+				}
+			}
+		}
+		return total;
 	}
 
 	public Payment getPayment(User user) {
