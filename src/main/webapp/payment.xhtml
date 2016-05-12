@@ -149,10 +149,15 @@ input {
 
 			</div>
 		</div>
-		<div class="uk-width-1-1"
-			style="display: block; float: left; height: 100px;">
-			<h:commandButton value="Confirm" action="#{payment.confirmPayment()}"
-								class="uk-button uk-button-large" id="checkout" />
-		</div>
+		<h:form>
+			<div class="uk-width-1-1"
+				style="display: block; float: left; height: 100px;">
+				<h:commandButton value="Confirm"
+					action="#{payment.confirmPayment()}"
+					class="uk-button uk-button-large" id="checkout" />
+				<h:commandButton value="Cancel" action="#{payment.cancelPayment()}"
+					class="uk-button uk-button-large" id="cancelPayment" />
+			</div>
+		</h:form>
 	</ui:define>
 </ui:composition>
