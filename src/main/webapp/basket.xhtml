@@ -32,7 +32,7 @@
 							</div>
 							<div>
 								<h:commandButton
-									action="#{basket.removeProductFromBasket(line.product.id)}" />
+									value="Remove From Basket" action="#{basket.removeProductFromBasket(line.product.id)}"/>
 							</div>
 						</div>
 					</ui:repeat>
@@ -44,7 +44,7 @@
 						<!-- Replaced with commandbutton instead of a tag
 							Given the button needs to be callable through JSF -->
 						<h3>
-							<h:commandButton action="#{basket.placeOrder()}"
+							<h:commandButton value="Checkout" action="#{basket.placeOrder()}"
 								class="uk-button uk-button-large" id="checkout" />
 						</h3>
 					</div>

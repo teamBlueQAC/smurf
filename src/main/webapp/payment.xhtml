@@ -151,8 +151,8 @@ input {
 		</div>
 		<div class="uk-width-1-1"
 			style="display: block; float: left; height: 100px;">
-			<button style="position: absolute; right: 23%;"
-				class="uk-button-large" type="button" onclick="NextBox()">Confirm</button>
+			<h:commandButton value="Confirm" action="#{payment.confirmPayment()}"
+								class="uk-button uk-button-large" id="checkout" />
 		</div>
 	</ui:define>
 </ui:composition>

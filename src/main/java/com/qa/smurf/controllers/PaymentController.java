@@ -81,6 +81,10 @@ public class PaymentController {
 		}
 		return returnPayment;
 	}
+	
+	public String confirmPayment(){
+		return paymentService.confirmPayment(placedOrder, credit, payment, currentUser.getUserId());
+	}
 
 	public Double getAmountPaying(Double total, User user) {
 		return paymentService.getAmountPaying(total, user);
