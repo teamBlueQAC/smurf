@@ -1,7 +1,6 @@
 package com.qa.smurf.controllers;
 
 import java.util.List;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -48,12 +47,12 @@ public class BasketController {
 	// gets called when adding a product
 	// calls the orderService to add a product to the basket.
 	public String addToBasket(long productId) {
+		long userId = -1;
 		if (currentUser.getUsername() != null){
-			return "product";
-		} else {
-			orderService.addToBasket(productId, currentUser.getUserId());
-			return "basket"; 
+			userId = currentUser.getUserId();
 		}
+		orderService.addToBasket(productId, userId);
+		return "basket";
 	}
 
 	public void getLineItems(Order order) {
