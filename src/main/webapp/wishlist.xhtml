@@ -23,10 +23,10 @@
 			Within the order itself to generate the appropriate output -->
 				<ui:repeat var="line" value="#{wishlist.wishListEntries}">
 					<tr>
-						<td><h:graphicImage value="#{line.product.pictureLoc}" /></td>
+						<td><h:graphicImage value="../img/prod-img/#{line.product.pictureLoc}.jpg" /></td>
 						<td><h3>&#163;</h3>
 							<h:outputText value="#{line.product.name}" /></td>
-						<td><h:outputText value="#{line.product.price}" /></td>
+						<td><h:outputText value="£#{line.product.price}" /></td>
 						<td><h:commandButton value="Remove From Wishlist"
 								action="#{wishlist.removeFromWishlist(line.product.id)}" /></td>
 						<td><h:commandButton value="Add To Basket"
