@@ -91,7 +91,7 @@ var counter = 1;
 		   		}
 		   		else {
 		   		   	updateStatus = pendingStatus;
-		   		 	changeTmr = setInterval(ChangeSlide,  2000);
+		   		 	changeTmr = setInterval(ChangeSlide,  4000);
 		   		}
 		   	}		
 	   	
@@ -125,19 +125,19 @@ var counter = 1;
 			   document.getElementById("box1").style.width = '27.3%'; //'333px';
 			   document.getElementById("box2").style.width = '27.3%'; //'333px';
 			   document.getElementById("box3").style.width = '27.3%'; //'333px';
-			   document.getElementByClass("boxthingV2").style.height = '350px';
+			   //document.getElementByClass("boxthingV2").style.height = '350px';
 		   }
 		   else if (window.innerWidth >= 666) {
 			   document.getElementById("box1").style.width = '94%'; //'666px';
 			   document.getElementById("box2").style.width = '44%'; //'333px';
 			   document.getElementById("box3").style.width = '44%'; //'333px';
-			   document.getElementByClass("boxthingV2").style.height = '700px';
+			   //document.getElementByClass("boxthingV2").style.height = '700px';
 		   }
 		   else {
 			   document.getElementById("box1").style.width = '94%'; //'333px';
 			   document.getElementById("box2").style.width = '94%'; //'333px';
 			   document.getElementById("box3").style.width = '94%'; //'333px';
-			   document.getElementByClass("boxthingV2").style.height = '1050px';
+			   //document.getElementByClass("boxthingV2").style.height = '1050px';
 		   }
 	   }
  

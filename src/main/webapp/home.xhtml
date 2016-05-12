@@ -34,7 +34,11 @@
 				<!-- Box One -->
 				<div id="box1" class="categories">
 					<div class="title">
-						<h2>Title one</h2>
+						<h:form>
+					<h:commandLink action="catalogue.xhtml" value="Gnomes">
+						<f:actionListener binding="#{filter.setProductType('GNOME')}" />
+					</h:commandLink>
+					</h:form>
 					</div>
 					<div id="boxa" class="box"></div>
 				</div>
@@ -42,7 +46,11 @@
 				<!-- Box Two -->
 				<div id="box2" class="categories">
 					<div class="title">
-						<h2>Title two</h2>
+						<h:form>
+					<h:commandLink action="catalogue.xhtml" value="Garden Tools">
+						<f:actionListener binding="#{filter.setProductType('TOOL')}" />
+					</h:commandLink>
+					</h:form>
 					</div>
 					<div id="boxb" class="box"></div>
 				</div>
@@ -50,7 +58,14 @@
 				<!-- Box Three -->
 				<div id="box3" class="categories">
 					<div class="title">
-						<h2>Title three</h2>
+						
+						<h:form>
+					<h:commandLink action="catalogue.xhtml" value="Seeds">
+						<f:actionListener binding="#{filter.setProductType('SEED')}" />
+						<h:graphicImage value="img/gnome.jpg"
+							style="height: 200px; margin: 0 auto; display: block;" />
+					</h:commandLink>
+					</h:form>
 					</div>
 					<div id="boxc" class="box"></div>
 				</div>
