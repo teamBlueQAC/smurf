@@ -63,7 +63,8 @@ public class ProductController {
 		return productType;
 	}
 
-	public void setProductType(String productType) {
+	public void changeType(String productType) {
+		System.out.println("--Changing type to " + productType);
 		this.productType = productType;
 	}
 }	

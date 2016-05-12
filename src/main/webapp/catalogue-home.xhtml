@@ -8,7 +8,6 @@
 
 	</ui:define>
 	<ui:define name="body">
-	<h:outputScript library="js" name="Catalogue-home.js" />
 		<!-- Garden Tools -->
 		<div class="boxthing categoryboxthing">
 			<div class="picbox boxthing uk-width-medium-1-2 uk-width-small-1-1">
@@ -22,7 +21,12 @@
 						tools. Here at NB Gardens we have all the tools you need, to help
 						maintain a healthy garden such as our top of the range spades and
 						lawn mowers.</p>
-					<a class="hlinks" href="catalogue.xhtml" onclick="setTypeTools(){product.productType = 'TOOL'}">Go to garden tools></a>
+					<h:form>
+					<h:commandButton action="catalogue.xhtml" value="Go to garden tools">
+						<f:actionListener binding="#{filter.setProductType('TOOL')}" />
+					</h:commandButton>
+					</h:form>
+					
 				</div>
 			</div>
 		</div>
@@ -40,8 +44,12 @@
 						garden seeds to create the best garden experience. Create a world
 						of colour with beautiful selection of flower seeds to complement
 						your landscaped land.</p>
-
-					<a class="hlinks" href="">Go to seeds></a>
+					
+					<h:form>
+					<h:commandButton action="catalogue.xhtml" value="Go to seeds">
+						<f:actionListener binding="#{filter.setProductType('SEED')}" />
+					</h:commandButton>
+					</h:form>
 				</div>
 			</div>
 		</div>
@@ -61,8 +69,11 @@
 						gnomes to kept your pond company. Also offered with extra
 						protection with our porous wear, to give your gnomes an extra
 						layer of protection against water damage.</p>
-
-					<a class="hlinks" href="">Go to gnomes></a>
+					<h:form>
+					<h:commandButton action="catalogue.xhtml" value="Go to gnomes">
+						<f:actionListener binding="#{filter.setProductType('GNOME')}" />
+					</h:commandButton>
+					</h:form>
 				</div>
 			</div>
 		</div>
