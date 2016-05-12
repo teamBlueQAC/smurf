@@ -56,20 +56,17 @@
 						<div style="top: 40px; left: 0px;"
 							class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
 							<ul class="uk-nav uk-nav-navbar">
-								<li>
-									<h:form>
+								<li><h:form>
 										<h:commandLink action="catalogue.xhtml" value="Gnomes">
 											<f:actionListener binding="#{filter.setProductType('GNOME')}" />
 										</h:commandLink>
-									</h:form>
-								</li>
+									</h:form></li>
 								<li class="uk-nav-divider"></li>
 								<li><a href="#">Garden Tools</a></li>
 								<li class="uk-nav-divider"></li>
 								<li><a href="#">Seeds</a></li>
 							</ul>
-						</div>
-					</li>
+						</div></li>
 					<li id="aboutus"><a href="aboutus.xhtml">About Us</a></li>
 					<li id="contactus"><a href="contactus.xhtml">Contact Us</a></li>
 				</ul>
@@ -104,8 +101,10 @@
 								</div></li>
 						</h:panelGroup>
 						<li><a href="basket.xhtml"><i
-								class="fa fa-shopping-basket" aria-hidden="true"></i> &#163;5.00
-						</a></li>
+								class="fa fa-shopping-basket" aria-hidden="true"></i> <h:form
+									rendered="#{basket.order ne null}">
+									<h:outputLabel value="£#{basket.getTotalPrice()}" />
+								</h:form> </a></li>
 					</ul>
 				</div>
 			</div>
