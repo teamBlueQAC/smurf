@@ -58,7 +58,13 @@
 						<div style="top: 40px; left: 0px;"
 							class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
 							<ul class="uk-nav uk-nav-navbar">
-								<li><a href="#">Gnomes</a></li>
+								<li>
+									<h:form>
+										<h:commandLink action="catalogue.xhtml" value="Gnomes">
+											<f:actionListener binding="#{filter.setProductType('GNOME')}" />
+										</h:commandLink>
+									</h:form>
+								</li>
 								<li class="uk-nav-divider"></li>
 								<li><a href="#">Garden Utilities</a></li>
 								<li class="uk-nav-divider"></li>
@@ -84,8 +90,7 @@
 						</h:panelGroup>
 						<h:panelGroup rendered="#{login.loggedIn}">
 							<li aria-expanded="false" aria-haspopup="true" class="uk-parent"
-								data-uk-dropdown="" id="category">
-								<a>#{currentUser.username}</a>
+								data-uk-dropdown="" id="category"><a>#{currentUser.username}</a>
 								<div style="top: 40px; left: 0px;"
 									class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
 									<ul class="uk-nav uk-nav-navbar">
