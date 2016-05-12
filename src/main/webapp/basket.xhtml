@@ -19,7 +19,8 @@
 					<ui:repeat var="line" value="#{basket.order.lineItem}">
 						<div>
 							<div>
-								<h:graphicImage value="../img/prod-img/#{line.product.pictureLoc}.jpg" />
+								<h:graphicImage
+									value="../img/prod-img/#{line.product.pictureLoc}.jpg" />
 							</div>
 							<div>
 								<h:outputText value="#{line.product.name}" />
@@ -43,14 +44,17 @@
 					</ui:repeat>
 					<!--  -->
 					<div class="totalbox uk-container uk-container-right">
-						<h3>
-							<h:outputText value="£#{basket.getTotalPrice()}" />
-						</h3>
-						<!-- Replaced with commandbutton instead of a tag
+						<h:form rendered="#{basket.order ne null}}">
+							<h3>
+								<h:outputText value="£#{basket.getTotalPrice()}" />
+							</h3>
+							<!-- Replaced with commandbutton instead of a tag
 							Given the button needs to be callable through JSF -->
-						<h3>
-							<h:commandButton value="Checkout" action="#{basket.placeOrder()}"
-								class="uk-button uk-button-large" id="checkout" />
+							<h3>
+								<h:commandButton value="Checkout"
+									action="#{basket.placeOrder()}"
+									class="uk-button uk-button-large" id="checkout" />
+						</h:form>
 						</h3>
 					</div>
 				</h:form>
