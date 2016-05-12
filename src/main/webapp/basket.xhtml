@@ -19,7 +19,7 @@
 					<ui:repeat var="line" value="#{basket.order.lineItem}">
 						<div>
 							<div>
-								<h:graphicImage value="#{line.product.pictureLoc}" />
+								<h:graphicImage value="../img/prod-img/#{line.product.pictureLoc}.jpg" />
 							</div>
 							<div>
 								<h:outputText value="#{line.product.name}" />
