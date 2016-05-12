@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import com.qa.smurf.entities.Credit;
+import com.qa.smurf.entities.LineItems;
 import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.User;
@@ -73,8 +74,10 @@ public class PaymentService {
 
 	public Order getPlacedOrder(User user) {
 		List<Order> orders = orderRepository.findByUser(user);
+		System.out.println("Orders Size" + orders.size());
 		for (Order o : orders) {
 			if (o.getOrderStatus() == OrderStatus.PLACED) {
+				System.out.println("order found");
 				return o;
 			}
 		}
@@ -90,6 +93,21 @@ public class PaymentService {
 			System.out.println("Credit is less than the order total");
 			return 0.0;
 		}
+	}
+
+	public float calcOrderTotalPlaced(long userId) {
+		float total = 0;
+		Order order = getPlacedOrder(userRepository.findByID(userId));
+		if (order != null) {
+			System.out.println("Order Not Null");
+			if(order.getLineItem()!=null){
+				for (LineItems li : order.getLineItem()) {
+					total += (li.getProduct().getPrice())*(li.getQuantity());
+				}
+			}
+		}
+		System.out.println("Pending Total = " + total);
+		return total;
 	}
 
 	public Payment getPayment(User user) {
