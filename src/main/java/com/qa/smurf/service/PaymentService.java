@@ -86,13 +86,18 @@ public class PaymentService {
 
 	public Double getAmountRemaining(Double orderTotal, User user) {
 		Credit credit = creditRepository.findByUser(user);
-		Double amount = credit.getAmount();
-		if (amount >= orderTotal) {
-			return amount - orderTotal;
-		} else {
-			System.out.println("Credit is less than the order total");
-			return 0.0;
+		if(credit != null){
+			if(credit.getAmount()!=null){
+				Double amount = credit.getAmount();
+				if (amount >= orderTotal) {
+					return amount - orderTotal;
+				} else {
+					System.out.println("Credit is less than the order total");
+					return 0.0;
+				}
+			}
 		}
+		return 0.0;
 	}
 
 	public float calcOrderTotalPlaced(long userId) {
@@ -114,10 +119,20 @@ public class PaymentService {
 		return paymentRepository.findByUserId(user.getId());
 	}
 
-	public String confirmPayment(Order order, Credit credit, Payment payment, long userId) {
+	public String confirmPayment(long userId) {
+		Order order = getPlacedOrder(userRepository.findByID(userId));
+		Credit credit = creditRepository.findByUser(userRepository.findByID(userId));
 		Double creditAmount = getAmountRemaining(order.getTotal(), userRepository.findByID(userId));
-		credit.setAmountRemaining(creditAmount);
+		if(credit!=null){
+			credit.setAmountRemaining(creditAmount);
+		}
 		order.setOrderStatus(OrderStatus.PAID);
 		return "confirmation";
+	}
+
+	public String cancelPayment(long userId) {
+		Order order = getPlacedOrder(userRepository.findByID(userId));
+		order.setOrderStatus(OrderStatus.PENDING);
+		return "basket";
 	}
 }

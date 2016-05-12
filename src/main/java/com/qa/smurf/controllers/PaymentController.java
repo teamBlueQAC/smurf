@@ -87,7 +87,12 @@ public class PaymentController {
 	}
 	
 	public String confirmPayment(){
-		return paymentService.confirmPayment(placedOrder, credit, payment, currentUser.getUserId());
+		return paymentService.confirmPayment(currentUser.getUserId());
+	}
+	
+	public String cancelPayment(){
+		return paymentService.cancelPayment(currentUser.getUserId());
+		
 	}
 
 	public Double getAmountPaying(Double total, User user) {
