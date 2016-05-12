@@ -156,6 +156,7 @@ public class OrderService {
 	}
 
 	public void removeFromBasket(long productId, long userId) {
+		System.out.println("removeFromBasket");
 		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
 		Order order = getPendingOrders(oa);
 		if (order != null) {
