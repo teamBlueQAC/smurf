@@ -26,7 +26,6 @@ public class ProductController {
 	@PostConstruct
 	public void init() {
 		products = productService.getProducts();
-		product = products.get(3);
 	}
 	
 	public Product findById(long id){
