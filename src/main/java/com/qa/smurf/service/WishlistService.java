@@ -18,6 +18,7 @@ public class WishlistService {
 	@Inject private UserRepository userRepository;
 	@Inject private WishListEntryRepository wishlistRepository;
 	@Inject private ProductRepository productRepository;
+	@Inject private OrderService orderService;
 	
 	public User getCurrentUser(long userId) {
 		return userRepository.findByID(userId);
@@ -26,11 +27,16 @@ public class WishlistService {
 	public void removeFromWishlist(long productId, long userId) {
 		WishListEntry wishlistEntry = wishlistRepository.findByProductAndUser(productRepository.findByID(productId), userRepository.findByID(userId));
 		if(wishlistEntry!=null){
-			System.out.println("Item already exists in wishlist");
-		} else {
+			System.out.println("IRemoving Item from wishlist");
 			wishlistRepository.removeWishListEntry(wishlistEntry);
 		}
 
+	}
+	
+	public String addToBasketFromWishlist(long productId, long userId){
+		removeFromWishlist(productId, userId);
+		orderService.addToBasket(productId, userId);
+		return "basket";
 	}
 
 	public void addToWishlist(long productId, long userId) {
