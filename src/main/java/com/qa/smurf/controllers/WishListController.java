@@ -21,15 +21,19 @@ public class WishListController {
 	private ArrayList<WishListEntry> wishListEntries;
 
 	public String addToWishlist(long productId) {
-		wishlistService.addToWishlist(productId, currentUser.getUserId());
-		return "wishlist";
+		if(wishlistService.getCurrentUser(currentUser.getUserId())!= null){
+			wishlistService.addToWishlist(productId, currentUser.getUserId());
+			return "wishlist";
+		} else {
+			return "product";
+		}
 	}
 
 	public String removeFromWishlist(long productId) {
 		wishlistService.removeFromWishlist(productId, currentUser.getUserId());
 		return "wishlist";
 	}
-	
+
 	public String addToBasket(long productId){
 		return wishlistService.addToBasketFromWishlist(productId, currentUser.getUserId());
 	}
