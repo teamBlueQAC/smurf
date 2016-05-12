@@ -6,11 +6,15 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.service.ProductService;
 
-@Named(value = "product")
+@Named("product")
+@Path("product")
 @RequestScoped
 public class ProductController {
 	@Inject	
@@ -28,6 +32,13 @@ public class ProductController {
 	public Product findById(long id){
 		this.product = productService.findById(id);
 		return product;
+	}
+	
+	@GET
+	@Path("{productId}")
+	public String getProductById(@PathParam("productId") long productId) {
+		this.product = productService.findById(productId);
+		return "product";
 	}
 	
 	public Product findByName(String name){
