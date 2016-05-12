@@ -10,11 +10,11 @@ import com.qa.smurf.entities.Product;
 /*Author: willseaford*/
 public interface LineItemsRepository {
 
-	public void persistLineItems(LineItems lineitems);
+	public void persistLineItem(LineItems lineitem);
 
 	public void persistLineItems(List<LineItems> lineitems);
 
-	public ArrayList<LineItems> findByCompositeKey(Order order, Product product);
+	public LineItems findByCompositeKey(Order order, Product product);
 
 	public ArrayList<LineItems> findByProduct(Product product);
 
@@ -23,5 +23,7 @@ public interface LineItemsRepository {
 	public LineItems readLineItems(LineItems p);
 
 	public void removeLineItem(LineItems lineItem);
+	
+	public void updateLineItem(LineItems lineItem);
 
 }

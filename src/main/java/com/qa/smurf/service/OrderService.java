@@ -1,5 +1,6 @@
 package com.qa.smurf.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -36,43 +37,53 @@ public class OrderService {
 
 	public void addToBasket(long productId, long userId) {
 		Product product = productRepository.findByID(productId);
-		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
-		Order order = getUsersPendingOrder(oa);
+		List<Order> orders = orderRepository.findByUser(userRepository.findByID(userId));
+		Order order = getPendingOrders(orders);		
+		
 		if (order != null) {
-			boolean foundLineItem = false;
-			if(order.getLineItem()!=null){
-				for (LineItems li : order.getLineItem()) {
-					if (!foundLineItem) {
-						if (li.getProduct().getId() == productId) {
-							li.setQuantity(li.getQuantity() + 1);
-							lineItemsRepository.persistLineItems(li);
-							foundLineItem = true;
-						}
-					}
-				}
+			LineItems foundLineItem = lineItemsRepository.findByCompositeKey(order, productRepository.findByID(productId));
+			
+			if (foundLineItem == null){			
+				newLineItem(order, product);
+				orderRepository.updateOrder(order);
 			}
-			if (!foundLineItem) {
-				LineItems li = new LineItems(order, product, 1, product.getPrice(), product.getQuantityAvailable());
-				List<LineItems> lia = order.getLineItem();
-				lineItemsRepository.persistLineItems(li);
-				lia.add(li);
-				order.setLineItem(lia);
-				orderRepository.persistOrder(order);
+			else{
+				updateLineQuantity(foundLineItem);
 			}
-
 		} else {
-
-			order = new Order(123, new Date(), null, paymentRepository.findByUserId(userId),
-					userRepository.findByID(userId).getAddress(), userRepository.findByID(userId), null);
-			order.setOrderStatus(OrderStatus.PENDING);
-			LineItems li = new LineItems(order, product, 1, product.getPrice(), product.getQuantityAvailable());
-			lineItemsRepository.persistLineItems(li);
-			order.addLineItem(li);
-			orderRepository.persistOrder(order);
+			newOrder(product, userId);
 		}
+		
+	}
+	
+	private LineItems updateLineQuantity(LineItems lineItem){
+		lineItem.setQuantity(lineItem.getQuantity() + 1);
+		lineItemsRepository.updateLineItem(lineItem);
+		return lineItem;
+	}
+	
+	private LineItems newLineItem(Order order, Product product){
+		LineItems newLineItem = new LineItems(order, product, 1, product.getPrice(), 0);
+		lineItemsRepository.persistLineItem(newLineItem);
+		List<LineItems> lineItems = order.getLineItem();
+		
+		if (lineItems == null){
+			lineItems = new ArrayList<LineItems>();
+		}
+		lineItems.add(newLineItem);
+		order.setLineItem(lineItems);
+		return newLineItem;
+	}
+	
+	private void newOrder(Product product, long userId){
+		Order order = new Order(123, new Date(), null, paymentRepository.findByUserId(userId), //TODO quantity needs to be calculated
+				userRepository.findByID(userId).getAddress(), userRepository.findByID(userId), OrderStatus.PENDING);
+		orderRepository.persistOrder(order);
+		newLineItem(order, product);
+		
 	}
 
-	private Order getUsersPendingOrder(List<Order> oa) {
+	private Order getPendingOrders(List<Order> oa) {
 		for (Order o : oa) {
 			if (o.getOrderStatus() == OrderStatus.PENDING) {
 				return o;
@@ -96,16 +107,10 @@ public class OrderService {
 
 	public void clearBasket(long userId) {
 		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
-		Order order = getUsersPendingOrder(oa);
+		Order order = getPendingOrders(oa);
 		if (order != null) {
 			for (LineItems li : order.getLineItem()) {
-				if (li != null) {
-					List<LineItems> lia = order.getLineItem();
-					lia.remove(li);
-					order.setLineItem(lia);
-					lineItemsRepository.removeLineItem(li);
-					orderRepository.persistOrder(order);
-				}
+				removeFromBasket(li.getProduct().getId(), userId);
 			}
 			orderRepository.removeOrder(order);
 		}
@@ -114,14 +119,14 @@ public class OrderService {
 
 	public Order getUsersPendingOrder(long userId) {
 		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
-		Order order = getUsersPendingOrder(oa);
+		Order order = getPendingOrders(oa);
 		return order;
 	}
 
 	public float calcOrderTotalPending(long userId) {
 		float total = 0;
 		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
-		Order order = getUsersPendingOrder(oa);
+		Order order = getPendingOrders(oa);
 		if (order != null) {
 			if(order.getLineItem()!=null){
 				for (LineItems li : order.getLineItem()) {
@@ -152,13 +157,12 @@ public class OrderService {
 
 	public void removeFromBasket(long productId, long userId) {
 		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
-		Order order = getUsersPendingOrder(oa);
+		Order order = getPendingOrders(oa);
 		if (order != null) {
 			for (LineItems li : order.getLineItem()) {
 				if (li.getProduct().getId() == productId) {
 					List<LineItems> lia = order.getLineItem();
-					int index = getLineItem(lia, li);
-					lia.remove(index);
+					lia.remove(li);
 					order.setLineItem(lia);
 					lineItemsRepository.removeLineItem(li);
 					return;
@@ -166,18 +170,6 @@ public class OrderService {
 			}
 			return;
 		}
-	}
-
-	private int getLineItem(List<LineItems> lia, LineItems li) {
-		int index = 0;
-		for (LineItems check : lia) {
-			if (check.getProduct().getId() == li.getProduct().getId()) {
-				return index;
-			} else {
-				index = index + 1;
-			}
-		}
-		return 0;
 	}
 
 	public List<LineItems> getLineItems(Order order, long userId) {

@@ -95,4 +95,11 @@ public class PaymentService {
 	public Payment getPayment(User user) {
 		return paymentRepository.findByUserId(user.getId());
 	}
+
+	public String confirmPayment(Order order, Credit credit, Payment payment, long userId) {
+		Double creditAmount = getAmountRemaining(order.getTotal(), userRepository.findByID(userId));
+		credit.setAmountRemaining(creditAmount);
+		order.setOrderStatus(OrderStatus.PAID);
+		return "confirmation";
+	}
 }
