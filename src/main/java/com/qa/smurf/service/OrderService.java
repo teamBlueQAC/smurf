@@ -59,11 +59,8 @@ public class OrderService {
 	private LineItems updateLineQuantity(LineItems lineItem, Order order){
 		lineItem.setQuantity(lineItem.getQuantity() + 1);
 		lineItemsRepository.updateLineItem(lineItem);
-		System.out.println("Old Order Total = " + order.getTotal());
 		Double total = calculateOrderTotal(order, lineItem);
-		System.out.println("Returned total = " + total);
 		order.setTotal(total);
-		System.out.println("New Order Total = " + order.getTotal());
 		return lineItem;
 	}
 
@@ -77,10 +74,8 @@ public class OrderService {
 		}
 		lineItems.add(newLineItem);
 		order.setLineItem(lineItems);
-		System.out.println("Old Order Total = " + order.getTotal());
 		Double total = calculateOrderTotal(order, newLineItem);
 		order.setTotal(total);
-		System.out.println("New Order Total = " + order.getTotal());
 		return newLineItem;
 	}
 
@@ -92,7 +87,6 @@ public class OrderService {
 			}
 		}
 		total = total +(lineItem.getProduct().getPrice())*(lineItem.getQuantity());
-		System.out.println("Total = " + total);
 		return total;
 	}
 
@@ -173,7 +167,6 @@ public class OrderService {
 				}
 			}
 			order.setOrderStatus(OrderStatus.PLACED);
-			System.out.println("Order Status = " + order.getOrderStatus());
 			orderRepository.updateOrder(order);
 		}
 

@@ -28,9 +28,7 @@ public class BasketController {
 	private List<LineItems> lineItems;
 
 	public String removeProductFromBasket(long productId) {
-		System.out.println("Calling removeFromBasket");
 		if(currentUser.getUserId()!=-1){
-			System.out.println("Calling removeFromBasket");
 			orderService.removeFromBasket(productId, currentUser.getUserId());
 		}
 		return "basket";
@@ -50,12 +48,12 @@ public class BasketController {
 	// gets called when adding a product
 	// calls the orderService to add a product to the basket.
 	public String addToBasket(long productId) {
-		long userId = -1;
 		if (currentUser.getUsername() != null){
-			userId = currentUser.getUserId();
+			return "product";
+		} else {
+			orderService.addToBasket(productId, currentUser.getUserId());
+			return "basket"; 
 		}
-		orderService.addToBasket(productId, userId);
-		return "basket";
 	}
 
 	public void getLineItems(Order order) {

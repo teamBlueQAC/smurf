@@ -59,11 +59,9 @@ public class UserRepositoryOffline implements UserRepository {
 	public User findByID(long id) {
 		for (User u : initialData.getUsers()) {
 			if (u.getId() == id) {
-				System.out.println("user id = " + id);
 				return u;
 			}
 		}
-		System.out.println("user id is null");
 		return null;
 	}
 
