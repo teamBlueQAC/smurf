@@ -15,7 +15,7 @@ var counter = 1;
 
 	   var width = 100;
 
-	   function Object(ID, x, y, width, height) {
+	   function Slide(ID, x, y, width, height) {
 	      this.objectID = ID;
 	      this.xPos = x;
 	      this.yPos = y;
@@ -28,19 +28,16 @@ var counter = 1;
 
 	   function initialiseSlides() {
 
-	      	// Add a single Slide
-	      	slideArray.push(new Object(currentSlide, 5, 5, (screenWidth - 10), (screenHeight - 10)));
+	      	slideArray.push(new Slide(currentSlide, 5, 5, (screenWidth - 10), (screenHeight - 10)));
 	   	slideArray[currentSlide].src = "img/gnome.jpg";
 	      	currentSlide++;
 
-	      	// Add a single Slide
-	      	slideArray.push(new Object(currentSlide, 5, 5, (screenWidth - 10), (screenHeight - 10)));
+	      	slideArray.push(new Slide(currentSlide, 5, 5, (screenWidth - 10), (screenHeight - 10)));
 	   	slideArray[currentSlide].src = "img/spade2.0.jpg";
 	      	slideArray[currentSlide].a = 0;
 	      	currentSlide++;
 
-	      	// Add a single Slide
-	      	slideArray.push(new Object(currentSlide, 5, 5, (screenWidth - 10), (screenHeight - 10)));
+	      	slideArray.push(new Slide(currentSlide, 5, 5, (screenWidth - 10), (screenHeight - 10)));
 	   	slideArray[currentSlide].src = "img/seeds2.jpg";
 	      	slideArray[currentSlide].a = 0;
 	      	currentSlide++;
@@ -104,7 +101,7 @@ var counter = 1;
 
 			if (canvas.getContext) {
 				var canvas_context = canvas.getContext("2d");
-		      	// Clear Canvas
+
 		     	canvas_context.clearRect( 0, 0, screenWidth, screenHeight );
 
 				canvas_context.globalAlpha = slideArray[currentSlide].a;
@@ -122,22 +119,19 @@ var counter = 1;
 
 	   function BoxArrangement() {
 		   if (window.innerWidth >= 999) {
-			   document.getElementById("box1").style.width = '27.3%'; //'333px';
-			   document.getElementById("box2").style.width = '27.3%'; //'333px';
-			   document.getElementById("box3").style.width = '27.3%'; //'333px';
-			   //document.getElementByClass("boxthingV2").style.height = '350px';
+			   document.getElementById("box1").style.width = '27.3%'; 
+			   document.getElementById("box2").style.width = '27.3%'; 
+			   document.getElementById("box3").style.width = '27.3%'; 
 		   }
 		   else if (window.innerWidth >= 666) {
-			   document.getElementById("box1").style.width = '94%'; //'666px';
-			   document.getElementById("box2").style.width = '44%'; //'333px';
-			   document.getElementById("box3").style.width = '44%'; //'333px';
-			   //document.getElementByClass("boxthingV2").style.height = '700px';
+			   document.getElementById("box1").style.width = '94%'; 
+			   document.getElementById("box2").style.width = '44%'; 
+			   document.getElementById("box3").style.width = '44%'; 
 		   }
 		   else {
-			   document.getElementById("box1").style.width = '94%'; //'333px';
-			   document.getElementById("box2").style.width = '94%'; //'333px';
-			   document.getElementById("box3").style.width = '94%'; //'333px';
-			   //document.getElementByClass("boxthingV2").style.height = '1050px';
+			   document.getElementById("box1").style.width = '94%'; 
+			   document.getElementById("box2").style.width = '94%'; 
+			   document.getElementById("box3").style.width = '94%'; 
 		   }
 	   }
  
