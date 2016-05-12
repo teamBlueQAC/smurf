@@ -2,6 +2,7 @@ package com.qa.smurf.controllers;
 
 import java.util.List;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -18,7 +19,7 @@ import com.qa.smurf.service.OrderService;
  *
  */
 @Named(value = "basket")
-@RequestScoped
+@SessionScoped
 public class BasketController {
 	@Inject	private OrderService orderService;
 	@Inject	private CurrentUser currentUser;
