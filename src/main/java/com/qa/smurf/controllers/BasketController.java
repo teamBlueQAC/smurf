@@ -28,7 +28,11 @@ public class BasketController {
 	private List<LineItems> lineItems;
 
 	public String removeProductFromBasket(long productId) {
-		orderService.removeFromBasket(productId, currentUser.getUserId());
+		System.out.println("Calling removeFromBasket");
+		if(currentUser.getUserId()!=-1){
+			System.out.println("Calling removeFromBasket");
+			orderService.removeFromBasket(productId, currentUser.getUserId());
+		}
 		return "basket";
 	}
 
@@ -60,7 +64,7 @@ public class BasketController {
 
 	public String placeOrder() {
 		orderService.placeOrder(order, currentUser.getUserId());
-		return "order";
+		return "payment";
 	}
 
 	public User getUser() {
