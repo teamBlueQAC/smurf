@@ -50,9 +50,12 @@ public class BasketController {
 		long userId = -1;
 		if (currentUser.getUsername() != null){
 			userId = currentUser.getUserId();
+			orderService.addToBasket(productId, userId);
+			return "basket";
+		} else {
+			System.out.println("User not logged in");
+			return "product";
 		}
-		orderService.addToBasket(productId, userId);
-		return "basket";
 	}
 
 	public void getLineItems(Order order) {
