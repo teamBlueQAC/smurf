@@ -138,8 +138,8 @@ public class OrderService {
 		return order;
 	}
 
-	public float calcOrderTotalPending(long userId) {
-		float total = 0;
+	public Double calcOrderTotalPending(long userId) {
+		double total = 0;
 		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
 		Order order = getPendingOrders(oa);
 		if (order != null) {

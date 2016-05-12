@@ -98,8 +98,8 @@ public class PaymentService {
 		return 0.0;
 	}
 
-	public float calcOrderTotalPlaced(long userId) {
-		float total = 0;
+	public Double calcOrderTotalPlaced(long userId) {
+		double total = 0;
 		Order order = getPlacedOrder(userRepository.findByID(userId));
 		if (order != null) {
 			if(order.getLineItem()!=null){

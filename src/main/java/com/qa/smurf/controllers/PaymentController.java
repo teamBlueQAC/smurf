@@ -82,7 +82,7 @@ public class PaymentController {
 		return returnPayment;
 	}
 	
-	public float getTotalPrice() {
+	public Double getTotalPrice() {
 		return paymentService.calcOrderTotalPlaced(currentUser.getUserId());
 	}
 	
