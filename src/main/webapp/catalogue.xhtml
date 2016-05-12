@@ -18,7 +18,9 @@
 						<h:graphicImage value="../img/prod-img/#{line.pictureLoc}.jpg"
 							style="height: 200px; margin: 0 auto; display: block;" />
 						<h2>
-							<h:outputText value="#{line.name}" />
+							<h:form>
+								<h:commandLink value="#{line.name}" action="#{product.viewProduct(line.id)}" />
+							</h:form>
 						</h2>
 						<h4>
 							&#163;
