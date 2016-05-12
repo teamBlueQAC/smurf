@@ -31,8 +31,13 @@
 								<h:outputText value="#{line.product.price}" />
 							</div>
 							<div>
-								<h:commandButton
-									value="Remove From Basket" action="#{basket.removeProductFromBasket(line.product.id)}"/>
+								<h:commandButton value="Remove From Basket"
+									action="#{basket.removeProductFromBasket(line.product.id)}" />
+							</div>
+							<div>
+								<h:commandButton value="Clear Basket"
+									action="#{basket.clearBasket()}"
+									class="uk-button uk-button-large" id="clear" />
 							</div>
 						</div>
 					</ui:repeat>
