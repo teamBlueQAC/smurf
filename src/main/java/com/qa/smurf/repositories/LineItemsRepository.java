@@ -10,7 +10,7 @@ import com.qa.smurf.entities.Product;
 /*Author: willseaford*/
 public interface LineItemsRepository {
 
-	public void persistLineItems(LineItems lineitems);
+	public void persistLineItem(LineItems lineitem);
 
 	public void persistLineItems(List<LineItems> lineitems);
 
