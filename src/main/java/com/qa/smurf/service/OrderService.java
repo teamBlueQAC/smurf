@@ -123,7 +123,6 @@ public class OrderService {
 	public void clearBasket(long userId) {
 		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
 		Order order = getPendingOrders(oa);
-		int i = 0;
 		if (order != null) {
 			while(!order.getLineItem().isEmpty()){
 				removeFromBasket(order.getLineItem().get(0).getProduct().getId(), userId);

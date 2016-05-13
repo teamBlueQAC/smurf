@@ -35,11 +35,6 @@
 								<h:commandButton value="Remove From Basket"
 									action="#{basket.removeProductFromBasket(line.product.id)}" />
 							</div>
-							<div>
-								<h:commandButton value="Clear Basket"
-									action="#{basket.clearBasket()}"
-									class="uk-button uk-button-large" id="clear" />
-							</div>
 						</div>
 					</ui:repeat>
 					<!--  -->
@@ -55,6 +50,9 @@
 									action="#{basket.placeOrder()}"
 									class="uk-button uk-button-large" id="checkout" />
 							</h3>
+							<h:commandButton value="Clear Basket"
+									action="#{basket.clearBasket()}"
+									class="uk-button uk-button-large" id="clear" />
 						</h:form>
 					</div>
 				</h:form>
