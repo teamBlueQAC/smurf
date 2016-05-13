@@ -81,6 +81,7 @@
 							<tr>
 								<td>Order ID</td>
 								<td>Order Status</td>
+								<td>Order Total</td>
 								<td>date order placed :</td>
 								<td>date order shipped :</td>
 							</tr>
@@ -88,6 +89,7 @@
 								<tr>
 									<td><h:outputText value="#{order.id}" /></td>
 									<td><h:outputText value="#{order.orderStatus.name}" /></td>
+									<td><h:outputText value="#{order.total}"/></td>
 									<td><h:outputText value="#{order.date}" /></td>
 									<td><h:outputText value="#{order.dispatchDate}" rendered="#{order.dispatchDate ne null}"/></td>
 								</tr>
