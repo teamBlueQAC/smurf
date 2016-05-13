@@ -16,7 +16,7 @@ public interface ProductRepository {
 	
 	public Product findByName(String name);
 	
-	public Product findByType(ProductType productType);
+	public ArrayList<Product> findByType(ProductType productType);
 
 	public ArrayList<Product> getProducts();
 

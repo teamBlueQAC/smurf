@@ -18,7 +18,6 @@ public class ProductController {
 	@Inject	private ProductService productService;
 	@Inject CurrentProduct product;
 	private List<Product> products;
-	private String productType;
 	
 	@PostConstruct
 	public void init() {
@@ -40,9 +39,9 @@ public class ProductController {
 		return product.getProduct();
 	} 
 	
-	public Product findByType(){
-		product.setProduct(productService.findByType(productType));
-		return product.getProduct();
+	public List<Product> findByType(String productType){
+		products = productService.findByType(productType);
+		return products;
 	}
 	
 	@GET
@@ -64,5 +63,7 @@ public class ProductController {
 	public String getProductPrice(){
 		return productService.productPriceTo2DP(product.getProduct());
 	}
+	
+	
 
 }	
