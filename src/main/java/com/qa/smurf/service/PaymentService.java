@@ -120,11 +120,12 @@ public class PaymentService {
 		Order order = getPlacedOrder(userRepository.findByID(userId));
 		Credit credit = creditRepository.findByUser(userRepository.findByID(userId));
 		Double creditAmount = getAmountRemaining(order.getTotal(), userRepository.findByID(userId));
-		if(credit!=null){
+		if(credit != null){
 			credit.setAmountRemaining(creditAmount);
 		}
 		order.setOrderStatus(OrderStatus.PAID);
 		order.setDate(new Date());
+		orderRepository.updateOrder(order);
 		return "confirmation";
 	}
 

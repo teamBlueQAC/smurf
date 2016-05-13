@@ -56,15 +56,28 @@
 						<div style="top: 40px; left: 0px;"
 							class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
 							<ul class="uk-nav uk-nav-navbar">
-								<li><h:form>
-										<h:commandLink action="catalogue.xhtml" value="Gnomes">
-											<f:actionListener binding="#{filter.setProductType('GNOME')}" />
-										</h:commandLink>
-									</h:form></li>
+								<h:form>
+									<h:commandLink action="catalogue.xhtml">
+										<li class="navlist" value="1"><f:actionListener
+												binding="#{filter.setProductType('GNOME')}" />Gnomes</li>
+									</h:commandLink>
+								</h:form>
+
 								<li class="uk-nav-divider"></li>
-								<li><a href="#">Garden Tools</a></li>
+
+								<h:form>
+									<h:commandLink action="catalogue.xhtml" id="navlist2">
+										<f:actionListener binding="#{filter.setProductType('TOOL')}" />
+										<li class="navlist" value="2">Tools</li>
+									</h:commandLink>
+								</h:form>
 								<li class="uk-nav-divider"></li>
-								<li><a href="#">Seeds</a></li>
+								<h:form>
+									<h:commandLink action="catalogue.xhtml" id="navlist3">
+										<f:actionListener binding="#{filter.setProductType('SEED')}" />
+										<li class="navlist" value="3">Seeds</li>
+									</h:commandLink>
+								</h:form>
 							</ul>
 						</div></li>
 					<li id="aboutus"><a href="aboutus.xhtml">About Us</a></li>
@@ -95,14 +108,17 @@
 										<li><a href="myaccount.xhtml">Account Management</a></li>
 										<li class="uk-nav-divider"></li>
 										<li><a href="wishlist.xhtml">Wishlist</a></li>
-										<li class="uk-nav-divider"></li>										
-										<li><h:form><h:commandLink style="color:black" action="#{login.logout}" value="Logout" /></h:form></li>										
+										<li class="uk-nav-divider"></li>
+										<li><h:form>
+												<h:commandLink style="color:black" action="#{login.logout}"
+													value="Logout" />
+											</h:form></li>
 									</ul>
 								</div></li>
 						</h:panelGroup>
 						<li><a href="basket.xhtml"><i
-								class="fa fa-shopping-basket" aria-hidden="true"></i> 
-								<h:outputLabel value=" £#{basket.getTotalPrice()}" /> </a></li>
+								class="fa fa-shopping-basket" aria-hidden="true"></i> <h:outputLabel
+									value=" £#{basket.getTotalPrice()}" /> </a></li>
 					</ul>
 				</div>
 			</div>

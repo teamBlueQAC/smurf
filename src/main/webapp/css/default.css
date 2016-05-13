@@ -8,6 +8,23 @@ h1, h2, h3, h4, h5, h6 {
 	color: white;
 }
 
+.navlist {
+	color: #351C8C;
+	padding: 10px;
+	height: 20px;
+}
+
+.linkitem {
+	color: #351C8C;
+	padding: 10px;
+	text-decoration: none;
+}
+
+.navlist:hover {
+	color: white;
+	background-color: #351C8C;
+}
+
 a, .uk-tab>li>a {
 	color: white;
 	text-decoration: underline;
@@ -15,6 +32,10 @@ a, .uk-tab>li>a {
 
 .uk-tab>li>a {
 	text-decoration: none;
+}
+
+.linkitem:hover {
+	background: #351C8C;
 }
 
 .uk-nav-navbar>li>a:hover {
@@ -40,14 +61,16 @@ a, .uk-tab>li>a {
 
 #footer {
 	margin-top: 50px;
+	position: absolute;
 }
 
 html, body {
-	height: 100%;
 	width: 100%;
+	height: 100%;
 	margin: 0;
 	background-color: #8A77CB;
 	color: white;
+	margin: 0;
 }
 
 .uk-navbar-nav>li>a {

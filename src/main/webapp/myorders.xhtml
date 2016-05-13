@@ -22,7 +22,7 @@
 				<ui:repeat var="line" value="#{myorders.orders}">
 					<tr>
 						<td><h:outputText
-								value="ID: #{line.id} Status: #{line.orderStatus.name}" /></td>
+								value="ID: #{line.id} Status: #{line.orderStatus.name} Total: #{myorders.getOrderTotal(line)}" /></td>
 						<td><ui:repeat var="items" value="#{line.lineItem}">
 								<div>
 									<h:graphicImage
