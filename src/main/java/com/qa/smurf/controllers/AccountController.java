@@ -38,8 +38,8 @@ public class AccountController {
 		return "account";
 	}
 
-	public ArrayList<Order> getOrder() {
-		order = accountService.getUsersOrder(currentUser.getUserId());
+	public ArrayList<Order> getOrders() {
+		order = accountService.getUsersOrders(currentUser.getUserId());
 		return order;
 	}
 

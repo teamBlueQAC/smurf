@@ -39,7 +39,7 @@ public class OrderService {
 		Product product = productRepository.findByID(productId);
 		List<Order> orders = orderRepository.findByUser(userRepository.findByID(userId));
 		Order order = getPendingOrders(orders);		
-
+		
 		if (order != null) {
 			LineItems foundLineItem = lineItemsRepository.findByCompositeKey(order, productRepository.findByID(productId));
 
@@ -59,7 +59,7 @@ public class OrderService {
 	private LineItems updateLineQuantity(LineItems lineItem, Order order){
 		lineItem.setQuantity(lineItem.getQuantity() + 1);
 		lineItemsRepository.updateLineItem(lineItem);
-		Double total = calculateOrderTotal(order, lineItem);
+		Double total = calculateOrderTotal(order);
 		order.setTotal(total);
 		return lineItem;
 	}
@@ -74,28 +74,15 @@ public class OrderService {
 		}
 		lineItems.add(newLineItem);
 		order.setLineItem(lineItems);
-		Double total = calculateOrderTotal(order, newLineItem);
+		Double total = calculateOrderTotal(order);
 		order.setTotal(total);
 		return newLineItem;
-	}
-
-	private Double calculateOrderTotal(Order order, LineItems lineItem) {
-		Double total = 0.0;
-		if(order.getLineItem()!=null){
-			for(LineItems l : order.getLineItem()){
-				total = total + (l.getProduct().getPrice())*(l.getQuantity());
-			}
-		}
-		total = total +(lineItem.getProduct().getPrice())*(lineItem.getQuantity());
-		return total;
 	}
 	
 	public Double calculateOrderTotal(Order order) {
 		Double total = 0.0;
-		if(order.getLineItem()!=null){
-			for(LineItems l : order.getLineItem()){
-				total = total + (l.getProduct().getPrice())*(l.getQuantity());
-			}
+		for(LineItems l : order.getLineItem()){
+			total = total + (l.getProduct().getPrice())*(l.getQuantity());
 		}
 		return total;
 	}
@@ -179,7 +166,6 @@ public class OrderService {
 			order.setOrderStatus(OrderStatus.PLACED);
 			orderRepository.updateOrder(order);
 		}
-
 	}
 
 	public void removeFromBasket(long productId, long userId) {
