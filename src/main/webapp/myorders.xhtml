@@ -25,13 +25,8 @@
 								value="#{line.orderStatus.name}" /></td>
 						<td><ui:repeat var="items" value="#{line.lineItem}">
 								<p>
-									<h:graphicImage value="../img/prod-img/#{items.product.pictureLoc}.jpg" />
-								</p>
-								<p>
-									<h:outputText value="#{items.product.name}" />
-								</p>
-								<p>
-									<h:outputText value="#{items.quantity} items" />
+									<h:graphicImage value="../img/prod-img/#{items.product.pictureLoc}.jpg"/>
+									<h:outputText value="Product: #{items.product.name}                  Quantity: #{items.quantity}"/>
 								</p>
 							</ui:repeat></td>
 					</tr>
