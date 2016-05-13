@@ -8,6 +8,11 @@
 
 	</ui:define>
 	<ui:define name="body">
+		<style>
+#mainCont {
+	height: 1200px;
+}
+</style>
 		<!-- Garden Tools -->
 		<div class="boxthing categoryboxthing">
 			<div class="picbox boxthing uk-width-medium-1-2 uk-width-small-1-1">
@@ -22,9 +27,9 @@
 						maintain a healthy garden such as our top of the range spades and
 						lawn mowers.</p>
 					<h:form>
-					<h:commandLink action="catalogue.xhtml" value="Go to garden tools">
-						<f:actionListener binding="#{filter.setProductType('TOOL')}" />
-					</h:commandLink>
+						<h:commandLink action="catalogue.xhtml" value="Go to garden tools">
+							<f:actionListener binding="#{filter.setProductType('TOOL')}" />
+						</h:commandLink>
 					</h:form>
 				</div>
 			</div>
@@ -44,9 +49,9 @@
 						of colour with beautiful selection of flower seeds to complement
 						your landscaped land.</p>
 					<h:form>
-					<h:commandLink action="catalogue.xhtml" value="Go to seeds">
-						<f:actionListener binding="#{filter.setProductType('SEED')}" />
-					</h:commandLink>
+						<h:commandLink action="catalogue.xhtml" value="Go to seeds">
+							<f:actionListener binding="#{filter.setProductType('SEED')}" />
+						</h:commandLink>
 					</h:form>
 				</div>
 			</div>
@@ -66,14 +71,14 @@
 						gnomes to kept your pond company. Also offered with extra
 						protection with our porous wear, to give your gnomes an extra
 						layer of protection against water damage.</p>
-						
+
 					<h:form>
-					<h:commandLink action="catalogue.xhtml" value="Go to gnomes">
-						<f:actionListener binding="#{filter.setProductType('GNOME')}" />
-					</h:commandLink>
+						<h:commandLink action="catalogue.xhtml" value="Go to gnomes">
+							<f:actionListener binding="#{filter.setProductType('GNOME')}" />
+						</h:commandLink>
 					</h:form>
-					
-				
+
+
 				</div>
 			</div>
 		</div>

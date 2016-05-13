@@ -42,7 +42,7 @@ public class AccountService {
 		return paymentrepository.findByID(userId);
 	}
 
-	public ArrayList<Order> getUsersOrder(long userId) {
+	public ArrayList<Order> getUsersOrders(long userId) {
 		return orderRepository.findByUser(userRepository.findByID(userId));
 	}
 }
