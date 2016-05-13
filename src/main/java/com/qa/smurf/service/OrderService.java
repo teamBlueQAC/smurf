@@ -89,6 +89,16 @@ public class OrderService {
 		total = total +(lineItem.getProduct().getPrice())*(lineItem.getQuantity());
 		return total;
 	}
+	
+	public Double calculateOrderTotal(Order order) {
+		Double total = 0.0;
+		if(order.getLineItem()!=null){
+			for(LineItems l : order.getLineItem()){
+				total = total + (l.getProduct().getPrice())*(l.getQuantity());
+			}
+		}
+		return total;
+	}
 
 	private void newOrder(Product product, long userId){
 		Order order = new Order(0, new Date(), null, paymentRepository.findByUserId(userId),
