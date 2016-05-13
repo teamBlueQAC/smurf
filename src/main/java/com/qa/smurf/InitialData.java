@@ -170,7 +170,7 @@ public class InitialData {
 		for (int i = 0; i < 5; i++) {
 			if(i != 0){
 			orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i),
-					getUsers().get(i), OrderStatus.PAID));
+					getUsers().get(i), OrderStatus.DELIVERED));
 			} else {
 				orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i),
 						getUsers().get(i), OrderStatus.PENDING));
