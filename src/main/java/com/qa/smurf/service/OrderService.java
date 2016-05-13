@@ -89,6 +89,16 @@ public class OrderService {
 		total = total +(lineItem.getProduct().getPrice())*(lineItem.getQuantity());
 		return total;
 	}
+	
+	public Double calculateOrderTotal(Order order) {
+		Double total = 0.0;
+		if(order.getLineItem()!=null){
+			for(LineItems l : order.getLineItem()){
+				total = total + (l.getProduct().getPrice())*(l.getQuantity());
+			}
+		}
+		return total;
+	}
 
 	private void newOrder(Product product, long userId){
 		Order order = new Order(0, new Date(), null, paymentRepository.findByUserId(userId),
@@ -124,8 +134,8 @@ public class OrderService {
 		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
 		Order order = getPendingOrders(oa);
 		if (order != null) {
-			for (LineItems li : order.getLineItem()) {
-				removeFromBasket(li.getProduct().getId(), userId);
+			while(!order.getLineItem().isEmpty()){
+				removeFromBasket(order.getLineItem().get(0).getProduct().getId(), userId);
 			}
 			orderRepository.removeOrder(order);
 		}
@@ -196,7 +206,6 @@ public class OrderService {
 
 	public List<Order> getPaidOrders(long userId) {
 		List<Order> orders = findPaidOrders(orderRepository.findByUser(userRepository.findByID(userId)));
-		// TODO Auto-generated method stub
 		return orders;
 	}
 

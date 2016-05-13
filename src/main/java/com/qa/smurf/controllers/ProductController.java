@@ -8,8 +8,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.service.ProductService;
 
@@ -17,11 +15,9 @@ import com.qa.smurf.service.ProductService;
 @Path("product")
 @RequestScoped
 public class ProductController {
-	@Inject	
-	private ProductService productService;
-	private Product product;
+	@Inject	private ProductService productService;
+	@Inject CurrentProduct product;
 	private List<Product> products;
-	private String productType;
 	
 	@PostConstruct
 	public void init() {
@@ -29,29 +25,28 @@ public class ProductController {
 	}
 	
 	public Product findById(long id){
-		this.product = productService.findById(id);
-		return product;
+		product.setProduct(productService.findById(id));
+		return product.getProduct();
 	}
 	
-	@GET
-	@Path("{productId}")
-	public String getProductById(@PathParam("productId") long productId) {
-		this.product = productService.findById(productId);
+	public String getProductById(long productId) {
+		product.setProduct(productService.findById(productId));
 		return "product";
 	}
 	
 	public Product findByName(String name){
-		this.product = productService.findByName(name);
-		return product;
+		product.setProduct(productService.findByName(name));
+		return product.getProduct();
 	} 
 	
-	public Product findByType(){
-		this.product = productService.findByType(productType);
-		return product;
+	public List<Product> findByType(String productType){
+		products = productService.findByType(productType);
+		return products;
 	}
 	
+	@GET
 	public Product getProduct(){
-		return product;
+		return product.getProduct();
 	}
 
 	public List<Product> getProducts() {
@@ -66,15 +61,9 @@ public class ProductController {
 		return productService.productPriceTo2DP(product);
 	}
 	public String getProductPrice(){
-		return productService.productPriceTo2DP(this.product);
+		return productService.productPriceTo2DP(product.getProduct());
 	}
+	
+	
 
-	public String getProductType() {
-		return productType;
-	}
-
-	public void changeType(String productType) {
-		System.out.println("--Changing type to " + productType);
-		this.productType = productType;
-	}
 }	
