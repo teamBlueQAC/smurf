@@ -1,5 +1,6 @@
 package com.qa.smurf.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -33,11 +34,7 @@ public class ProductService {
 		return String.format("%.2f", product.getPrice());
 	}
 
-	public Product findByType(String productType) {
-		for (ProductType p : ProductType.values()) {
-			if(p.toString().equalsIgnoreCase(productType))
-				return productRepository.findByType(p);
-		}
-		return null;
+	public ArrayList<Product> findByType(ProductType productType) {
+		return productRepository.findByType(productType);
 	}
 }
