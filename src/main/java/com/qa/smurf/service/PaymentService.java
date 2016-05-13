@@ -1,5 +1,6 @@
 package com.qa.smurf.service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -123,6 +124,7 @@ public class PaymentService {
 			credit.setAmountRemaining(creditAmount);
 		}
 		order.setOrderStatus(OrderStatus.PAID);
+		order.setDate(new Date());
 		return "confirmation";
 	}
 

@@ -72,24 +72,29 @@
 			style="height: 200px; display: inline-block; float: left; padding: 20px;">
 			<div class="uk-panel">
 				<div class="uk-panel-badge uk-badge">
-					<a class="uk-button" href="myorders.xhtml">Show Orders</a>
+					<button class="uk-button" data-uk-modal="{target:'#modal2'}">Show</button>
 				</div>
-				<!--
 				<h3 class="uk-panel-title">My Orders</h3>
-				<table class="uk-table AT" id="OrdersTable">
-					<tbody>
-						<tr>
-							<td>date order placed :</td>
-							<td>date order shipped :</td>
-						</tr>
-						<ui:repeat var="order" value="#{order.orders}">
+				<h:form rendered="#{myorders.orders ne null}">
+					<table class="uk-table AT" id="OrdersTable">
+						<tbody>
 							<tr>
-								<td><h:outputText value="#{order.date}" /></td>
-								<td><h:outputText value="#{order.dispatchDate}" /></td>
+								<td>Order ID</td>
+								<td>Order Status</td>
+								<td>date order placed :</td>
+								<td>date order shipped :</td>
 							</tr>
-						</ui:repeat>
-					</tbody>
-				</table>-->
+							<ui:repeat var="order" value="#{myorders.orders}">
+								<tr>
+									<td><h:outputText value="#{order.id}" /></td>
+									<td><h:outputText value="#{order.orderStatus.name}" /></td>
+									<td><h:outputText value="#{order.date}" /></td>
+									<td><h:outputText value="#{order.dispatchDate}" rendered="#{order.dispatchDate ne null}"/></td>
+								</tr>
+							</ui:repeat>
+						</tbody>
+					</table>
+				</h:form>
 			</div>
 		</div>
 
