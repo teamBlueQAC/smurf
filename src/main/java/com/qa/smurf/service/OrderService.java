@@ -124,8 +124,8 @@ public class OrderService {
 		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
 		Order order = getPendingOrders(oa);
 		if (order != null) {
-			for (LineItems li : order.getLineItem()) {
-				removeFromBasket(li.getProduct().getId(), userId);
+			while(!order.getLineItem().isEmpty()){
+				removeFromBasket(order.getLineItem().get(0).getProduct().getId(), userId);
 			}
 			orderRepository.removeOrder(order);
 		}
@@ -196,7 +196,6 @@ public class OrderService {
 
 	public List<Order> getPaidOrders(long userId) {
 		List<Order> orders = findPaidOrders(orderRepository.findByUser(userRepository.findByID(userId)));
-		// TODO Auto-generated method stub
 		return orders;
 	}
 

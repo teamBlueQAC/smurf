@@ -65,12 +65,4 @@ public class ProductController {
 		return productService.productPriceTo2DP(product.getProduct());
 	}
 
-	public String getProductType() {
-		return productType;
-	}
-
-	public void changeType(String productType) {
-		System.out.println("--Changing type to " + productType);
-		this.productType = productType;
-	}
 }	
