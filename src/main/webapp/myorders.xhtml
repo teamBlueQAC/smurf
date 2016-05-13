@@ -21,13 +21,18 @@
 			Within the order itself to generate the appropriate output -->
 				<ui:repeat var="line" value="#{myorders.orders}">
 					<tr>
-						<td><h:outputText value="ID: #{line.id} Status: #{line.orderStatus.name}"/> <h:outputText
+						<td><h:outputText
+								value="ID: #{line.id} Status: #{line.orderStatus.name}" /> <h:outputText
 								value="#{line.orderStatus.name}" /></td>
 						<td><ui:repeat var="items" value="#{line.lineItem}">
-								<p>
-									<h:graphicImage value="../img/prod-img/#{items.product.pictureLoc}.jpg"/>
-									<h:outputText value="Product: #{items.product.name}                  Quantity: #{items.quantity}"/>
-								</p>
+								<div>
+									<h:graphicImage
+										value="../img/prod-img/#{items.product.pictureLoc}.jpg" style="height: 20%; width: 20%;"/>
+								</div>
+								<div>
+									<h:outputText
+										value="Product: #{items.product.name}                  Quantity: #{items.quantity}" />
+								</div>
 							</ui:repeat></td>
 					</tr>
 				</ui:repeat>
