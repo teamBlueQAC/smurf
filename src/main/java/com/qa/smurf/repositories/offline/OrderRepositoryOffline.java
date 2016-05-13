@@ -1,8 +1,8 @@
 package com.qa.smurf.repositories.offline;
 
 /**  
-* Author - Tom  
-*/
+ * Author - Tom  
+ */
 
 import java.util.ArrayList;
 
@@ -28,8 +28,11 @@ public class OrderRepositoryOffline implements OrderRepository {
 	}
 
 	@Override
-	public void persistOrders(ArrayList<Order> o) {
-		initialData.setOrders(o);
+	public void persistOrders(ArrayList<Order> orders) {
+		for(Order o : orders){
+			initialData.addOrder(o);
+		}
+
 	}
 
 	@Override
@@ -99,8 +102,8 @@ public class OrderRepositoryOffline implements OrderRepository {
 
 	//@Override
 	//public Order findMostRecentUnPaidOrder(long userId) {
-		// TODO Auto-generated method stub
-		//return null;
+	// TODO Auto-generated method stub
+	//return null;
 	//}
 
 }
