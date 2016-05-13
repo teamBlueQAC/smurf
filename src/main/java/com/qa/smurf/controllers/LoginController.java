@@ -27,11 +27,10 @@ public class LoginController {
 	}
 	
 	public String logout() {
-		System.out.println("Here");
 		currentUser.setUsername(null);
 		currentUser.setPassword(null);
 		currentUser.setUserId(-1);
-		return "homepage";
+		return "home";
 	}
 	
 	public boolean isLoggedIn() {	

@@ -20,12 +20,9 @@ public class WishListController {
 	private User user;
 	private ArrayList<WishListEntry> wishListEntries;
 
-	public String addToWishlist(long productId) {
+	public void addToWishlist(long productId) {
 		if(wishlistService.getCurrentUser(currentUser.getUserId())!= null){
 			wishlistService.addToWishlist(productId, currentUser.getUserId());
-			return "wishlist";
-		} else {
-			return "product";
 		}
 	}
 
