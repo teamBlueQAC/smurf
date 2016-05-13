@@ -4,77 +4,96 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
 
-<ui:define name="body">
-	<link rel="stylesheet" type="text/css" href="css/HomePage.css" />
-		
-	<div class="boxthing" style="width: 100%; padding-top: 20px;">	
-		<div class="section1">
-			<div class="slideshow">
-				<a href="catalogue.xhtml" id="slideLink"><div id="wrapper" style="background-image:img/gnome.jpg"></div></a>
-			</div>
-		</div>
-	</div>
-	
-	<div class="boxthing" style="width: 100%; padding-top: 20px;">
-		<div class="section2">
-			<div class="embed"></div>
-			<div class="welcomeText">
-				<h1 class="home">NB Gardens</h1>
-				<p class="home" style="text-align: center;">Welcome to NB Gardens, your one
-					stop shop for everything you need to make your garden feel like
-					home</p>
-			</div>
+	<ui:define name="body">
+		<link rel="stylesheet" type="text/css" href="css/HomePage.css" />
 
-			<div class="embed"></div>
+		<div class="boxthing" style="width: 100%; padding-top: 20px;">
+			<div class="section1">
+				<div class="slideshow">
+					<a href="catalogue.xhtml" id="slideLink"><div id="wrapper"
+							style="background-image: img/gnome.jpg"></div></a>
+				</div>
+			</div>
 		</div>
-	</div>
-		
-	<div class="boxthingV2" style="width: 100%; padding-top: 20px;">
-		<div class="section3">
+
+		<div class="boxthing" style="width: 100%; padding-top: 20px;">
+			<div class="section2">
+				<div class="embed"></div>
+				<div class="welcomeText">
+					<h1 class="home">NB Gardens</h1>
+					<p class="home" style="text-align: center;">Welcome to NB
+						Gardens, your one stop shop for everything you need to make your
+						garden feel like home</p>
+				</div>
+
+				<div class="embed"></div>
+			</div>
+		</div>
+
+		<div class="boxthingV2" style="width: 100%; padding-top: 20px;">
+			<div class="section3">
 				<!-- Box One -->
 				<div id="box1" class="categories">
 					<div class="title">
 						<h:form>
-					<h:commandLink action="catalogue.xhtml" value="Gnomes">
-						<f:actionListener binding="#{filter.setProductType('GNOME')}" />
-					</h:commandLink>
-					</h:form>
+							<h:commandLink action="catalogue.xhtml" value="Gnomes">
+								<f:actionListener binding="#{filter.setProductType('GNOME')}" />
+							</h:commandLink>
+						</h:form>
 					</div>
-					<div id="boxa" class="box"></div>
+					<h:form>
+							<h:commandLink action="catalogue.xhtml">
+								<f:actionListener binding="#{filter.setProductType('GNOME')}" />
+								<h:graphicImage value="img/gnome.jpg"
+									style="height: 200px; margin: 0 auto; display: block;" id="boxa" class="box"/>
+							</h:commandLink>
+					</h:form>
 				</div>
 
 				<!-- Box Two -->
 				<div id="box2" class="categories">
 					<div class="title">
 						<h:form>
-					<h:commandLink action="catalogue.xhtml" value="Garden Tools">
-						<f:actionListener binding="#{filter.setProductType('TOOL')}" />
-					</h:commandLink>
-					</h:form>
+							<h:commandLink action="catalogue.xhtml" value="Garden Tools">
+								<f:actionListener binding="#{filter.setProductType('TOOL')}" />
+							</h:commandLink>
+						</h:form>
 					</div>
-					<div id="boxb" class="box"></div>
+					<h:form>
+							<h:commandLink action="catalogue.xhtml">
+								<f:actionListener binding="#{filter.setProductType('TOOL')}" />
+								<h:graphicImage value="img/spade.jpg"
+									style="height: 200px; margin: 0 auto; display: block;" id="boxb" class="box"/>
+							</h:commandLink>
+					</h:form>
 				</div>
+
 
 				<!-- Box Three -->
 				<div id="box3" class="categories">
 					<div class="title">
-						
+
 						<h:form>
-					<h:commandLink action="catalogue.xhtml" value="Seeds">
-						<f:actionListener binding="#{filter.setProductType('SEED')}" />
-						<h:graphicImage value="img/gnome.jpg"
-							style="height: 200px; margin: 0 auto; display: block;" />
-					</h:commandLink>
-					</h:form>
+							<h:commandLink action="catalogue.xhtml" value="Seeds">
+								<f:actionListener binding="#{filter.setProductType('SEED')}" />
+							</h:commandLink>
+						</h:form>
+						
 					</div>
-					<div id="boxc" class="box"></div>
+					<h:form>
+							<h:commandLink action="catalogue.xhtml">
+								<f:actionListener binding="#{filter.setProductType('SEED')}" />
+								<h:graphicImage value="img/seeds2.jpg"
+									style="height: 200px; margin: 0 auto; display: block; "  id="boxc" class="box"/>
+							</h:commandLink>
+						</h:form>
 				</div>
+			</div>
+
 		</div>
 
-	</div>
+		<h:outputScript library="js" name="HomePage.js" />
 
-	<h:outputScript library="js" name="HomePage.js" />
-
-</ui:define>
+	</ui:define>
 
 </ui:composition>

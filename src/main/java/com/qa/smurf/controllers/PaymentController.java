@@ -3,7 +3,7 @@ package com.qa.smurf.controllers;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -17,7 +17,7 @@ import com.qa.smurf.service.PaymentService;
 //import com.qa.smurf.service.UserService;
 
 @Named(value = "payment")
-@RequestScoped
+@SessionScoped
 // A series of method using regular expressions to validate the user input.
 public class PaymentController {
 	@Inject	private PaymentService paymentService;
