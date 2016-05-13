@@ -76,8 +76,8 @@ public class BasketController {
 		this.user = user;
 	}*/
 
-	public float getTotalPrice() {
-		return orderService.calcOrderTotalPending(currentUser.getUserId());
+	public String getTotalPrice() {
+		return String.format("%.2f", orderService.calcOrderTotalPending(currentUser.getUserId()));
 	}
 
 	public Order getOrder() {

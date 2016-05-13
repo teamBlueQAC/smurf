@@ -1,11 +1,13 @@
 package com.qa.smurf.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import com.qa.smurf.InitialData;
+import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.repositories.ProductRepository;
 import com.qa.smurf.util.ProductType;
@@ -33,10 +35,15 @@ public class ProductService {
 		return String.format("%.2f", product.getPrice());
 	}
 
-	public Product findByType(String productType) {
-		for (ProductType p : ProductType.values()) {
-			if(p.toString().equalsIgnoreCase(productType))
-				return productRepository.findByType(p);
+	public ArrayList<Product> findByType(String productType) {
+		return productRepository.findByType(getProductType(productType));
+	}
+	
+	private ProductType getProductType(String productType){
+		for (ProductType value : ProductType.values()){
+			if (productType.equals(value.toString())){
+				return value;
+			}
 		}
 		return null;
 	}
