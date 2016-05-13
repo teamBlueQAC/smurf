@@ -193,4 +193,24 @@ public class OrderService {
 	public List<LineItems> getLineItems(Order order, long userId) {
 		return order.getLineItem();
 	}
+
+	public List<Order> getPaidOrders(long userId) {
+		List<Order> orders = findPaidOrders(orderRepository.findByUser(userRepository.findByID(userId)));
+		// TODO Auto-generated method stub
+		return orders;
+	}
+
+	private List<Order> findPaidOrders(ArrayList<Order> orders) {
+		List<Order> foundOrders = new ArrayList<Order>();
+		for(Order o : orders){
+			if(o.getOrderStatus()!=OrderStatus.PENDING&&o.getOrderStatus()!=OrderStatus.PLACED){
+				foundOrders.add(o);
+			}
+		}
+		if(!foundOrders.isEmpty()){
+			return foundOrders;
+		} else {
+			return null;
+		}
+	}
 }
