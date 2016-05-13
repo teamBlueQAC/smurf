@@ -138,3 +138,10 @@ var counter = 1;
 			document.getElementById("boxa").style.backgroundImage = "url(img/seeds.jpg)";
 			document.getElementById("boxb").style.backgroundImage = "url(img/seeds2.jpg)";
 			document.getElementById("boxc").style.backgroundImage = "url(img/purple-garden.jpg)";
+
+			function NavigateToGnomes() {
+			    window.open("catalogue.xhtml","_self");
+			      
+			}
+			
+			
