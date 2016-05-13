@@ -1,5 +1,6 @@
 package com.qa.smurf.controllers;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.faces.bean.SessionScoped;
@@ -15,6 +16,12 @@ public class MyOrdersController {
 	@Inject	private OrderService orderService;
 	@Inject private CurrentUser currentUser;
 	private List<Order> orders;
+	
+	public BigDecimal getOrderTotal(Order order){
+		BigDecimal bd = new BigDecimal(orderService.calculateOrderTotal(order));
+		bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);
+		return bd;
+	}
 	
 	public List<Order> getOrders() {
 		orders = orderService.getPaidOrders(currentUser.getUserId());

@@ -89,7 +89,7 @@
 								<tr>
 									<td><h:outputText value="#{order.id}" /></td>
 									<td><h:outputText value="#{order.orderStatus.name}" /></td>
-									<td><h:outputText value="#{order.total}"/></td>
+									<td><h:outputText value="£#{myorders.getOrderTotal(order)}"/></td>
 									<td><h:outputText value="#{order.date}" /></td>
 									<td><h:outputText value="#{order.dispatchDate}" rendered="#{order.dispatchDate ne null}"/></td>
 								</tr>
