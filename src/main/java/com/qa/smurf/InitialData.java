@@ -247,10 +247,6 @@ public class InitialData {
 
 		LineItems lineItem1 = new LineItems(order.get(0), product.get(3), 250, 400.00, 34);
 		order.get(0).setLineItem(setLineItemForOrder(lineItem1));
-		/*lineItems.add(lineItem1);
-		ArrayList<LineItems> li = new ArrayList<LineItems>();
-		li.add(lineItem1);
-		order.get(0).setLineItem(li);*/
 		LineItems lineItem2 = new LineItems(order.get(1), product.get(1), 450, 1400.00, 67);
 		order.get(1).setLineItem(setLineItemForOrder(lineItem2));
 		LineItems lineItem3 = new LineItems(order.get(2), product.get(2), 600, 4200.00, 2);
