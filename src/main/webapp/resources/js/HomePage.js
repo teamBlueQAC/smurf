@@ -84,41 +84,6 @@ function updateSlider() {
 			updateStatus = pendingStatus;
 			changeTmr = setInterval(ChangeSlide, 4000);
 		}
-<<<<<<< HEAD
-	   
-	   var changeTmr = setInterval(ChangeSlide,  4000);
-	   var updateTmr = setInterval(updateSlider,  24);
-	   document.getElementById("wrapper").style.opacity = 1;
-
-	   function BoxArrangement() {
-		   if (window.innerWidth >= 999) {
-			   document.getElementById("box1").style.width = '27.3%'; 
-			   document.getElementById("box2").style.width = '27.3%'; 
-			   document.getElementById("box3").style.width = '27.3%'; 
-		   }
-		   else if (window.innerWidth >= 666) {
-			   document.getElementById("box1").style.width = '94%'; 
-			   document.getElementById("box2").style.width = '44%'; 
-			   document.getElementById("box3").style.width = '44%'; 
-		   }
-		   else {
-			   document.getElementById("box1").style.width = '94%'; 
-			   document.getElementById("box2").style.width = '94%'; 
-			   document.getElementById("box3").style.width = '94%'; 
-		   }
-	   }
- 
-			document.getElementById("boxa").style.backgroundImage = "url(img/seeds.jpg)";
-			document.getElementById("boxb").style.backgroundImage = "url(img/seeds2.jpg)";
-			document.getElementById("boxc").style.backgroundImage = "url(img/purple-garden.jpg)";
-
-			function NavigateToGnomes() {
-			    window.open("catalogue.xhtml","_self");
-			      
-			}
-			
-			
-=======
 	}
 
 	BoxArrangement();
@@ -163,7 +128,10 @@ function BoxArrangement() {
 	}
 }
 
-document.getElementById("boxa").style.backgroundImage = "url(img/seeds.jpg)";
-document.getElementById("boxb").style.backgroundImage = "url(img/seeds2.jpg)";
-document.getElementById("boxc").style.backgroundImage = "url(img/purple-garden.jpg)";
->>>>>>> 47cbe1a642e58072dd11e47b410a043593308a87
+
+
+		function NavigateToGnomes() {
+		    window.open("catalogue.xhtml","_self");
+		      
+		}
+		
