@@ -95,16 +95,14 @@
 										<li><a href="myaccount.xhtml">Account Management</a></li>
 										<li class="uk-nav-divider"></li>
 										<li><a href="wishlist.xhtml">Wishlist</a></li>
-										<li class="uk-nav-divider"></li>
-										<li><h:link value="Logout" action="#{login.logout}" /></li>
+										<li class="uk-nav-divider"></li>										
+										<li><h:form><h:commandLink style="color:black" action="#{login.logout}" value="Logout" /></h:form></li>										
 									</ul>
 								</div></li>
 						</h:panelGroup>
 						<li><a href="basket.xhtml"><i
-								class="fa fa-shopping-basket" aria-hidden="true"></i> <h:form
-									rendered="#{basket.order ne null}">
-									<h:outputLabel value="£#{basket.getTotalPrice()}" />
-								</h:form> </a></li>
+								class="fa fa-shopping-basket" aria-hidden="true"></i> 
+								<h:outputLabel value=" £#{basket.getTotalPrice()}" /> </a></li>
 					</ul>
 				</div>
 			</div>
