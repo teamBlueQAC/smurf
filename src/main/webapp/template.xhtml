@@ -50,12 +50,6 @@
 			<div style="width: 100%; max-width: 1000px; margin: 0 auto;">
 				<ul class="uk-navbar-nav uk-hidden-small">
 					<li id="home"><a href="home.xhtml">Home</a></li>
-					<li><h:form>
-							<h:commandLink action="catalogue.xhtml" value="Seeds"
-								class="linkitem">
-								<f:actionListener binding="#{filter.setProductType('SEED')}" />
-							</h:commandLink>
-						</h:form></li>
 					<li aria-expanded="false" aria-haspopup="true" class="uk-parent"
 						data-uk-dropdown="catalogue-home.xhtml" id="category"><a
 						href="catalogue-home.xhtml">Catalogue</a>
@@ -64,7 +58,6 @@
 							<ul class="uk-nav uk-nav-navbar">
 								<h:form>
 									<h:commandLink action="catalogue.xhtml">
-
 										<li class="navlist" value="1"><f:actionListener
 												binding="#{filter.setProductType('GNOME')}" />Gnomes</li>
 									</h:commandLink>
@@ -115,14 +108,17 @@
 										<li><a href="myaccount.xhtml">Account Management</a></li>
 										<li class="uk-nav-divider"></li>
 										<li><a href="wishlist.xhtml">Wishlist</a></li>
-										<li class="uk-nav-divider"></li>										
-										<li><h:form><h:commandLink style="color:black" action="#{login.logout}" value="Logout" /></h:form></li>										
+										<li class="uk-nav-divider"></li>
+										<li><h:form>
+												<h:commandLink style="color:black" action="#{login.logout}"
+													value="Logout" />
+											</h:form></li>
 									</ul>
 								</div></li>
 						</h:panelGroup>
 						<li><a href="basket.xhtml"><i
-								class="fa fa-shopping-basket" aria-hidden="true"></i> 
-								<h:outputLabel value=" £#{basket.getTotalPrice()}" /> </a></li>
+								class="fa fa-shopping-basket" aria-hidden="true"></i> <h:outputLabel
+									value=" £#{basket.getTotalPrice()}" /> </a></li>
 					</ul>
 				</div>
 			</div>
