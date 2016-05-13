@@ -10,7 +10,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.service.ProductService;
-import com.qa.smurf.util.ProductType;
 
 @Named("product")
 @Path("product")
@@ -40,7 +39,7 @@ public class ProductController {
 		return product.getProduct();
 	} 
 	
-	public List<Product> findByType(ProductType productType){
+	public List<Product> findByType(String productType){
 		products = productService.findByType(productType);
 		return products;
 	}
