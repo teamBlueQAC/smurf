@@ -169,10 +169,10 @@ public class InitialData {
 
 		for (int i = 0; i < 5; i++) {
 			if(i != 0){
-			orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i),
-					getUsers().get(i), OrderStatus.DELIVERED));
-			} else {
 				orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i),
+						getUsers().get(i), OrderStatus.DELIVERED));
+			} else {
+				orders.add(new Order(price[i], new Date(), null, getPayment().get(i), getAddresses().get(i),
 						getUsers().get(i), OrderStatus.PENDING));
 			}
 		}
@@ -245,15 +245,27 @@ public class InitialData {
 		ArrayList<Order> order = getOrders();
 		ArrayList<Product> product = getProducts();
 
-		LineItems pending = new LineItems(order.get(0), product.get(3), 250, 400.00, 34);
-		lineItems.add(pending);
+		LineItems lineItem1 = new LineItems(order.get(0), product.get(3), 250, 400.00, 34);
+		order.get(0).setLineItem(setLineItemForOrder(lineItem1));
+		/*lineItems.add(lineItem1);
 		ArrayList<LineItems> li = new ArrayList<LineItems>();
-		li.add(pending);
-		order.get(0).setLineItem(li);
-		lineItems.add(new LineItems(order.get(1), product.get(1), 450, 1400.00, 67));
-		lineItems.add(new LineItems(order.get(2), product.get(2), 600, 4200.00, 2));
-		lineItems.add(new LineItems(order.get(3), product.get(3), 560, 5400.00, 45));
-		lineItems.add(new LineItems(order.get(4), product.get(4), 1234, 1400.00, 235));
+		li.add(lineItem1);
+		order.get(0).setLineItem(li);*/
+		LineItems lineItem2 = new LineItems(order.get(1), product.get(1), 450, 1400.00, 67);
+		order.get(1).setLineItem(setLineItemForOrder(lineItem2));
+		LineItems lineItem3 = new LineItems(order.get(2), product.get(2), 600, 4200.00, 2);
+		order.get(2).setLineItem(setLineItemForOrder(lineItem3));
+		LineItems lineItem4 = new LineItems(order.get(3), product.get(3), 560, 5400.00, 45);
+		order.get(3).setLineItem(setLineItemForOrder(lineItem4));
+		LineItems lineItem5 = new LineItems(order.get(4), product.get(4), 1234, 1400.00, 235);
+		order.get(4).setLineItem(setLineItemForOrder(lineItem5));
+	}
+
+	public ArrayList<LineItems> setLineItemForOrder(LineItems lineItem){
+		lineItems.add(lineItem);
+		ArrayList<LineItems> li = new ArrayList<LineItems>();
+		li.add(lineItem);
+		return li;
 	}
 
 	public void addLineItems(LineItems lineitem) {
