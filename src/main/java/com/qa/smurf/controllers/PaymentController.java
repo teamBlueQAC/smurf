@@ -82,8 +82,8 @@ public class PaymentController {
 		return returnPayment;
 	}
 	
-	public Double getTotalPrice() {
-		return paymentService.calcOrderTotalPlaced(currentUser.getUserId());
+	public String getTotalPrice() {
+		return String.format("%.2f", paymentService.calcOrderTotalPlaced(currentUser.getUserId()));
 	}
 	
 	public String confirmPayment(){
