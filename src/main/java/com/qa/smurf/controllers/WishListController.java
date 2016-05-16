@@ -21,6 +21,7 @@ public class WishListController {
 	private ArrayList<WishListEntry> wishListEntries;
 
 	public void addToWishlist(long productId) {
+		System.out.println("Call funciton");
 		if(wishlistService.getCurrentUser(currentUser.getUserId())!= null){
 			wishlistService.addToWishlist(productId, currentUser.getUserId());
 		}
@@ -32,6 +33,7 @@ public class WishListController {
 	}
 
 	public String addToBasket(long productId){
+		wishlistService.removeFromWishlist(productId, currentUser.getUserId());
 		return wishlistService.addToBasketFromWishlist(productId, currentUser.getUserId());
 	}
 

@@ -9,6 +9,7 @@ import com.qa.smurf.entities.LineItems;
 import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.User;
 import com.qa.smurf.service.OrderService;
+import com.qa.smurf.service.WishlistService;
 
 /**
  * 
@@ -22,6 +23,7 @@ import com.qa.smurf.service.OrderService;
 public class BasketController {
 	@Inject	private OrderService orderService;
 	@Inject	private CurrentUser currentUser;
+	@Inject	private WishlistService wishlistService;
 	private User user;
 	private Order order;
 	private List<LineItems> lineItems;
@@ -51,6 +53,7 @@ public class BasketController {
 		if (currentUser.getUsername() != null){
 			userId = currentUser.getUserId();
 			orderService.addToBasket(productId, userId);
+			wishlistService.removeFromWishlist(productId, userId);
 			return "basket";
 		} else {
 			System.out.println("User not logged in");

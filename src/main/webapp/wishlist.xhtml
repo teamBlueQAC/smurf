@@ -21,20 +21,21 @@
 
 			<!-- repeat tag is used to iterate through all the order lines
 			Within the order itself to generate the appropriate output -->
-			<ui:repeat var="line" value="#{wishlist.wishListEntries}">
-				<tr>
-					<td><h:graphicImage
-							value="../img/prod-img/#{line.product.pictureLoc}.jpg"
-							style="height:10%; width:10%;" /></td>
-					<td><h:outputText value="#{line.product.name}" /></td>
-					<td><h:outputText value="£#{line.product.price}" /></td>
-					<td><h:commandButton value="Remove From Wishlist"
-							action="#{wishlist.removeFromWishlist(line.product.id)}" /></td>
-					<td><h:commandButton value="Add To Basket"
-							action="#{wishlist.addToBasket(line.product.id)}" /></td>
-				</tr>
-			</ui:repeat>
-
+			<h:form>
+				<ui:repeat var="line" value="#{wishlist.wishListEntries}">
+					<tr>
+						<td><h:graphicImage
+								value="../img/prod-img/#{line.product.pictureLoc}.jpg"
+								style="height:10%; width:10%;" /></td>
+						<td><h:outputText value="#{line.product.name}" /></td>
+						<td><h:outputText value="£#{line.product.price}" /></td>
+						<td><h:commandButton value="Remove From Wishlist"
+								action="#{wishlist.removeFromWishlist(line.product.id)}" /></td>
+						<td><h:commandButton value="Add To Basket"
+								action="#{wishlist.addToBasket(line.product.id)}" /></td>
+					</tr>
+				</ui:repeat>
+			</h:form>
 		</table>
 	</ui:define>
 </ui:composition>
