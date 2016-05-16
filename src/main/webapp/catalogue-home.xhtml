@@ -8,79 +8,58 @@
 
 	</ui:define>
 	<ui:define name="body">
-		<style>
-#mainCont {
-	height: 1200px;
-}
-</style>
-		<!-- Garden Tools -->
-		<div class="boxthing categoryboxthing">
-			<div class="picbox boxthing uk-width-medium-1-2 uk-width-small-1-1">
-				<img src="img/spade2.0.jpg" />
-			</div>
-			<div class="boxthing infobox uk-width-medium-1-2 uk-width-small-1-1">
-				<h1 class="categoryheaders">Garden Tools</h1>
+	
+	<div class="uk-grid" data-uk-grid-margin="">
 
-				<div class="categoryinfo" id="Gardentoolsinfo">
-					<p>Discover a better garden with our excellent range of garden
-						tools. Here at NB Gardens we have all the tools you need, to help
-						maintain a healthy garden such as our top of the range spades and
-						lawn mowers.</p>
+                <div class="uk-width-medium-1-2 uk-row-first">
+                    <img width="660" height="400" src="img/seeds.jpg" alt=""/>
+                </div>
+
+                <div class="uk-width-medium-1-2">
+                    <h1>Garden Tools</h1>
+                    <p>Discover a better garden with our excellent range of garden tools. Here at NB Gardens we have all the tools you need, to help maintain a healthy garden such as our top of the range spades and lawn mowers</p>
 					<h:form>
-						<h:commandLink action="catalogue.xhtml" value="Go to garden tools">
+						<h:commandLink action="catalogue.xhtml" value="Browse garden tools">
 							<f:actionListener binding="#{filter.setProductType('TOOL')}" />
 						</h:commandLink>
 					</h:form>
-				</div>
-			</div>
-		</div>
+                </div>
 
-		<!-- SEEDS -->
-		<div class="boxthing categoryboxthing">
-			<div class="picbox uk-width-medium-1-2 uk-width-small-1-1"
-				style="display: block; float: right;">
-				<img src="img/seeds.jpg" />
-			</div>
-			<div class="boxthing infobox uk-width-medium-1-2 uk-width-small-1-1">
-				<h1 class="categoryheaders">Seeds</h1>
-				<div class="categoryinfo" id="Seedsinfo">
-					<p>Browse our online catalogue to see our extensive range of
-						garden seeds to create the best garden experience. Create a world
-						of colour with beautiful selection of flower seeds to complement
-						your landscaped land.</p>
-					<h:form>
-						<h:commandLink action="catalogue.xhtml" value="Go to seeds">
+            </div>
+            <hr class="uk-grid-divider"/>
+            <div class="uk-grid" data-uk-grid-margin="">
+                <div class="uk-width-medium-1-2 uk-row-first">
+                    <h1>Seeds</h1>
+                    <p>Browse our online catalogue to see our extensive range of garden seeds to create the best garden experience. Create a world of colour with beautiful selection of flower seeds to complement your landscaped land.</p>
+                	<h:form>
+						<h:commandLink action="catalogue.xhtml" value="Browse seeds">
 							<f:actionListener binding="#{filter.setProductType('SEED')}" />
 						</h:commandLink>
 					</h:form>
-				</div>
-			</div>
-		</div>
+                </div>
 
-		<!--Gnomes-->
-		<div class="boxthing categoryboxthing">
-			<div class="boxthing uk-width-medium-1-2 uk-width-small-1-1">
-				<img src="img/selenagnomez.png" />
-			</div>
-			<div class="boxthing infobox uk-width-medium-1-2 uk-width-small-1-1">
-				<h1 class="categoryheaders">Gnomes</h1>
-				<div class="categoryinfo" id="Gnomesinfo">
-					<p>Our award winning gnomes, are the main attraction of the
-						highest quality. Our vast selection of gnomes ranging from
-						celebrity gnomes such as "Selena Gnomez" to our standard garden
-						gnomes to kept your pond company. Also offered with extra
-						protection with our porous wear, to give your gnomes an extra
-						layer of protection against water damage.</p>
+                <div class="uk-width-medium-1-2">
+                    <img width="660" height="400" src="img/spade2.0.jpg" alt=""/>
+                </div>
+            </div>
+            <hr class="uk-grid-divider"/>
+            	<div class="uk-grid" data-uk-grid-margin="">
 
-					<h:form>
-						<h:commandLink action="catalogue.xhtml" value="Go to gnomes">
+                <div class="uk-width-medium-1-2 uk-row-first">
+                    <img width="660" height="400" src="img/selenagnomez.png" alt=""/>
+                </div>
+
+                <div class="uk-width-medium-1-2">
+                    <h1>Gnomes</h1>
+                    <p>Our award winning gnomes, are the main attraction of the highest quality. Our vast selection of gnomes ranging from celebrity gnomes such as "Selena Gnomez" to our standard garden gnomes to kept your pond company. Also offered with extra protection with our porous wear, to give your gnomes an extra layer of protection against water damage.</p>
+                    <h:form>
+						<h:commandLink action="catalogue.xhtml" value="Browse gnomes">
 							<f:actionListener binding="#{filter.setProductType('GNOME')}" />
 						</h:commandLink>
 					</h:form>
+                </div>
 
+            </div>
 
-				</div>
-			</div>
-		</div>
 	</ui:define>
 </ui:composition>
