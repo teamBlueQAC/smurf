@@ -146,7 +146,6 @@ public class OrderService {
 				}
 			}
 		}
-		System.out.println("Pending Total = " + total);
 		return total;
 	}
 
