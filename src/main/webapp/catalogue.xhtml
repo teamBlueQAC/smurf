@@ -32,8 +32,8 @@ html, body {
     <p>#{line.description}</p>
     <p align="right">
     	<h:form>
-	   	 	<h:commandButton class="uk-icon-button" icon="uk-icon-shopping-basket" action="#{basket.addToBasket(line.id)}"></h:commandButton>
-	   		<h:commandButton class="uk-icon-button" action="#{wishlist.addToWishlist(line.id)}"></h:commandButton>
+	   	 	<h:commandButton class="uk-button" value="Add To Basket" action="#{basket.addToBasket(line.id)}"></h:commandButton>
+	   		<h:commandButton class="uk-button" value="Add To Wishlist" action="#{wishlist.addToWishlist(line.id)}"></h:commandButton>
 	   	</h:form>
 	</p>
     </figcaption>
