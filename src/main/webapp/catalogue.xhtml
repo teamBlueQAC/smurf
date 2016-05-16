@@ -10,16 +10,18 @@
 		</div>
 	</ui:define>
 	<ui:define name="body">
+		<style>
+html, body {
+	height: 100%;
+}
+</style>
 		<ui:repeat var="line"
 			value="#{product.findByType(filter.productType)}">
-			<br />
 			<div class="boxthing uk-width-medium-1-3 uk-width-small-1-1">
 				<div style="padding: 20px; height: 400px">
 
 					<h:graphicImage value="../img/prod-img/#{line.pictureLoc}.jpg"
 						style="height: 200px; margin: 0 auto; display: block;" />
-
-
 					<h2>
 						<h:form>
 							<h:commandLink value="#{line.name}"
