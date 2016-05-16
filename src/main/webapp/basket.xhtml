@@ -12,6 +12,11 @@
 
 	<!-- Main body of the html -->
 	<ui:define name="body">
+		<style>
+html, body {
+	height: 100%;
+}
+</style>
 		<div class="boxthing">
 			<div class="basketitembox uk-grid">
 				<h:form>
@@ -20,7 +25,8 @@
 						<div>
 							<div>
 								<h:graphicImage
-									value="../img/prod-img/#{line.product.pictureLoc}.jpg" style="height: 10%; width:10%;" />
+									value="../img/prod-img/#{line.product.pictureLoc}.jpg"
+									style="height: 10%; width:10%;" />
 							</div>
 							<div>
 								<h:outputText value="#{line.product.name}" />
@@ -51,8 +57,8 @@
 									class="uk-button uk-button-large" id="checkout" />
 							</h3>
 							<h:commandButton value="Clear Basket"
-									action="#{basket.clearBasket()}"
-									class="uk-button uk-button-large" id="clear" />
+								action="#{basket.clearBasket()}"
+								class="uk-button uk-button-large" id="clear" />
 						</h:form>
 					</div>
 				</h:form>
