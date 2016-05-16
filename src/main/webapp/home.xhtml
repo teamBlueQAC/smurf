@@ -9,9 +9,15 @@
 
 		<div class="boxthing" style="width: 100%; padding-top: 20px;">
 			<div class="section1">
+
 				<div class="slideshow">
-					<a href="catalogue.xhtml" id="slideLink"><div id="wrapper"
-							style="background-image: img/gnome.jpg"></div></a>
+					<h:form>
+						<h:commandLink action="catalogue.xhtml">
+							<f:actionListener id="slideLink" binding="#{filter.setProductType('SEED')}" />
+							<h:graphicImage value="img/prod-img/PeaceGnome.jpg"
+								 id="wrapper" />
+						</h:commandLink>
+					</h:form>
 				</div>
 			</div>
 		</div>
