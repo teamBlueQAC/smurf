@@ -1,4 +1,3 @@
-
 var slideArray = [];
 var currentSlide = 0;
 var screenWidth = 500;
@@ -14,8 +13,6 @@ var slideAlpha = 1;
 
 var width = 100;
 
-
-
 function Slide(ID, x, y, width, height) {
 	this.objectID = ID;
 	this.xPos = x;
@@ -24,7 +21,7 @@ function Slide(ID, x, y, width, height) {
 	this.object_height = height;
 	this.a = 1;
 	this.src = "img/seeds2.jpg";
-	this.url = "catalogue.xhtml";	
+	this.url = "catalogue.xhtml";
 }
 
 function initialiseSlides() {
@@ -69,13 +66,11 @@ function updateSlider() {
 			}
 			if (counter == 0) {
 				document.getElementById("wrapper").style.backgroundImage = "url(img/prod-img/PeaceGnome.jpg)";
-				document.getElementById("slideLink").href = slideArray[counter].url; 
-			} 
-			else if (counter == 1) {
+				document.getElementById("slideLink").href = slideArray[counter].url;
+			} else if (counter == 1) {
 				document.getElementById("wrapper").style.backgroundImage = "url(img/prod-img/WheelBarrow.jpg)";
 				document.getElementById("slideLink").href = slideArray[counter].url;
-			} 
-			else if (counter == 2) {
+			} else if (counter == 2) {
 				document.getElementById("wrapper").style.backgroundImage = "url(img/prod-img/SunflowerSeeds.jpg)";
 				document.getElementById("slideLink").href = slideArray[counter].url;
 			}
@@ -133,10 +128,7 @@ function BoxArrangement() {
 	}
 }
 
+function NavigateToGnomes() {
+	window.open("catalogue.xhtml", "_self");
 
-
-		function NavigateToGnomes() {
-		    window.open("catalogue.xhtml","_self");
-		      
-		}
-		
+}
