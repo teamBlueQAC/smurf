@@ -36,16 +36,7 @@ public class WishlistEntryRepositoryOffline implements WishListEntryRepository {
 	}
 
 
-	@Override
-	public WishListEntry findByID(long id) {
-		for (WishListEntry w: initialData.getWishListEntries()) {
-			if (w.getId() == id) {
-				return w;
-
-			}
-		}
-		return null;
-	}
+	
 	
 	@Override
 	public ArrayList<WishListEntry> getWishListEntries() {
