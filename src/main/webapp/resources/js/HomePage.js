@@ -1,9 +1,8 @@
-
 var slideArray = [];
 var currentSlide = 0;
 var screenWidth = 500;
 var screenHeight = 400;
-var counter = 1;
+var counter = 0;
 
 var pendingStatus = 1;
 var fadeOutStatus = 2;
@@ -22,24 +21,25 @@ function Slide(ID, x, y, width, height) {
 	this.object_height = height;
 	this.a = 1;
 	this.src = "img/seeds2.jpg";
+	this.url = "catalogue.xhtml";
 }
 
 function initialiseSlides() {
 
 	slideArray.push(new Slide(currentSlide, 5, 5, (screenWidth - 10),
 			(screenHeight - 10)));
-	slideArray[currentSlide].src = "img/gnome.jpg";
+	slideArray[currentSlide].src = "img/prod-img/PeaceGnome.jpg";
 	currentSlide++;
 
 	slideArray.push(new Slide(currentSlide, 5, 5, (screenWidth - 10),
 			(screenHeight - 10)));
-	slideArray[currentSlide].src = "img/spade2.0.jpg";
+	slideArray[currentSlide].src = "img/prod-img/WheelBarrow.jpg";
 	slideArray[currentSlide].a = 0;
 	currentSlide++;
 
 	slideArray.push(new Slide(currentSlide, 5, 5, (screenWidth - 10),
 			(screenHeight - 10)));
-	slideArray[currentSlide].src = "img/seeds2.jpg";
+	slideArray[currentSlide].src = "img/prod-img/SunflowerSeeds.jpg";
 	slideArray[currentSlide].a = 0;
 	currentSlide++;
 
@@ -61,18 +61,18 @@ function updateSlider() {
 			document.getElementById("wrapper").style.opacity = slideAlpha;
 		} else {
 			counter++;
-			if (counter > 3) {
-				counter = 1;
+			if (counter > 2) {
+				counter = 0;
 			}
-			if (counter == 1) {
-				document.getElementById("wrapper").style.backgroundImage = "url(img/gnome.jpg)";
-				document.getElementById("slideLink").href = "catalogue.xhtml";
+			if (counter == 0) {
+				document.getElementById("wrapper").style.backgroundImage = "url(img/prod-img/PeaceGnome.jpg)";
+				document.getElementById("slideLink").href = slideArray[counter].url;
+			} else if (counter == 1) {
+				document.getElementById("wrapper").style.backgroundImage = "url(img/prod-img/WheelBarrow.jpg)";
+				document.getElementById("slideLink").href = slideArray[counter].url;
 			} else if (counter == 2) {
-				document.getElementById("wrapper").style.backgroundImage = "url(img/spade2.0.jpg)";
-				document.getElementById("slideLink").href = "catalogue.xhtml";
-			} else if (counter == 3) {
-				document.getElementById("wrapper").style.backgroundImage = "url(img/seeds2.jpg)";
-				document.getElementById("slideLink").href = "catalogue.xhtml";
+				document.getElementById("wrapper").style.backgroundImage = "url(img/prod-img/SunflowerSeeds.jpg)";
+				document.getElementById("slideLink").href = slideArray[counter].url;
 			}
 			updateStatus = fadeInStatus;
 		}
@@ -128,10 +128,7 @@ function BoxArrangement() {
 	}
 }
 
+function NavigateToGnomes() {
+	window.open("catalogue.xhtml", "_self");
 
-
-		function NavigateToGnomes() {
-		    window.open("catalogue.xhtml","_self");
-		      
-		}
-		
+}

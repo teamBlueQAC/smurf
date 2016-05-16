@@ -12,6 +12,7 @@ public class FilterController implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String productType;
+	private String productID;
 	
 	public String getProductType() {
 		return productType;
@@ -20,7 +21,14 @@ public class FilterController implements Serializable {
 		System.out.println("--Changing type to " + productType);
 		this.productType = productType;
 	}
-	
+
+	public String getProductID() {
+		return productID;
+	}
+	public void setProductID(String productID) {
+		System.out.println("--Changing ID to " + productID);
+		this.productID = productID;
+	}
 	
 	
 	

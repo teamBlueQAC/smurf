@@ -19,7 +19,7 @@ public class WishlistService {
 	@Inject private WishListEntryRepository wishlistRepository;
 	@Inject private ProductRepository productRepository;
 	@Inject private OrderService orderService;
-	
+
 	public User getCurrentUser(long userId) {
 		return userRepository.findByID(userId);
 	}
@@ -31,7 +31,7 @@ public class WishlistService {
 		}
 
 	}
-	
+
 	public String addToBasketFromWishlist(long productId, long userId){
 		removeFromWishlist(productId, userId);
 		orderService.addToBasket(productId, userId);
@@ -53,5 +53,15 @@ public class WishlistService {
 	public ArrayList<WishListEntry> getWishListEntries(long userId) {
 		ArrayList<WishListEntry> wishList = wishlistRepository.findByUser(userRepository.findByID(userId));
 		return wishList;
+	}
+
+	public boolean checkOnWishlist(long productId, long userId) {
+		Product product = productRepository.findByID(productId);
+		WishListEntry wishlistEntry = wishlistRepository.findByProductAndUser(product, userRepository.findByID(userId));
+		if(wishlistEntry != null){
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
