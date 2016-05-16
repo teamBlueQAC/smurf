@@ -1,3 +1,24 @@
+* {
+	margin: 0;
+}
+
+html, body {
+	height: 100% !important;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -px;
+	/* the bottom margin is the negative value of the footer's height */
+}
+
+#footer, .push {
+	padding-top: 5px;
+	height: 32px; /* .push must be the same height as .footer */
+}
+
 #main {
 	max-width: 1000px;
 	margin: 0 auto;
@@ -6,11 +27,6 @@
 
 .footlink {
 	padding: 10px;
-}
-
-#footer {
-	padding-top: 5px;
-	height: 32px;
 }
 
 h1, h2, h3, h4, h5, h6 {
