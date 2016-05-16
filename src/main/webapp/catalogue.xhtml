@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -41,11 +42,11 @@ html, body {
 						<tr>
 							<td class="cattable"><h:commandButton class="uk-button"
 									value="Add to Basket"
-									action="#{basket.addToBasket(product.product.id)}">
+									action="#{basket.addToBasket(line.id)}">
 								</h:commandButton></td>
 							<td class="cattable"><h:commandButton class="uk-button"
 									value="Add to Wishlist"
-									action="#{wishlist.addToWishlist(product.product.id)}">
+									action="#{wishlist.addToWishlist(line.id)}">
 								</h:commandButton></td>
 						</tr>
 					</table>
