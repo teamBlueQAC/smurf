@@ -62,9 +62,7 @@
 												binding="#{filter.setProductType('GNOME')}" />Gnomes</li>
 									</h:commandLink>
 								</h:form>
-
 								<li class="uk-nav-divider"></li>
-
 								<h:form>
 									<h:commandLink action="catalogue.xhtml" id="navlist2">
 										<f:actionListener binding="#{filter.setProductType('TOOL')}" />
@@ -109,10 +107,11 @@
 										<li class="uk-nav-divider"></li>
 										<li><a href="wishlist.xhtml">Wishlist</a></li>
 										<li class="uk-nav-divider"></li>
-										<li><h:form>
-												<h:commandLink style="color:black" action="#{login.logout}"
-													value="Logout" />
-											</h:form></li>
+										<h:form>
+											<h:commandLink style="color:black" action="#{login.logout}">
+												<li class="navlist">Logout</li>
+											</h:commandLink>
+										</h:form>
 									</ul>
 								</div></li>
 						</h:panelGroup>
@@ -198,7 +197,8 @@
 		</div>
 		<div id="mainCont">
 			<ui:insert name="pageTitle" />
-			<div id="bodyCont" style="margin-top: 15px; width: 100%;">
+			<div id="bodyCont"
+				style="margin-top: 15px; width: 100%; height: 100%; display: block;">
 				<ui:insert name="body" />
 			</div>
 		</div>
@@ -210,6 +210,7 @@
 					class="fa fa-hand-lizard-o" aria-hidden="true"></i> E-mail</a>
 			</div>
 		</div>
+		-
 		<div id="footer" class="boxthing uk-width-1-1">
 			<div style="background-color: white; height: 1px;" />
 			<div style="background-color: rgb(53, 28, 140); height: 3px;" />

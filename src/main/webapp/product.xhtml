@@ -4,6 +4,11 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
 	<ui:define name="body">
+		<style>
+html, body {
+	height: 100%;
+}
+</style>
 		<div class="boxthing" style="width: 100%; padding-top: 20px;">
 			<div class="uk-grid">
 				<div class="uk-width-medium-1-2 uk-width-small-1-1">
@@ -18,18 +23,23 @@
 							&#163;
 							<h:outputText value="#{product.getProductPrice()}" />
 						</h3>
-						<h:form>
-							<h:commandButton class="uk-button" value="Add to Basket"
-								action="#{basket.addToBasket(product.product.id)}">
-								<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+						<table>
+							<tr>
+								<td><h:form>
+										<h:commandButton class="uk-button" value="Add to Basket"
+											action="#{basket.addToBasket(product.product.id)}">
 
-							</h:commandButton>
-							<h:commandButton class="uk-button" value="Add to Wish List"
-								action="#{wishlist.addToWishlist(product.product.id)}">
-								<i class="fa fa-star-o" aria-hidden="true"></i>
+										</h:commandButton>
+									</h:form></td>
+								<td><h:form>
+										<h:commandButton class="uk-button" value="Add to Wish List"
+											action="#{wishlist.addToWishlist(product.product.id)}">
 
-							</h:commandButton>
-						</h:form>
+
+										</h:commandButton>
+									</h:form></td>
+							</tr>
+						</table>
 						<p></p>
 						<p>
 							<h:outputText value="#{product.product.description}" />
@@ -39,34 +49,30 @@
 				<div class="uk-width-medium-1-2 uk-width-small-1-1">
 					<div class="uk-slidenav-position" data-uk-slider="">
 						<div class="uk-slider-container">
-							<ul
-								class="uk-slider uk-grid-width-1-3">
+							<ul class="uk-slider uk-grid-width-1-3">
 
 
 								<li><a
 									href="../img/prod-img/#{product.product.pictureLoc}_3.jpg"
-									data-uk-lightbox="" title=""> 
-									<img
+									data-uk-lightbox="" title=""> <img
 										src="../img/prod-img/#{product.product.pictureLoc}_3.jpg" />
 								</a></li>
 								<li><a
 									href="../img/prod-img/#{product.product.pictureLoc}_2.jpg"
-									data-uk-lightbox="" title=""> 
-									<img
+									data-uk-lightbox="" title=""> <img
 										src="../img/prod-img/#{product.product.pictureLoc}_2.jpg"
 										alt="" />
 								</a></li>
 								<li><a
 									href="../img/prod-img/#{product.product.pictureLoc}_4.jpg"
-									data-uk-lightbox="" title=""> 
-									<img
+									data-uk-lightbox="" title=""> <img
 										src="../img/prod-img/#{product.product.pictureLoc}_4.jpg"
 										alt="" />
 								</a></li>
+
 								<li><a
 									href="../img/prod-img/#{product.product.pictureLoc}.jpg"
-									data-uk-lightbox="" title=""> 
-									<img
+									data-uk-lightbox="" title=""> <img
 										src="../img/prod-img/#{product.product.pictureLoc}.jpg" alt="" />
 								</a></li>
 
@@ -80,11 +86,13 @@
 					</div>
 				</div>
 				<div class="uk-width-medium-1-2 uk-width-small-1-1">
-					<div class="uk-accordion" data-uk-accordion="">
+					<div class="uk-accordion" data-uk-accordion="{collapse: false}">
 
-						<h3 class="uk-accordion-title">Sizing Options</h3>
+						<h3 class="uk-accordion-title uk-active accordionOptions">Sizing
+							Options</h3>
 						<div class="uk-accordion-content">...</div>
-						<h3 class="uk-accordion-title">Return Info</h3>
+						<h3 class="uk-accordion-title uk-active accordionOptions">Return
+							Info</h3>
 						<div class="uk-accordion-content">We operate a 28 day return
 							policy. If you're unhappy with your purchase for any reason,
 							simply let us know and we'll be happy to refund the cost of the

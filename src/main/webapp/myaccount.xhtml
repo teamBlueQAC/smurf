@@ -5,77 +5,70 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
 
 	<ui:define name="pageTitle">
-		<div id="wrappingDiv">
-			<h1 style="text-align: center; color: black;">
-				<h:outputText value="#{account.user.name}" />
-				's Account
-			</h1>
-			<figure class="uk-overlay" style="height: 100%; width: 100%;">
-				<figcaption class="uk-overlay-panel">NB gardens</figcaption>
-			</figure>
-		</div>
+		<h1 style="text-align: center;">Account Management</h1>
 		<div class="boxthing" style="width: 100%;">
 			<div
 				style="height: 100px; display: block; padding: 5px; margin: 0 auto; width: 75%; text-align: center; padding: 20px;">
-				Welcome to your account. This page shall display your account
-				information with NB Gardens allowing you to view your order status
-				(past and present), personal information, wish Lists and payment
-				details.</div>
+				<p>
+					Hello
+					<h:outputText value="#{account.user.name}" />
+					, welcome to your account page!<br />
+				</p>
+			</div>
 		</div>
 	</ui:define>
 	<ui:define name="body">
-		<div id="box1"
-			class="boxthing uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1"
-			style="height: 200px; display: inline-block; float: left; padding: 20px;">
+		<div id="box1" class="boxthing uk-width-medium-1-2 uk-width-small-1-1"
+			style="padding: 20px;">
 			<div class="uk-panel">
-
-				<div class="uk-panel-badge uk-badge">
-					<button class="uk-button" data-uk-modal="{target:'#modal1'}">Edit</button>
-				</div>
-
 				<h3 class="uk-panel-title">My Personal Info</h3>
 				<table class="uk-table AT" id="PersonalInfoTable">
 					<h:form>
 						<tbody>
 							<tr>
-								<td>full name :</td>
+								<td>Full name :</td>
 								<td><h:inputText value="#{account.user.name}" /></td>
 							</tr>
 							<tr>
-								<td>string address :</td>
+								<td>Address line1:</td>
 								<td><h:inputText value="#{account.user.address.line1}" /></td>
 							</tr>
 							<tr>
-								<td>postcode :</td>
+								<td>Address line2:</td>
+								<td><h:inputText value="#{account.user.address.line2}" /></td>
+							</tr>
+							<tr>
+								<td>Address line3:</td>
+								<td><h:inputText value="#{account.user.address.line3}" /></td>
+							</tr>
+							<tr>
+								<td>Address line4:</td>
+								<td><h:inputText value="#{account.user.address.line4}" /></td>
+							</tr>
+							<tr>
+								<td>Postcode :</td>
 								<td><h:inputText value="#{account.user.address.postcode}" /></td>
 							</tr>
 							<tr>
-								<td>email :</td>
+								<td>Email :</td>
 								<td><h:inputText value="#{account.user.email}" /></td>
 							</tr>
 							<tr>
-								<td>mobile :</td>
+								<td>Mobile :</td>
 								<td><h:inputText value="#{account.user.phone}" /></td>
-							</tr>
-							<tr>
-								<td><h:commandButton value="Submit"
-										action="#{account.updatePersonal}" /></td>
 							</tr>
 						</tbody>
 					</h:form>
 				</table>
+				<h:commandButton value="Submit" action="#{account.updatePersonal}" />
 			</div>
 		</div>
-
-		<div id="box2"
-			class="boxthing uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1"
-			style="height: 200px; display: inline-block; float: left; padding: 20px;">
-			<div class="uk-panel">
-				<div class="uk-panel-badge uk-badge">
-					<button class="uk-button" data-uk-modal="{target:'#modal2'}">Show</button>
-				</div>
-				<h3 class="uk-panel-title">My Orders</h3>
-				<h:form rendered="#{myorders.orders ne null}">
+		<h:form rendered="#{myorders.orders ne null}">
+			<div id="box2"
+				class="boxthing uk-width-medium-1-2 uk-width-small-1-1"
+				style="padding: 20px;">
+				<div class="uk-panel">
+					<h3 class="uk-panel-title">My Orders</h3>
 					<table class="uk-table AT" id="OrdersTable">
 						<tbody>
 							<tr>
@@ -89,50 +82,45 @@
 								<tr>
 									<td><h:outputText value="#{order.id}" /></td>
 									<td><h:outputText value="#{order.orderStatus.name}" /></td>
-									<td><h:outputText value="£#{myorders.getOrderTotal(order)}"/></td>
+									<td><h:outputText
+											value="£#{myorders.getOrderTotal(order)}" /></td>
 									<td><h:outputText value="#{order.date}" /></td>
-									<td><h:outputText value="#{order.dispatchDate}" rendered="#{order.dispatchDate ne null}"/></td>
+									<td><h:outputText value="#{order.dispatchDate}"
+											rendered="#{order.dispatchDate ne null}" /></td>
 								</tr>
 							</ui:repeat>
 						</tbody>
 					</table>
-				</h:form>
-			</div>
-		</div>
-
-		<div id="box3"
-			class="boxthing uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1"
-			style="height: 200px; display: inline-block; float: left; padding: 20px;">
-			<div class="uk-panel">
-				<div class="uk-panel-badge uk-badge">
-					<button class="uk-button" data-uk-modal="{target:'#modal3'}">Edit</button>
 				</div>
+			</div>
+		</h:form>
+		<div id="box3" class="boxthing uk-width-medium-1-2 uk-width-small-1-1"
+			style="padding: 20px;">
+			<div class="uk-panel">
 				<h3 class="uk-panel-title">My payment info</h3>
 				<h:form>
 					<table class="uk-table AT" id="PaymentInfoTable">
 						<tbody>
 							<tr>
-								<td>type of card :</td>
+								<td>Type of card :</td>
 								<td><h:inputText value="#{account.payment.cardType}" /></td>
 							</tr>
 							<tr>
-								<td>name on card :</td>
+								<td>Name on card :</td>
 								<td><h:inputText value="#{account.payment.nameOnCard}" /></td>
 							</tr>
 							<tr>
-								<td>card number :</td>
+								<td>Card number :</td>
 								<td><h:inputText value="#{account.payment.cardNumber}" /></td>
 							</tr>
 							<tr>
-								<td>expiry date :</td>
+								<td>Expiry date :</td>
 								<td><h:inputText value="#{account.payment.expiryDate}" /></td>
-							</tr>
-							<tr>
-								<td><h:commandButton value="Update"
-										action="#{account.updatePayment}" /></td>
 							</tr>
 						</tbody>
 					</table>
+					<h:commandButton style="float:right;" value="Update"
+						action="#{account.updatePayment}" />
 				</h:form>
 			</div>
 		</div>

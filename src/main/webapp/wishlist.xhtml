@@ -18,13 +18,15 @@
 				<td><h4>Remove the Item</h4></td>
 				<td><h4>Add To Basket</h4></td>
 			</tr>
-			<h:form>
-				<!-- repeat tag is used to iterate through all the order lines
+
+			<!-- repeat tag is used to iterate through all the order lines
 			Within the order itself to generate the appropriate output -->
+			<h:form>
 				<ui:repeat var="line" value="#{wishlist.wishListEntries}">
 					<tr>
 						<td><h:graphicImage
-								value="../img/prod-img/#{line.product.pictureLoc}.jpg" style="height:10%; width:10%;" /></td>
+								value="../img/prod-img/#{line.product.pictureLoc}.jpg"
+								style="height:10%; width:10%;" /></td>
 						<td><h:outputText value="#{line.product.name}" /></td>
 						<td><h:outputText value="£#{line.product.price}" /></td>
 						<td><h:commandButton value="Remove From Wishlist"

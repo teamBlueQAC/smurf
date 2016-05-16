@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -10,26 +11,46 @@
 		</div>
 	</ui:define>
 	<ui:define name="body">
-		<ui:repeat var="line" value="#{product.findByType(filter.productType)}">
-				<br />
-				<div class="boxthing uk-width-medium-1-3 uk-width-small-1-1">
-					<div style="padding: 20px; height: 400px">
-						<h:graphicImage value="../img/prod-img/#{line.pictureLoc}.jpg"
-							style="height: 200px; margin: 0 auto; display: block;" />
-						<h2>
-							<h:form>
-								<h:commandLink value="#{line.name}" action="#{product.getProductById(line.id)}" />
-							</h:form>
-						</h2>
-						<h4>
-							&#163;
-							<h:outputText value="#{product.getProductPrice(line)}" />
-						</h4>
-						<p>
-							<h:outputText value="#{line.description}" />
-						</p>
-					</div>
+		<style>
+html, body {
+	height: 100%;
+}
+</style>
+		<ui:repeat var="line"
+			value="#{product.findByType(filter.productType)}">
+			<div class="boxthing uk-width-medium-1-3 uk-width-small-1-1">
+				<div style="padding: 20px; height: 400px">
+
+					<h:graphicImage value="../img/prod-img/#{line.pictureLoc}.jpg"
+						style="height: 200px; margin: 0 auto; display: block;" />
+					<h2>
+						<h:form>
+							<h:commandLink value="#{line.name}"
+								action="#{product.getProductById(line.id)}" />
+						</h:form>
+					</h2>
+					<h4>
+						&#163;
+						<h:outputText value="#{product.getProductPrice(line)}" />
+					</h4>
+					<p>
+						<h:outputText value="#{line.description}" />
+					</p>
 				</div>
+				<h:form>
+					<table>
+						<tr>
+							<td class="cattable"><h:commandButton class="uk-button"
+									value="Add to Basket" action="#{basket.addToBasket(line.id)}">
+								</h:commandButton></td>
+							<td class="cattable"><h:commandButton class="uk-button"
+									value="Add to Wishlist"
+									action="#{wishlist.addToWishlist(line.id)}">
+								</h:commandButton></td>
+						</tr>
+					</table>
+				</h:form>
+			</div>
 		</ui:repeat>
 	</ui:define>
 </ui:composition>

@@ -47,7 +47,7 @@ input {
 				</table>
 			</div>
 		</div>
-		<h:form rendered="payment.credit != null">
+		<h:form rendered="#{payment.credit ne null}">
 			<div class="mainDivs">
 				<div class="subDiv">
 					<h2>Credit</h2>
@@ -145,7 +145,7 @@ input {
 		<div class="mainDivs">
 			<div class="subDiv">
 				<h4>Total Cost:</h4>
-				<h:outputText value="#{payment.getTotalPrice()}" />
+				<h:outputText value="£#{payment.getTotalPrice()}" />
 
 			</div>
 		</div>

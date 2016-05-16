@@ -46,8 +46,4 @@ public class WishListEntryTest extends TestCase {
 		assertEquals(newDate, wishListEntry.getDateAdded());
 	}
 
-	public void testGetId() {
-		assertNotNull(wishListEntry.getId());
-	}
-
 }
