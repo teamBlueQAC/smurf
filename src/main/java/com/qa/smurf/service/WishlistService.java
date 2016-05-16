@@ -27,7 +27,6 @@ public class WishlistService {
 	public void removeFromWishlist(long productId, long userId) {
 		WishListEntry wishlistEntry = wishlistRepository.findByProductAndUser(productRepository.findByID(productId), userRepository.findByID(userId));
 		if(wishlistEntry!=null){
-			System.out.println("IRemoving Item from wishlist");
 			wishlistRepository.removeWishListEntry(wishlistEntry);
 		}
 
