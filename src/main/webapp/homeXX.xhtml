@@ -31,7 +31,8 @@ html, body {
 			<div class="uk-width-medium-1-2"
 				data-uk-parallax="{opacity: '0,1', scale: '0,1', target: '#target-option'}">
 				<h1 class="uk-text-contrast">Welcome to NB Gardens!</h1>
-				<p class="uk-text-large">We got Hoes!</p>
+				<p class="uk-text-large">Your one stop shop for everything
+					garden related!</p>
 			</div>
 		</div>
 	</ui:define>
@@ -52,45 +53,60 @@ html, body {
 					<img src="img/beardy.jpg" />
 					<figcaption
 						class="uk-overlay-panel uk-overlay-background uk-overlay-bottom">This
-						is our signature gnome, Tam!</figcaption>
+						is our signature gnome, Tam! He's a happy chappy!</figcaption>
 				</figure>
 			</div>
 		</div>
 		<div style="width: 100%; max-width: 1000px; margin: 0 auto;">
 			<div style="width: 75%; margin: 0 auto; border-top: 2px solid white;"></div>
 			<div id="catCont">
-				<div class="boxthing uk-width-medium-1-3  uk-width-small-1-1">
-					<figure class="uk-overlay uk-overlay-hover">
-						<img src="img/flower.jpg" />
-						<figcaption
-							class="uk-overlay-panel uk-overlay-background uk-overlay-bottom">
-							<h3>Flowers</h3>
-							<p>We've got a marvellous selection of bulbs and flower pots!</p>
-						</figcaption>
-					</figure>
-				</div>
-				<div class="boxthing uk-width-medium-1-3 uk-width-small-1-1">
-					<figure class="uk-overlay uk-overlay-hover">
-						<img src="img/chilldwarf.jpg" />
-						<figcaption
-							class="uk-overlay-panel uk-overlay-background uk-overlay-bottom">
-							<h3>Gnomes</h3>
-							<p>Come get some sweet gnomes fellas!!!</p>
-						</figcaption>
-					</figure>
-				</div>
-
-				<div class="boxthing uk-width-medium-1-3 uk-width-small-1-1">
-					<figure class="uk-overlay uk-overlay-hover">
-						<img src="img/spade.jpg" />
-						<figcaption
-							class="uk-overlay-panel uk-overlay-background uk-overlay-bottom">
-							<h3>Utilities</h3>
-							<p>Please head over to our special utensiles category and
-								pick up some cheap hoes!</p>
-						</figcaption>
-					</figure>
-				</div>
+				<h:form>
+					<h:commandLink action="catalogue.xhtml">
+						<f:actionListener binding="#{filter.setProductType('SEED')}" />
+						<div class="boxthing uk-width-medium-1-3  uk-width-small-1-1">
+							<figure class="uk-overlay uk-overlay-hover">
+								<img src="img/flower.jpg" />
+								<figcaption
+									class="uk-overlay-panel uk-overlay-background uk-overlay-bottom">
+									<h3>Flowers</h3>
+									<p>We've got a marvellous selection of bulbs and flower
+										pots!</p>
+								</figcaption>
+							</figure>
+						</div>
+					</h:commandLink>
+				</h:form>
+				<h:form>
+					<h:commandLink action="catalogue.xhtml">
+						<f:actionListener binding="#{filter.setProductType('GNOME')}" />
+						<div class="boxthing uk-width-medium-1-3 uk-width-small-1-1">
+							<figure class="uk-overlay uk-overlay-hover">
+								<img src="img/chilldwarf.jpg" />
+								<figcaption
+									class="uk-overlay-panel uk-overlay-background uk-overlay-bottom">
+									<h3>Gnomes</h3>
+									<p>Come get some sweet gnomes fellas!!!</p>
+								</figcaption>
+							</figure>
+						</div>
+					</h:commandLink>
+				</h:form>
+				<h:form>
+					<h:commandLink action="catalogue.xhtml">
+						<f:actionListener binding="#{filter.setProductType('TOOL')}" />
+						<div class="boxthing uk-width-medium-1-3 uk-width-small-1-1">
+							<figure class="uk-overlay uk-overlay-hover">
+								<img src="img/spade.jpg" />
+								<figcaption
+									class="uk-overlay-panel uk-overlay-background uk-overlay-bottom">
+									<h3>Utilities</h3>
+									<p>Please head over to our special utensiles category and
+										pick up some cheap hoes!</p>
+								</figcaption>
+							</figure>
+						</div>
+					</h:commandLink>
+				</h:form>
 			</div>
 		</div>
 	</ui:define>
