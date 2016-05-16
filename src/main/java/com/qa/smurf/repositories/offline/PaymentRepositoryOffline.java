@@ -97,9 +97,14 @@ public class PaymentRepositoryOffline implements PaymentRepository {
 	}
 
 	public void updatePayment(Payment payment) {
+		int i = 0;
 		for (Payment p : initialData.getPayment()) {
 			if (p.getId() == payment.getId()) {
-				p = payment;
+				initialData.getPayment().set(i, payment);
+				break;
+			}
+			else{
+				i++;
 			}
 		}
 	}
