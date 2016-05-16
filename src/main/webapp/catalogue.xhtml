@@ -28,7 +28,8 @@ html, body {
 			<figure class="uk-overlay">
     <img src="../img/prod-img/#{line.pictureLoc}.jpg" width="" height="" alt=""/>
     <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom">
-    <h3>#{line.name} - #{product.getProductPrice(line)}</h3>
+    <h3><h:form><h:commandLink value="#{line.name} - #{product.getProductPrice(line)}"
+								action="#{product.getProductById(line.id)}" /></h:form></h3>
     <p>#{line.description}</p>
     <p align="right">
     	<h:form>
