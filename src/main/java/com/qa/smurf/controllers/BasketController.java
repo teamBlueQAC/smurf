@@ -66,7 +66,7 @@ public class BasketController {
 	}
 
 	public String placeOrder() {
-		orderService.placeOrder(currentUser.getUserId());
+		orderService.placeOrder(orderService.getUsersPendingOrder(currentUser.getUserId()), currentUser.getUserId());
 		return "payment";
 	}
 

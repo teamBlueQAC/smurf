@@ -149,9 +149,7 @@ public class OrderService {
 		return total;
 	}
 
-	public void placeOrder(long userId) {
-		List<Order> oa = orderRepository.findByUser(userRepository.findByID(userId));
-		Order order = getPendingOrders(oa);
+	public void placeOrder(Order order, long userId) {
 		if (order != null) {
 			for (LineItems li : order.getLineItem()) {
 				long productId = li.getProduct().getId();
