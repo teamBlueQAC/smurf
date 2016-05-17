@@ -6,6 +6,10 @@ html, body {
 	height: 100% !important;
 }
 
+a, .uk-tab>li>a:hover {
+	text-decoration: underline;
+}
+
 .wrapper {
 	min-height: 100%;
 	height: auto !important;
@@ -27,6 +31,12 @@ html, body {
 
 .footlink {
 	padding: 10px;
+	text-decoration: none;
+}
+
+.footlink:hover {
+	color: white;
+	text-decoration: underline;
 }
 
 h1, h2, h3, h4, h5, h6 {
