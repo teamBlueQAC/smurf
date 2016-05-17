@@ -79,7 +79,6 @@
 									</h:form>
 								</ul>
 							</div></li>
-						<li id="aboutus"><a href="aboutus.xhtml">About Us</a></li>
 						<li id="contactus"><a href="contactus.xhtml">Contact Us</a></li>
 					</ul>
 					<a href="#offcanvas-1" class="uk-navbar-toggle uk-visible-small"
@@ -100,7 +99,7 @@
 							</h:panelGroup>
 							<h:panelGroup rendered="#{login.loggedIn}">
 								<li aria-expanded="false" aria-haspopup="true" class="uk-parent"
-									data-uk-dropdown="" id="category"><a>#{currentUser.username}</a>
+									data-uk-dropdown="" id="category"><a>#{currentUser.username} (£#{payment.credit.amount})</a>
 									<div style="top: 40px; left: 0px;"
 										class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
 										<ul class="uk-nav uk-nav-navbar">
