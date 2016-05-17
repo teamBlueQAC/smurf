@@ -20,11 +20,6 @@ public class CreditRepositoryOffline implements CreditRepository {
 	
 	@Inject
 	private InitialData initialData;
-
-	@PostConstruct	
-	public void init(){
-		initialData = new InitialData();	
-	}	
 	
 	public void persistCredit(Credit credit) {
 		initialData.addCredit(credit);
