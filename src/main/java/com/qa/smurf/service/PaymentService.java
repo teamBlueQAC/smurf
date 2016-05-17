@@ -113,7 +113,7 @@ public class PaymentService {
 	}
 
 	public Payment getPayment(long userId) {
-		return paymentRepository.findByUserId(userId);
+		return paymentRepository.findByUserID(userId);
 	}
 
 	public String confirmPayment(long userId) {
