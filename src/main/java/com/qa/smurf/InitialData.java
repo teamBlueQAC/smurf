@@ -343,8 +343,11 @@ public class InitialData {
 		products.add(new Product(6, "Sesame Seeds", "SDFF-DFGF-JGG8", "yellow", 3.99, false, "SesameSeeds", 600,
 				ProductType.SEED, "Sesame (Sesamum indicum) is a flowering plant in the genus Sesamum. It is widely naturalized in tropical regions around the world and is cultivated for its edible seeds, which grow in pods.", 60, 700));
 		
-		products.add(new Product(7, "Coriander Seeds", "SDFF-DFGF-JGG8", "yellow", 3.99, false, "CorianderSeeds", 600,
+		products.add(new Product(7, "Coriander Seeds", "SDFF-YFGF-JGG8", "yellow", 3.99, false, "CorianderSeeds", 600,
 				ProductType.SEED, "Coriander (Coriandrum sativum), is an annual herb in the family Apiaceae. All parts of the plant are edible, but the fresh leaves and the dried seeds are the parts most traditionally used in cooking.", 60, 700));
+		
+		products.add(new Product(8, "Game of Gnomes", "SYFF-DFGF-JGG8", "yellow", 50.99, false, "GameOfGnomes", 600,
+				ProductType.GNOME, "Want to brighten up your garden, with our collectable selection. Now you will know when winter is coming. PS Spoilers not included", 60, 700));
 	}
 
 	public ArrayList<Product> getProducts() {
