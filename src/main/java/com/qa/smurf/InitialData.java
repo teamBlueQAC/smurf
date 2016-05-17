@@ -58,6 +58,7 @@ public class InitialData {
 		setProdCatInitialData();
 		setProdSupInitialData();
 		setWishlistEntryInitialData();
+		setCreditInitialData();
 	}
 
 	/**
@@ -199,6 +200,7 @@ public class InitialData {
 		credits.add(new Credit(users.get(2), 0.0, 0.0));
 		credits.add(new Credit(users.get(3), 1500.00, 400.00));
 		credits.add(new Credit(users.get(4), 0.0, 0.0));
+		System.out.println("credits size - " + credits.size());
 
 	}
 
