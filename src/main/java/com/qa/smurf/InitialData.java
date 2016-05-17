@@ -58,7 +58,6 @@ public class InitialData {
 		setProdCatInitialData();
 		setProdSupInitialData();
 		setWishlistEntryInitialData();
-		System.out.println("set initial cons: " + getPayments().size());
 	}
 
 	/**
@@ -149,7 +148,6 @@ public class InitialData {
 				this.addresses.get(3), this.users.get(3)));
 		payments.add(new Payment("2468097531246809", "debit", "02/19", "Mrs D Matthison",
 				this.addresses.get(4), this.users.get(4)));
-		System.out.println("set initial: " + getPayments().size());
 		
 	}
 
