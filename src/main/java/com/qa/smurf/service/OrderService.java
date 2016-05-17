@@ -59,6 +59,8 @@ public class OrderService {
 	private LineItems updateLineQuantity(LineItems lineItem, Order order){
 		lineItem.setQuantity(lineItem.getQuantity() + 1);
 		lineItemsRepository.updateLineItem(lineItem);
+		lineItem.setSubtotal(lineItem.getProduct().getPrice()*lineItem.getQuantity());
+		lineItemsRepository.updateLineItem(lineItem);
 		Double total = calculateOrderTotal(order);
 		order.setTotal(total);
 		return lineItem;
