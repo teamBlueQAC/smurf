@@ -14,6 +14,8 @@ public interface PaymentRepository {
 	public void persistPayment(List<Payment> payments);
 
 	public Payment findByID(long id);
+	
+	public Payment findByUserID(long id);
 
 	public Payment findByCardNumber(String cardNumber);
 

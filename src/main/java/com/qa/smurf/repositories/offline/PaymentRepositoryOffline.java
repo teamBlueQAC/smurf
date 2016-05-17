@@ -18,11 +18,6 @@ public class PaymentRepositoryOffline implements PaymentRepository {
 
 	@Inject
 	private InitialData initialData;
-	
-	@PostConstruct	
-	public void init(){
-		initialData = new InitialData();	
-	}	
 
 	public void persistPayment(Payment payment) {
 		initialData.addPayment(payment);
@@ -35,8 +30,17 @@ public class PaymentRepositoryOffline implements PaymentRepository {
 	}
 
 	public Payment findByID(long id) {
-		for (Payment p : initialData.getPayment()) {
+		for (Payment p : initialData.getPayments()) {
 			if (p.getId() == id) {
+				return p;
+			}
+		}
+		return null;
+	}
+	
+	public Payment findByUserID(long id) {
+		for (Payment p : initialData.getPayments()) {
+			if (p.getUser().getId() == id) {
 				return p;
 			}
 		}
@@ -44,7 +48,7 @@ public class PaymentRepositoryOffline implements PaymentRepository {
 	}
 
 	public Payment findByCardNumber(String cardNumber) {
-		for (Payment p : initialData.getPayment()) {
+		for (Payment p : initialData.getPayments()) {
 			if (p.getCardNumber().equals(cardNumber)) {
 				return p;
 			}
@@ -53,7 +57,7 @@ public class PaymentRepositoryOffline implements PaymentRepository {
 	}
 
 	public Payment findByCardType(String cardType) {
-		for (Payment p : initialData.getPayment()) {
+		for (Payment p : initialData.getPayments()) {
 			if (p.getCardType().equals(cardType)) {
 				return p;
 			}
@@ -62,7 +66,7 @@ public class PaymentRepositoryOffline implements PaymentRepository {
 	}
 
 	public Payment findByExpiryDate(String expiryDate) {
-		for (Payment p : initialData.getPayment()) {
+		for (Payment p : initialData.getPayments()) {
 			if (p.getExpiryDate().equals(expiryDate)) {
 				return p;
 			}
@@ -71,7 +75,7 @@ public class PaymentRepositoryOffline implements PaymentRepository {
 	}
 
 	public Payment findByNameOnCard(String nameOnCard) {
-		for (Payment p : initialData.getPayment()) {
+		for (Payment p : initialData.getPayments()) {
 			if (p.getNameOnCard().equals(nameOnCard)) {
 				return p;
 			}
@@ -80,7 +84,7 @@ public class PaymentRepositoryOffline implements PaymentRepository {
 	}
 
 	public ArrayList<Payment> getPayments() {
-		return initialData.getPayment();
+		return initialData.getPayments();
 	}
 
 	public void createPayment(Payment p) {
@@ -88,7 +92,7 @@ public class PaymentRepositoryOffline implements PaymentRepository {
 	}
 
 	public Payment readPayment(Payment payment) {
-		for (Payment p : initialData.getPayment()) {
+		for (Payment p : initialData.getPayments()) {
 			if (p.getId() == payment.getId()) {
 				return p;
 			}
@@ -97,7 +101,7 @@ public class PaymentRepositoryOffline implements PaymentRepository {
 	}
 
 	public void updatePayment(Payment payment) {
-		for (Payment p : initialData.getPayment()) {
+		for (Payment p : initialData.getPayments()) {
 			if (p.getId() == payment.getId()) {
 				p = payment;
 			}
@@ -105,9 +109,9 @@ public class PaymentRepositoryOffline implements PaymentRepository {
 	}
 
 	public void removePayment(Payment payment) {
-		for (Payment p : initialData.getPayment()) {
+		for (Payment p : initialData.getPayments()) {
 			if (p.getId() == payment.getId()) {
-				initialData.getPayment().remove(p);
+				initialData.getPayments().remove(p);
 			}
 		}
 	}

@@ -33,7 +33,7 @@ public class InitialData {
 	private ArrayList<Order> orders = new ArrayList<Order>();
 	private ArrayList<SupplierOrder> supplierOrders = new ArrayList<SupplierOrder>();
 	private ArrayList<Product> products = new ArrayList<Product>();
-	private ArrayList<Payment> payment = new ArrayList<Payment>();
+	private ArrayList<Payment> payments = new ArrayList<Payment>();
 	private ArrayList<ProdCat> prodCats = new ArrayList<ProdCat>();
 	private ArrayList<Category> categories = new ArrayList<Category>();
 	private ArrayList<Address> addresses = new ArrayList<Address>();
@@ -58,6 +58,7 @@ public class InitialData {
 		setProdCatInitialData();
 		setProdSupInitialData();
 		setWishlistEntryInitialData();
+		System.out.println("set initial cons: " + getPayments().size());
 	}
 
 	/**
@@ -138,30 +139,30 @@ public class InitialData {
 		// objects and has a dependency on the User object class being
 		// instantiated.
 
-		ArrayList<User> users = getUsers();
-		payment.add(new Payment("1234567891011121", "debit", "06/25", "Mr W Seaford",
-				new Address("23 Holway Road", "TA1 2EZ"), users.get(0)));
-		payment.add(new Payment("1234678901246789", "credit", "02/24", "Mr S Smith",
-				new Address("71 Mountbatton", "BS37 S35"), users.get(1)));
-		payment.add(new Payment("0987654321234567", "debit", "04/17", "Miss E Smitten",
-				new Address("1 Beaumont Court", "E1 4NX"), users.get(2)));
-		payment.add(new Payment("1357708642135790", "credit", "02/26", "Mr W T Beaumont",
-				new Address("14 Louise Road", "E15 4NW"), users.get(3)));
-		payment.add(new Payment("2468097531246809", "debit", "02/19", "Mrs D Matthison",
-				new Address("908 The Heart", "M50 2JY"), users.get(4)));
-
+		payments.add(new Payment("1234567891011121", "debit", "06/25", "Mr W Seaford",
+				this.addresses.get(0), this.users.get(0)));
+		payments.add(new Payment("1234678901246789", "credit", "02/24", "Mr S Smith",
+				this.addresses.get(1), this.users.get(1)));
+		payments.add(new Payment("0987654321234567", "debit", "04/17", "Miss E Smitten",
+				this.addresses.get(2), this.users.get(2)));
+		payments.add(new Payment("1357708642135790", "credit", "02/26", "Mr W T Beaumont",
+				this.addresses.get(3), this.users.get(3)));
+		payments.add(new Payment("2468097531246809", "debit", "02/19", "Mrs D Matthison",
+				this.addresses.get(4), this.users.get(4)));
+		System.out.println("set initial: " + getPayments().size());
+		
 	}
 
 	public void addPayment(Payment payment) {
-		this.payment.add(payment);
+		this.payments.add(payment);
 	}
 
-	public ArrayList<Payment> getPayment() {
-		return this.payment;
+	public ArrayList<Payment> getPayments() {
+		return this.payments;
 	}
 
 	public void setPayment(ArrayList<Payment> payments) {
-		this.payment = payments;
+		this.payments = payments;
 	}
 
 	private void setOrderInitialData() {
@@ -169,10 +170,10 @@ public class InitialData {
 
 		for (int i = 0; i < 5; i++) {
 			if(i != 0){
-				orders.add(new Order(price[i], new Date(), new Date(), getPayment().get(i), getAddresses().get(i),
+				orders.add(new Order(price[i], new Date(), new Date(), getPayments().get(i), getAddresses().get(i),
 						getUsers().get(i), OrderStatus.DELIVERED));
 			} else {
-				orders.add(new Order(price[i], new Date(), null, getPayment().get(i), getAddresses().get(i),
+				orders.add(new Order(price[i], new Date(), null, getPayments().get(i), getAddresses().get(i),
 						getUsers().get(i), OrderStatus.PENDING));
 			}
 		}
@@ -221,11 +222,11 @@ public class InitialData {
 	}
 
 	private void setUserInitialData() {
-		users.add(new User(1, "Sam Elleray", "Sam", "Chickens1", "sam@chickens.com", "07881508168", new Date(), true, new Address("12 High Street", "Whocares", "Somerset", "England", "WH1 1t1"), new Date()));
-		users.add(new User(2, "Boris Seaford", "Boris", "willpower3", "boris@will.com", "08005428106", new Date(), true, new Address("15 Orchard Road", "Funplace", "Somerset", "England", "WH7 1GA"), new Date()));
-		users.add(new User(3, "Will Weiner", "Will", "Password123", "random@email.com", "07826719832", new Date(), true, new Address("4 The Limes", "Lowton", "Warrington", "England", "WA3 1HZ"), new Date()));
-		users.add(new User(4, "Tom Bob", "Tom", "Thisisapassword", "thisis@anemail", "01942836745", new Date(), true, new Address("28 Kings Cl", "Ashbury", "Swindon", "England", "SN5 7PA"), new Date()));
-		users.add(new User(5, "James Trainer", "James", "JamesPassword", "James@James.com", "07325428106", new Date(), true, new Address("15 Vale Cl", "Cranleigh", "Oxford", "England", "OX5 7PA"), new Date()));
+		users.add(new User("Sam Elleray", "Sam", "Chickens1", "sam@chickens.com", "07881508168", new Date(), true, new Address("12 High Street", "Whocares", "Somerset", "England", "WH1 1t1"), new Date()));
+		users.add(new User("Boris Seaford", "Boris", "willpower3", "boris@will.com", "08005428106", new Date(), true, new Address("15 Orchard Road", "Funplace", "Somerset", "England", "WH7 1GA"), new Date()));
+		users.add(new User("Will Weiner", "Will", "Password123", "random@email.com", "07826719832", new Date(), true, new Address("4 The Limes", "Lowton", "Warrington", "England", "WA3 1HZ"), new Date()));
+		users.add(new User("Tom Bob", "Tom", "Thisisapassword", "thisis@anemail", "01942836745", new Date(), true, new Address("28 Kings Cl", "Ashbury", "Swindon", "England", "SN5 7PA"), new Date()));
+		users.add(new User("James Trainer", "James", "JamesPassword", "James@James.com", "07325428106", new Date(), true, new Address("15 Vale Cl", "Cranleigh", "Oxford", "England", "OX5 7PA"), new Date()));
 	}
 
 	public void setUsers(ArrayList<User> users) {

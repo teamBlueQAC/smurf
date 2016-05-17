@@ -2,6 +2,7 @@ package com.qa.smurf.controllers;
 
 import java.util.ArrayList;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -21,6 +22,11 @@ public class AccountController {
 	private Payment payment;
 	private ArrayList<Order> order;
 	private User user;
+		
+	@PostConstruct
+	public void init() {
+		payment = accountService.getUsersPayment(currentUser.getUserId());
+	}
 
 	public String updatePersonal() {
 		if (user.getName().isEmpty() || user.getAddress().getLine1().isEmpty()
@@ -32,9 +38,11 @@ public class AccountController {
 
 	public String updatePayment() {
 		if (payment.getCardNumber().isEmpty() || payment.getCardType().isEmpty() || payment.getNameOnCard().isEmpty()
-				|| payment.getExpiryDate().toString().isEmpty())
+				|| payment.getExpiryDate().toString().isEmpty()){
 			return "account";
+		}
 		accountService.updatePayment(payment);
+		
 		return "account";
 	}
 
@@ -44,7 +52,6 @@ public class AccountController {
 	}
 
 	public Payment getPayment() {
-		payment = accountService.getUsersPayment(currentUser.getUserId());
 		return payment;
 	}
 

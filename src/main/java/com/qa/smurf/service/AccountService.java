@@ -39,7 +39,7 @@ public class AccountService {
 	}
 
 	public Payment getUsersPayment(long userId) {
-		return paymentrepository.findByID(userId);
+		return paymentrepository.findByUserID(userId);
 	}
 
 	public ArrayList<Order> getUsersOrders(long userId) {
