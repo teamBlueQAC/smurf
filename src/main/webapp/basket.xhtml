@@ -6,7 +6,7 @@
 
 	<ui:define name="pageTitle">
 		<div id="baskettitlebox" class="boxthing">
-			<h1 class="uk-icon-shopping-basket">Basket</h1>
+			<h1>Your Basket</h1>
 		</div>
 	</ui:define>
 
@@ -30,6 +30,8 @@ h2 {
 			<div class="uk-width-1-4"
 				style="display: block; float: right; padding: 10px;">
 				<h:form rendered="#{basket.order ne null}">
+					<div
+						style="width: 50%; margin: 0 auto; height: 1px; background-color: white;" />
 					<h3>
 						Total: <span style="float: right;"> <h:outputText
 								value="£#{basket.getTotalPrice()}" /></span>
@@ -40,6 +42,8 @@ h2 {
 					<h:commandButton value="Checkout" action="#{basket.placeOrder()}"
 						class="uk-button uk-button-large"
 						style="float:right;display:block;" id="checkout" />
+					<div
+						style="width: 50%; margin: 80px auto 0px; height: 1px; background-color: white;" />
 				</h:form>
 			</div>
 			<ui:repeat var="line" value="#{basket.order.lineItem}">

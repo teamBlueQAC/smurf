@@ -27,137 +27,144 @@ input {
 	display: block;
 	float: left;
 }
+
+#bodyCont {
+	float: left;
+}
 </style>
-		<div class="mainDivs">
-			<div class="subDiv">
-				<h2>Personal Details</h2>
-				<table class="uk-width-1-1">
-					<tr>
-						<td><p>Name:</p></td>
-						<td><h:outputText value="#{payment.user.name}" /></td>
-					</tr>
-					<tr>
-						<td><p>Email:</p></td>
-						<td><h:outputText value="#{payment.user.email}" /></td>
-					</tr>
-					<tr>
-						<td><p>Contact Number:</p></td>
-						<td><h:outputText value="#{payment.user.phone}" /></td>
-					</tr>
-				</table>
-			</div>
-		</div>
-		<h:form rendered="#{payment.credit ne null}">
-			<div class="mainDivs">
-				<div class="subDiv">
-					<h2>Credit</h2>
-					<table class="uk-width-1-1">
-						<tr>
-							<td><p>Cost of Purchase</p></td>
-							<td><h:outputText value="#{payment.placedOrder.total}" /></td>
-						</tr>
-						<tr>
-							<td><p>Current Credit</p></td>
-							<td><h:outputText value="#{payment.credit.amount}" /></td>
-						</tr>
-					</table>
+		<div id="pCont" class="uk-width-1-1">
+			<div class="uk-width-3-4" style="float: left; display: block;">
+				<div class="mainDivs">
+					<div class="subDiv">
+						<h2>Personal Details</h2>
+						<table class="uk-width-1-1">
+							<tr>
+								<td><p>Name:</p></td>
+								<td><h:outputText value="#{payment.user.name}" /></td>
+							</tr>
+							<tr>
+								<td><p>Email:</p></td>
+								<td><h:outputText value="#{payment.user.email}" /></td>
+							</tr>
+							<tr>
+								<td><p>Contact Number:</p></td>
+								<td><h:outputText value="#{payment.user.phone}" /></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<h:form rendered="#{payment.credit ne null}">
+					<div class="mainDivs" style="height: 302px;">
+						<div class="subDiv">
+							<h2>Credit</h2>
+							<table class="uk-width-1-1">
+								<tr>
+									<td><p>Cost of Purchase</p></td>
+									<td><h:outputText value="#{payment.placedOrder.total}" /></td>
+								</tr>
+								<tr>
+									<td><p>Current Credit</p></td>
+									<td><h:outputText value="#{payment.credit.amount}" /></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</h:form>
+				<div class="mainDivs" style="height: 302px;">
+					<div class="subDiv">
+						<h2>Postal Address</h2>
+						<table class="uk-width-1-1">
+							<tr>
+								<td><p>Line 1:</p></td>
+								<td><h:inputText value="#{payment.user.address.line1}" /></td>
+							</tr>
+							<tr>
+								<td><p>Line 2:</p></td>
+								<td><h:inputText value="#{payment.user.address.line2}" /></td>
+							</tr>
+							<tr>
+								<td><p>Line 3:</p></td>
+								<td><h:inputText value="#{payment.user.address.line3}" /></td>
+							</tr>
+							<tr>
+								<td><p>Line 4:</p></td>
+								<td><h:inputText value="#{payment.user.address.line4}" /></td>
+							</tr>
+							<tr>
+								<td><p>PostCode:</p></td>
+								<td><h:inputText value="#{payment.user.address.postcode}" /></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="mainDivs" style="height: 302px">
+					<div class="subDiv">
+						<h2>Billing Address</h2>
+						<table class="uk-width-1-1">
+							<tr>
+								<td><p>Line 1:</p></td>
+								<td><h:inputText value="#{payment.user.address.line1}" /></td>
+							</tr>
+							<tr>
+								<td><p>Line 2:</p></td>
+								<td><h:inputText value="#{payment.user.address.line2}" /></td>
+							</tr>
+							<tr>
+								<td><p>Line 3:</p></td>
+								<td><h:inputText value="#{payment.user.address.line3}" /></td>
+							</tr>
+							<tr>
+								<td><p>Line 4:</p></td>
+								<td><h:inputText value="#{payment.user.address.line4}" /></td>
+							</tr>
+							<tr>
+								<td><p>PostCode:</p></td>
+								<td><h:inputText value="#{payment.user.address.postcode}" /></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="mainDivs" style="height: 302px">
+					<div class="subDiv">
+						<h2>Card Details</h2>
+						<table class="uk-width-1-1">
+							<tr>
+								<td><p>Name as on Card</p></td>
+								<td><h:inputText value="#{payment.payment.nameOnCard}" /></td>
+							</tr>
+							<tr>
+								<td><p>Card Number</p></td>
+								<td><h:inputText value="#{payment.payment.cardNumber}" /></td>
+							</tr>
+							<tr>
+								<td><p>Expiry Date</p></td>
+								<td><h:inputText value="#{payment.payment.expiryDate}" /></td>
+							</tr>
+							<tr>
+								<td><p>Security Number</p></td>
+								<td><h:inputText value="000" /></td>
+							</tr>
+						</table>
+					</div>
 				</div>
 			</div>
-		</h:form>
-		<div class="mainDivs">
-			<div class="subDiv">
-				<h2>Postal Address</h2>
-				<table class="uk-width-1-1">
-					<tr>
-						<td><p>Line 1:</p></td>
-						<td><h:inputText value="#{payment.user.address.line1}" /></td>
-					</tr>
-					<tr>
-						<td><p>Line 2:</p></td>
-						<td><h:inputText value="#{payment.user.address.line2}" /></td>
-					</tr>
-					<tr>
-						<td><p>Line 3:</p></td>
-						<td><h:inputText value="#{payment.user.address.line3}" /></td>
-					</tr>
-					<tr>
-						<td><p>Line 4:</p></td>
-						<td><h:inputText value="#{payment.user.address.line4}" /></td>
-					</tr>
-					<tr>
-						<td><p>PostCode:</p></td>
-						<td><h:inputText value="#{payment.user.address.postcode}" /></td>
-					</tr>
-				</table>
-			</div>
 		</div>
-		<div class="mainDivs">
-			<div class="subDiv">
-				<h2>Billing Address</h2>
-				<table class="uk-width-1-1">
-					<tr>
-						<td><p>Line 1:</p></td>
-						<td><h:inputText value="#{payment.user.address.line1}" /></td>
-					</tr>
-					<tr>
-						<td><p>Line 2:</p></td>
-						<td><h:inputText value="#{payment.user.address.line2}" /></td>
-					</tr>
-					<tr>
-						<td><p>Line 3:</p></td>
-						<td><h:inputText value="#{payment.user.address.line3}" /></td>
-					</tr>
-					<tr>
-						<td><p>Line 4:</p></td>
-						<td><h:inputText value="#{payment.user.address.line4}" /></td>
-					</tr>
-					<tr>
-						<td><p>PostCode:</p></td>
-						<td><h:inputText value="#{payment.user.address.postcode}" /></td>
-					</tr>
-				</table>
-			</div>
-		</div>
-		<div class="mainDivs">
-			<div class="subDiv">
-				<h2>Card Details</h2>
-				<table class="uk-width-1-1">
-					<tr>
-						<td><p>Name as on Card</p></td>
-						<td><h:inputText value="#{payment.payment.nameOnCard}" /></td>
-					</tr>
-					<tr>
-						<td><p>Card Number</p></td>
-						<td><h:inputText value="#{payment.payment.cardNumber}" /></td>
-					</tr>
-					<tr>
-						<td><p>Expiry Date</p></td>
-						<td><h:inputText value="#{payment.payment.expiryDate}" /></td>
-					</tr>
-					<tr>
-						<td><p>Security Number</p></td>
-						<td><h:inputText value="000" /></td>
-					</tr>
-				</table>
-			</div>
-		</div>
-
-		<div class="mainDivs">
-			<div class="subDiv">
-				<h4>Total Cost:</h4>
-				<h:outputText value="£#{payment.getTotalPrice()}" />
-
-			</div>
-		</div>
-		<h:form>
-			<div class="uk-width-1-1"
-				style="display: block; float: left; height: 100px;">
+		<div class="uk-width-1-4"
+			style="display: block; float: right; padding: 10px;">
+			<div
+				style="width: 50%; margin: 0 auto; height: 1px; background-color: white;" />
+			<h:form>
+				<h3>
+					Total: <span style="float: right;"> <h:outputText
+							value="£#{payment.getTotalPrice()}" /></span>
+				</h3>
 				<h:commandButton value="Confirm"
 					action="#{payment.confirmPayment()}"
-					class="uk-button uk-button-large" id="checkout" />
-				<h:commandButton value="Cancel" action="#{payment.cancelPayment()}"
-					class="uk-button uk-button-large" id="cancelPayment" />
-			</div>
-		</h:form>
+					class="uk-button uk-button-large"
+					style="float:right;display:block;" id="checkout" />
+			</h:form>
+			<div
+				style="width: 50%; margin: 80px auto 0px; height: 1px; background-color: white;" />
+		</div>
 	</ui:define>
 </ui:composition>
