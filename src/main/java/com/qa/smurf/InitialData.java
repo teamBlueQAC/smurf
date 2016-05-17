@@ -339,6 +339,9 @@ public class InitialData {
 
 		products.add(new Product(5, "Lawn Mower", "EWRE-WRFS-SAZ2", "blue", 1072.00, false, "LawnMower", 700,
 				ProductType.TOOL, "Top of the range WORX robotic lawn mower, cuts the lawn so you don't have to. Provides multiple height settings for different lawn heights. Intergated with a 36V lithium-ion battery technology.", 70, 400));
+		
+		products.add(new Product(6, "Sesame Seeds", "SDFF-DFGF-JGG8", "yellow", 3.99, false, "SesameSeeds", 600,
+				ProductType.SEED, "Sesame (Sesamum indicum) is a flowering plant in the genus Sesamum. It is widely naturalized in tropical regions around the world and is cultivated for its edible seeds, which grow in pods.", 60, 700));
 	}
 
 	public ArrayList<Product> getProducts() {
