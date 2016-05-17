@@ -17,15 +17,10 @@ import com.qa.smurf.entities.User;
 @Default
 @Stateless
 public class CreditRepositoryOffline implements CreditRepository {	
-	
+
 	@Inject
 	private InitialData initialData;
 
-	@PostConstruct	
-	public void init(){
-		initialData = new InitialData();	
-	}	
-	
 	public void persistCredit(Credit credit) {
 		initialData.addCredit(credit);
 
@@ -40,9 +35,9 @@ public class CreditRepositoryOffline implements CreditRepository {
 
 	public Credit findByUser(User user) {
 		for (Credit c : initialData.getCredit()) {
-			if (c.getUser().equals(user))
-				;
-			return c;
+			if (c.getUser().equals(user)){
+				return c;
+			}
 		}
 		return null;
 	}

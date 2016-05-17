@@ -58,7 +58,7 @@ public class InitialData {
 		setProdCatInitialData();
 		setProdSupInitialData();
 		setWishlistEntryInitialData();
-		System.out.println("set initial cons: " + getPayments().size());
+		setCreditInitialData();
 	}
 
 	/**
@@ -149,7 +149,6 @@ public class InitialData {
 				this.addresses.get(3), this.users.get(3)));
 		payments.add(new Payment("2468097531246809", "debit", "02/19", "Mrs D Matthison",
 				this.addresses.get(4), this.users.get(4)));
-		System.out.println("set initial: " + getPayments().size());
 		
 	}
 
@@ -170,10 +169,10 @@ public class InitialData {
 
 		for (int i = 0; i < 5; i++) {
 			if(i != 0){
-				orders.add(new Order(price[i], new Date(), new Date(), getPayments().get(i), getAddresses().get(i),
+				orders.add(new Order(i, price[i], new Date(), new Date(), getPayments().get(i), getAddresses().get(i),
 						getUsers().get(i), OrderStatus.DELIVERED));
 			} else {
-				orders.add(new Order(price[i], new Date(), null, getPayments().get(i), getAddresses().get(i),
+				orders.add(new Order(i, price[i], new Date(), null, getPayments().get(i), getAddresses().get(i),
 						getUsers().get(i), OrderStatus.PENDING));
 			}
 		}
@@ -201,6 +200,7 @@ public class InitialData {
 		credits.add(new Credit(users.get(2), 0.0, 0.0));
 		credits.add(new Credit(users.get(3), 1500.00, 400.00));
 		credits.add(new Credit(users.get(4), 0.0, 0.0));
+		System.out.println("credits size - " + credits.size());
 
 	}
 
@@ -246,15 +246,15 @@ public class InitialData {
 		ArrayList<Order> order = getOrders();
 		ArrayList<Product> product = getProducts();
 
-		LineItems lineItem1 = new LineItems(order.get(0), product.get(3), 1, 400.00, 34);
+		LineItems lineItem1 = new LineItems(order.get(0), product.get(3), 1, (product.get(3).getPrice()*1), 34);
 		order.get(0).setLineItem(setLineItemForOrder(lineItem1));
-		LineItems lineItem2 = new LineItems(order.get(1), product.get(1), 2, 1400.00, 67);
+		LineItems lineItem2 = new LineItems(order.get(1), product.get(1), 2, (product.get(1).getPrice()*2), 67);
 		order.get(1).setLineItem(setLineItemForOrder(lineItem2));
-		LineItems lineItem3 = new LineItems(order.get(2), product.get(2), 3, 4200.00, 2);
+		LineItems lineItem3 = new LineItems(order.get(2), product.get(2), 3, (product.get(2).getPrice()*3), 2);
 		order.get(2).setLineItem(setLineItemForOrder(lineItem3));
-		LineItems lineItem4 = new LineItems(order.get(3), product.get(3), 4, 5400.00, 45);
+		LineItems lineItem4 = new LineItems(order.get(3), product.get(3), 4, (product.get(3).getPrice()*4), 45);
 		order.get(3).setLineItem(setLineItemForOrder(lineItem4));
-		LineItems lineItem5 = new LineItems(order.get(4), product.get(4), 5, 1400.00, 235);
+		LineItems lineItem5 = new LineItems(order.get(4), product.get(4), 5, (product.get(4).getPrice()*5), 235);
 		order.get(4).setLineItem(setLineItemForOrder(lineItem5));
 	}
 

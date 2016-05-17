@@ -59,6 +59,8 @@ public class OrderService {
 	private LineItems updateLineQuantity(LineItems lineItem, Order order){
 		lineItem.setQuantity(lineItem.getQuantity() + 1);
 		lineItemsRepository.updateLineItem(lineItem);
+		lineItem.setSubtotal(lineItem.getProduct().getPrice()*lineItem.getQuantity());
+		lineItemsRepository.updateLineItem(lineItem);
 		Double total = calculateOrderTotal(order);
 		order.setTotal(total);
 		return lineItem;
@@ -88,11 +90,15 @@ public class OrderService {
 	}
 
 	private void newOrder(Product product, long userId){
-		Order order = new Order(0, new Date(), null, paymentRepository.findByUserID(userId),
+		Order order = new Order(getNewOrderId(), 0, new Date(), null, paymentRepository.findByUserID(userId),
 				userRepository.findByID(userId).getAddress(), userRepository.findByID(userId), OrderStatus.PENDING);
 		orderRepository.persistOrder(order);
 		newLineItem(order, product);
 
+	}
+	
+	private long getNewOrderId(){
+		return orderRepository.getOrders().size();
 	}
 
 	private Order getPendingOrders(List<Order> oa) {
@@ -109,7 +115,7 @@ public class OrderService {
 			orderRepository.updateOrder(order);
 		} else {
 
-			order = new Order(123, new Date(), null, paymentRepository.findByUserID(userId),
+			order = new Order(getNewOrderId(), 123, new Date(), null, paymentRepository.findByUserID(userId), //TODO why is total 123?
 					userRepository.findByID(userId).getAddress(), userRepository.findByID(userId), null);
 
 			orderRepository.persistOrder(order);
@@ -160,7 +166,7 @@ public class OrderService {
 					p.setQuantityAvailable(available - liQuantity);
 				}
 			}
-			order.setOrderStatus(OrderStatus.PLACED);
+			order.setOrderStatus(OrderStatus.PLACED);//TODO
 			orderRepository.updateOrder(order);
 		}
 	}

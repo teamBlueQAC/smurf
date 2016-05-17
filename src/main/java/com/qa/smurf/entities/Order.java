@@ -61,7 +61,8 @@ public class Order {
 	@JoinColumn(name = "LINEITEMS_ORDERID", nullable = false)
 	private List<LineItems> lineItem;
 
-	public Order(double total, Date date, Date dispatchDate, Payment payment, Address address, User user, OrderStatus orderStatus) {
+	public Order(long id, double total, Date date, Date dispatchDate, Payment payment, Address address, User user, OrderStatus orderStatus) {
+		this.id = id;
 		this.total = total;
 		this.date = date;
 		this.dispatchDate = dispatchDate;

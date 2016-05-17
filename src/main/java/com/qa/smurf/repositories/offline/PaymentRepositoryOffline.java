@@ -3,7 +3,6 @@ package com.qa.smurf.repositories.offline;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
@@ -118,12 +117,6 @@ public class PaymentRepositoryOffline implements PaymentRepository {
 
 	@Override
 	public Payment findBySecurityNumber(int ccv) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Payment findByUserId(long userId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -13,56 +13,80 @@
 	<!-- Main body of the html -->
 	<ui:define name="body">
 		<style>
-html, body {
-	height: 100%;
+#cont {
+	height: 450px;
+}
+
+.textbx {
+	text-align: right;
+}
+
+h2 {
+	margin: 0;
 }
 </style>
-		<div class="boxthing">
-			<div class="basketitembox uk-grid">
-				<h:form>
-					<!-- The class that the Controller will call -->
-					<ui:repeat var="line" value="#{basket.order.lineItem}">
-						<div>
-							<div>
-								<h:graphicImage
-									value="../img/prod-img/#{line.product.pictureLoc}.jpg"
-									style="height: 10%; width:10%;" />
-							</div>
-							<div>
-								<h:outputText value="#{line.product.name}" />
-							</div>
-							<div>
-								<h:outputText value="#{line.quantity}" />
-							</div>
-							<div>
-								<h:outputText value="£#{line.product.price}" />
-							</div>
-							<div>
-								<h:commandButton value="Remove From Basket"
-									action="#{basket.removeProductFromBasket(line.product.id)}" />
-							</div>
-						</div>
-					</ui:repeat>
-					<!--  -->
-					<div class="totalbox uk-container uk-container-right">
-						<h:form rendered="#{basket.order ne null}">
-							<h3>
-								<h:outputText value="£#{basket.getTotalPrice()}" />
-							</h3>
-							<!-- Replaced with commandbutton instead of a tag
-							Given the button needs to be callable through JSF -->
-							<h3>
-								<h:commandButton value="Checkout"
-									action="#{basket.placeOrder()}"
-									class="uk-button uk-button-large" id="checkout" />
-							</h3>
-							<h:commandButton value="Clear Basket"
-								action="#{basket.clearBasket()}"
-								class="uk-button uk-button-large" id="clear" />
-						</h:form>
-					</div>
+		<!-- The class that the Controller will call -->
+		<div class="uk-width-1-1" id="cont">
+			<div class="uk-width-1-4"
+				style="display: block; float: right; padding: 10px;">
+				<h:form rendered="#{basket.order ne null}">
+					<h3>
+						Total: <span style="float: right;"> <h:outputText
+								value="£#{basket.getTotalPrice()}" /></span>
+					</h3>
+					<h:commandButton value="Clear Basket"
+						action="#{basket.clearBasket()}" class="uk-button uk-button-large"
+						id="clear" style="float:left;display:block;" />
+					<h:commandButton value="Checkout" action="#{basket.placeOrder()}"
+						class="uk-button uk-button-large"
+						style="float:right;display:block;" id="checkout" />
 				</h:form>
 			</div>
+			<ui:repeat var="line" value="#{basket.order.lineItem}">
+				<div class="uk-width-3-4"
+					style="display: block; float: left; padding: 10px; border: 1px solid; margin-bottom: 15px;">
+					<div class=" uk-width-small-1-1
+					uk-width-medium-1-2 boxthing">
+						<h:graphicImage
+							value="img/prod-img/#{line.product.pictureLoc}.jpg" />
+					</div>
+					<div class="uk-width-small-1-1 uk-width-medium-1-2 boxthing">
+						<h:form>
+							<h:commandLink
+								action="#{basket.removeProductFromBasket(line.product.id)}">
+								<i class="uk-icon-close uk-icon-medium" style="float: right;"></i>
+							</h:commandLink>
+						</h:form>
+						<div id="textbx" style="padding: 10px;">
+							<h2>
+								<h:outputText value="#{line.product.name}" />
+							</h2>
+							<p>
+								<h:outputText value="#{line.product.description}" />
+							</p>
+							<div style="padding: 10px; margin: 0 auto; width: 40%;">
+								<p>
+									<strong style="padding-right: 5px;">Quantity: </strong><span
+										style="float: right;"> <h:inputText
+											value="#{line.quantity}"
+											style="width:30px; text-align:right;" /></span>
+								</p>
+								<p>
+									<strong style="padding-right: 5px;">Price: </strong><span
+										style="float: right;"> <h:outputText
+											value="£#{line.product.price}" /></span>
+								</p>
+							</div>
+							<p style="float: right;">
+								<strong style="padding-right: 5px;">Subtotal: </strong><span
+									style="float: right;"> <h:outputText
+										value="£#{line.subtotal}" /></span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</ui:repeat>
+
 		</div>
 	</ui:define>
 </ui:composition>
