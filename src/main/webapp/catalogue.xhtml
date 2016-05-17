@@ -39,14 +39,13 @@
 									<div>
 										<p>#{line.description}</p>
 										 <h:form>
+						<h:commandLink
+                            action="#{wishlist.addToWishlist(line.id)}">
+                            <i class="uk-icon-star uk-icon-medium" style="float:right"></i>
+                        </h:commandLink>
                         <h:commandLink
                             action="#{basket.addToBasketFromCatalogue(line.id)}">
                             <i class="uk-icon-cart-plus uk-icon-medium" style="float:left"></i>
-                        </h:commandLink>
-                        
-                        <h:commandLink
-                            action="#{wishlist.addToWishlist(line.id)}">
-                            <i class="uk-icon-star uk-icon-medium" style="float:right"></i>
                         </h:commandLink>
                     </h:form>
 									</div>
