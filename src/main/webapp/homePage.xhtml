@@ -12,11 +12,11 @@
 
 				<div class="slideshow">
 
-					
+
 					<a href="catalogue.xhtml" id="slideLink"><div id="wrapper"
 							style="background-image: img/prod-img/PeaceGnome.jpg"></div></a>
 				</div>
-				
+
 			</div>
 		</div>
 
@@ -39,36 +39,44 @@
 				<!-- Box One -->
 				<div id="box1" class="categories">
 					<div class="title">
-						<h:form>
-							<h:commandLink action="catalogue.xhtml" value="Gnomes">
-								<f:actionListener binding="#{filter.setProductType('GNOME')}" />
-							</h:commandLink>
-						</h:form>
+						<div class="titleLink">
+							<h:form>
+								<h:commandLink class="titleLink" action="catalogue.xhtml"
+									value="Gnomes">
+									<f:actionListener binding="#{filter.setProductType('GNOME')}" />
+								</h:commandLink>
+							</h:form>
+						</div>
 					</div>
 					<h:form>
-							<h:commandLink action="catalogue.xhtml">
-								<f:actionListener binding="#{filter.setProductType('GNOME')}" />
-								<h:graphicImage value="img/gnome.jpg"
-									style="height: 200px; margin: 0 auto; display: block;" id="boxa" class="box"/>
-							</h:commandLink>
+						<h:commandLink action="catalogue.xhtml">
+							<f:actionListener binding="#{filter.setProductType('GNOME')}" />
+							<h:graphicImage value="img/dwarf.jpg"
+								style="height: 200px; margin: 0 auto; display: block;" id="boxa"
+								class="box" />
+						</h:commandLink>
 					</h:form>
 				</div>
 
 				<!-- Box Two -->
 				<div id="box2" class="categories">
 					<div class="title">
-						<h:form>
-							<h:commandLink action="catalogue.xhtml" value="Garden Tools">
-								<f:actionListener binding="#{filter.setProductType('TOOL')}" />
-							</h:commandLink>
-						</h:form>
+
+						<div class="titleLink">
+							<h:form>
+								<h:commandLink action="catalogue.xhtml" value="Garden Tools">
+									<f:actionListener binding="#{filter.setProductType('TOOL')}" />
+								</h:commandLink>
+							</h:form>
+						</div>
 					</div>
 					<h:form>
-							<h:commandLink action="catalogue.xhtml">
-								<f:actionListener binding="#{filter.setProductType('TOOL')}" />
-								<h:graphicImage value="img/spade.jpg"
-									style="height: 200px; margin: 0 auto; display: block;" id="boxb" class="box"/>
-							</h:commandLink>
+						<h:commandLink action="catalogue.xhtml">
+							<f:actionListener binding="#{filter.setProductType('TOOL')}" />
+							<h:graphicImage value="img/spade.jpg"
+								style="height: 200px; margin: 0 auto; display: block;" id="boxb"
+								class="box" />
+						</h:commandLink>
 					</h:form>
 				</div>
 
@@ -77,20 +85,23 @@
 				<div id="box3" class="categories">
 					<div class="title">
 
-						<h:form>
-							<h:commandLink action="catalogue.xhtml" value="Seeds">
-								<f:actionListener binding="#{filter.setProductType('SEED')}" />
-							</h:commandLink>
-						</h:form>
-						
+						<div class="titleLink">
+							<h:form>
+								<h:commandLink action="catalogue.xhtml" value="Seeds">
+									<f:actionListener binding="#{filter.setProductType('SEED')}" />
+								</h:commandLink>
+							</h:form>
+
+						</div>
 					</div>
 					<h:form>
-							<h:commandLink action="catalogue.xhtml">
-								<f:actionListener binding="#{filter.setProductType('SEED')}" />
-								<h:graphicImage value="img/seeds2.jpg"
-									style="height: 200px; margin: 0 auto; display: block; "  id="boxc" class="box"/>
-							</h:commandLink>
-						</h:form>
+						<h:commandLink action="catalogue.xhtml">
+							<f:actionListener binding="#{filter.setProductType('SEED')}" />
+							<h:graphicImage value="img/seeds2.jpg"
+								style="height: 200px; margin: 0 auto; display: block; "
+								id="boxc" class="box" />
+						</h:commandLink>
+					</h:form>
 				</div>
 			</div>
 
@@ -101,3 +112,7 @@
 	</ui:define>
 
 </ui:composition>
+
+
+
+

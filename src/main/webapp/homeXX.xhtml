@@ -4,26 +4,20 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
 
-	<ui:define name="pageTitle">
+
+	<ui:define name="body">
 		<style>
 #mainCont {
 	max-width: 100%;
 	margin-top: -15px;
 }
 
-#bodyCont {
-	height: 400px !important;
-}
-
 #catCont {
 	padding-top: 40px;
 	padding-bottom: 40px;
 }
-
-html, body {
-	height: 1500px;
-}
 </style>
+
 		<div
 			class="uk-margin uk-text-contrast uk-text-center uk-flex uk-flex-center uk-flex-middle"
 			data-uk-parallax="{bg: -200}"
@@ -35,10 +29,8 @@ html, body {
 					garden related!</p>
 			</div>
 		</div>
-	</ui:define>
-	<ui:define name="body">
 		<div
-			style="width: 100%; max-width: 1000px; margin: 0 auto; height: 100%; max-height: 380px;">
+			style="width: 100%; max-width: 1000px; margin: 0 auto; height: 100%; min-height: 380px;">
 			<div class="boxthing uk-width-medium-1-2 uk-width-small-1-1"
 				style="display: inline-block; float: left; padding: 10px;">
 				<h2>Gnomes, Gnomes and more Gnomes!</h2>
@@ -57,7 +49,8 @@ html, body {
 				</figure>
 			</div>
 		</div>
-		<div style="width: 100%; max-width: 1000px; margin: 0 auto;">
+		<div
+			style="width: 100%; max-width: 1000px; margin: 0 auto; height: 100%; min-height: 350px;">
 			<div style="width: 75%; margin: 0 auto; border-top: 2px solid white;"></div>
 			<div id="catCont">
 				<h:form>
