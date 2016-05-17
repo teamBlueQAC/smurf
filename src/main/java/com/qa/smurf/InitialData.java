@@ -322,7 +322,7 @@ public class InitialData {
 
 	// Products nabz & Dean
 	private void setProductInitialData() {
-		products.add(new Product(0, "Day Dream Gnome", "GHTY-YTER-GFDG", "blue", 44.99, false, "DayDreamGnome", 500,
+		products.add(new Product(0, "Happy gnome", "GHTY-YTER-GFDG", "blue", 44.99, false, "HappyGnome", 500,
 				ProductType.GNOME, "A traditional garden gnome, a great new addition to your lawn. To be cleaned of with a dam cloth.", 40, 500));
 
 		products.add(new Product(1, "Sunflower Seeds", "SDFF-DFGF-JGGJ", "yellow", 3.99, false, "SunflowerSeeds", 600,
