@@ -166,7 +166,7 @@ public class OrderService {
 					p.setQuantityAvailable(available - liQuantity);
 				}
 			}
-			order.setOrderStatus(OrderStatus.PLACED);
+			order.setOrderStatus(OrderStatus.PLACED);//TODO
 			orderRepository.updateOrder(order);
 		}
 	}
