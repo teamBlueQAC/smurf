@@ -135,8 +135,7 @@ public class PaymentController {
 	}
 
 	public Payment getPayment() {
-		User paymentUser = paymentService.getCurrentUser(currentUser.getUserId());
-		payment = paymentService.getPayment(paymentUser);
+		payment = paymentService.getPayment(currentUser.getUserId());
 		return payment;
 	}
 

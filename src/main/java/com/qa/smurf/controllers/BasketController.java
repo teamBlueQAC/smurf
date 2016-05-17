@@ -46,8 +46,7 @@ public class BasketController {
 		return "basket";
 	}
 
-	// gets called when adding a product
-	// calls the orderService to add a product to the basket.
+
 	public String addToBasket(long productId) {
 		long userId = -1;
 		if (currentUser.getUsername() != null){
@@ -58,6 +57,17 @@ public class BasketController {
 		} else {
 			System.out.println("User not logged in");
 			return "product";
+		}
+	}
+	
+	public void addToBasketFromCatalogue(long productId) {
+		long userId = -1;
+		if (currentUser.getUsername() != null){
+			userId = currentUser.getUserId();
+			orderService.addToBasket(productId, userId);
+			wishlistService.removeFromWishlist(productId, userId);
+		} else {
+			System.out.println("User not logged in");
 		}
 	}
 

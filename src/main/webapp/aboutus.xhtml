@@ -4,61 +4,41 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
 
+	<ui:define name="pageTitle">
+
+	</ui:define>
 	<ui:define name="body">
-		<style>
-#mainCont {
-	height: 850px;
-}
-</style>
-		<!-- Based on design - row 1-->
-		<div class="boxthing" style="width: 100%; padding-top: 20px;">
-			<!--Garden Tools text-->
-			<div
-				class="boxthing uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1">
-				<div class="header">
-					<h1 style="padding-top: 10px">About Us</h1>
-				</div>
-				<div id="Gardentoolsinfo" style="padding: 20px">
-					<p>
-						We are a company that sells garden materials, such as seeds, soils
+	
+            <div class="uk-grid" data-uk-grid-margin="">
+                <div class="uk-width-medium-1-2 uk-row-first">
+                    <h1>About us</h1>
+                    <p>We are a company that sells garden materials, such as seeds, soils
 						and also ornaments for your own garden, such as gnomes. We are a
 						strong, dedicated team of a small number of people. Find our
-						contact details <a href="contactus.xhtml">here</a>
-					</p>
-					<ul style="text-align: right;" />
-				</div>
-			</div>
-			<!--Garden Tools picture-->
-			<div
-				class="boxthing Gardenbox uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1">
-				<img class="uk-thumbnail-small" style="width: 100%;"
-					src="img/copyrightfreeteam.jpg" alt="" />
-			</div>
-		</div>
-		<!--About Products-->
-		<div class="boxthing" style="width: 100%; padding-top: 20px;">
-			<!--Gnomes picture-->
-			<div
-				class="boxthing uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1">
-				<img class="uk-thumbnail-large" style="width: 100%;"
-					src="img/selenagnomez.png" alt="" />
-			</div>
-			<!--Gnomes text-->
-			<div
-				class="boxthing uk-width-medium-1-2 uk-width-large-1-2 uk-width-small-1-1">
-				<div class="header">
-					<h1 style="padding-top: 10px">Products</h1>
-				</div>
-				<div id="Gnomesinfo" style="padding: 20px">
-					<p>
-						As a proud business of selling garden products, we offer a wide
+						contact details <a href="contactus.xhtml">here!</a></p>
+                </div>
+
+                <div class="uk-width-medium-1-2">
+                    <img width="660" height="400" src="img/copyrightfreeteam.jpg" alt=""/>
+                </div>
+            </div>
+            <hr class="uk-grid-divider"/>
+            	<div class="uk-grid" data-uk-grid-margin="">
+
+                <div class="uk-width-medium-1-2 uk-row-first">
+                    <img width="660" height="400" src="img/selenagnomez.png" alt=""/>
+                </div>
+
+                <div class="uk-width-medium-1-2">
+                    <h1>Products</h1>
+           			As a proud business of selling garden products, we offer a wide
 						variety of items on our store, such as gnomes and other ornaments,
 						various kinds of seeds to produce your owns flowers and plants in
 						the garden, and all the tools necessary to give your garden that
 						personal touch. See our catalogue <a href="catalogue.xhtml">here!</a>
-					</p>
-				</div>
-			</div>
-		</div>
+                </div>
+
+            </div>
+
 	</ui:define>
 </ui:composition>
