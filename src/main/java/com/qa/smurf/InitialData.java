@@ -244,15 +244,15 @@ public class InitialData {
 		ArrayList<Order> order = getOrders();
 		ArrayList<Product> product = getProducts();
 
-		LineItems lineItem1 = new LineItems(order.get(0), product.get(3), 1, 400.00, 34);
+		LineItems lineItem1 = new LineItems(order.get(0), product.get(3), 1, (product.get(3).getPrice()*1), 34);
 		order.get(0).setLineItem(setLineItemForOrder(lineItem1));
-		LineItems lineItem2 = new LineItems(order.get(1), product.get(1), 2, 1400.00, 67);
+		LineItems lineItem2 = new LineItems(order.get(1), product.get(1), 2, (product.get(1).getPrice()*2), 67);
 		order.get(1).setLineItem(setLineItemForOrder(lineItem2));
-		LineItems lineItem3 = new LineItems(order.get(2), product.get(2), 3, 4200.00, 2);
+		LineItems lineItem3 = new LineItems(order.get(2), product.get(2), 3, (product.get(2).getPrice()*3), 2);
 		order.get(2).setLineItem(setLineItemForOrder(lineItem3));
-		LineItems lineItem4 = new LineItems(order.get(3), product.get(3), 4, 5400.00, 45);
+		LineItems lineItem4 = new LineItems(order.get(3), product.get(3), 4, (product.get(3).getPrice()*4), 45);
 		order.get(3).setLineItem(setLineItemForOrder(lineItem4));
-		LineItems lineItem5 = new LineItems(order.get(4), product.get(4), 5, 1400.00, 235);
+		LineItems lineItem5 = new LineItems(order.get(4), product.get(4), 5, (product.get(4).getPrice()*5), 235);
 		order.get(4).setLineItem(setLineItemForOrder(lineItem5));
 	}
 
