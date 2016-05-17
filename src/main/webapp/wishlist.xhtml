@@ -15,31 +15,48 @@
 				<div class="uk-width-1-1 uk-text-center uk-row-first">
 					<h1 class="uk-heading-large">Wishlist</h1>
 				</div>
-			</div></div>
+			</div>
+		</div>
 		<table class="wishlist" border="1" style="width: 100%">
-			<tr>
-				<td><h4></h4></td>
-				<td><h4>Product</h4></td>
-				<td><h4>Price</h4></td>
-				<td><h4>Remove the Item</h4></td>
-				<td><h4>Add To Basket</h4></td>
-			</tr>
 
 			<!-- repeat tag is used to iterate through all the order lines
 			Within the order itself to generate the appropriate output -->
 			<h:form>
 				<ui:repeat var="line" value="#{wishlist.wishListEntries}">
-					<tr>
-						<td><h:graphicImage
-								value="../img/prod-img/#{line.product.pictureLoc}.jpg"
-								style="height:10%; width:10%;" /></td>
-						<td><h:outputText value="#{line.product.name}" /></td>
-						<td><h:outputText value="£#{line.product.price}" /></td>
-						<td><h:commandButton value="Remove From Wishlist"
-								action="#{wishlist.removeFromWishlist(line.product.id)}" /></td>
-						<td><h:commandButton value="Add To Basket"
-								action="#{wishlist.addToBasket(line.product.id)}" /></td>
-					</tr>
+					<div class="uk-width-1-1"
+						style="display: block; float: left; padding: 10px; border: 1px solid; margin-bottom: 15px;">
+						<div
+							class=" uk-width-small-1-1
+					uk-width-medium-1-2 boxthing">
+							<h:graphicImage
+								value="img/prod-img/#{line.product.pictureLoc}.jpg"
+								style="height: 250px;" />
+						</div>
+						<div class="uk-width-small-1-1 uk-width-medium-1-2 boxthing">
+							<h:commandLink
+								action="#{wishlist.removeFromWishlist(line.product.id)}">
+								<i class="uk-icon-close uk-icon-medium" style="float: right;"></i>
+							</h:commandLink>
+							<div id="textbx" style="padding: 10px;">
+								<h2>
+									<h:outputText value="#{line.product.name}" />
+								</h2>
+								<p>
+									<h:outputText value="#{line.product.description}" />
+								</p>
+								<div style="padding: 10px; margin: 0 auto; width: 40%;">
+									<p>
+										<strong style="padding-right: 5px;">Price: </strong><span
+											style="float: right;"> <h:outputText
+												value="£#{line.product.price}" /></span>
+									</p>
+								</div>
+
+								<h:commandButton value="Add To Basket"
+									action="#{wishlist.addToBasket(line.product.id)}" />
+							</div>
+						</div>
+					</div>
 				</ui:repeat>
 			</h:form>
 		</table>
