@@ -26,6 +26,7 @@ public class AccountController {
 	@PostConstruct
 	public void init() {
 		payment = accountService.getUsersPayment(currentUser.getUserId());
+		user = accountService.getCustomerDetails(currentUser.getUserId());
 	}
 
 	public String updatePersonal() {
@@ -56,7 +57,6 @@ public class AccountController {
 	}
 
 	public User getUser() {
-		user = accountService.getCustomerDetails(currentUser.getUserId());
 		return user;
 	}
 
