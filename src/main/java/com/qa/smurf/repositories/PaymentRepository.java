@@ -37,8 +37,4 @@ public interface PaymentRepository {
 
 	public void removePayment(Payment p);
 
-	public Payment findByUserId(long userId);
-
-	
-
 }
