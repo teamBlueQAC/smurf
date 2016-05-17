@@ -27,7 +27,21 @@ h2 {
 </style>
 		<!-- The class that the Controller will call -->
 		<div class="uk-width-1-1" id="cont">
-
+			<div class="uk-width-1-4"
+				style="display: block; float: right; padding: 10px;">
+				<h:form rendered="#{basket.order ne null}">
+					<h3>
+						Total: <span style="float: right;"> <h:outputText
+								value="£#{basket.getTotalPrice()}" /></span>
+					</h3>
+					<h:commandButton value="Clear Basket"
+						action="#{basket.clearBasket()}" class="uk-button uk-button-large"
+						id="clear" style="float:left;display:block;" />
+					<h:commandButton value="Checkout" action="#{basket.placeOrder()}"
+						class="uk-button uk-button-large"
+						style="float:right;display:block;" id="checkout" />
+				</h:form>
+			</div>
 			<ui:repeat var="line" value="#{basket.order.lineItem}">
 				<div class="uk-width-3-4"
 					style="display: block; float: left; padding: 10px; border: 1px solid; margin-bottom: 15px;">
@@ -50,40 +64,29 @@ h2 {
 							<p>
 								<h:outputText value="#{line.product.description}" />
 							</p>
-							<div style="padding: 10px; margin: 0 auto; width: 50%;">
+							<div style="padding: 10px; margin: 0 auto; width: 40%;">
 								<p>
-									<strong style="padding-right: 5px;">Quantity: </strong>
-									<h:inputText value="#{line.quantity}" style="width:30px;" />
+									<strong style="padding-right: 5px;">Quantity: </strong><span
+										style="float: right;"> <h:inputText
+											value="#{line.quantity}"
+											style="width:30px; text-align:right;" /></span>
 								</p>
 								<p>
-									<strong style="padding-right: 5px;">Price: </strong>
-									<h:outputText value="£#{line.product.price}" />
+									<strong style="padding-right: 5px;">Price: </strong><span
+										style="float: right;"> <h:outputText
+											value="£#{line.product.price}" /></span>
 								</p>
 							</div>
 							<p style="float: right;">
-
-								<strong style="padding-right: 5px;">Subtotal: </strong>
-								<h:outputText value="£#{line.subtotal}" />
+								<strong style="padding-right: 5px;">Subtotal: </strong><span
+									style="float: right;"> <h:outputText
+										value="£#{line.subtotal}" /></span>
 							</p>
 						</div>
 					</div>
 				</div>
 			</ui:repeat>
-			<div class="uk-width-1-4"
-				style="display: block; float: right; padding: 10px;">
-				<h:form rendered="#{basket.order ne null}">
-					<h3>
-						Total: <span style="float: right;"> <h:outputText
-								value="£#{basket.getTotalPrice()}" /></span>
-					</h3>
-					<h:commandButton value="Clear Basket"
-						action="#{basket.clearBasket()}" class="uk-button uk-button-large"
-						id="clear" style="float:left;display:block;" />
-					<h:commandButton value="Checkout" action="#{basket.placeOrder()}"
-						class="uk-button uk-button-large"
-						style="float:right;display:block;" id="checkout" />
-				</h:form>
-			</div>
+
 		</div>
 	</ui:define>
 </ui:composition>

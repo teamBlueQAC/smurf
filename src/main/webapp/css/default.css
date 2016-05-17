@@ -262,6 +262,9 @@ html, body {
 	.small-hide {
 		display: none;
 	}
+	#footer {
+		display: none;
+	}
 }
 
 #wrappingDiv {
