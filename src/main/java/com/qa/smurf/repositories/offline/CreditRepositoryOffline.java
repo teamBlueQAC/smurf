@@ -55,4 +55,16 @@ public class CreditRepositoryOffline implements CreditRepository {
 		}
 		return null;
 	}
+
+	public void updateCredit(Credit credit) {
+		ArrayList<Credit> credits = initialData.getCredit();
+		for (int i = 0; i < credits.size(); i++) {
+			if (credits.get(i) == credit){
+				System.out.println("Found Credit");
+				credits.set(i, credit);
+			}
+		}
+		initialData.setCredit(credits);
+
+	}
 }

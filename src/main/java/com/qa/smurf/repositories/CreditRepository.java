@@ -18,5 +18,7 @@ public interface CreditRepository {
 	public ArrayList<Credit> getCredit();
 
 	public Credit readCredit(Credit credit);
+	
+	public void updateCredit(Credit credit);
 
 }

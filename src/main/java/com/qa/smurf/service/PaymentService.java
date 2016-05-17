@@ -84,10 +84,12 @@ public class PaymentService {
 	}
 
 	public Double getAmountRemaining(Double orderTotal, User user) {
+		System.out.println("Total - " + orderTotal);
 		Credit credit = creditRepository.findByUser(user);
 		if(credit != null){
 			if(credit.getAmount()!=null){
 				Double amount = credit.getAmount();
+				System.out.println("Credit - " + amount);
 				if (amount >= orderTotal) {
 					return amount - orderTotal;
 				} else {
@@ -120,12 +122,16 @@ public class PaymentService {
 		Order order = getPlacedOrder(userRepository.findByID(userId));
 		Credit credit = creditRepository.findByUser(userRepository.findByID(userId));
 		Double creditAmount = getAmountRemaining(order.getTotal(), userRepository.findByID(userId));
+		
 		if(credit != null){
 			credit.setAmountRemaining(creditAmount);
+			System.out.println("Creditamount - " + creditAmount);
+			creditRepository.updateCredit(credit);
 		}
 		order.setOrderStatus(OrderStatus.PAID);
 		order.setDate(new Date());
 		orderRepository.updateOrder(order);
+		
 		return "confirmation";
 	}
 
