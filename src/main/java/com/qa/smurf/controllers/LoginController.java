@@ -30,7 +30,7 @@ public class LoginController {
 		currentUser.setUsername(null);
 		currentUser.setPassword(null);
 		currentUser.setUserId(-1);
-		return "homePage";
+		return "homeXX";
 	}
 	
 	public boolean isLoggedIn() {	
