@@ -16,7 +16,7 @@ public class OrderTest extends TestCase {
 		Payment payment = new Payment("", "", "", "", null, null);
 		Address address = new Address("", "");
 		User user = new User(0, "", "", "", "", "", null, false, address, null);
-		order = new Order(0, new Date(), new Date(), payment, address, user, orderStatus);
+		order = new Order(0, 0, new Date(), new Date(), payment, address, user, orderStatus);
 		ArrayList<LineItems> LineItems = new ArrayList<LineItems>();
 		order.setLineItem(LineItems);
 	}
