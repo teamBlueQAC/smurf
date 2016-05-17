@@ -8,7 +8,7 @@ public class LineItemsTest extends TestCase {
 	public LineItemsTest(String name) {
 		super(name);
 		Product product = new Product(0, "a", "a", "a", null, false, "a", 0, null, "a", 0, 0);
-		Order order = new Order(0, null, null, null, null, null, null);
+		Order order = new Order(0, 0, null, null, null, null, null, null);
 		lineItems = new LineItems(order, product, 0, 0, 0);
 	}
 
@@ -33,7 +33,7 @@ public class LineItemsTest extends TestCase {
 	}
 
 	public void testSetOrder() {
-		Order order = new Order(1, null, null, null, null, null, null);
+		Order order = new Order(1, 0, null, null, null, null, null, null);
 		lineItems.setOrder(order);
 		assertEquals(order, lineItems.getOrder());
 	}

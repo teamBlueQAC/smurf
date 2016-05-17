@@ -197,9 +197,9 @@ public class InitialData {
 
 		credits.add(new Credit(users.get(0), 0.0, 0.0));
 		credits.add(new Credit(users.get(1), 2000.00, 1000.00));
-		credits.add(new Credit(users.get(2), 0.0, 0.0));
+		credits.add(new Credit(users.get(2), 60.0, 0.0));
 		credits.add(new Credit(users.get(3), 1500.00, 400.00));
-		credits.add(new Credit(users.get(4), 0.0, 0.0));
+		credits.add(new Credit(users.get(4), 120.0, 60.0));
 		System.out.println("credits size - " + credits.size());
 
 	}
