@@ -112,8 +112,8 @@ public class PaymentService {
 		return total;
 	}
 
-	public Payment getPayment(User user) {
-		return paymentRepository.findByUserId(user.getId());
+	public Payment getPayment(long userId) {
+		return paymentRepository.findByUserId(userId);
 	}
 
 	public String confirmPayment(long userId) {
