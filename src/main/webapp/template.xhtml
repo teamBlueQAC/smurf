@@ -58,16 +58,16 @@
 								class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
 								<ul class="uk-nav uk-nav-navbar">
 									<h:form>
-										<h:commandLink action="catalogue.xhtml">
-											<li class="navlist" value="1"><f:actionListener
-													binding="#{filter.setProductType('GNOME')}" />Gnomes</li>
+										<h:commandLink action="catalogue.xhtml" id="navlist2">
+											<f:actionListener binding="#{filter.setProductType('TOOL')}" />
+											<li class="navlist" value="2">Garden Tools</li>
 										</h:commandLink>
 									</h:form>
 									<li class="uk-nav-divider"></li>
 									<h:form>
-										<h:commandLink action="catalogue.xhtml" id="navlist2">
-											<f:actionListener binding="#{filter.setProductType('TOOL')}" />
-											<li class="navlist" value="2">Tools</li>
+										<h:commandLink action="catalogue.xhtml">
+											<li class="navlist" value="1"><f:actionListener
+													binding="#{filter.setProductType('GNOME')}" />Gnomes</li>
 										</h:commandLink>
 									</h:form>
 									<li class="uk-nav-divider"></li>
