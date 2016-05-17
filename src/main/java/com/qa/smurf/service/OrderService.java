@@ -88,7 +88,7 @@ public class OrderService {
 	}
 
 	private void newOrder(Product product, long userId){
-		Order order = new Order(0, new Date(), null, paymentRepository.findByUserId(userId),
+		Order order = new Order(0, new Date(), null, paymentRepository.findByUserID(userId),
 				userRepository.findByID(userId).getAddress(), userRepository.findByID(userId), OrderStatus.PENDING);
 		orderRepository.persistOrder(order);
 		newLineItem(order, product);
@@ -109,7 +109,7 @@ public class OrderService {
 			orderRepository.updateOrder(order);
 		} else {
 
-			order = new Order(123, new Date(), null, paymentRepository.findByUserId(userId),
+			order = new Order(123, new Date(), null, paymentRepository.findByUserID(userId),
 					userRepository.findByID(userId).getAddress(), userRepository.findByID(userId), null);
 
 			orderRepository.persistOrder(order);
