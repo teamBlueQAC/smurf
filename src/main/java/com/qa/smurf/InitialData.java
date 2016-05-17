@@ -168,10 +168,10 @@ public class InitialData {
 
 		for (int i = 0; i < 5; i++) {
 			if(i != 0){
-				orders.add(new Order(price[i], new Date(), new Date(), getPayments().get(i), getAddresses().get(i),
+				orders.add(new Order(i, price[i], new Date(), new Date(), getPayments().get(i), getAddresses().get(i),
 						getUsers().get(i), OrderStatus.DELIVERED));
 			} else {
-				orders.add(new Order(price[i], new Date(), null, getPayments().get(i), getAddresses().get(i),
+				orders.add(new Order(i, price[i], new Date(), null, getPayments().get(i), getAddresses().get(i),
 						getUsers().get(i), OrderStatus.PENDING));
 			}
 		}
