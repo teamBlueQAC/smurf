@@ -334,23 +334,37 @@ public class InitialData {
 		products.add(new Product(3, "Peace Gnome", "GHTY-YTER-GFD2", "blue", 39.99, false, "PeaceGnome", 500,
 				ProductType.GNOME, "This garden gnome ideal for garden beds, adds a vibrant feel to your garden.", 40, 500));
 
-		products.add(new Product(4, "Pumpkin Seeds", "SDFF-DFGF-JGG2", "orange", 3.99, false, "PumpkinSeeds", 600,
+		products.add(new Product(4, "Pumpkin Seeds", "SDFF-DFGF-JGG2", "orange", 2.99, false, "PumpkinSeeds", 600,
 				ProductType.SEED, "Cucurbita maxima, Pumpkin Seeds form large orange pumpkins, great for decoration at festive times like halloween.", 60, 700));
 
 		products.add(new Product(5, "Lawn Mower", "EWRE-WRFS-SAZ2", "blue", 1072.00, false, "LawnMower", 700,
 				ProductType.TOOL, "Top of the range WORX robotic lawn mower, cuts the lawn so you don't have to. Provides multiple height settings for different lawn heights. Intergated with a 36V lithium-ion battery technology.", 70, 400));
 		
-		products.add(new Product(6, "Sesame Seeds", "SDFF-DFGF-JGG8", "yellow", 3.99, false, "SesameSeeds", 600,
+		products.add(new Product(6, "Sesame Seeds", "SDFF-DFGF-JGG8", "yellow", 4.99, false, "SesameSeeds", 600,
 				ProductType.SEED, "Sesame (Sesamum indicum) is a flowering plant in the genus Sesamum. It is widely naturalized in tropical regions around the world and is cultivated for its edible seeds, which grow in pods.", 60, 700));
 		
 		products.add(new Product(7, "Coriander Seeds", "SDFF-YFGF-JGG8", "yellow", 3.99, false, "CorianderSeeds", 600,
 				ProductType.SEED, "Coriander (Coriandrum sativum), is an annual herb in the family Apiaceae. All parts of the plant are edible, but the fresh leaves and the dried seeds are the parts most traditionally used in cooking.", 60, 700));
 		
-		products.add(new Product(8, "Game of Gnomes", "SYFF-DFGF-JGG8", "yellow", 50.99, false, "GameOfGnomes", 600,
+		products.add(new Product(8, "Game of Gnomes", "SYFF-DFGF-JGG8", "yellow", 75.99, false, "GameOfGnomes", 600,
 				ProductType.GNOME, "Want to brighten up your garden, with our collectable selection. Now you will know when winter is coming. PS Spoilers not included", 60, 700));
 		
 		products.add(new Product(9, "Pipe Gnome", "SYFF-HJKO-JGG8", "yellow", 48.99, false, "PipeGnome", 800,
 				ProductType.GNOME, "The traditional gentleman gnome, very good for Styling up your garden.", 60, 700));
+		
+		products.add(new Product(10, "Garden Rake", "KOPO-HJKO-KKP8", "purple", 15.99, false, "Rake", 650,
+				ProductType.TOOL, "The traditional garden rake, great for clearing up your garden in the autumn mouths.", 60, 700));
+		
+		products.add(new Product(11, "Garden Hose", "KOPO-PLKO-KKP8", "yellow", 30.99, false, "Hose", 750,
+				ProductType.TOOL, "The ultimate hose, 30m is lightweight and anti-twist robust hose. Perfect for those hot summers", 60, 900));
+		
+		products.add(new Product(12, "Flash Gnome", "GNOM-EFLA-SHP8", "red", 61.99, false, "FlashGnome", 750,
+				ProductType.GNOME, "Do you need someone to save your garden, let your garden be a safer place with this flash gnome your fastest selling product", 60, 900));
+		
+		products.add(new Product(12, "Super Gnome Collection", "GNOM-ESUP-ERP8", "blue", 171.99, false, "SuperGnome", 750,
+				ProductType.GNOME, "Do you more than one hero to save your garden, with our group of 3 super gnomes worry no more.", 60, 900));
+		
+		
 	}
 
 	public ArrayList<Product> getProducts() {
