@@ -60,6 +60,19 @@ public class BasketController {
 		}
 	}
 	
+	public String deductFromBasket(long productId) {
+		long userId = -1;
+		if (currentUser.getUsername() != null){
+			userId = currentUser.getUserId();
+			orderService.deductFromBasket(productId, userId);
+			wishlistService.removeFromWishlist(productId, userId);
+			return "basket";
+		} else {
+			System.out.println("User not logged in");
+			return "product";
+		}
+	}
+	
 	public void addToBasketFromCatalogue(long productId) {
 		long userId = -1;
 		if (currentUser.getUsername() != null){
