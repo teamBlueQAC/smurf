@@ -39,8 +39,23 @@
 	<link rel="stylesheet" type="text/css" href="css/default.css" />
 </h:head>
 <f:view>
+	<style type="text/css">
+a.uk-navbar-toggle:nth-child(1) {
+	color: white;
+}
+
+a.uk-navbar-toggle:nth-child(2) {
+	color: white;
+}
+
+#j_idt66>a>li {
+	text-decoration: none;
+}
+</style>
 	<body>
+
 		<div class="wrapper">
+
 			<div id="banner"
 				style="width: 100%; height: 150px; background-color: #8A77CB;">
 				<a href="homeXX.xhtml"><img src="img/logoNew.png"
@@ -99,7 +114,9 @@
 							</h:panelGroup>
 							<h:panelGroup rendered="#{login.loggedIn}">
 								<li aria-expanded="false" aria-haspopup="true" class="uk-parent"
-									data-uk-dropdown="" id="category"><a>#{currentUser.username} (£#{payment.credit.amount})</a>
+									data-uk-dropdown="" id="category"><a>#{currentUser.username}
+										(£#{payment.credit.amount})</a>
+									data-uk-dropdown="" id="category"><a>#{currentUser.username} (£#{payment.getCreditTotal()})</a>
 									<div style="top: 40px; left: 0px;"
 										class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
 										<ul class="uk-nav uk-nav-navbar">
@@ -108,7 +125,8 @@
 											<li><a href="wishlist.xhtml">Wishlist</a></li>
 											<li class="uk-nav-divider"></li>
 											<h:form>
-												<h:commandLink style="color:black; text-decoration: none;" action="#{login.logout}">
+												<h:commandLink style="color:black; text-decoration: none;"
+													action="#{login.logout}">
 													<li class="navlist" style="padding-left: 15px;">Logout</li>
 												</h:commandLink>
 											</h:form>
@@ -176,18 +194,34 @@
 				</div>
 			</div>
 			<div id="offcanvas-1" class="uk-offcanvas">
-				<div class="uk-offcanvas-bar">
+				<div class="uk-offcanvas-bar"
+					style="background-color: #8A77CB; border-right: 1px solid; padding: 10px;">
 					<div style="width: 100%;">
 						<img style="margin: 0 auto; display: block; padding-top: 15px;"
-							src="img/tractor.png" />
+							src="img/logowotxt.png" />
 					</div>
 					<ul class="uk-list uk-list-line" style="color: white;">
 						<li><a href="homeXX.xhtml">Home</a></li>
-						<li style="font-weight: bold; border-top: none;">Catalogue
-							<ul>
-								<li><a href="">Gnomes</a></li>
-								<li><a href="">Garden Tools</a></li>
-								<li><a href="">Seeds</a></li>
+						<li style="font-weight: bold;">Catalogue
+							<ul class="uk-nav uk-nav-navbar">
+								<h:form>
+									<h:commandLink action="catalogue.xhtml">
+										<f:actionListener binding="#{filter.setProductType('TOOL')}" />
+										<li value="2" style="font-weight: normal;">Garden Tools</li>
+									</h:commandLink>
+								</h:form>
+								<h:form>
+									<h:commandLink action="catalogue.xhtml">
+										<li value="1" style="font-weight: normal;"><f:actionListener
+												binding="#{filter.setProductType('GNOME')}" />Gnomes</li>
+									</h:commandLink>
+								</h:form>
+								<h:form>
+									<h:commandLink action="catalogue.xhtml">
+										<f:actionListener binding="#{filter.setProductType('SEED')}" />
+										<li value="3" style="font-weight: normal;">Seeds</li>
+									</h:commandLink>
+								</h:form>
 							</ul>
 						</li>
 						<li><a href="aboutus.xhtml">About Us</a></li>

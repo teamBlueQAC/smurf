@@ -8,10 +8,19 @@
 html, body {
 	height: 100%;
 }
+
+img {
+	height: 100%;
+}
+
+a {
+	height: 100%;
+}
 </style>
 		<div class="boxthing" style="width: 100%; padding-top: 20px;">
 			<div class="uk-grid">
-				<div class="uk-width-medium-1-2 uk-width-small-1-1">
+				<div class="uk-width-medium-1-2 uk-width-small-1-1"
+					style="padding-bottom: 10px;">
 					<h:graphicImage class="uk-thumbnail-large" style="width: 100%;"
 						value="../img/prod-img/#{product.product.pictureLoc}.jpg" />
 				</div>
@@ -51,25 +60,25 @@ html, body {
 					<div class="uk-slidenav-position" data-uk-slider="">
 						<div class="uk-slider-container">
 							<ul class="uk-slider uk-grid-width-1-3">
-								<li><a
+								<li><a style="display: block;"
 									href="../img/prod-img/#{product.product.pictureLoc}_3.jpg"
 									data-uk-lightbox="" title=""> <img
 										src="../img/prod-img/#{product.product.pictureLoc}_3.jpg" />
 								</a></li>
-								<li><a
+								<li><a style="display: block;"
 									href="../img/prod-img/#{product.product.pictureLoc}_2.jpg"
 									data-uk-lightbox="" title=""> <img
 										src="../img/prod-img/#{product.product.pictureLoc}_2.jpg"
 										alt="" />
 								</a></li>
-								<li><a
+								<li><a style="display: block;"
 									href="../img/prod-img/#{product.product.pictureLoc}_4.jpg"
 									data-uk-lightbox="" title=""> <img
 										src="../img/prod-img/#{product.product.pictureLoc}_4.jpg"
 										alt="" />
 								</a></li>
 
-								<li><a
+								<li><a style="display: block;"
 									href="../img/prod-img/#{product.product.pictureLoc}.jpg"
 									data-uk-lightbox="" title=""> <img
 										src="../img/prod-img/#{product.product.pictureLoc}.jpg" alt="" />

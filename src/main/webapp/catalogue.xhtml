@@ -38,21 +38,26 @@
 									class="uk-overlay-panel uk-overlay-background  uk-overlay-bottom uk-overlay-slide-bottom uk-border-rounded">
 									<div>
 										<p>#{line.description}</p>
-										 <h:form>
-						<h:commandLink
-                            action="#{wishlist.addToWishlist(line.id)}">
-                            <i class="uk-icon-star uk-icon-medium" style="float:right"></i>
-                        </h:commandLink>
-                        <h:commandLink
-                            action="#{basket.addToBasketFromCatalogue(line.id)}">
-                            <i class="uk-icon-cart-plus uk-icon-medium" style="float:left"></i>
-                        </h:commandLink>
-                    </h:form>
+										<h:form>
+											<h:commandLink action="#{wishlist.addToWishlist(line.id)}">
+												<i class="uk-icon-star uk-icon-medium" style="float: left"></i>
+											</h:commandLink>
+											<h:commandLink
+												action="#{basket.addToBasketFromCatalogue(line.id)}">
+												<i class="uk-icon-cart-plus uk-icon-medium"
+													style="float: right"></i>
+											</h:commandLink>
+										</h:form>
 									</div>
 								</figcaption>
 							</figure>
 						</div>
-						<h:form><h2 class="uk-margin-bottom-remove"><h:commandLink value="#{line.name}" action="#{product.getProductById(line.id)}" /></h2></h:form>
+						<h:form>
+							<h2 class="uk-margin-bottom-remove">
+								<h:commandLink value="#{line.name}"
+									action="#{product.getProductById(line.id)}" />
+							</h2>
+						</h:form>
 						£#{product.getProductPrice(line)}
 					</div>
 				</ui:repeat>
