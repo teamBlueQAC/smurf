@@ -16,97 +16,147 @@
 				</div>
 			</div>
 		</div>
-		<div class="boxthing uk-width-medium-1-2 uk-width-small-1-1" style="padding-right: 25px;">
+		<div class="boxthing uk-width-medium-1-2 uk-width-small-1-1"
+			style="padding-right: 25px;">
 			<form class="uk-form">
-    <fieldset>
-        <legend>Personal</legend>
-        <div class="uk-form-row">
-        	Full name: <h:outputText style="float:right" value="#{payment.user.name}" />
-        </div>
-        <div class="uk-form-row">
-        	Email: <h:outputText style="float:right" value="#{payment.user.email}" />
-        </div>
-        <div class="uk-form-row">
-        	Contact number: <h:outputText style="float:right" value="#{payment.user.phone}" />
-        </div>   
-    </fieldset>
-</form>	
-</div>
+				<fieldset>
+					<legend>Personal</legend>
+					<div class="uk-form-row">
+						Full name:
+						<h:outputText style="float:right" value="#{payment.user.name}" />
+					</div>
+					<div class="uk-form-row">
+						Email:
+						<h:outputText style="float:right" value="#{payment.user.email}" />
+					</div>
+					<div class="uk-form-row">
+						Contact number:
+						<h:outputText style="float:right" value="#{payment.user.phone}" />
+					</div>
+					<div class="uk-form-row">
+						Contact number:
+						<h:outputText style="float:right" value="#{payment.user.phone}" />
+					</div>
+					<h:form
+						rendered="#{payment.credit ne null and payment.credit.amount ne 0.0}">
+						<div class="uk-form-row">
+							Pay With Credit?
+							<h:selectBooleanCheckbox value="#{payment.useCredit}"/>
+						</div>
+					</h:form>
+				</fieldset>
+			</form>
+		</div>
 
-<div class="boxthing uk-width-medium-1-2 uk-width-small-1-1" style="padding-right: 25px;">
+		<div class="boxthing uk-width-medium-1-2 uk-width-small-1-1"
+			style="padding-right: 25px;">
 			<form class="uk-form">
-    <fieldset>
-        <legend>Postal Address</legend>
-        <div class="uk-form-row">
-        	Line 1: <h:inputText style="float:right" value="#{payment.user.address.line1}" />
-        </div>
-        <div class="uk-form-row">
-        	Line 2: <h:inputText style="float:right" value="#{payment.user.address.line2}" />
-        </div>
-        <div class="uk-form-row">
-        	Line 3: <h:inputText style="float:right" value="#{payment.user.address.line3}" />
-        </div>   
-        <div class="uk-form-row">
-        	Line 4: <h:inputText style="float:right" value="#{payment.user.address.line4}" />
-        </div> 
-        <div class="uk-form-row">
-        	Postcode: <h:inputText style="float:right" value="#{payment.user.address.postcode}" />
-        </div> 
-    </fieldset>
-</form>	
-</div>
+				<fieldset>
+					<legend>Postal Address</legend>
+					<div class="uk-form-row">
+						Line 1:
+						<h:inputText style="float:right"
+							value="#{payment.user.address.line1}" />
+					</div>
+					<div class="uk-form-row">
+						Line 2:
+						<h:inputText style="float:right"
+							value="#{payment.user.address.line2}" />
+					</div>
+					<div class="uk-form-row">
+						Line 3:
+						<h:inputText style="float:right"
+							value="#{payment.user.address.line3}" />
+					</div>
+					<div class="uk-form-row">
+						Line 4:
+						<h:inputText style="float:right"
+							value="#{payment.user.address.line4}" />
+					</div>
+					<div class="uk-form-row">
+						Postcode:
+						<h:inputText style="float:right"
+							value="#{payment.user.address.postcode}" />
+					</div>
+				</fieldset>
+			</form>
+		</div>
 
-<div class="boxthing uk-width-medium-1-2 uk-width-small-1-1" style="padding-right: 25px;">
+		<div class="boxthing uk-width-medium-1-2 uk-width-small-1-1"
+			style="padding-right: 25px;">
 			<form class="uk-form">
-    <fieldset>
-        <legend>Billing Address</legend>
-        <div class="uk-form-row">
-        	Line 1: <h:inputText style="float:right" value="#{payment.user.address.line1}" />
-        </div>
-        <div class="uk-form-row">
-        	Line 2: <h:inputText style="float:right" value="#{payment.user.address.line2}" />
-        </div>
-        <div class="uk-form-row">
-        	Line 3: <h:inputText style="float:right" value="#{payment.user.address.line3}" />
-        </div>   
-        <div class="uk-form-row">
-        	Line 4: <h:inputText style="float:right" value="#{payment.user.address.line4}" />
-        </div> 
-        <div class="uk-form-row">
-        	Postcode: <h:inputText style="float:right" value="#{payment.user.address.postcode}" />
-        </div> 
-    </fieldset>
-</form>	
-</div>
+				<fieldset>
+					<legend>Billing Address</legend>
+					<div class="uk-form-row">
+						Line 1:
+						<h:inputText style="float:right"
+							value="#{payment.user.address.line1}" />
+					</div>
+					<div class="uk-form-row">
+						Line 2:
+						<h:inputText style="float:right"
+							value="#{payment.user.address.line2}" />
+					</div>
+					<div class="uk-form-row">
+						Line 3:
+						<h:inputText style="float:right"
+							value="#{payment.user.address.line3}" />
+					</div>
+					<div class="uk-form-row">
+						Line 4:
+						<h:inputText style="float:right"
+							value="#{payment.user.address.line4}" />
+					</div>
+					<div class="uk-form-row">
+						Postcode:
+						<h:inputText style="float:right"
+							value="#{payment.user.address.postcode}" />
+					</div>
+				</fieldset>
+			</form>
+		</div>
 
-		<div class="boxthing uk-width-medium-1-2 uk-width-small-1-1" style="padding-right: 25px;">
+		<div class="boxthing uk-width-medium-1-2 uk-width-small-1-1"
+			style="padding-right: 25px;">
 			<h:form class="uk-form">
-    <fieldset>
-        <legend>Payment</legend>
-        <div class="uk-form-row">
-        	Type of card: <h:inputText style="float:right" value="#{payment.payment.cardType}" />
-        </div>
-        <div class="uk-form-row">
-        	Name on card : <h:inputText style="float:right" value="#{payment.payment.nameOnCard}" />
-        </div>
-        <div class="uk-form-row">
-        	Card number: <h:inputText style="float:right" value="#{payment.payment.cardNumber}" />
-        </div>
-         <div class="uk-form-row">
-        	Expiry date: <h:inputText style="float:right" value="#{payment.payment.expiryDate}" />
-        </div>
-        <div class="uk-form-row">
-        	CVV: <h:inputText style="float:right" value="000" />
-        </div>
-        <div class="uk-form-row">
-            <h:commandButton style="background-color: #351C8C" class="uk-button uk-button-primary" value="Cancel"
-						action="#{payment.cancelPayment()}" />
-			<h:commandButton style="float:right; background-color: #351C8C;" class="uk-button uk-button-primary" value="Confirm (£#{payment.getTotalPrice()})"
-						action="#{payment.confirmPayment()}" />
-        </div>        
-    </fieldset>
-</h:form>
-</div>
+				<fieldset>
+					<legend>Payment</legend>
+					<div class="uk-form-row">
+						Type of card:
+						<h:inputText style="float:right"
+							value="#{payment.payment.cardType}" />
+					</div>
+					<div class="uk-form-row">
+						Name on card :
+						<h:inputText style="float:right"
+							value="#{payment.payment.nameOnCard}" />
+					</div>
+					<div class="uk-form-row">
+						Card number:
+						<h:inputText style="float:right"
+							value="#{payment.payment.cardNumber}" />
+					</div>
+					<div class="uk-form-row">
+						Expiry date:
+						<h:inputText style="float:right"
+							value="#{payment.payment.expiryDate}" />
+					</div>
+					<div class="uk-form-row">
+						CVV:
+						<h:inputText style="float:right" value="000" />
+					</div>
+					<div class="uk-form-row">
+						<h:commandButton style="background-color: #351C8C"
+							class="uk-button uk-button-primary" value="Cancel"
+							action="#{payment.cancelPayment()}" />
+						<h:commandButton style="float:right; background-color: #351C8C;"
+							class="uk-button uk-button-primary"
+							value="Confirm (£#{payment.getTotalPrice()})"
+							action="#{payment.confirmPayment()}" />
+					</div>
+				</fieldset>
+			</h:form>
+		</div>
 
 	</ui:define>
 </ui:composition>

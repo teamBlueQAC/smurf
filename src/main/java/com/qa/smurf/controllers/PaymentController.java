@@ -23,6 +23,7 @@ public class PaymentController {
 	@Inject	private PaymentService paymentService;
 	@Inject	private CreditService creditService;
 	@Inject	private CurrentUser currentUser;
+	private boolean useCredit;
 	private User user;
 	private Credit credit;
 	private Order placedOrder;
@@ -81,18 +82,23 @@ public class PaymentController {
 		}
 		return returnPayment;
 	}
-	
+
 	public String getTotalPrice() {
 		return String.format("%.2f", paymentService.calcOrderTotalPlaced(currentUser.getUserId()));
 	}
-	
+
+	public String getCreditTotal() {
+		return String.format("%.2f", paymentService.calcCreditTotal(currentUser.getUserId()));
+	}
+
 	public String confirmPayment(){
+		System.out.println("useCredit on confirm - " + useCredit);
 		return paymentService.confirmPayment(currentUser.getUserId());
 	}
-	
+
 	public String cancelPayment(){
 		return paymentService.cancelPayment(currentUser.getUserId());
-		
+
 	}
 
 	public Double getAmountPaying(Double total, User user) {
@@ -101,6 +107,19 @@ public class PaymentController {
 
 	public Double getCreditRemaining(Double orderTotal, User user) {
 		return paymentService.getAmountRemaining(orderTotal, user);
+	}
+
+	public void onChangeEnabled() {
+		System.out.println("onChange called");
+		System.out.println("useCredit original - " + this.useCredit);
+		if(this.useCredit){
+			System.out.println("useCredit set to false");
+			this.useCredit = false;
+		} else {
+			System.out.println("useCredit set to true");
+			this.useCredit = true;
+		}
+		//setUseCredit(useCredit);
 	}
 
 	public CurrentUser getCurrentUser() {
@@ -141,5 +160,14 @@ public class PaymentController {
 
 	public void setPayment(Payment payment) {
 		this.payment = payment;
+	}
+
+	public boolean isUseCredit() {
+		//useCredit = false;
+		return useCredit;
+	}
+
+	public void setUseCredit(boolean useCredit) {
+		this.useCredit = useCredit;
 	}
 }
