@@ -122,16 +122,15 @@ public class PaymentService {
 		Order order = getPlacedOrder(userRepository.findByID(userId));
 		Credit credit = creditRepository.findByUser(userRepository.findByID(userId));
 		Double creditAmount = getAmountRemaining(order.getTotal(), userRepository.findByID(userId));
-		
 		if(credit != null){
-			credit.setAmountRemaining(creditAmount);
+			credit.setAmount(creditAmount);
 			System.out.println("Creditamount - " + creditAmount);
 			creditRepository.updateCredit(credit);
 		}
 		order.setOrderStatus(OrderStatus.PAID);
 		order.setDate(new Date());
 		orderRepository.updateOrder(order);
-		
+
 		return "confirmation";
 	}
 
@@ -139,5 +138,13 @@ public class PaymentService {
 		Order order = getPlacedOrder(userRepository.findByID(userId));
 		order.setOrderStatus(OrderStatus.PENDING);
 		return "basket";
+	}
+
+	public Double calcCreditTotal(long userId) {
+		Credit credit = creditRepository.findByUser(userRepository.findByID(userId));
+		if(credit!= null){
+			return credit.getAmount();
+		}
+		return null;
 	}
 }
