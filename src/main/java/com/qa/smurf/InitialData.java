@@ -348,6 +348,9 @@ public class InitialData {
 		
 		products.add(new Product(8, "Game of Gnomes", "SYFF-DFGF-JGG8", "yellow", 50.99, false, "GameOfGnomes", 600,
 				ProductType.GNOME, "Want to brighten up your garden, with our collectable selection. Now you will know when winter is coming. PS Spoilers not included", 60, 700));
+		
+		products.add(new Product(9, "Pipe Gnome", "SYFF-HJKO-JGG8", "yellow", 48.99, false, "PipeGnome", 800,
+				ProductType.GNOME, "The traditional gentleman gnome, very good for Styling up your garden.", 60, 700));
 	}
 
 	public ArrayList<Product> getProducts() {
