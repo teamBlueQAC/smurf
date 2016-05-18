@@ -48,7 +48,7 @@ public class OrderService {
 				orderRepository.updateOrder(order);
 			}
 			else{
-				updateLineQuantity(foundLineItem, order);
+				updateLineQuantity(foundLineItem, order, 1);
 			}
 		} else {
 			newOrder(product, userId);
@@ -56,8 +56,8 @@ public class OrderService {
 
 	}
 
-	private LineItems updateLineQuantity(LineItems lineItem, Order order){
-		lineItem.setQuantity(lineItem.getQuantity() + 1);
+	private LineItems updateLineQuantity(LineItems lineItem, Order order, int diff){
+		lineItem.setQuantity(lineItem.getQuantity() + diff);
 		lineItemsRepository.updateLineItem(lineItem);
 		lineItem.setSubtotal(lineItem.getProduct().getPrice()*lineItem.getQuantity());
 		lineItemsRepository.updateLineItem(lineItem);
@@ -210,5 +210,22 @@ public class OrderService {
 		} else {
 			return null;
 		}
+	}
+
+	public void deductFromBasket(long productId, long userId) {
+		List<Order> orders = orderRepository.findByUser(userRepository.findByID(userId));
+		Order order = getPendingOrders(orders);		
+		
+		if (order != null) {
+			LineItems foundLineItem = lineItemsRepository.findByCompositeKey(order, productRepository.findByID(productId));
+
+			if (foundLineItem != null){			
+				updateLineQuantity(foundLineItem, order, -1);
+				if(foundLineItem.getQuantity() < 1){
+					removeFromBasket(productId, userId);
+				}
+			}
+		}
+
 	}
 }

@@ -69,9 +69,18 @@ h2 {
 								<h:outputText value="#{line.product.description}" />
 							</p>
 							<div style="padding: 10px; margin: 0 auto; width: 40%;">
+							<h:form>
+								<h:commandLink action="#{basket.addToBasket(line.product.id)}">
+									<i class="uk-icon-plus uk-icon-small" style="float: right;"></i>
+								</h:commandLink>
+								<h:commandLink
+									action="#{basket.deductFromBasket(line.product.id)}">
+									<i class="uk-icon-minus uk-icon-small" style="float: right;"></i>
+								</h:commandLink>
+								</h:form>
 								<p>
 									<strong style="padding-right: 5px;">Quantity: </strong><span
-										style="float: right;"> <h:inputText
+										style="float: right;"> <h:outputText
 											value="#{line.quantity}"
 											style="width:30px; text-align:right;" /></span>
 								</p>
