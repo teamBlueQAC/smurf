@@ -361,8 +361,23 @@ public class InitialData {
 		products.add(new Product(12, "Flash Gnome", "GNOM-EFLA-SHP8", "red", 61.99, false, "FlashGnome", 750,
 				ProductType.GNOME, "Do you need someone to save your garden, let your garden be a safer place with this flash gnome your fastest selling product", 60, 900));
 		
-		products.add(new Product(12, "Super Gnome Collection", "GNOM-ESUP-ERP8", "blue", 171.99, false, "SuperGnome", 750,
+		products.add(new Product(13, "Super Gnome Collection", "GNOM-ESUP-ERP8", "blue", 171.99, false, "SuperGnome", 750,
 				ProductType.GNOME, "Do you more than one hero to save your garden, with our group of 3 super gnomes worry no more.", 60, 900));
+		
+		products.add(new Product(14, "Rose Seeds", "ROSE-SEED-ERP8", "red", 6.59, false, "RoseSeeds", 750,
+				ProductType.SEED, "Grow some of the most beautiful flowers of them all, grows to be lovely shades of pink and red.", 60, 900));
+		
+		products.add(new Product(15, "Tomatos Seeds", "TOMA-TOSD-ERP8", "red", 2.59, false, "TomatoSeeds", 750,
+				ProductType.SEED, "Grow our own tomato, they grow to be big red tomatos for the freshest of salads.", 60, 900));
+		
+		products.add(new Product(16, "Violet Seeds", "VIOL-ETSE-EDP8", "violet", 3.59, false, "VioletSeeds", 750,
+				ProductType.SEED, "Bring a luxury feel to your garden, has large open bloom with yellow stems perfect for garden boarders.", 60, 900));
+		
+		products.add(new Product(17, "Hedge Trimmer", "TOOL-ETSE-EDP8", "green", 96.99, false, "HedgeTrimmer", 750,
+				ProductType.TOOL, "Sculpt your garden to perfection, battery powered hedge trimmer with a two 16V lithum batteries.", 60, 900));
+		
+		products.add(new Product(18, "Trowel", "TOOL-ETSE-EDP8", "green", 4.49, false, "Trowel", 750,
+				ProductType.TOOL, "A sturdy garden trowel which is lightwieght and rust proof, great for weeding and a welcome addition to your other garden tools", 60, 900));
 		
 		
 	}
