@@ -17,7 +17,7 @@ import com.qa.smurf.repositories.ProdSupRepository;
 
 @Default
 @Stateless
-class ProdSupRepositoryOffline implements ProdSupRepository{
+public class ProdSupRepositoryOffline implements ProdSupRepository{
 	@Inject
 	private InitialData initialData;
 	

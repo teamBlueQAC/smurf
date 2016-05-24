@@ -1,19 +1,30 @@
 package com.qa.smurf.controller;
 
+import javax.inject.Inject;
+import org.mockito.Mockito.*;
+import org.junit.Test;
+
+import com.qa.smurf.controllers.CreditController;
+import com.qa.smurf.controllers.CurrentUser;
+
 import junit.framework.TestCase;
 
 public class CreditControllerTest extends TestCase {
+	
+	@Inject
+	private CurrentUser currentUser;
 
-	public CreditControllerTest(String name) {
-		super(name);
+	CreditController creditControllerTest = new CreditController();
+	
+	
+	public void initTest(){
+		creditControllerTest.init();
 	}
-
-	protected void setUp() throws Exception {
-		super.setUp();
-	}
-
-	protected void tearDown() throws Exception {
-		super.tearDown();
+	
+	@Test
+	public void getCreditTest(){
+		currentUser.setUserId(1);
+		assertNotNull(creditControllerTest.getCredit());
 	}
 
 }

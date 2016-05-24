@@ -103,12 +103,12 @@ public class AddressRepositoryOffline implements AddressRepository {
 	// update Address info
 	@Override
 	public void updateAddress(Address address) {
-
+			/*Found no business logic. Either unneeded, in which case delete. Or forgotton - delete*/
 	}
 
 	// delete - most likely wouldn't delete address
 	@Override
 	public void removeAddress(Address address) {
-
+		/*Found no business logic. Either unneeded, in which case delete. Or forgotton - delete*/
 	}
 }

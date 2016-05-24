@@ -24,7 +24,12 @@ public class EmployeeUser {
 	public EmployeeUser(String name) {
 		this.name = name;
 	}
-
+	
+	public EmployeeUser(long id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+	
 	public long getID() {
 		return id;
 	}

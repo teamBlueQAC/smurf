@@ -11,6 +11,7 @@ public class CurrentUser implements Serializable {
 
 	private static final long serialVersionUID = 1647685390330337075L;
 	
+
 	private long userId = -1;
 	
 	private String username;

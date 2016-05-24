@@ -20,10 +20,6 @@ public class EmployeeUserRepositoryOffline implements EmployeeUserRepository {
 	private InitialData initialData;
 		ArrayList<EmployeeUser> employeeUser = new ArrayList<EmployeeUser>();
 	
-	@PostConstruct	
-	public void init(){
-		initialData = new InitialData();		
-	}	
 
 	@Override
 	public void persistEmployeeUser(EmployeeUser eu) {
@@ -55,9 +51,10 @@ public class EmployeeUserRepositoryOffline implements EmployeeUserRepository {
 	@Override
 	public void updateEmployeeUser(EmployeeUser eUser) {
 		ArrayList<EmployeeUser> employeeUserList = initialData.getEmployeeUser();
-		for (EmployeeUser employeeUser : employeeUserList) {
-			if (employeeUser.getID() == eUser.getID()) {
-				employeeUser = eUser;
+		for(int i = 0; i < employeeUserList.size();  i++){
+			if(employeeUserList.get(i).getID() == eUser.getID()){
+				employeeUserList.set(i, eUser);
+				break;
 			}
 		}
 	}
