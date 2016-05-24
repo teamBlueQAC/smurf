@@ -32,7 +32,7 @@ public class LineItemsRepositoryOfflineTest {
 	
 	@Test
 	public void testPersistLineItem() {
-		LineItems li0 = new LineItems(new Order(0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null), null, 0, 0, 0);
+		LineItems li0 = new LineItems(new Order(0, 0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null), null, 0, 0, 0);
 		ArrayList<LineItems> liList = new ArrayList<LineItems>(); 
 		
 		Mockito.when(initialData.getLineItems()).thenReturn(liList);
@@ -42,9 +42,9 @@ public class LineItemsRepositoryOfflineTest {
 
 	@Test
 	public void testPersistLineItems() {
-		LineItems li0 = new LineItems(new Order(0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null), null, 0, 0, 0);
-		LineItems li1 = new LineItems(new Order(1, new Date(), new Date(), new Payment("b", "b", "b", "b", new Address("b", "b"), new User()), new Address("b", "b"), new User(), null), null, 1, 1, 1);
-		LineItems li2 = new LineItems(new Order(2, new Date(), new Date(), new Payment("c", "c", "c", "c", new Address("c", "c"), new User()), new Address("c", "c"), new User(), null), null, 2, 2, 2);
+		LineItems li0 = new LineItems(new Order(0, 0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null), null, 0, 0, 0);
+		LineItems li1 = new LineItems(new Order(1, 0, new Date(), new Date(), new Payment("b", "b", "b", "b", new Address("b", "b"), new User()), new Address("b", "b"), new User(), null), null, 1, 1, 1);
+		LineItems li2 = new LineItems(new Order(2, 0, new Date(), new Date(), new Payment("c", "c", "c", "c", new Address("c", "c"), new User()), new Address("c", "c"), new User(), null), null, 2, 2, 2);
 		ArrayList<LineItems> liList = new ArrayList<LineItems>(); 
 		ArrayList<LineItems> compList = new ArrayList<LineItems>();
 		compList.add(li0); compList.add(li1); compList.add(li2); 
@@ -56,9 +56,9 @@ public class LineItemsRepositoryOfflineTest {
 
 	@Test
 	public void testFindByCompositeKey() {
-		Order order0 = new Order(0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null);
-		Order order1 = new Order(1, new Date(), new Date(), new Payment("b", "b", "b", "b", new Address("b", "b"), new User()), new Address("b", "b"), new User(), null);
-		Order order2 = new Order(2, new Date(), new Date(), new Payment("c", "c", "c", "c", new Address("c", "c"), new User()), new Address("c", "c"), new User(), null);
+		Order order0 = new Order(0, 0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null);
+		Order order1 = new Order(1, 0, new Date(), new Date(), new Payment("b", "b", "b", "b", new Address("b", "b"), new User()), new Address("b", "b"), new User(), null);
+		Order order2 = new Order(2, 0, new Date(), new Date(), new Payment("c", "c", "c", "c", new Address("c", "c"), new User()), new Address("c", "c"), new User(), null);
 		
 		Product product0 = new Product(0, "a", "a", "a", 0.0, false, "a", 0, null, "a", 0, 0);
 		Product product1 = new Product(1, "b", "b", "b", 1.1, false, "b", 1, null, "b", 1, 1);
@@ -79,9 +79,9 @@ public class LineItemsRepositoryOfflineTest {
 
 	@Test
 	public void testFindByProduct() {
-		Order order0 = new Order(0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null);
-		Order order1 = new Order(1, new Date(), new Date(), new Payment("b", "b", "b", "b", new Address("b", "b"), new User()), new Address("b", "b"), new User(), null);
-		Order order2 = new Order(2, new Date(), new Date(), new Payment("c", "c", "c", "c", new Address("c", "c"), new User()), new Address("c", "c"), new User(), null);
+		Order order0 = new Order(0, 0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null);
+		Order order1 = new Order(1, 0, new Date(), new Date(), new Payment("b", "b", "b", "b", new Address("b", "b"), new User()), new Address("b", "b"), new User(), null);
+		Order order2 = new Order(2, 0, new Date(), new Date(), new Payment("c", "c", "c", "c", new Address("c", "c"), new User()), new Address("c", "c"), new User(), null);
 		
 		Product product0 = new Product(0, "a", "a", "a", 0.0, false, "a", 0, null, "a", 0, 0);
 		Product product1 = new Product(1, "b", "b", "b", 1.1, false, "b", 1, null, "b", 1, 1);
@@ -102,7 +102,7 @@ public class LineItemsRepositoryOfflineTest {
 
 	@Test
 	public void testGetLineItems() {
-		LineItems li0 = new LineItems(new Order(0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null), null, 0, 0, 0);
+		LineItems li0 = new LineItems(new Order(0, 0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null), null, 0, 0, 0);
 		ArrayList<LineItems> liList = new ArrayList<LineItems>(); 
 		
 		Mockito.when(initialData.getLineItems()).thenReturn(liList);
@@ -118,9 +118,9 @@ public class LineItemsRepositoryOfflineTest {
 	*/
 	@Test
 	public void testRemoveLineItem() {
-		Order order0 = new Order(0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null);
-		Order order1 = new Order(1, new Date(), new Date(), new Payment("b", "b", "b", "b", new Address("b", "b"), new User()), new Address("b", "b"), new User(), null);
-		Order order2 = new Order(2, new Date(), new Date(), new Payment("c", "c", "c", "c", new Address("c", "c"), new User()), new Address("c", "c"), new User(), null);
+		Order order0 = new Order(0, 0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null);
+		Order order1 = new Order(1, 0, new Date(), new Date(), new Payment("b", "b", "b", "b", new Address("b", "b"), new User()), new Address("b", "b"), new User(), null);
+		Order order2 = new Order(2, 0, new Date(), new Date(), new Payment("c", "c", "c", "c", new Address("c", "c"), new User()), new Address("c", "c"), new User(), null);
 		
 		Product product0 = new Product(0, "a", "a", "a", 0.0, false, "a", 0, null, "a", 0, 0);
 		Product product1 = new Product(1, "b", "b", "b", 1.1, false, "b", 1, null, "b", 1, 1);
@@ -143,9 +143,9 @@ public class LineItemsRepositoryOfflineTest {
 
 	@Test
 	public void testUpdateLineItem() {
-		Order order0 = new Order(0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null);
-		Order order1 = new Order(1, new Date(), new Date(), new Payment("b", "b", "b", "b", new Address("b", "b"), new User()), new Address("b", "b"), new User(), null);
-		Order order2 = new Order(2, new Date(), new Date(), new Payment("c", "c", "c", "c", new Address("c", "c"), new User()), new Address("c", "c"), new User(), null);
+		Order order0 = new Order(0, 0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null);
+		Order order1 = new Order(1, 0, new Date(), new Date(), new Payment("b", "b", "b", "b", new Address("b", "b"), new User()), new Address("b", "b"), new User(), null);
+		Order order2 = new Order(2, 0, new Date(), new Date(), new Payment("c", "c", "c", "c", new Address("c", "c"), new User()), new Address("c", "c"), new User(), null);
 		Product product0 = new Product(0, "a", "a", "a", 0.0, false, "a", 0, null, "a", 0, 0);
 		Product product1 = new Product(1, "b", "b", "b", 1.1, false, "b", 1, null, "b", 1, 1);
 		Product product2 = new Product(2, "c", "c", "c", 2.2, false, "c", 2, null, "c", 2, 2);

@@ -33,7 +33,7 @@ public class OrderRepositoryOfflineTest {
 		Address address = new Address("", "");
 		Payment payment = new Payment("", "", "", "", address , user);
 		
-		Order order = new Order(0.0, new Date(), new Date(), payment, address, user, null);
+		Order order = new Order(0, 0.0, new Date(), new Date(), payment, address, user, null);
 		ArrayList<Order> orderList = new ArrayList<Order>();
 		orderList.add(order);
 		
@@ -56,9 +56,9 @@ public class OrderRepositoryOfflineTest {
 		Payment payment1 = new Payment("1", "1", "1", "1", address1, user1);
 		Payment payment2 = new Payment("2", "2", "2", "2" , address2, user2);
 		
-		Order order0 = new Order(0.0, new Date(), new Date(), payment0, address0, user0, null);
-		Order order1 = new Order(1.1, new Date(), new Date(), payment1, address1, user1, null);
-		Order order2 = new Order(2.2, new Date(), new Date(), payment2, address2, user2, null);
+		Order order0 = new Order(0, 0.0, new Date(), new Date(), payment0, address0, user0, null);
+		Order order1 = new Order(0, 1.1, new Date(), new Date(), payment1, address1, user1, null);
+		Order order2 = new Order(0, 2.2, new Date(), new Date(), payment2, address2, user2, null);
 		ArrayList<Order> orderList = new ArrayList<Order>();
 		orderList.add(order0); orderList.add(order1); orderList.add(order2);
 		
@@ -82,9 +82,9 @@ public class OrderRepositoryOfflineTest {
 		Payment payment1 = new Payment("1", "1", "1", "1", address1, user1);
 		Payment payment2 = new Payment("2", "2", "2", "2" , address2, user2);
 		
-		Order order0 = new Order(0.0, new Date(), new Date(), payment0, address0, user0, null);
-		Order order1 = new Order(1.1, new Date(), new Date(), payment1, address1, user1, null);
-		Order order2 = new Order(2.2, new Date(), new Date(), payment2, address2, user2, null);
+		Order order0 = new Order(0, 0.0, new Date(), new Date(), payment0, address0, user0, null);
+		Order order1 = new Order(0, 1.1, new Date(), new Date(), payment1, address1, user1, null);
+		Order order2 = new Order(0, 2.2, new Date(), new Date(), payment2, address2, user2, null);
 		order0.setId(1); order1.setId(1); order2.setId(2);
 		
 		ArrayList<Order> orderList = new ArrayList<Order>();
@@ -114,9 +114,9 @@ public class OrderRepositoryOfflineTest {
 		Payment payment1 = new Payment("1", "1", "1", "1", address1, user1);
 		Payment payment2 = new Payment("2", "2", "2", "2" , address2, user2);
 		
-		Order order0 = new Order(0.0, new Date(), new Date(), payment0, address0, user0, null);
-		Order order1 = new Order(1.1, new Date(), new Date(), payment1, address1, user1, null);
-		Order order2 = new Order(2.2, new Date(), new Date(), payment2, address2, user2, null);
+		Order order0 = new Order(0, 0.0, new Date(), new Date(), payment0, address0, user0, null);
+		Order order1 = new Order(0, 1.1, new Date(), new Date(), payment1, address1, user1, null);
+		Order order2 = new Order(0, 2.2, new Date(), new Date(), payment2, address2, user2, null);
 		ArrayList<Order> orderList = new ArrayList<Order>();
 		orderList.add(order0); orderList.add(order1); orderList.add(order2);
 		
@@ -130,7 +130,7 @@ public class OrderRepositoryOfflineTest {
 		Address address = new Address("", "");
 		Payment payment = new Payment("", "", "", "", address , user);
 		
-		Order order = new Order(0.0, new Date(), new Date(), payment, address, user, null);
+		Order order = new Order(0, 0.0, new Date(), new Date(), payment, address, user, null);
 		ArrayList<Order> orderList = new ArrayList<Order>();
 		orderList.add(order);
 		
@@ -156,10 +156,10 @@ public class OrderRepositoryOfflineTest {
 		Payment payment2 = new Payment("2", "2", "2", "2" , address2, user2);
 		Payment newPayment = new Payment("3", "3", "3", "3", newAddress, newUser);
 		
-		Order order0 = new Order(0.0, new Date(), new Date(), payment0, address0, user0, null);
-		Order order1 = new Order(1.1, new Date(), new Date(), payment1, address1, user1, null);
-		Order order2 = new Order(2.2, new Date(), new Date(), payment2, address2, user2, null);
-		Order newOrder = new Order(3.3, new Date(), new Date(), newPayment, newAddress, newUser, null);
+		Order order0 = new Order(0, 0.0, new Date(), new Date(), payment0, address0, user0, null);
+		Order order1 = new Order(0, 1.1, new Date(), new Date(), payment1, address1, user1, null);
+		Order order2 = new Order(0, 2.2, new Date(), new Date(), payment2, address2, user2, null);
+		Order newOrder = new Order(0, 3.3, new Date(), new Date(), newPayment, newAddress, newUser, null);
 		order0.setId(0); order1.setId(1); order2.setId(2); newOrder.setId(1);
 		
 		ArrayList<Order> orderList = new ArrayList<Order>();
@@ -184,9 +184,9 @@ public class OrderRepositoryOfflineTest {
 		Payment payment1 = new Payment("1", "1", "1", "1", address1, user1);
 		Payment payment2 = new Payment("2", "2", "2", "2" , address2, user2);
 		
-		Order order0 = new Order(0.0, new Date(), new Date(), payment0, address0, user0, null);
-		Order order1 = new Order(1.1, new Date(), new Date(), payment1, address1, user1, null);
-		Order order2 = new Order(2.2, new Date(), new Date(), payment2, address2, user2, null);
+		Order order0 = new Order(0, 0.0, new Date(), new Date(), payment0, address0, user0, null);
+		Order order1 = new Order(0, 1.1, new Date(), new Date(), payment1, address1, user1, null);
+		Order order2 = new Order(0, 2.2, new Date(), new Date(), payment2, address2, user2, null);
 		ArrayList<Order> orderList = new ArrayList<Order>();
 		orderList.add(order0); orderList.add(order1); orderList.add(order2);
 		Mockito.when(initialData.getOrders()).thenReturn(orderList);

@@ -33,7 +33,7 @@ public class PaymentRepositoryOfflineTest {
 		ArrayList<Payment> paymentList = new ArrayList<Payment>();
 		paymentList.add(payment);
 		
-		Mockito.when(initialData.getPayment()).thenReturn(paymentList);
+		Mockito.when(initialData.getPayments()).thenReturn(paymentList);
 		pro.persistPayment(payment);
 		assertNotNull(pro.getPayments());
 	}
@@ -55,7 +55,7 @@ public class PaymentRepositoryOfflineTest {
 		ArrayList<Payment> paymentList = new ArrayList<Payment>(); 
 		paymentList.add(payment0); paymentList.add(payment1);paymentList.add(payment2);
 		
-		Mockito.when(initialData.getPayment()).thenReturn(paymentList);
+		Mockito.when(initialData.getPayments()).thenReturn(paymentList);
 		pro.persistPayment(paymentList);
 		assertNotNull(pro.getPayments());
 	}
@@ -77,7 +77,7 @@ public class PaymentRepositoryOfflineTest {
 		
 		ArrayList<Payment> paymentList = new ArrayList<Payment>(); 
 		paymentList.add(payment0); paymentList.add(payment1);paymentList.add(payment2);
-		Mockito.when(initialData.getPayment()).thenReturn(paymentList);
+		Mockito.when(initialData.getPayments()).thenReturn(paymentList);
 		
 		assertEquals(pro.findByID(payment1.getId()), payment1);
 		
@@ -101,7 +101,7 @@ public class PaymentRepositoryOfflineTest {
 		
 		ArrayList<Payment> paymentList = new ArrayList<Payment>(); 
 		paymentList.add(payment0); paymentList.add(payment1);paymentList.add(payment2);
-		Mockito.when(initialData.getPayment()).thenReturn(paymentList);
+		Mockito.when(initialData.getPayments()).thenReturn(paymentList);
 		
 		assertEquals(pro.findByCardNumber(payment1.getCardNumber()), payment1);
 		
@@ -124,7 +124,7 @@ public class PaymentRepositoryOfflineTest {
 		
 		ArrayList<Payment> paymentList = new ArrayList<Payment>(); 
 		paymentList.add(payment0); paymentList.add(payment1);paymentList.add(payment2);
-		Mockito.when(initialData.getPayment()).thenReturn(paymentList);
+		Mockito.when(initialData.getPayments()).thenReturn(paymentList);
 		
 		assertEquals(pro.findByCardNumber(payment1.getCardType()), payment1);
 	}
@@ -146,7 +146,7 @@ public class PaymentRepositoryOfflineTest {
 		
 		ArrayList<Payment> paymentList = new ArrayList<Payment>(); 
 		paymentList.add(payment0); paymentList.add(payment1);paymentList.add(payment2);
-		Mockito.when(initialData.getPayment()).thenReturn(paymentList);
+		Mockito.when(initialData.getPayments()).thenReturn(paymentList);
 		
 		assertEquals(pro.findByCardNumber(payment1.getExpiryDate()), payment1);
 	}
@@ -168,7 +168,7 @@ public class PaymentRepositoryOfflineTest {
 		
 		ArrayList<Payment> paymentList = new ArrayList<Payment>(); 
 		paymentList.add(payment0); paymentList.add(payment1);paymentList.add(payment2);
-		Mockito.when(initialData.getPayment()).thenReturn(paymentList);
+		Mockito.when(initialData.getPayments()).thenReturn(paymentList);
 		
 		assertEquals(pro.findByCardNumber(payment1.getNameOnCard()), payment1);
 	}
@@ -179,7 +179,7 @@ public class PaymentRepositoryOfflineTest {
 		ArrayList<Payment> paymentList = new ArrayList<Payment>();
 		paymentList.add(payment);
 		
-		Mockito.when(initialData.getPayment()).thenReturn(paymentList);
+		Mockito.when(initialData.getPayments()).thenReturn(paymentList);
 		pro.persistPayment(payment);
 		assertNotNull(pro.getPayments());
 	}
@@ -190,7 +190,7 @@ public class PaymentRepositoryOfflineTest {
 		ArrayList<Payment> paymentList = new ArrayList<Payment>();
 		paymentList.add(payment);
 		
-		Mockito.when(initialData.getPayment()).thenReturn(paymentList);
+		Mockito.when(initialData.getPayments()).thenReturn(paymentList);
 		pro.createPayment(payment);;
 		assertNotNull(pro.getPayments());
 	}
@@ -212,7 +212,7 @@ public class PaymentRepositoryOfflineTest {
 		
 		ArrayList<Payment> paymentList = new ArrayList<Payment>(); 
 		paymentList.add(payment0); paymentList.add(payment1);paymentList.add(payment2);
-		Mockito.when(initialData.getPayment()).thenReturn(paymentList);
+		Mockito.when(initialData.getPayments()).thenReturn(paymentList);
 		
 		assertEquals(pro.readPayment(payment1), payment1);
 	}
@@ -237,7 +237,7 @@ public class PaymentRepositoryOfflineTest {
 		
 		ArrayList<Payment> paymentList = new ArrayList<Payment>(); 
 		paymentList.add(payment0); paymentList.add(payment1);paymentList.add(payment2);
-		Mockito.when(initialData.getPayment()).thenReturn(paymentList);
+		Mockito.when(initialData.getPayments()).thenReturn(paymentList);
 		
 		pro.updatePayment(newPayment);
 		assertEquals(pro.getPayments().get(1), newPayment);
@@ -263,7 +263,7 @@ public class PaymentRepositoryOfflineTest {
 		
 		ArrayList<Payment> paymentList = new ArrayList<Payment>(); 
 		paymentList.add(payment0); paymentList.add(payment1);paymentList.add(payment2);
-		Mockito.when(initialData.getPayment()).thenReturn(paymentList);
+		Mockito.when(initialData.getPayments()).thenReturn(paymentList);
 		
 		pro.removePayment(payment1);
 		assertEquals(pro.getPayments().size(), 2);

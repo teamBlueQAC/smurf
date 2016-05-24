@@ -81,19 +81,19 @@ public class InitialDataTest {
 		Payment newPayment = new Payment("", "", "", "", new Address("a", "a"), new User());
 		
 		initialDataTest.addPayment(newPayment);
-		assertEquals(newPayment, initialDataTest.getPayment().get(initialDataTest.getPayment().size() -1));
+		assertEquals(newPayment, initialDataTest.getPayments().get(initialDataTest.getPayments().size() -1));
 	}
 
 	@Test
 	public void testGetPayment() {
-		assertNotNull(initialDataTest.getPayment());
+		assertNotNull(initialDataTest.getPayments());
 	}
 
 	@Test
 	public void testSetPayment() {
 		ArrayList<Payment> newPayments = new ArrayList<Payment>();
 		initialDataTest.setPayment(newPayments);
-		assertEquals(newPayments, initialDataTest.getPayment());
+		assertEquals(newPayments, initialDataTest.getPayments());
 	}
 
 	@Test
@@ -103,7 +103,7 @@ public class InitialDataTest {
 
 	@Test
 	public void testAddOrder() {
-		Order newOrder = new Order(0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null);
+		Order newOrder = new Order(0, 0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null);
 		initialDataTest.addOrder(newOrder);
 		assertEquals(newOrder, initialDataTest.getOrders().get(initialDataTest.getOrders().size() -1));
 	}
@@ -163,7 +163,7 @@ public class InitialDataTest {
 
 	@Test
 	public void testAddLineItems() {
-		LineItems newLineItem = new LineItems(new Order(0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null), new Product(0, "a", "a", "a", 1.5, false, "", 0, null, "a", 0, 0), 0, 0, 0);
+		LineItems newLineItem = new LineItems(new Order(0, 0, new Date(), new Date(), new Payment("a", "a", "a", "a", new Address("a", "a"), new User()), new Address("a", "a"), new User(), null), new Product(0, "a", "a", "a", 1.5, false, "", 0, null, "a", 0, 0), 0, 0, 0);
 		initialDataTest.addLineItems(newLineItem);
 		assertEquals(newLineItem, initialDataTest.getLineItems().get(initialDataTest.getLineItems().size() -1));
 	}
