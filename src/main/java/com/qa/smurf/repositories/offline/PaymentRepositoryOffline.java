@@ -18,11 +18,6 @@ public class PaymentRepositoryOffline implements PaymentRepository {
 
 	@Inject
 	private InitialData initialData;
-	
-	@PostConstruct	
-	public void init(){
-		initialData = new InitialData();	
-	}	
 
 	public void persistPayment(Payment payment) {
 		initialData.addPayment(payment);

@@ -20,10 +20,6 @@ public class EmployeeUserRepositoryOffline implements EmployeeUserRepository {
 	private InitialData initialData;
 		ArrayList<EmployeeUser> employeeUser = new ArrayList<EmployeeUser>();
 	
-	@PostConstruct	
-	public void init(){
-		initialData = new InitialData();		
-	}	
 
 	@Override
 	public void persistEmployeeUser(EmployeeUser eu) {
