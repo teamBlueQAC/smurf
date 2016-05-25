@@ -1,7 +1,6 @@
 package com.qa.smurf.entities;
 
 import com.qa.smurf.util.ProductType;
-
 import junit.framework.TestCase;
 
 public class ProductTest extends TestCase {
@@ -20,7 +19,7 @@ public class ProductTest extends TestCase {
 	public void testSetId() {
 		product.setId(1);
 		assertEquals(1, product.getId());
-	}
+	} 
 
 	public void testGetName() {
 		assertNotNull(product.getName());

@@ -13,7 +13,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Category;
-import com.qa.smurf.repositories.offline.AddressRepositoryOffline;
 import com.qa.smurf.repositories.offline.CategoryReopsitoryOffline;
 
 @RunWith(MockitoJUnitRunner.class)

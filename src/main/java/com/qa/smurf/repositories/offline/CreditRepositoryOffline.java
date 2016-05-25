@@ -2,12 +2,10 @@ package com.qa.smurf.repositories.offline;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.annotation.PostConstruct;
+//import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-
 import com.qa.smurf.repositories.CreditRepository;
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Credit;

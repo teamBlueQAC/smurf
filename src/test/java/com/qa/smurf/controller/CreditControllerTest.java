@@ -1,12 +1,9 @@
 package com.qa.smurf.controller;
 
 import javax.inject.Inject;
-import org.mockito.Mockito.*;
 import org.junit.Test;
-
 import com.qa.smurf.controllers.CreditController;
 import com.qa.smurf.controllers.CurrentUser;
-
 import junit.framework.TestCase;
 
 public class CreditControllerTest extends TestCase {

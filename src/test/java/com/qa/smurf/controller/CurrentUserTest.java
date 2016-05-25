@@ -1,11 +1,7 @@
 package com.qa.smurf.controller;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
-
 import com.qa.smurf.controllers.CurrentUser;
-
 import junit.framework.TestCase;
 
 public class CurrentUserTest extends TestCase {
