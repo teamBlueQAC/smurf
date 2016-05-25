@@ -1,10 +1,7 @@
 package com.qa.smurf.service;
 
 import javax.ejb.Stateless;
-import javax.inject.Inject;
-
 import com.qa.smurf.entities.User;
-import com.qa.smurf.repositories.UserRepository;
 import com.qa.smurf.repositories.offline.UserRepositoryOffline;
 
 @Stateless

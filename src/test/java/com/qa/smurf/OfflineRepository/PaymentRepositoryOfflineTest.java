@@ -3,15 +3,12 @@ package com.qa.smurf.OfflineRepository;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
-import java.util.Date;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Address;
 import com.qa.smurf.entities.Payment;

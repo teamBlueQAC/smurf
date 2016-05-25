@@ -4,14 +4,12 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Date;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Address;
 import com.qa.smurf.entities.LineItems;
@@ -19,8 +17,8 @@ import com.qa.smurf.entities.Order;
 import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.Product;
 import com.qa.smurf.entities.User;
-import com.qa.smurf.repositories.offline.EmployeeUserRepositoryOffline;
 import com.qa.smurf.repositories.offline.LineItemsRepositoryOffline;
+
 @RunWith(MockitoJUnitRunner.class)
 public class LineItemsRepositoryOfflineTest {
 

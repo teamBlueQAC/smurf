@@ -14,7 +14,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 import com.qa.smurf.InitialData;
 import com.qa.smurf.entities.Credit;
 import com.qa.smurf.entities.User;
-import com.qa.smurf.repositories.offline.AddressRepositoryOffline;
 import com.qa.smurf.repositories.offline.CreditRepositoryOffline;
 @RunWith(MockitoJUnitRunner.class)
 public class CreditRepositoryOfflineTest {

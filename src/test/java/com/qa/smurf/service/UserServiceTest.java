@@ -1,24 +1,14 @@
 package com.qa.smurf.service;
 
 import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.lang.String;
-
 import com.qa.smurf.entities.User;
-
 import org.junit.Before;
 import org.mockito.*;
 import org.mockito.runners.MockitoJUnitRunner;
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.verify;
-
 import com.qa.smurf.InitialData;
 import com.qa.smurf.repositories.UserRepository;
 import com.qa.smurf.repositories.offline.UserRepositoryOffline;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

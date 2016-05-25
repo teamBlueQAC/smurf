@@ -2,13 +2,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Date;
-
 import org.junit.Test;
-import org.junit.runner.Runner;
-import org.junit.runner.JUnitCore;
-import org.junit.runner.Result;
-import org.junit.runner.notification.Failure;
-
 import com.qa.smurf.entities.Address;
 import com.qa.smurf.entities.Category;
 import com.qa.smurf.entities.Credit;
@@ -19,12 +13,11 @@ import com.qa.smurf.entities.Payment;
 import com.qa.smurf.entities.ProdCat;
 import com.qa.smurf.entities.ProdSup;
 import com.qa.smurf.entities.Product;
-import com.qa.smurf.util.ProductType;
 import com.qa.smurf.entities.Supplier;
 import com.qa.smurf.entities.SupplierOrder;
 import com.qa.smurf.entities.User;
 import com.qa.smurf.entities.WishListEntry;
-import com.qa.smurf.util.OrderStatus;
+
 
 
 import com.qa.smurf.InitialData;
